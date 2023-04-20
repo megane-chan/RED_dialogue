@@ -1,0 +1,42 @@
+Train: 1
+Train: 2
+Train: 3
+Train: 4
+Train: 5
+Train: 6
+Train: 7
+Val: 1
+Val: 2
+Val: 3
+Val: 4
+Val: 5
+Val: 6
+Val: 7
+
+	 - Train loss: 0.5818
+	 - Validation Accuracy: 0.0230
+	 - Validation Precision: 0.1641
+	 - Validation Recall: 1.0000
+	 - Validation Specificity: 0.0240
+
+Train: 1
+Train: 2
+Train: 3
+Train: 4
+Train: 5
+Train: 6
+Train: 7
+Val: 1
+Val: 2
+Val: 3
+Val: 4
+Val: 5
+Val: 6
+Val: 7
+
+	 - Train loss: 0.4348
+	 - Validation Accuracy: 0.0272
+	 - Validation Precision: 0.1905
+	 - Validation Recall: 1.0000
+	 - Validation Specificity: 0.0000
+

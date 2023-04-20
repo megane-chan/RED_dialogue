@@ -1,0 +1,90 @@
+Train
+Validation
+
+	 - Train loss: 0.3011
+	 - Validation Accuracy: 0.0230
+	 - Validation Precision: 0.1430
+	 - Validation Recall: 0.7857
+	 - Validation Specificity: 0.0982
+
+Train
+Validation
+
+	 - Train loss: 0.1535
+	 - Validation Accuracy: 0.0293
+	 - Validation Precision: 0.1307
+	 - Validation Recall: 0.6389
+	 - Validation Specificity: 0.2426
+
+Train
+Validation
+
+	 - Train loss: 0.1061
+	 - Validation Accuracy: 0.0281
+	 - Validation Precision: 0.1060
+	 - Validation Recall: 0.6111
+	 - Validation Specificity: 0.2435
+
+Train
+Validation
+
+	 - Train loss: 0.0850
+	 - Validation Accuracy: 0.0242
+	 - Validation Precision: 0.1370
+	 - Validation Recall: 0.7778
+	 - Validation Specificity: 0.1906
+
+Train
+Validation
+
+	 - Train loss: 0.0723
+	 - Validation Accuracy: 0.0268
+	 - Validation Precision: 0.1139
+	 - Validation Recall: 0.6111
+	 - Validation Specificity: 0.2375
+
+Train
+Validation
+
+	 - Train loss: 0.0602
+	 - Validation Accuracy: 0.0242
+	 - Validation Precision: 0.1202
+	 - Validation Recall: 0.6944
+	 - Validation Specificity: 0.1899
+
+Train
+Validation
+
+	 - Train loss: 0.0435
+	 - Validation Accuracy: 0.0268
+	 - Validation Precision: 0.1234
+	 - Validation Recall: 0.6944
+	 - Validation Specificity: 0.2168
+
+Train
+Validation
+
+	 - Train loss: 0.0361
+	 - Validation Accuracy: 0.0255
+	 - Validation Precision: 0.1091
+	 - Validation Recall: 0.6111
+	 - Validation Specificity: 0.2168
+
+Train
+Validation
+
+	 - Train loss: 0.0317
+	 - Validation Accuracy: 0.0255
+	 - Validation Precision: 0.1164
+	 - Validation Recall: 0.6111
+	 - Validation Specificity: 0.2284
+
+Train
+Validation
+
+	 - Train loss: 0.0275
+	 - Validation Accuracy: 0.0242
+	 - Validation Precision: 0.1141
+	 - Validation Recall: 0.7778
+	 - Validation Specificity: 0.1851
+
