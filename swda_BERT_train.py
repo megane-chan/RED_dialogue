@@ -13,18 +13,19 @@ from tqdm import trange
 
 ds = load_dataset("swda", "train")
 
+# dry run with less data to check for errors
 # ds['train'] = Dataset.from_pandas(ds['train'].to_pandas()[1:100])
 # ds['validation'] = Dataset.from_pandas(ds['validation'].to_pandas()[1:10])
 
 tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 
-labels =  ["dummy", "state", "inform", "validate", "reject", "inquire", "direct"]
+labels =  ["dummy", "question", "validate", "reject", "unsure", "backchannel", "self-talk", "communication"]
 id2label = {idx:label for idx, label in enumerate(labels)}
 label2id = {label:idx for idx, label in enumerate(labels)}
 
 # Dictionaries that map act tags with classified act labels
-RAW_ACT_TAGS = [ 'ad', 'qo', 'qy', 'arp_nd', 'sd', 'h', 'bh', 'no', '^2', '^g', 'ar', 'aa', 'sv', 'bk', 'fp', 'qw', 'b', 'ba', 't1', 'oo_co_cc', '+', 'ny', 'qw^d', 'x', 'qh', 'fc', 'fo_o_fw_"_by_bc', 'aap_am', '%', 'bf', 't3', 'nn', 'bd', 'ng', '^q', 'br', 'qy^d', 'fa', '^h', 'b^m', 'ft', 'qrr', 'na', ]
-ACT_LABELS = { 'sd': 1, 'b': 3, 'sv': 1, 'aa': 3, '%': 0, 'ba': 3, 'qy': 5, 'x': 0, 'ny': 3, 'fc': 1, '%': 0, 'qw': 5, 'nn': 4, 'bk': 3, 'h': 5, 'qy^d': 5, 'fo_o_fw_"_by_bc': 0, 'bh': 5, '^q': 2, 'bf': 2, 'na': 3, 'ad': 6, '^2': 5, 'b^m': 3, 'qo': 5, 'qh': 1, '^h': 0, 'ar': 4, 'ng': 4, 'br': 4, 'no': 1, 'fp': 5, 'qrr': 5, 'arp_nd': 4, 't3': 6, 'oo_co_cc': 3, 't1': 0, 'bd': 0, 'aap_am': 3, '^g': 5, 'qw^d': 5, 'fa': 3, 'ft': 3, '+': 0}
+RAW_ACT_TAGS = [ 'ad', 'qo', 'qy', 'arp_nd', 'sd', 'h', 'bh', 'no', '^2', '^g', 'ar', 'aa', 'sv', 'bk', 'fp', 'qw', 'b', 'ba', 't1', 'oo_co_cc', '+', 'ny', 'qw^d', 'x', 'qh', 'fc', 'fo_o_fw_by_bc', 'aap_am', '%', 'bf', 't3', 'nn', 'bd', 'ng', '^q', 'br', 'qy^d', 'fa', '^h', 'b^m', 'ft', 'qrr', 'na', ]
+ACT_LABELS = { "sd":	6, "b":	5, "sv":	6, "aa":	2, "%":	0, "ba":	5, "qy":	1, "x":	7, "ny":	2, "fc":	8, "%":	0, "qw":	1, "nn":	3, "bk":	5, "h":	7, "qy^d":	1, "fo_o_fw_by_bc":	8, "bh":	5, "^q":	8, "bf":	5, "na":	2, "ad":	6, "^2":	8, "b^m":	5, "qo":	1, "qh":	7, "^h":	8, "ar":	3, "ng":	3, "br":	5, "no":	4, "fp":	8, "qrr":	1, "arp_nd":	3, "t3":	8, "oo_co_cc":	6, "t1":	7, "bd":	8, "aap_am":	2, "^g":	1, "qw^d":	1, "fa":	8, "ft":	8, "+":	5 }
 
 # Encodes utterances and assigns them classified act labels
 def dataprep(samples):
@@ -37,8 +38,9 @@ def dataprep(samples):
                    )
   samples['input_ids'] = encoding['input_ids']
   samples['attention_masks'] = encoding['attention_mask']
-  ls = np.zeros(7)
-  ls[ACT_LABELS[RAW_ACT_TAGS[samples['damsl_act_tag']]]] = 1
+  ls = np.zeros(len(labels))
+  ls[ACT_LABELS[RAW_ACT_TAGS[samples['damsl_act_tag']]]-1] = 1
+
   samples['labels'] = ls
 
   return samples
@@ -122,7 +124,7 @@ validation_dataloader = DataLoader(
         )
 
 # Recommended number of epochs: 2, 3, 4. See: https://arxiv.org/pdf/1810.04805.pdf
-epochs = 10
+epochs = 2
 for _ in trange(epochs, desc = 'Epoch'):
     
     # ========== Training ==========
@@ -203,4 +205,4 @@ for _ in trange(epochs, desc = 'Epoch'):
     print('\t - Validation Recall: {:.4f}'.format(sum(val_recall)/len(val_recall)) if len(val_recall)>0 else '\t - Validation Recall: NaN')
     print('\t - Validation Specificity: {:.4f}\n'.format(sum(val_specificity)/len(val_specificity)) if len(val_specificity)>0 else '\t - Validation Specificity: NaN')
 
-model.save_pretrained("models/model_v1_t3.model")
+model.save_pretrained("models/model_v2_t1.model")
