@@ -11,7 +11,7 @@ from tqdm import trange
 from tqdm import trange
 
 
-ds = load_dataset("swda", "train")
+ds = load_dataset("daily_dialog", "train")
 
 # dry run with less data to check for errors
 # ds['train'] = Dataset.from_pandas(ds['train'].to_pandas()[1:100])
@@ -19,13 +19,9 @@ ds = load_dataset("swda", "train")
 
 tokenizer = AutoTokenizer.from_pretrained("bert-base-uncased")
 
-labels =  ["dummy", "question", "validate", "reject", "unsure", "backchannel", "self-talk", "communication"]
+labels = ["dummy", "inform", "question", "directive", "commissive"]
 id2label = {idx:label for idx, label in enumerate(labels)}
 label2id = {label:idx for idx, label in enumerate(labels)}
-
-# Dictionaries that map act tags with classified act labels
-RAW_ACT_TAGS = [ 'ad', 'qo', 'qy', 'arp_nd', 'sd', 'h', 'bh', 'no', '^2', '^g', 'ar', 'aa', 'sv', 'bk', 'fp', 'qw', 'b', 'ba', 't1', 'oo_co_cc', '+', 'ny', 'qw^d', 'x', 'qh', 'fc', 'fo_o_fw_by_bc', 'aap_am', '%', 'bf', 't3', 'nn', 'bd', 'ng', '^q', 'br', 'qy^d', 'fa', '^h', 'b^m', 'ft', 'qrr', 'na', ]
-ACT_LABELS = { "sd":	6, "b":	5, "sv":	6, "aa":	2, "%":	0, "ba":	5, "qy":	1, "x":	7, "ny":	2, "fc":	8, "%":	0, "qw":	1, "nn":	3, "bk":	5, "h":	7, "qy^d":	1, "fo_o_fw_by_bc":	8, "bh":	5, "^q":	8, "bf":	5, "na":	2, "ad":	6, "^2":	8, "b^m":	5, "qo":	1, "qh":	7, "^h":	8, "ar":	3, "ng":	3, "br":	5, "no":	4, "fp":	8, "qrr":	1, "arp_nd":	3, "t3":	8, "oo_co_cc":	6, "t1":	7, "bd":	8, "aap_am":	2, "^g":	1, "qw^d":	1, "fa":	8, "ft":	8, "+":	5 }
 
 # Encodes utterances and assigns them classified act labels
 def dataprep(samples):
@@ -39,7 +35,6 @@ def dataprep(samples):
   samples['input_ids'] = encoding['input_ids']
   samples['attention_masks'] = encoding['attention_mask']
   ls = np.zeros(len(labels))
-  ls[ACT_LABELS[RAW_ACT_TAGS[samples['damsl_act_tag']]]-1] = 1
 
   samples['labels'] = ls
 

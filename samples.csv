@@ -1,0 +1,24 @@
+,source,content,label
+0,spoken, No.,question
+1,spoken," So, the scenario of the [UI] everything is just to look for a point? There is no scenario for constructing the well?",question
+2,spoken," Three forty-eight. …It’s a bit deep, but I think it will do.",question
+3,spoken,"  Ash. Ash, look here. Recording is on, but I am not moving.",question
+4,spoken," As always, I will say to you – you’ll be missing me after eight months.",question
+5,spoken, Okay. Okay.,question
+6,spoken, //But now none of the points are coming.,question
+7,spoken, What about fourteen six?,follow-me
+8,spoken, But I can? “You are about to sign off on…”,follow-me
+9,spoken, I will be a bit slow.,question
+10,chat,Maintenance Specialist: I cannot enter my values since some have checked their role in the sign-off.,question
+11,chat,Fluid Engineer: NO! Copper and 40,question
+12,chat,Hello! Please confirm when the crew begins. ,dummy
+13,chat,"Hydrogeologist: If it doesn't work for you, we can work with (47,23) but it's not looking good for us
+",question
+14,chat,"O, Yeah!
+",question
+15,chat,"Hello, please let us know when the crew is online and ready to begin",question
+16,chat,"Hello! Could you provide your processing speed, parts source and servicing data you get for cell; 3,34?
+",follow-me
+17,chat,Martian Terrain Specialist: ok,question
+18,chat,Drilling Specialist: Hello! Do you have any coordinates of preference that you want us to look into?,follow-me
+19,chat,"Rainy the last couple days, but we had a nice warm Saturday!",question
