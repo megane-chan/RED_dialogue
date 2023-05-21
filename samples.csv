@@ -1,24 +1,23 @@
 ,source,content,label
-0,spoken, No.,question
-1,spoken," So, the scenario of the [UI] everything is just to look for a point? There is no scenario for constructing the well?",question
-2,spoken," Three forty-eight. …It’s a bit deep, but I think it will do.",question
-3,spoken,"  Ash. Ash, look here. Recording is on, but I am not moving.",question
-4,spoken," As always, I will say to you – you’ll be missing me after eight months.",question
-5,spoken, Okay. Okay.,question
-6,spoken, //But now none of the points are coming.,question
-7,spoken, What about fourteen six?,follow-me
-8,spoken, But I can? “You are about to sign off on…”,follow-me
-9,spoken, I will be a bit slow.,question
-10,chat,Maintenance Specialist: I cannot enter my values since some have checked their role in the sign-off.,question
-11,chat,Fluid Engineer: NO! Copper and 40,question
-12,chat,Hello! Please confirm when the crew begins. ,dummy
-13,chat,"Hydrogeologist: If it doesn't work for you, we can work with (47,23) but it's not looking good for us
-",question
-14,chat,"O, Yeah!
-",question
-15,chat,"Hello, please let us know when the crew is online and ready to begin",question
-16,chat,"Hello! Could you provide your processing speed, parts source and servicing data you get for cell; 3,34?
+0,spoken,"We close everything here, right?",follow-me
+1,spoken,Yeah.,declarative question
+2,spoken,"Ok, then “Sign off,” right?",follow-me
+3,spoken,Yeah.,declarative question
+4,spoken, //No.,statement
+5,spoken,If turns on?,follow-me
+6,spoken,"I don’t know, what’s up with him?",follow-me
+7,spoken," Wait. Look, we’re removing …",question
+8,spoken,//Beautiful. Decent.,question
+9,spoken, Wow…,question
+10,chat,"Maintenance Specialist: Hello what locations should we start looking at?
 ",follow-me
-17,chat,Martian Terrain Specialist: ok,question
-18,chat,Drilling Specialist: Hello! Do you have any coordinates of preference that you want us to look into?,follow-me
-19,chat,"Rainy the last couple days, but we had a nice warm Saturday!",question
+11,chat,How are things with your fluids and pipes? Are they optimized?,follow-me
+12,chat,"Sedimentologist: hmm the water available looks pretty low and the water loss is 1 for 39,24",question
+13,chat,"Hi, please confirm when you are on and ready to begin",dummy
+14,chat,Mechanical Engineer: yes,question
+15,chat,Mechanical Engineer: eyp,question
+16,chat,testing chat,question
+17,chat,Drilling Specialist: Could you share your values too? Thanks,follow-me
+18,chat,"Hello, please let us know when the crew is online and ready to begin.",question
+19,chat,"Structural Geologist: The Martian Analysis Group has logged on. Let us know when you're ready.
+",question
