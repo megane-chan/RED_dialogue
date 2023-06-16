@@ -1,0 +1,539 @@
+,content,recipient,sender,sentOnBehalfOf,session,time
+0,Hello! Please confirm when the crew is online and ready to begin.,eng3,vc3,vc3,1,0
+1,"Hydrogeologist: Hello Geo!
+",teamGeo,teamGeo,geo1,1,0
+2,Session start,geo2,geo3,geo3,1,0
+3,Hello! Please confirm when the crew is online and ready to begin. ,eng2,vc3,vc3,1,0
+4,Hello! Please confirm when the crew is online and ready to begin. ,con1,vc3,vc3,1,0
+5,Hello! Please confirm when the crew is online and ready to begin. ,con3,vc3,vc3,1,0
+6,Hello! Please confirm when the crew is online and ready to begin. ,vc2,vc3,vc3,1,0
+7,hi,vc3,eng1,eng1,1,0
+8,Greetings,eng1,vc3,vc3,1,0
+9,test,con2,eng1,eng1,1,0
+10,Structural Geologist: Testing,teamConstr,teamGeo,geo2,1,0
+11,Hi!,eng1,eng3,eng3,1,0
+12,"Hi, baby",eng3,eng2,eng2,1,0
+13,ok,geo1,vc2,vc2,1,0
+14,"Hello
+",vc3,vc1,vc1,1,0
+15,"O, Yeah!
+",eng2,eng3,eng3,1,0
+16,"hello
+",vc2,geo1,geo1,1,0
+17,official start,geo2,geo3,geo3,1,0
+18,Hello! ,eng3,eng1,eng1,1,0
+19,Good afternoon!,vc1,vc3,vc3,1,0
+20,"Hi!
+",eng1,eng2,eng2,1,0
+21,Hydrogeologist: hello!,teamvc,teamGeo,geo1,1,0
+22,"Hello, we are ready!
+",con2,con1,con1,1,0
+23,Maintenance Specialist: Good afternoon!,teamGeo,teamvc,vc3,1,0
+24,"Biochemical Engineer: Hi team, any preference on where we begin?",teamEng,teamEng,eng1,1,0
+25,"hi
+",con1,con2,con2,1,0
+26,Hi!,con2,eng2,eng2,1,0
+27,"Hi!
+",con3,eng3,eng3,1,0
+28,"Hi Justin, this is Harrison",geo2,vc3,vc3,1,0
+29,"Sedimentologist: is someone logging in as the drilling specialist at Sirius?
+",teamConstr,teamGeo,geo3,1,0
+30,"Hello! 
+",eng2,eng1,eng1,1,0
+31,"Hi!
+",geo1,eng3,eng3,1,0
+32,Sydney; this is Harrison,eng1,vc3,vc3,1,0
+33,"Operations Specialist: Hello, no, drilling person is in usa 
+",teamGeo,teamConstr,con1,1,0
+34,"Martian Meteorology Specialist: Hello. Any first picks for location?
+",teamGeo,teamvc,vc1,1,0
+35,Hi; this is Harrison,con2,vc3,vc3,1,0
+36,hello fluid engineer. good afternoon,eng3,geo1,geo1,1,0
+37,Hydrogeologist: hello engineering team!,teamEng,teamGeo,geo1,1,0
+38,Mechanical Engineer: Good luck!,teamGeo,teamEng,eng2,1,0
+39,"Hydrogeologist: 44, 36
+",teamGeo,teamGeo,geo1,1,0
+40,"Hydrogeologist: 23, 49",teamGeo,teamGeo,geo1,1,0
+41,"Biochemical Engineer: We are currently looking at 23, 49",teamEng,teamEng,eng1,1,0
+42,Biochemical Engineer: How would this work for you? ,teamEng,teamEng,eng1,1,0
+43,"Fluid Engineer: 39,24?",teamGeo,teamEng,eng3,1,0
+44,Structural Geologist: The amount of available water there is fairly low,teamEng,teamGeo,geo2,1,0
+45,"Sedimentologist: hmm the water available looks pretty low and the water loss is 1 for 39,24",teamEng,teamGeo,geo3,1,0
+46,"Structural Geologist: Can you check 23, 49 for us?
+
+",teamEng,teamGeo,geo2,1,0
+47,"We have 30 minutes remaining
+",vc2,geo3,geo3,1,0
+48,"Drilling Specialist: FYI, we are looking at co-ordinates 23,49 and 44,36 based on geology teams recommendations",teamGeo,teamConstr,con2,1,0
+49,Mechanical Engineer: i try,teamGeo,teamEng,eng2,1,0
+50,"Does 23, 49 look like a good spot with the information you have?",con3,geo2,geo2,1,0
+51,"Hydrogeologist: 2nd Usable Water Flow, Most Liked by Maintenance + BioChem (23, 49)
+",teamGeo,teamGeo,geo1,1,0
+52,"Maintenance Specialist: Hello; 23, 49 looks good to us so far. Do you have any good coordinates?",teamvc,teamvc,vc3,1,0
+53,"Maintenance Specialist: Hello; 23, 49 looks good to us so far. Do you have any good coordinates?
+",teamConstr,teamvc,vc3,1,0
+54,"Hydrogeologist: We are looking at (23, 49) , (44, 36)
+ ",teamvc,teamGeo,geo1,1,0
+55,"Hi, could you give me your values for 23,49",con3,con2,con2,1,0
+56,"Hi, could you give me your values for 23,49",con1,con2,con2,1,0
+57,"Drilling Specialist: Hi guys, could you send me your values for co-ordinates 23,49",teamConstr,teamConstr,con2,1,0
+58,Do you have any coordinate reccomendations?,con1,geo2,geo2,1,0
+59,"Sedimentologist: 44, 36 still looks like the best, though I'd like to find something with less water loss",teamGeo,teamGeo,geo3,1,0
+60,"Operations Specialist: Hello, what about 39,23? 
+",teamvc,teamConstr,con1,1,0
+61,Maintenance Specialist: Unusable :(,teamConstr,teamvc,vc3,1,0
+62,Maintenance Specialist: Population reached is very low,teamConstr,teamvc,vc3,1,0
+63,"Drilling Specialist: My values for 39, 23 are: 0.5, 1500, Present, Present, Not Present",teamConstr,teamConstr,con2,1,0
+64,Drilling Specialist: Could you share your values too? Thanks,teamConstr,teamConstr,con2,1,0
+65,"Martian Meteorology Specialist: 23,49 reaches 7,979, meteorology cost 3321",teamConstr,teamvc,vc1,1,0
+66,"Mechanical Engineer: it's ok I think
+",teamEng,teamEng,eng2,1,0
+67,Mechanical Engineer: i choose some data (i hope7:/),teamEng,teamEng,eng2,1,0
+68,"Operations Specialist: but as for 23,49 location we have stone layer 
+ ",teamvc,teamConstr,con1,1,0
+69,"Martian Meteorology Specialist: 23,49 looks Ok. What pump, filter, and pipe specs are you using?
+",teamvc,teamvc,vc1,1,0
+70,Maintenance Specialist: Is that a good or bad meteorology cost?,teamConstr,teamvc,vc3,1,0
+71,"operational cost per hour 60
+",con2,con1,con1,1,0
+72,"Cooper
+47
+",eng2,eng3,eng3,1,0
+73,13 minutes left,vc2,geo3,geo3,1,0
+74,"Fluid Engineer: My date
+Cooper 
+47",teamEng,teamEng,eng3,1,0
+75,"Drilling Specialist: Could both of you share your actual values for processing speed, drill brand etc etc for co-ordinates 23,49",teamConstr,teamConstr,con2,1,0
+76,Biochemical Engineer: What coordinates is that?,teamEng,teamEng,eng1,1,0
+77,"Mechanical Engineer: i put: pump wattage 500000, torque 50000, case and impeller plastic",teamEng,teamEng,eng2,1,0
+78,"i put: pump wattage 500000, torque 50000, case and impeller plastic",eng3,eng2,eng2,1,0
+79,hi. do you need any assistance?,con2,con3,con3,1,0
+80,"Biochemical Engineer: Is this still for 23, 49?
+",teamEng,teamEng,eng1,1,0
+81,"yeah, could both of you send me the values for 23,49 so I can put it in the calculator?",con3,con2,con2,1,0
+82,"Hello, 39,23
+",geo2,con1,con1,1,0
+83,"Martian Meteorology Specialist: 10k watts, 5k torque, stage1: A, 2: D, H, Stainless, width 20",teamvc,teamvc,vc1,1,0
+84,Mechanical Engineer: eyp,teamEng,teamEng,eng2,1,0
+85,Values for your roles from the Decision Calculator,con3,con2,con2,1,0
+86,torque and wattage need to be close together,eng2,vc3,vc3,1,0
+87,what values are you looking for?,con2,con3,con3,1,0
+88,"Fluid Engineer: yes
+",teamEng,teamEng,eng3,1,0
+89,"there is also a stone layer
+",con2,con1,con1,1,0
+90,Mechanical Engineer: yes,teamEng,teamEng,eng2,1,0
+91,It has a good amount of available water but the maintenance specialist says it won't reach any population,con1,geo2,geo2,1,0
+92,maintenance costs very high with 500.000 / 50.000,eng2,vc3,vc3,1,0
+93,"Biochemical Engineer: Great, the maintenance specialist should have just messaged you
+I think there was an issue with cost associated with our choices ",teamEng,teamEng,eng1,1,0
+94,Copper pipes are good :),eng3,vc3,vc3,1,0
+95,"construction suitability: 0.85
+",con2,con3,con3,1,0
+96,copper pipes are good,eng2,vc3,vc3,1,0
+97,water depth: 3731,con2,con3,con3,1,0
+98,"For example, Drill Brand, Drill Head etc? ",con3,con2,con2,1,0
+99,soft soil: not present,con2,con3,con3,1,0
+100,ok,con2,con3,con3,1,0
+101,"is 44,36 much better from your standpoint than 23,49?",con3,geo3,geo3,1,0
+102,"Yeah , I can see all the map-based values. I don't have the knowledge of Drill Brand, Equipment material, processing speed etc",con3,con2,con2,1,0
+103,"Fluid Engineer: What about Filter, Which?",teamEng,teamEng,eng3,1,0
+104,Drilling Specialist: Are you able to see this chat?,teamConstr,teamConstr,con2,1,0
+105,"Biochemical Engineer: A, none, none",teamEng,teamEng,eng1,1,0
+106,"drill brand A
+",con2,con3,con3,1,0
+107,drill head A,con2,con3,con3,1,0
+108,equipment material: titanium,con2,con3,con3,1,0
+109,"what about 41,24
+",geo2,con1,con1,1,0
+110,6 minutes remaining,vc2,geo3,geo3,1,0
+111,"Martian Meteorology Specialist: I'll accept it
+",teamConstr,teamvc,vc1,1,0
+112,Biochemical Engineer: Would that work for you all?,teamEng,teamEng,eng1,1,0
+113,Fluid Engineer: Thx,teamEng,teamEng,eng3,1,0
+114,what about 50000/25000?,vc3,eng2,eng2,1,0
+115,No available water,con1,geo2,geo2,1,0
+116,:) good,eng2,vc3,vc3,1,0
+117,"equipment duty: 10
+",con2,con3,con3,1,0
+118,"and what about plastic pump case and impeller?
+",vc3,eng2,eng2,1,0
+119,"great, thanks!",con3,con2,con2,1,0
+120,Could you ask operations specialist to send their values too?,con3,con2,con2,1,0
+121,50 000/ 25 000,eng3,eng2,eng2,1,0
+122,"Those are not important to me
+",eng2,vc3,vc3,1,0
+123,Biochemical Engineer: Did we change the wattage and torque? ,teamEng,teamEng,eng1,1,0
+124,"Could you send me the values for processing speed, parts source, servicing?",con1,con2,con2,1,0
+125,"Biochemical Engineer: The Maintenance specialist noted a change in the torque and wattage, which lowered our output significantly",teamEng,teamEng,eng1,1,0
+126,"Fluid Engineer: Yes, 50000 and 25000",teamEng,teamEng,eng3,1,0
+127,"Mechanical Engineer: yes, we changed: 50 000/25 000",teamEng,teamEng,eng2,1,0
+128,"Biochemical Engineer: With that, we are much lower in output but still in the fair option range. Are we okay with that compromise given our goal is to maximize water output?",teamEng,teamEng,eng1,1,0
+129,"sign off now, please",vc2,geo3,geo3,1,0
+130,"processing speed high, part source specialized
+servicing low",con2,con1,con1,1,0
+131,Mechanical Engineer: i think that higher will be better but not sure,teamEng,teamEng,eng2,1,0
+132,Biochemical Engineer: We have to sign off right now because we are out of time.,teamEng,teamEng,eng1,1,0
+133,"They are saying that the time is up, could you just sign off on whatever we have, thanks",con1,con2,con2,1,0
+134,Sedimentologist: stop,teamGeo,teamGeo,geo3,1,0
+135,stop,geo3,geo2,geo2,1,0
+136,Hello!,geo3,geo1,geo1,1,2
+137,Hello!,vc3,geo2,geo2,1,2
+138,Hello! Please confirm when the crew begins. ,eng2,geo1,geo1,2,0
+139,Hello! Please confirm when the crew begins. ,eng3,geo1,geo1,2,0
+140,Hello! Please confirm when the crew begins. ,con1,geo1,geo1,2,0
+141,Hello! Please confirm when the crew begins. ,con3,geo1,geo1,2,0
+142,Hello! Please confirm when the crew begins. ,vc2,geo1,geo1,2,0
+143,Hello! Please confirm when the crew begins. ,vc1,geo1,geo1,2,0
+144,Hi! we are ready!,geo2,eng3,eng3,2,1
+145,Mechanical Engineer: we are ready! Hi everybody!,teamGeo,teamEng,eng2,2,1
+146,Fluid Engineer: HI!,teamGeo,teamEng,eng3,2,1
+147,Martian Meteorology Specialist: We're ready,teamGeo,teamvc,vc1,2,1
+148,"hello
+we are ready for contact
+",con2,con3,con3,2,1
+149,"Martian Meteorology Specialist: ??????
+",teamGeo,teamvc,vc1,2,1
+150,Operations Specialist: hi Maxwell !,teamGeo,teamConstr,con1,2,1
+151,"??????
+",geo1,vc1,vc1,2,1
+152,Martian Terrain Specialist: ok,teamGeo,teamvc,vc2,2,1
+153,Mechanical Engineer: :)),teamEng,teamEng,eng2,2,1
+154,"What are your pump and filter specs for 18,30?",vc3,vc1,vc1,2,1
+155,We have begun,geo1,vc1,vc1,2,1
+156,Fluid Engineer: I chose Stainless Steel,teamEng,teamEng,eng3,2,1
+157,Fluid Engineer: HI!,teamEng,teamEng,eng3,2,1
+158,Great! I'm sending this message at about 9 minutes in. You will receive a popup survey at 10 minutes in. ,vc1,geo3,geo3,2,1
+159,Hope the regional briefing documents were helpful!,vc1,geo3,geo3,2,1
+160,"Hydrogeologist: Great! I'm sending this message at nearly 10 minutes in. Hope the regional briefing documents were helpful, let us know if you have any questions!",teamvc,teamGeo,geo1,2,1
+161,Mechanical Engineer: I chose Aluminum for pump case,teamEng,teamEng,eng2,2,1
+162,"We are required to choose 18,50 this round. ",vc1,vc3,vc3,2,1
+163,"Oh,Hi we started 15 min ago",geo1,eng3,eng3,2,1
+164,"Mechanical Engineer: pump wattage 100 000
+pump torque 9 000
+what do you think?",teamEng,teamEng,eng2,2,1
+165,Fluid Engineer: And Pipe Width is 60,teamEng,teamEng,eng3,2,1
+166,Can you uncheck the signoff? ,con3,vc3,vc3,2,1
+167,Others cannot input their values if you are signed off.,con3,vc3,vc3,2,1
+168,Thank you!,con3,vc3,vc3,2,1
+169,Fluid Engineer: But I think maybe use PVC but not Steel,teamEng,teamEng,eng3,2,2
+170,Thats what I meant. I misstyped.,vc3,vc1,vc1,2,2
+171,"Mechanical Engineer: change - wattage 350000, torque 65000",teamEng,teamEng,eng2,2,2
+172,"Fluid Engineer: And What about Filters? What kind of them do you choose, Biochemichal engineer?",teamEng,teamEng,eng3,2,2
+173,we are working ,geo1,eng2,eng2,2,2
+174,Ok. I did it,vc3,con3,con3,2,2
+175,Perfect! Sending this at 25 minutes in. ,eng3,geo1,geo1,2,2
+176,"Oh, okay! As the Maintenance Specialist, I have chosen 5 for the Maintenance Decision (under Space Human Factors in the signoff). It looks like the Biochemical Engineer chose Filter A for Stage 1, and none for Stages 2 and 3. Mechanical Engineer has also entered the pump specs into the signoff. ",vc1,vc3,vc3,2,2
+177,Can you please reply?,eng1,eng3,eng3,2,2
+178,"are you still there?
+",vc3,con3,con3,2,2
+179,How are you?,eng2,eng3,eng3,2,2
+180,"Hydrogeologist: Sending this at 10 minutes to go, which means you will receive at 5 minutes to go. 
+",teamEng,teamGeo,geo1,2,2
+181,"Hydrogeologist: All Martian Analysis Group members have input their values, if the crew is also ready, we can begin the signoff. ",teamEng,teamGeo,geo1,2,2
+182,"Hydrogeologist: Sending this at 10 minutes in, you'll receive at 5 minutes to go.",teamConstr,teamGeo,geo1,2,2
+183,"Hydrogeologist: All Martian Analysis Members have input their decisions. If the crew is ready, we can begin signoff. ",teamConstr,teamGeo,geo1,2,2
+184,I love you,con1,eng3,eng3,2,2
+185,"Hydrogeologist: Sending this with just under 10 minutes go to, so you'll receive at just under 5 minutes to go. ",teamvc,teamGeo,geo1,2,2
+186,"Hydrogeologist: All Martian Analysis Group members have input their values. If the crew is ready, we can begin signoff. ",teamvc,teamGeo,geo1,2,2
+187,"Materials Specialist: Hi Maxwell! We are all excited to talk to you
+",teamGeo,teamConstr,con3,2,2
+188,"I love you more
+",eng3,con1,con1,2,2
+189,"??? models run.sh ???????
+",vc2,vc1,vc1,2,2
+190,"O, So sweet! What are we waiting?",con1,eng3,eng3,2,2
+191,I am! Just this comm delay. ,con3,vc3,vc3,2,2
+192,Waiting for the night to come baby!,eng3,con1,con1,2,2
+193,Hydrogeologist: Great working with you!,teamConstr,teamGeo,geo1,2,2
+194,"Hi, please confirm when you are on and ready to begin",eng3,con2,con2,3,0
+195,"Hi, please confirm when you are on and ready to begin",eng2,con2,con2,3,0
+196,"Hi, please confirm when you are on and ready to begin",vc2,con2,con2,3,0
+197,"Hi, please confirm when you are on and ready to begin",vc1,con2,con2,3,0
+198,"Hi, please confirm when you are on and ready to begin",con3,con2,con2,3,0
+199,"Hi, please confirm when you are on and ready to begin",con1,con2,con2,3,0
+200,Fluid Engineer: Hi!,teamEng,teamEng,eng3,3,1
+201,Fluid Engineer: Hi!,teamEng,teamEng,eng3,3,1
+202,Fluid Engineer: Hi!,teamEng,teamEng,eng3,3,1
+203,"Mechanical Engineer: Hello!
+",teamEng,teamEng,eng2,3,1
+204,"we are ready!
+",con2,eng2,eng2,3,1
+205,we're ready!,con2,eng3,eng3,3,1
+206,Martian Terrain Specialist: hello,teamGeo,teamvc,vc2,3,1
+207,"We're ready
+",geo1,vc1,vc1,3,1
+208,"Materials Specialist: what's going on, ninjas?",teamGeo,teamConstr,con3,3,1
+209,Materials Specialist: HELLO!!!!!,teamEng,teamConstr,con3,3,1
+210,Fluid Engineer: HI!!!,teamConstr,teamEng,eng3,3,1
+211,Fluid Engineer: I chose Pipe material - PVC and Pipe Width 50,teamEng,teamEng,eng3,3,1
+212,"Operations Specialist: Hi there!
+",teamEng,teamConstr,con1,3,1
+213,"Hydrogeologist: great, let's build a well
+",teamConstr,teamGeo,geo1,3,1
+214,"Operations Specialist: Hi everyone, was great to watch your videos. so regarding the stone layer present, are we still good to drill there?",teamGeo,teamConstr,con1,3,1
+215,Fluid Engineer: NO! Copper and 40,teamEng,teamEng,eng3,3,1
+216,"Fluid Engineer: Pipe width
+Sorry!",teamEng,teamEng,eng3,3,1
+217,Fluid Engineer: 30,teamEng,teamEng,eng3,3,1
+218,Structural Geologist: I think so,teamConstr,teamGeo,geo2,3,2
+219,Materials Specialist: why aren't you filling in your values?? Is everything OK??,teamGeo,teamConstr,con3,3,2
+220,Fluid Engineer: Guys! Where are you?,teamvc,teamEng,eng3,3,2
+221,"Biochemical Engineer: As I send this message, we have 20 minutes",teamEng,teamEng,eng1,3,2
+222,Maintenance Specialist: I cannot enter my values since some have checked their role in the sign-off.,teamEng,teamvc,vc3,3,2
+223,"ANASTASIA!!!
+",con1,con3,con3,3,2
+224,We signed off 15 minutes or so ago,con2,vc1,vc1,3,2
+225,da dorogoy,con3,con1,con1,3,2
+226,"ne znayu chto pisat', tak chto budu etu chush'",con1,con3,con3,3,2
+227,Sedimentologist: My values are locked since some have signed off,teamConstr,teamGeo,geo3,3,2
+228,Sedimentologist: we 5 minute warning when you see this,teamConstr,teamGeo,geo3,3,2
+229,"soapy walnut I m happy u r here
+",eng3,con1,con1,3,2
+230,ky-ky,geo1,vc2,vc2,3,2
+231,"ne esh' myl'nye gretskie orekhi?! Ne polezno
+",eng3,con3,con3,3,2
+232,"Drilling Specialist: ?This task will end in 5 minutes. The Martian Analysis Group would like to finalize the inputs and begin the signoff, please input your values now and signoff when you are ready.?
+",teamGeo,teamConstr,con2,3,2
+233," ?This task will end in 5 minutes. The Martian Analysis Group would like to finalize the inputs and begin the signoff, please input your values now and signoff when you are ready.?
+",vc1,con2,con2,3,2
+234," ?This task will end in 5 minutes. The Martian Analysis Group would like to finalize the inputs and begin the signoff, please input your values now and signoff when you are ready.?
+",eng3,con2,con2,3,2
+235," ?This task will end in 5 minutes. The Martian Analysis Group would like to finalize the inputs and begin the signoff, please input your values now and signoff when you are ready.?
+",eng2,con2,con2,3,2
+236," ?This task will end in 5 minutes. The Martian Analysis Group would like to finalize the inputs and begin the signoff, please input your values now and signoff when you are ready.?
+",vc2,con2,con2,3,2
+237," ?This task will end in 5 minutes. The Martian Analysis Group would like to finalize the inputs and begin the signoff, please input your values now and signoff when you are ready.?
+",con3,con2,con2,3,2
+238," ?This task will end in 5 minutes. The Martian Analysis Group would like to finalize the inputs and begin the signoff, please input your values now and signoff when you are ready.?
+",con1,con2,con2,3,2
+239,"we were ready 30 min ago and did all, so I think we are done )
+",con2,con1,con1,3,2
+240,"i just got ur message now, guess messages delayed for 30 mins
+",con2,con1,con1,3,2
+241,Dryan' polneyshaya,con3,eng3,eng3,3,2
+242,"Hello, please let us know when the crew is online and ready to begin",vc2,geo1,geo1,4,0
+243,"Hello, please let us know when the crew is online and ready to begin",vc1,geo1,geo1,4,0
+244,"Hello, please let us know when the crew is online and ready to begin",eng2,con2,con2,4,0
+245,"Hello, please let us know when the crew is online and ready to begin",eng3,con2,con2,4,0
+246,"Hello, please let us know when the crew is online and ready to begin",con1,con2,con2,4,0
+247,"Hello, please let us know when the crew is online and ready to begin",eng2,vc3,vc3,4,0
+248,"Hello, please let us know when the crew is online and ready to begin",eng3,vc3,vc3,4,0
+249,"Hello, please let us know when the crew is online and ready to begin",eng1,geo1,geo1,4,0
+250,"Hello, please let us know when the crew is online and ready to begin",eng2,geo1,geo1,4,0
+251,"Hello, please let us know when the crew is online and ready to begin",con1,geo1,geo1,4,0
+252,"Hello, please let us know when the crew is online and ready to begin",eng3,geo1,geo1,4,0
+253,Fluid Engineer: we are ready,teamGeo,teamEng,eng3,4,1
+254,"Mechanical Engineer: Hi, we are here",teamEng,teamEng,eng2,4,1
+255,Fluid Engineer: we are ready!,teamEng,teamEng,eng3,4,1
+256,we are ready!,geo1,eng2,eng2,4,1
+257,hello. Are you ready to work?,con2,con3,con3,4,1
+258,We're ready,geo2,vc1,vc1,4,1
+259,Operations Specialist: Hi we are ready to work,teamGeo,teamConstr,con1,4,1
+260,hi!,geo2,vc2,vc2,4,1
+261,"Hydrogeologist: great, we have 45 minutes",teamEng,teamGeo,geo1,4,1
+262,great we have 45 minutes,eng2,geo1,geo1,4,1
+263,"Hydrogeologist: great, we have 45 minutes",teamvc,teamGeo,geo1,4,1
+264,"Hydrogeologist: great, we have about 39 minutes left",teamConstr,teamGeo,geo1,4,1
+265,Fluid Engineer: Now we are ready to finish!,teamGeo,teamEng,eng3,4,2
+266,hi. yes i am,con3,con2,con2,4,2
+267,hi! (sending this with 31 minutes left),vc2,geo2,geo2,4,2
+268,we are done,con2,eng2,eng2,4,2
+269,"Operations Specialist: We are done, can you please sign off )
+",teamGeo,teamConstr,con1,4,2
+270,we are ready to finish,vc3,eng2,eng2,4,2
+271,"Hydrogeologist: The MAG is taking a final look at everything on our end and then we will signoff. Thanks!
+",teamConstr,teamGeo,geo1,4,2
+272,Martian Meteorology Specialist: Everyone would like to know when we can proceed?,teamGeo,teamvc,vc1,4,2
+273,ok we are good to go too,eng2,con2,con2,4,2
+274,"ok we are too
+",eng2,vc3,vc3,4,2
+275,Biochemical Engineer: i'm ready to submit,teamGeo,teamEng,eng1,4,2
+276,Structural Geologist: i am signing off now,teamConstr,teamGeo,geo2,4,2
+277,Hydrogeologist: Done!,teamConstr,teamGeo,geo1,4,2
+278,"Hello, please let us know when the crew is online and ready to begin.",con2,geo1,geo1,5,0
+279,"Hello, please let us know when the crew is online and ready to begin.",con1,geo1,geo1,5,0
+280,"Hello, please let us know when the crew is online and ready to begin.",eng2,geo1,geo1,5,0
+281,"Hello, please let us know when the crew is online and ready to begin.",eng3,geo1,geo1,5,0
+282,"Hello, please let us know when the crew is online and ready to begin.",vc2,geo1,geo1,5,0
+283,"Hello, please let us know when the crew is online and ready to begin.",vc1,geo1,geo1,5,0
+284,Fluid Engineer: Hello! We are ready!,teamGeo,teamEng,eng3,5,0
+285,"Structural Geologist: Fantastic! We're about 5 minutes into the task now, so you'll get this at 10 minutes. As always, let us know if you have any questions!",teamEng,teamGeo,geo2,5,1
+286,we are online,geo1,eng2,eng2,5,1
+287,"This is just coming through for me at 14 minutes in, but we've been working over here!",eng3,geo1,geo1,5,1
+288,Fluid Engineer: What is the weather in Chicago now?,teamGeo,teamEng,eng3,5,1
+289,"We are working now
+",geo1,eng3,eng3,5,1
+290,"Thank you! We're approaching 20 minutes in now, so we should be about 25 minutes in when you receive this. ",eng2,geo1,geo1,5,1
+291,"Also, the weather is quite nice this time of year! ",eng2,geo1,geo1,5,2
+292,"Structural Geologist: The weather has been great. Not too hot, not too cold. Spring in Chicago is the best!",teamEng,teamGeo,geo2,5,2
+293,Sedimentologist: The weather is good. ,teamEng,teamGeo,geo3,5,2
+294,Sedimentologist: How's the location looking for you guys today? ,teamEng,teamGeo,geo3,5,2
+295,Hydrogeologist: Are we ready to sign off? ,teamEng,teamGeo,geo1,5,2
+296,"Fluid Engineer: We don't know what the weather is in Russia, but on the Lunar Orbit we have a great view of the Earth!",teamGeo,teamEng,eng3,5,2
+297,Has the crew made their final decisions? ,eng2,geo1,geo1,5,2
+298,Fluid Engineer: That location is wonderful!!! ,teamGeo,teamEng,eng3,5,2
+299,"Fluid Engineer: Yeah, we are ready!",teamGeo,teamEng,eng3,5,2
+300,"Hello, please let us know when the crew is online and ready to begin",eng2,geo2,geo2,6,0
+301,"Hello, please let us know when the crew is online and ready to begin",eng3,geo2,geo2,6,0
+302,"Hello, please let us know when the crew is online and ready to begin",con1,geo2,geo2,6,0
+303,"Hello, please let us know when the crew is online and ready to begin",con3,geo2,geo2,6,0
+304,"Hello, please let us know when the crew is online and ready to begin",vc1,geo2,geo2,6,0
+305,"Hello, please let us know when the crew is online and ready to begin",vc2,geo2,geo2,6,0
+306,testing chat,geo2,geo1,geo1,6,0
+307,works,geo1,geo2,geo2,6,0
+308,Fluid Engineer: Hi! We ready to start!,teamGeo,teamEng,eng3,6,1
+309,we are online and ready to begin,geo2,eng2,eng2,6,1
+310,"Structural Geologist: Thanks! by the time this reaches you, we'll be at the 35 minutes left point",teamEng,teamGeo,geo2,6,1
+311,"we ready
+",geo2,eng3,eng3,6,1
+312,Fluid Engineer: We finished!,teamGeo,teamEng,eng3,6,2
+313,Fluid Engineer: ?,teamGeo,teamEng,eng3,6,2
+314,???,vc1,eng3,eng3,6,2
+315,Structural Geologist: looks like we have 15 minutes left,teamEng,teamGeo,geo2,6,2
+316,???,con3,eng3,eng3,6,2
+317,Structural Geologist: ok I saw your message. Let us just check a couple things on our end and then we can sign off,teamEng,teamGeo,geo2,6,2
+318,"??? out ?? ?????????
+",eng3,con3,con3,6,2
+319,Materials Specialist: Can you please sign off on the Signoff page? We are all finished here... Thanks.,teamEng,teamConstr,con3,6,2
+320,Materials Specialist: Let's sign off on the Signoff page,teamConstr,teamConstr,con3,6,2
+321,"Materials Specialist: I think we should sign off on the Signoff page
+",teamGeo,teamConstr,con3,6,2
+322,Fluid Engineer: Are U ready to sign off?,teamGeo,teamEng,eng3,6,2
+323,Kotik,con3,eng3,eng3,6,2
+324,"Hello, please let us know when the crew is online and ready to begin",con1,geo1,geo1,7,0
+325,"Hello, please let us know when the crew is online and ready to begin",con3,geo1,geo1,7,0
+326,"Hello, please let us know when the crew is online and ready to begin",eng2,geo1,geo1,7,0
+327,"Hello, please let us know when the crew is online and ready to begin",eng3,geo1,geo1,7,0
+328,"Hello, please let us know when the crew is online and ready to begin",vc2,geo1,geo1,7,0
+329,"Hello, please let us know when the crew is online and ready to begin",vc1,geo1,geo1,7,0
+330,"We are online and already working. Hello to everyone
+",geo1,con3,con3,7,0
+331,"Mechanical Engineer: we are online and ready to begin
+",teamvc,teamEng,eng2,7,0
+332,How are U?,con1,eng3,eng3,7,0
+333,How is the weather in Chicago?,geo1,con3,con3,7,0
+334,"Hello, sounds good. Thanks",con3,geo1,geo1,7,0
+335,I hope you're spending a funny time in Project RED!,con1,eng3,eng3,7,0
+336,"Amazing!
+How are you my dear?",eng3,con1,con1,7,0
+337,Is the Martian Group still working out of Chicago?,geo1,con3,con3,7,1
+338,"Oh, I'm fine! I like it! I Love, when we work with Martian surface!",con1,eng3,eng3,7,1
+339,Of course because you are sitting opposite of me and I can enjoy your jokes,eng3,con1,con1,7,1
+340,What did the chicken cross the road?,eng2,con3,con3,7,1
+341,"Rainy the last couple days, but we had a nice warm Saturday!",con3,geo1,geo1,7,1
+342,"And yes, we are all still in Chicago!",con3,geo1,geo1,7,1
+343,"Maintenance Specialist: Sorry, just saw this. Great",teamEng,teamvc,vc3,7,1
+344,"Therefore, you didn't laughed at jokes of your neighbors..",con1,eng3,eng3,7,1
+345,How are things with your fluids and pipes? Are they optimized?,eng3,con3,con3,7,1
+346,10 minutes left,con3,geo1,geo1,7,2
+347,Maintenance Specialist: 5 minutes until signoff,teamEng,teamvc,vc3,7,2
+348,We have 5 minutes until signoff,con3,geo1,geo1,7,2
+349,"The Martian Analysis Group would like to finalize the inputs and begin the signoff, please input your values now and signoff when you are ready.",con3,geo1,geo1,7,2
+350,"Biochemical Engineer: The Martian Analysis Group would like to finalize the inputs and begin the signoff, please input your values now and signoff when you are ready.",teamvc,teamEng,eng1,7,2
+351,Don't forget to sign off!,eng2,geo1,geo1,7,2
+352,Don't forget to sign off!,eng3,geo1,geo1,7,2
+353,Don't forget to sign off!,con1,geo1,geo1,7,2
+354,Don't forget to sign off!,con3,geo1,geo1,7,2
+355,Don't forget to sign off!,vc1,geo1,geo1,7,2
+356,Don't forget to sign off!,vc2,geo1,geo1,7,2
+357,"Structural Geologist: The Martian Analysis Group has logged on. Let us know when you're ready.
+",teamEng,teamGeo,geo2,8,0
+358,Structural Geologist: The Martian Analysis Group has logged on. Let us know when you're ready.,teamConstr,teamGeo,geo2,8,0
+359,Structural Geologist: The Martian Analysis Group has logged on. Let us know when you're ready.,teamvc,teamGeo,geo2,8,0
+360,Materials Specialist: does anyone know what coordinates we are working with today?,teamEng,teamConstr,con3,8,0
+361,"Mechanical Engineer: Hi, we are ready",teamGeo,teamEng,eng2,8,0
+362,Sedimentologist: Great!,teamEng,teamGeo,geo3,8,0
+363,Materials Specialist: We have begun working from the SIRIUS mission. Please let us know when you're online and ready to begin. We need to know the coordinates of the new square to work with.,teamEng,teamConstr,con3,8,0
+364,"Hello!
+
+",eng1,con2,con2,8,0
+365,"Maintenance Specialist: Hello what locations should we start looking at?
+",teamvc,teamvc,vc3,8,0
+366,"What locations are you looking at?
+",vc2,vc3,vc3,8,0
+367,"What locations are you looking at?
+",vc1,vc3,vc3,8,0
+368,"Materials Specialist: Hello, MAG team! How are you? We are already working for about 10 minutes here. Is everything OK on your end? Please let us know. Thanks!",teamEng,teamConstr,con3,8,0
+369,Martian Meteorology Specialist: We're ready. Just need coordinates.,teamGeo,teamvc,vc1,8,0
+370,"Hydrogeologist: 10,10: UWF 160365.1, AWA 163430.93",teamGeo,teamGeo,geo1,8,0
+371,"Sedimentologist: You can use any coordinates on the map.
+",teamvc,teamGeo,geo3,8,0
+372,"Hello! Could you provide your processing speed, parts source and servicing data you get for cell; 3,34?
+",con1,con2,con2,8,0
+373,"Hello! Could you provide the data you get for drill brand, drill head, equipment material and equipment duty for cell 3,34?
+",con3,con2,con2,8,0
+374,"Biochemical Engineer: We have also been working for about 10 minutes! We do not have any specific coordinates in mind yet, but we will be in touch when we do!
+",teamConstr,teamEng,eng1,8,1
+375,Drilling Specialist: Hello! Do you have any coordinates of preference that you want us to look into?,teamGeo,teamConstr,con2,8,1
+376,"Materials Specialist: Please use the coordinates 47, 23",teamEng,teamConstr,con3,8,1
+377,Materials Specialist: We have verified that these are ideal coordinates for our current analysis. It's an excellent location.,teamEng,teamConstr,con3,8,1
+378,Hydrogeologist: Give us a minute!,teamConstr,teamGeo,geo1,8,1
+379,"Martian Meteorology Specialist: Okay, thank you. ",teamGeo,teamvc,vc1,8,1
+380,"Operations Specialist: Hello, yes 47,23
+",teamGeo,teamConstr,con1,8,1
+381,"47,23",vc3,vc1,vc1,8,1
+382,"Hydrogeologist: (10, 25)
+(10,10)
+(25,40)
+(40,25)
+(40,40)
+-
+(10, 40)
+(25,10)
+(25,25)
+(40,10)",teamGeo,teamGeo,geo1,8,1
+383,"I checked cell 47, 23. It gives a construction suitability of 0.5/1 and a total of 159.9 working hours",con3,con2,con2,8,1
+384,It is not ideal,con1,con2,con2,8,1
+385,"Hydrogeologist: We found a good coordinate at (10,25)
+",teamConstr,teamGeo,geo1,8,1
+386,Structural Geologist: 25 minutes left,teamEng,teamGeo,geo2,8,1
+387,Structural Geologist: 25 minutes left,teamvc,teamGeo,geo2,8,1
+388,Structural Geologist: 25 minutes left,teamConstr,teamGeo,geo2,8,1
+389,Sedimentologist: Hello. Not great for us! Lots of water loss. We'll get back to you with coordinates that might work for us and see if they're good for you.,teamConstr,teamGeo,geo3,8,1
+390,"Biochemical Engineer: We have about 25 minutes left. We are discussing the 47, 23 point and it seems the geology team does not love that point.",teamConstr,teamEng,eng1,8,1
+391,"Can you give me your measure of. processing speed, parts source and servicing for cell 10,25? thank you
+",con1,con2,con2,8,1
+392,"Sedimentologist: How does 10,25 look for you guys?",teamConstr,teamGeo,geo3,8,1
+393,"Can you give me your measures fro drill brand, drill head, equipment material and equipment duty for 10,25?
+",con3,con2,con2,8,1
+394,"Structural Geologist: (10,25), (10,10), (40,25), (40,40), (25,40)",teamGeo,teamGeo,geo2,8,1
+395,"Materials Specialist: Regardless of the coordinates we choose, some specialists or teams will be left with non-ideal parameters. Therefore, SIRIUS mission recommends the entire team continue with coordinates 47, 23. We have completed a lot work with these coordinates and will be ready to complete the signoff with this information. Please let me us know if there are any additional issues with this location. Thanks.",teamGeo,teamConstr,con3,8,1
+396,"Can you give me your measure for pump wattage and pump torque for the cell 10,25?
+",eng2,con2,con2,8,1
+397,"Sedimentologist: There is very little accessible water in that location, as well as inefficient (from the Engineering team). While we have time, let's see if we can come up with a better solution, but that can be a possible solution if we run out of time.",teamConstr,teamGeo,geo3,8,1
+398,"Drilling Specialist: 47,23 is not efficient for Drilling. It would take a longer work time, the type of ground is not ideal",teamGeo,teamConstr,con2,8,1
+399,"Hydrogeologist: Let's try to check out (10,25) while we still have time. We have some very good values at that area.",teamConstr,teamGeo,geo1,8,1
+400,"Drilling Specialist: If possible, can the operations specialist, materials and mechanical engineer provide their data for the cell 10,25 to analyze costs?
+",teamGeo,teamConstr,con2,8,1
+401,"Hydrogeologist: If it doesn't work for you, we can work with (47,23) but it's not looking good for us
+",teamConstr,teamGeo,geo1,8,1
+402,Structural Geologist: The recharge into the UCA of those coordinates is very little. Do you think that plays a major factor into the decision?,teamConstr,teamGeo,geo2,8,1
+403,"Materials Specialist: OK. We will use 10, 25. That's fine with us.",teamGeo,teamConstr,con3,8,1
+404,"Hydrogeologist: Our 6-person team is good with 10,25",teamConstr,teamGeo,geo1,8,1
+405,Hydrogeologist: Let's go to signoff!,teamConstr,teamGeo,geo1,8,1
+406,Structural Geologist: 15 minutes later,teamConstr,teamGeo,geo2,8,1
+407,Structural Geologist: 15 minutes left,teamvc,teamGeo,geo2,8,1
+408,Structural Geologist: 15 minutes left,teamEng,teamGeo,geo2,8,1
+409,Sedimentologist: Great. That works for us as well.,teamConstr,teamGeo,geo3,8,1
+410,Sedimentologist: We'll begin the sign off process.,teamConstr,teamGeo,geo3,8,1
+411,"Drilling Specialist: To move forward with 10,l25 I need the measure from the operations specialist, materials specialist and mechanical engineer for the cell 10,25 please
+",teamGeo,teamConstr,con2,8,1
+412,"Materials Specialist: By the way, given that this is our last session working with you guys, we just wanted to say that it was great participating in this project with your team. We wish you guys all the best in the coming years and much success! Thanks for all your hard work and effort in Project Red!",teamGeo,teamConstr,con3,8,1
+413,Hydrogeologist: Thank you so much! We wish you all the best as well!,teamConstr,teamGeo,geo1,8,1
+414,"hello, yes of course, speed - high, parts-specialized, servicing - low",con2,con1,con1,8,1
+415,"Thank you!
+",con1,con2,con2,8,1
+416,"Can you ask the materials specialist to send me the measures for 10,25 please?
+",con1,con2,con2,8,1
+417,"Sedimentologist: You all as well!!
+",teamConstr,teamGeo,geo3,8,1
+418,Sedimentologist: We are inputting coordinates right now. We'll let you know when they're in.,teamConstr,teamGeo,geo3,8,1
+419,Sedimentologist: We should be good!,teamConstr,teamGeo,geo3,8,2
+420,"Fluid Engineer: Bye, guys!!!",teamConstr,teamEng,eng3,8,2
+421,"Materials Specialist: Hi, guys. We are trying to continue on with the Relay exercise. Are you there? Are you experiencing some technical issues on your end? We cannot continue without your participation. Thanks.",teamGeo,teamConstr,con3,8,2
+422,Structural Geologist: We're logging in. It will be another few minutes.,teamConstr,teamGeo,geo2,8,2
+423,"Structural Geologist: we need to restart the session. Ithe session will cancel and restart in 2 minutes
+",teamConstr,teamGeo,geo2,8,2
+424,Structural Geologist: ok it will work now,teamConstr,teamGeo,geo2,8,2
+425,Materials Specialist: Thanks guys. We're on there. ,teamGeo,teamConstr,con3,8,2

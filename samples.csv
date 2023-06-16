@@ -1,23 +1,28 @@
 ,source,content,label
-0,spoken,"We close everything here, right?",follow-me
-1,spoken,Yeah.,declarative question
-2,spoken,"Ok, then “Sign off,” right?",follow-me
-3,spoken,Yeah.,declarative question
-4,spoken, //No.,statement
-5,spoken,If turns on?,follow-me
-6,spoken,"I don’t know, what’s up with him?",follow-me
-7,spoken," Wait. Look, we’re removing …",question
-8,spoken,//Beautiful. Decent.,question
-9,spoken, Wow…,question
-10,chat,"Maintenance Specialist: Hello what locations should we start looking at?
-",follow-me
-11,chat,How are things with your fluids and pipes? Are they optimized?,follow-me
-12,chat,"Sedimentologist: hmm the water available looks pretty low and the water loss is 1 for 39,24",question
-13,chat,"Hi, please confirm when you are on and ready to begin",dummy
-14,chat,Mechanical Engineer: yes,question
-15,chat,Mechanical Engineer: eyp,question
-16,chat,testing chat,question
-17,chat,Drilling Specialist: Could you share your values too? Thanks,follow-me
-18,chat,"Hello, please let us know when the crew is online and ready to begin.",question
-19,chat,"Structural Geologist: The Martian Analysis Group has logged on. Let us know when you're ready.
+0,spoken,"Geologist… //Yes, there is three hundred…",question
+1,spoken, //[UI],question
+2,spoken,"Your little – Japan… oy, Chinese woman from Mars.",question
+3,spoken, For us – we guess [UI],question
+4,spoken,If turns on?,follow-me
+5,spoken, They say they come up with a million-dollar tactic now. Get ready.,question
+6,spoken,//Can I take off my headphones?,follow-me
+7,spoken, Go away?,follow-me
+8,spoken,"Stefania asked us to wait. Yes, we all agreed.",question
+9,spoken,"No, I’ll do it without any beakers…",question
+10,chat,"Cooper
+47
 ",question
+11,chat,"Materials Specialist: Please use the coordinates 47, 23",question
+12,chat,"Hello! Could you provide your processing speed, parts source and servicing data you get for cell; 3,34?
+",follow-me
+13,chat,"Hydrogeologist: Sending this at 10 minutes to go, which means you will receive at 5 minutes to go. 
+",question
+14,chat,"??? out ?? ?????????
+",follow-me
+15,chat,"Could you send me the values for processing speed, parts source, servicing?",follow-me
+16,chat,"Hi, please confirm when you are on and ready to begin",dummy
+17,chat,"Those are not important to me
+",question
+18,chat,"Hydrogeologist: The MAG is taking a final look at everything on our end and then we will signoff. Thanks!
+",question
+19,chat,"Hello, please let us know when the crew is online and ready to begin.",question
