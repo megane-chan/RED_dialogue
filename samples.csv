@@ -1,28 +1,21 @@
 ,source,content,label
-0,spoken,"Geologist… //Yes, there is three hundred…",question
-1,spoken, //[UI],question
-2,spoken,"Your little – Japan… oy, Chinese woman from Mars.",question
-3,spoken, For us – we guess [UI],question
-4,spoken,If turns on?,follow-me
-5,spoken, They say they come up with a million-dollar tactic now. Get ready.,question
-6,spoken,//Can I take off my headphones?,follow-me
-7,spoken, Go away?,follow-me
-8,spoken,"Stefania asked us to wait. Yes, we all agreed.",question
-9,spoken,"No, I’ll do it without any beakers…",question
-10,chat,"Cooper
-47
-",question
-11,chat,"Materials Specialist: Please use the coordinates 47, 23",question
-12,chat,"Hello! Could you provide your processing speed, parts source and servicing data you get for cell; 3,34?
-",follow-me
-13,chat,"Hydrogeologist: Sending this at 10 minutes to go, which means you will receive at 5 minutes to go. 
-",question
-14,chat,"??? out ?? ?????????
-",follow-me
-15,chat,"Could you send me the values for processing speed, parts source, servicing?",follow-me
-16,chat,"Hi, please confirm when you are on and ready to begin",dummy
-17,chat,"Those are not important to me
-",question
-18,chat,"Hydrogeologist: The MAG is taking a final look at everything on our end and then we will signoff. Thanks!
-",question
-19,chat,"Hello, please let us know when the crew is online and ready to begin.",question
+0,spoken, Which one?,question
+1,spoken," One of, but maybe you’re not the best person to be final.",statement
+2,spoken," No, I can’t.",statement
+3,spoken," Oh, structural geologist. Okay.",statement
+4,spoken, That’s not a word.,statement
+5,spoken," Did everyone finish putting their stuff in? Oh, looks pretty filled out.",question
+6,spoken, Wrote?,question
+7,spoken, Alright. They said…,statement
+8,spoken, Right now? Are you sure? Maybe yes.,question
+9,spoken, Thirty-one thirty-five – old point. [SL],statement
+10,chat,Structural Geologist: *sunglasses emoji*,statement
+11,chat,yeah got it\n\n,statement
+12,chat,Hydrogeologist: Hey!,statement
+13,chat,06:39 - ouchie,statement
+14,chat,Thank you so MUCH!!!!\n,statement
+15,chat,"Sedimentologist: I mean, on our end we estimate about 46,000 from it based upon loss and filtration needs. WHat are you seeing? Hit that like button. 13:59",statement
+16,chat,"19,34 is the best option for us right now",statement
+17,chat,"Martian Meteorology Specialist: ok so since we have 1 green zone here and 1 orange zone here, that means that hygiene and maintenance training is impacted (0 for yellow and red)\n",statement
+18,chat,Martian Meteorology Specialist: Hey there team! Greetings from M-town! :) We are ready to start! Last session!,statement
+19,chat,Sedimentologist: O'DOYLE RULES,statement
