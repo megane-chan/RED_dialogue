@@ -2,7 +2,6 @@
 from datasets import Dataset
 import pandas as pd
 from transformers import BertForSequenceClassification, AutoTokenizer
-from torch import tensor
 
 # %%
 #load model
