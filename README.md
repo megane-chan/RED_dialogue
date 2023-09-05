@@ -1,8 +1,5 @@
 # RED_dialogue
 
-This project looks all the possible 
-
-
 
 ### Session Coding:
 
