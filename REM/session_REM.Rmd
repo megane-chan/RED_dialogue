@@ -57,14 +57,6 @@ df_1903$speaker %>% unique()
 
 
 ```{r}
-names(df_1903)
-```
-
-```{r}
-head(df_1903)
-```
-
-```{r}
 df_1903$dialog_act %>% unique()
 ```
 
@@ -137,20 +129,64 @@ graph %>% select(event_time, sender_id, receiver_id, dialog_act) -> graph
 head(graph)
 
 ```
+```{r}
+library(relevent)
+
+# Convert data frame to event list format expected by 'relevent'
+event_list <- with(data, by(data, event_time, function(x) {
+  matrix(c(as.integer(x$sender_id), as.integer(x$receiver_id)), nrow = 1)
+}))
+
+
+rem_model <- rem(event_list, timing = event_time, sender = sender_id, receiver = receiver_id, covariates = list(in_degree_centrality =in_degree_centrality))
+
+# Estimate the model
+rem_fit <- rem_estimate(rem_model)
+
+  # Summary of the fitted model
+summary(rem_fit)
+```
 
 ```{r}
-in_degree <- graph %>%
-  group_by(receiver_id) %>%
-  summarise(in_degree_centrality = n())
+df <- graph
+df <- df %>% arrange(event_time)
+
+library(skimr)
+skim(graph)
+in_degree_centrality <- df %>%
+  group_by(event_time, receiver_id) %>%
+  summarise(in_degree = n())
+
+# Associate dialogue acts with receivers and calculate frequencies
+dialogue_act_freq <- df %>%
+  group_by(event_time, receiver_id, dialog_act) %>%
+  summarise(freq = n(),.groups = 'drop')
+
+# Merge the in-degree centrality with the dialogue act frequencies
+combined_data <- merge(in_degree_centrality, dialogue_act_freq, by = c("event_time", "receiver_id")) %>% arrange(receiver_id)
+
+head(combined_data)
+```
+```{r}
+# Assuming the data is loaded into a dataframe named 'data'
+library(igraph)
+
+data <- graph
+g <- graph_from_data_frame(d = data[, c("sender_id", "receiver_id")], directed = TRUE)
 
 
-dialogue_acts <- graph %>%
-  group_by(receiver_id, dialog_act) %>%
-  summarise(dialogue_act_count = n()) 
+data$in_degree_centrality <- igraph::degree(g, mode = "in")[as.character(data$receiver_id)]
 
-merge(in_degree, dialogue_acts, by = "receiver_id")
 
-print(head(combined_data))
+E(g)$dialog_act <- data$dialog_act
+
+
+centrality_by_act <- data %>%
+  group_by(dialog_act) %>%
+  summarize(mean_in_degree = mean(in_degree_centrality), .groups = 'drop')
+
+
+print(centrality_by_act)
 
 
 ```
@@ -232,18 +268,18 @@ summary(model2)
 
 
 ```{r}
-# Model 3 -----------------------------------------------------------------
-stats.sameconstgroup.da <- SameConstGroup(data, dialog_act)
+# stats.samestyle.da measures the effect of having the same communication style, as inferred from the dialogue acts (such as statements, questions)
+# Model 3 
+stats.samestyle.da <- SameConstGroup(data, dialog_act)
 
 stats3 <- combine.stats(
   '[Intercept]' = stats.intercept,
   'RRecSnd' = stats.rrecsnd,
   'RSndSnd' = stats.rsndsnd,
   'NTDegRec' = stats.ntdegrec,
-  'SameConstGroup' = stats.sameconstgroup.da
+  'SameCommStyle' = stats.samestyle.da
 )
 
-# Run the third model and check the transript_data
 model3 <- FitEventNetworkCore(data, stats3, ordinal = FALSE)
 summary(model3)
 ```
