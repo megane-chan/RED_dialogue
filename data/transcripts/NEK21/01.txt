@@ -1,0 +1,5060 @@
+Legend:
+[UI] – Unintelligible
+[PH] – Phonetic Rendering
+[SL] – Sounds Like
+// – Overlapping Conversation
+… – Hesitation / Unfinished Sentence
+Italics – spoken in English
+[ ] – Translator’s Comments
+
+
+Will 
+
+Ashley
+
+Salah (Abdulla)
+
+Oleg 
+
+Vika 
+
+Katya 
+
+Igor
+
+Ryan (Reynold)
+
+Man2 – sitting next to Will
+
+Man3
+
+Woman1
+
+Transcript
+
+Igor: Don’t let go.
+
+Ryan: Reminder, yeah, //not to minimize…
+
+Oleg: //Not to minimize?
+
+Igor: Not to minimize.
+
+Ryan: Don’t minimize.
+
+Oleg: No minimize?
+
+Ryan: no…So, we are starting again. 
+
+Oleg: We are?
+
+Ryan: Yes. Let’s start [UI]. Right, okay…Okay. Now we’re going to go back to the Project RED Design on the Desktop. 
+
+00:00:30:08
+
+Ryan: Open that up again. 
+
+Ashley: Okay. 
+
+Ryan: Project RED Design, log in.
+
+Ashley: Was it one? It was…Was it [SL] Delta one?
+
+Maybe Vika: [SL] What is the username? 
+
+Ashley: [UI]
+
+Will: Do you want us to log back in? We didn’t [SL] exit that one. 
+
+Ryan: Yeah. 
+
+Will: Okay.
+
+Ryan: [SL] Best. 
+
+Maybe Vika: //[UI]
+
+Ryan: //Alright, you guys want to log out or exit out of that 
+
+00:01:01:16
+
+Ryan: And log back in. 
+
+Maybe Katya: With a capital letter.
+
+Salah: How should I do logout from here?
+
+Katya and Vika: [UI]
+Ryan: Do log out form there. Then log back in. 
+
+Maybe Vika: [UI]
+
+Ryan: Use that [UI]
+
+Ashley: Yeah. Of course, now it works.
+
+00:01:31:09
+
+Woman1: Hm?
+
+Ashley: Now it works. [UI]…So funny. 
+
+Ryan: Okay, who is our biomedical…or biochemical engineer? It’s you, right? Biochemical.
+
+[SL] Yes.
+
+00:01:59:21
+
+Ryan: Biochemical engineering team should message fluid engineering when ready to start. So, we start. 
+
+Woman1: [UI]
+
+Ryan: [SL] It will be over there. 
+
+Woman1: But they are. Fluid engineer in Chicago.
+
+Ashley: Mhm.
+
+Woman1: Fluid engineer is now in Chicago. It’s a //live communication.
+
+Oleg: //Start. Are we starting?
+
+Ryan: Mhm. 
+
+Oleg: We need to find out. These positions…
+
+00:02:30:04
+
+Ashley: It’s pretty cool.
+
+Woman1: //Very very cool. 
+Ryan: //[UI]
+
+Oleg; Mhm. 
+
+Man2: //[UI]
+
+Ryan: Okay, so, now you should see chat populate on the left. Some of them are from your team, some of them are from the other teams. They are going to be trying to coordinate with your locations and parameters to choose. Reminder, that you’re trying to find the optimum spot for the well. 
+
+00:02:59:05
+
+Man2: So, you said, backups cannot talk but can help? Or are we just watching?
+
+Ryan: You can point if…//you, know, point a little. The point is that this is the baseline data collection, so…
+
+Oleg: //[UI]
+
+Ashley: Okay, so we’re just trying to find the optimal spot
+
+Oleg: It is the next task.
+
+Ashley: Is that what’s happening?
+
+[UI]
+
+Ashley: Which team do I need to be talking to? //[SL] structural engineer
+
+Oleg: //These points…//[UI]
+
+Ryan: //So, you’ll be going through your relations, right?
+
+Oleg: Information of the first, second and third level.
+
+Woman1: Material? No, yeah. 
+
+00:03:31:06
+
+Maybe Katya: Meteorologist…
+
+Ashley: //[UI]
+
+Ryan: //Reminder, primes talk to each other. Not to the backups – to each other. 
+
+Maybe Vika: Oh. 
+
+Ryan: Data is collected with primes talking with each other.
+
+Maybe Vika: Okay.
+
+Igor: You’ve heard, right? The main crew members can speak with each other.
+
+Salah: So, the location, we are waiting from the commander?
+
+Ryan: Anyone. You look for [UI]
+
+Oleg: Igor, are we choosing the location that we received earlier, or the location suggested here?
+
+00:03:59:26
+
+Igor: Are they suggesting one already?
+
+Oleg: Yes.
+
+Igor: Has someone suggested one already?
+
+Oleg: Well, it’s a different location with a different set of position points.
+
+Woman1: Yes, completely…
+
+Vika: //Meaning, the previous ones or those that we set?
+
+Ashley: //They… we are looking…We are talking to them to figure out location.
+
+Oleg: //Now, they are suggesting a different location to me. 
+
+Ashley: //What are the… 
+
+Oleg: //can it be the one that we were considering earlier.
+
+Ryan and Ashley: //[UI]
+
+Igor: //You can accept it. You can see if you have any thoughts or considerations about it, from your point of view.
+
+Ryan: //It can change. You can ask other people whether…
+
+Ashley: But what are…//how do I decide in chat…
+
+Oleg: //So, we can change it?
+
+00:04:29:23
+
+Igor: //You can change it. You can suggest your own.
+
+Ashley: //Do I know, okay, so…would this be life changing down here?
+
+Ryan: You will define green cells and then your decision calculator will update based on that location. 
+
+Ashley: Oh. 
+
+Ryan: [UI] So, people might say: “Can we look into this for this team?”, and then you’ll go to that location //and enter the coordinates that you think are best.
+
+Man3: //[SL] can see that I am here. 
+
+Oleg: //[SL] Zhenya, I mean, Lyosha, look here, from the other side …[UI] but there is a slope here that is difficult to access. How can…
+
+Ashley: Martian meteorology specialist [SL] signed off. What just happened?
+
+Woman1: //Good work. 
+
+Ashley: //And the martial meteorology specialist. 
+
+Woman1: //Yes.
+
+00:05:00:00
+
+Ryan: //This might be from previous session. 
+
+Woman1: //How do you know that this is anywhere mentioned?
+
+Oleg and Alex: //[UI]
+
+Ryan: Probably.
+
+Woman1: Yeah. 
+Alex: The drilling specialist is there. //You can ask him a question. [UI] You have an opportunity. You should //[UI]
+
+Ashley: //[SL] How I began it? Can you just zoom in?
+
+Salah: //[UI]
+
+Ashley: //look, I guess or…can you zoom in?
+
+Salah: [SL] You tried?
+
+Oleg and Alex: //[UI]
+
+Woman1: What. Is this? [UI]?
+
+Salah: [UI]
+
+Woman1: [SL] My cost from this. //It was from before. 
+
+Ashley: //Yeah, I see. So, can I just say “Hi, team!”?
+
+Woman1: //Hi.
+
+Oleg: Here, look. So, now I have this specialist – this 
+
+00:05:30:26
+
+Oleg: fluid engineer. 
+
+Alex: //[UI]
+
+Salah: //Change the [UI]
+
+Oleg: Yes, it’s him.
+
+Maybe Katya: Yes, I have already written to my material specialist.
+
+Oleg: But before that he wrote that it was thirty-one twenty-six.
+
+Alex: Perhaps, he has some information as to the volume of water and // the pressure, and he believes that there [UI]
+
+Salah: //[UI]
+
+Oleg: Can I get some help? Why //[UI]?
+
+Salah: [SL] Detail…details [UI]
+
+Ryan: //[UI]
+
+00:06:05:28
+
+Ashley: Will they actually be communicating back, like, right now?
+
+Ryan: We’ll see. 
+
+Alex: And you say, why do you //think that the location [UI]
+
+Salah: //[SL] Reynold, it’s like when I do the specification as mine, why does [UI]
+
+Woman1: //It’s eleven o’clock during the day there. 
+
+Ashley: //Are you sure?
+
+Woman1: //Yeah. 
+
+Ashley: Okay, so…
+
+Oleg: So, then, if you write //[UI]
+
+Woman1: //Eleven ten. Something like that. Chicago is one hour…its ten. 
+
+Ryan: //[UI] you are trying to find even your own to figure out what the best location is and //to communicate with the other team
+
+Alex: //Look, it is not deep here because it is a thousand meters here. 
+
+00:06:30:19
+
+Ryan: // to see if that location works for them. Some locations don’t 
+
+Oleg: //This should work for you, right?
+
+Alex: //Yes. 
+
+Salah: Yeah, but the thing is, like, // as I’m telling the material specialist…but that is, like, where are they going to choose this point? Who depends on that location at my point? The thing is, they…I don’t [UI]. At least the commander, who will say to choose that one or that one. 
+Alex: //Look here, I will show you [Ui]
+
+Oleg: //Yes, here it is. It’s right here. See, it is a large one here? Large ones are much easier to evaluate, but at the same time //here…but we do not need filtration here. If [UI] is large, less of it remains under pressure. 
+
+Ashley: //Umm, okay. The things I want to look at:  no dust, not any type of volcanoes in microclimate. 
+
+00:07:00:00
+
+Ashley: How do I know //where green?
+
+Woman1: //How to choose…yeah, exactly. 
+
+Oleg: Thirty-five forty-one //excellent. 
+
+Woman1: //All the parameters. 
+
+Ryan: //[UI]
+
+Oleg: /Yes, yes, yes. It is possible here. 
+
+Woman1: Besides what we have here. 
+
+Ryan: //Actually, all three have to sign off.
+
+Salah: //Okay. 
+
+Ashley: So, let’s see. Maybe //I start a new decision and I put in…
+
+Alex://[UI]
+
+Oleg: Oh, thirty-five forty. 
+
+Ashley: Well, is this a good point? //because, like…Is this in meters? Is this a ratio? I don’t 
+know. 
+
+Alex to Oleg: //Forty-five.
+
+Oleg: //Forty-five?
+
+Woman1: No, we don’t have. This is bad. 
+
+Ryan: Other…//Only primes. Only primes.
+
+Oleg and Alex: //[UI]
+
+Ryan: Alex, only primes. It’s got to be…
+
+00:07:30:22
+
+Alex: Only with the main crew. I can show only to you //and transfer to you.
+
+Salah: //[UI]
+
+Oleg: Okay. 
+
+Ryan: So, you guys are// communicating just the six.
+
+Igor: //in terms of your expertise.
+
+Maybe Katya: Mhm.
+
+Igor: [UI] can answer. 
+
+Oleg: So, here, [UI]
+
+Salah: So, I am the material specialist. So, guys, we have to choose first the location. So…
+
+Vika: Which one?
+
+Salah: To be considered about what type exactly I can choose for the drilling methods
+
+00:08:01:00
+
+Salah: and we will see the depth. Moreover, it will be more for the time drill, so these things we have to consider about. This my…our main object. And, for example, the availability of that water. 
+
+Ashley: Okay. 
+
+Oleg: This is all clear, but initially we need to decide on the location, and there is a proposal to use the location,
+
+
+
+
+00:08:30:23
+
+Oleg: that is on the plain. Considering that the parameters that, for example, have now been found with the coordinates thirty-five forty. They have a great depth, but only large [UI]…contaminants. That is, large rocks. It is easier to filter them out and there will be less resistance.
+
+00:09:00:29
+
+Salah: Mhm. 
+
+Oleg: There is a minimum of other contaminants. Consequently, we need a pump only to raise this water. That’s it. And if we look at those locations that are on the slope, there is a very large amount of mineral contaminants and small contaminants. And that will entail
+
+00:09:31:18
+
+Oleg: a great number of filters
+
+Salah: Yes. Yes.
+
+Oleg: And, consequently, it will increase the power of the pumps. We don’t need it. And, most importantly, our robots will not be able to work on the slope.
+
+Salah: Operation…specialist. What do you think?
+
+Ashley: Who is the operation specialist? Me? No, I’m //meteorology specialist.
+
+Oleg: //[UI]
+
+00:09:59:23
+
+Ashley: I am not operations. I am a meteorology specialist. 
+
+Oleg: If not, then a mechanical engineer. Mechanical engineer.
+
+Salah: Mat…material specialist. Material specialist. 
+
+Oleg: А, material specialist. 
+
+Man: No.
+
+Ashley: Katya, who are you?
+
+Katya: I am a drilling specialist. 
+
+Ashley: And Vika?
+
+Vika: I am a hydrogeologist. 
+
+Ashley: Will?
+
+Will: Sedimentologist. 
+
+00:10:29:24
+
+Will: //It means that it is with them.
+
+Ashley: //So, operations in Chicago.  
+
+Oleg: Okay.
+
+Ashley: So, you’re in charge //picking materials and stuff.
+
+Salah: //Materials, yeah. Robotics and …
+
+Oleg: //So, I have one, and they have two specialists there.
+
+Ashley: //So, how about everybody…Can everybody tell me what their specific, like, what their goal is?
+
+Oleg: Look.
+
+Vika: Alright. 
+
+Ashley: Just so that we understand 
+
+Oleg: //geology team. [UI]
+
+Salah: //My goal is – drilling time is very important for me, as well…
+
+Will: So, his purpose is the fact that…You should not be speaking together. 
+
+Oleg: Yes. 
+
+00:10:58:28
+
+Will: His goal is the fact that this time…How much to…what’s the word?
+Igor: Drill.
+
+Will: How…
+
+Igor: Drill
+
+Salah: Drill
+
+Will: Yes. So, what is it…So, the time is very important.
+
+Salah: And, moreover, robotics and the rover’s parts consumption. Plus, the material…My goal is to minimize the cost of //consumption. 
+
+Will: So, I understand that 
+
+00:11:30:28
+
+Will: Your goal, what you have to do – how much time for drilling. How much time it takes to drill.
+
+Salah: Yeah.
+
+Will: And minimize how much it costs, right?
+
+Salah: Yes. 
+
+Will: And you want to minimize how much it costs. Correct?
+
+Salah: Yeah.
+
+Will: Okay, so, you have two things: the time of drilling needs to be low, and the second thing is that you minimize cost, correct?
+
+Ashley: Time of drilling, okay.
+
+Salah: Yep.
+
+Will: Yep? To minimize cost, okay. Katya, can you tell me directly, in a few words…
+
+Katya: In Russian?
+
+Will: As you wish.
+
+
+00:12:00:02
+
+Katya: My main goal is also to minimize the overall cost of robotics. Consequently, I choose and help the group choose a site that will allow them, based on the ground, type of ground locate…
+
+Will: So, your first goal is to also reduce the cost?
+
+Katya: No, shorten the time, namely…
+
+Will: Okay, so you also…
+
+Katya: drilling machines…
+
+Will: Your goal is to minimize the amount of time that the machines are used?
+
+Katya: Time
+
+00:12:29:28
+
+Katya: Machines cost. Like, not expensive machines. Type of drilling.
+
+Will: Okay. Time…Time on what specifically?
+
+Katya: Time, type of drilling and…
+
+Will: But time…time on what? Time of what? Time to do what?
+
+Salah: Drill time.
+
+Katya: Drilling time.
+
+Will: Drilling time? Drilling?
+
+Katya: Drilling time. 
+
+Will: Specifically drilling?
+
+Katya: Yes, yes. 
+
+Will: Okay.
+
+Katya: It’s exactly the time.
+
+Ashley: So, drilling time. So, reduce…
+
+Will: For drilling time. 
+
+Ashley: So, reduce the drilling time, reduce machine cost, reduce…What else she…
+
+Salah: So, like…it seems to be, like, I will be more close with Kate, dealing with…
+Will: Sure. 
+
+00:13:00:17
+
+Will: And you are the…what’s your position again?
+
+Salah: Material specialist. 
+
+Ashley: //Oh, you are materials.
+
+Will: //And, Katya, what was yours?
+
+Katya: Drilling specialist. 
+
+Will: //Oh, you are drilling. Okay.
+
+Ryan: //Can we just pause real quick here?
+
+Salah: Uh-uh.
+
+Ryan: We have to go to a different link, because the Chicago team can’t see the messages.
+
+Will: Okay. 
+
+Ryan: Okay?
+
+Will: So, this link that we are using now – it’s not working and they don’t //see our messages. 
+
+Man: //So, we will wait now that they are here, right?
+
+Ryan: So, let’s log out and exit out of that. 
+
+Will: So, we will log out.
+
+Alex: //Do you want to log out?
+
+Ashley: //So, just [SL] X total?
+
+Will: //So, exit that. 
+
+Ryan: //Close that tab. 
+
+Ashley: Oh. Okay. 
+
+Ryan: You can start a new tab. That’s okay. 
+
+00:13:31:01
+
+Will: Okay. And then log back in? Or a different link?
+
+Ryan: Yeah, and we’ll give a different…we’ll have a different…
+
+Will: Link?
+
+Ryan: Link for this one. 
+
+Will: Okay. 
+
+Oleg: The same link, right?
+
+Ryan: Okay. 
+
+Will: It will be a different link, so we are waiting now.
+
+Ryan: Yeah, it’s the one in your…
+
+Ashley: Oh, it’s already…
+
+Ryan: It’s in your…
+
+Ashley: Oh…
+
+Will: Okay, so while we are working on that, can we continue to discuss or are we actually doing the full pause?
+
+Ryan: Doing a full pause now and then we will…
+
+Will: Okay, go it. 
+
+Salah: Log out?
+
+Will: Yeah. 
+
+Ryan: What’s that?
+
+Will: Log out. 
+
+Ryan: Log out.
+
+00:14:00:07
+
+Will: Log out of the system, and they are giving us a new link. 
+
+Salah: [UI] I think, someone …
+
+Ryan: [UI] this
+
+Salah: We go to that one?
+
+Ryan: Yeah. 
+
+Igor: [UI]
+
+Ryan: Right. It should be on the document as well. 
+
+Igor: [UI]
+
+Ashley: Same login and password, I guess. 
+
+Maybe Igor: Same one, yeah.
+
+00:14:30:11
+
+Alex: First…
+
+Will: It was in our books?
+
+Ashley: Yeah. 
+
+Ryan: It’s in your books, yeah. 
+
+Will: The second…okay. So, what is it…
+
+Ryan: It should also be in the Procedures folder that you can find in your books. 
+
+Ashley: Okay, we’re back. 
+
+Woman1: You didn’t…
+
+Ashley: //Yeah, I just finished. If anybody needs anything.
+
+Man 2: //So, I can just click the link?
+
+Ryan: Hm?
+
+Man2: //So, I can just click the link?
+
+Woman1: Now log in. 
+
+Ryan: Yeah. You just click the link
+
+Ashley: // You switched to a different link, right?
+
+Will: //It’s not this one, correct?
+
+Oleg: //Yes. 
+
+Will: That is the correct one. 
+
+Oleg: Well, I used this link here.
+
+Ryan: So, the Desktop icon went to the wrong place. 
+
+Ashley: Yes, they //said just now that Chicago can’t hear us.
+
+Man2: //[UI] [SL] got a link. 
+
+Will: //This is Delta RED two.
+
+00:14:59:17
+
+Ashley: You need to use this link now. So, close what we had open //and log in here now.
+ 
+Will: //I was, actually, at that one before. 
+
+Oleg: But Ryan said we should leave this one. 
+
+Maybe Alex: No. //If you are here, you can close it. Close. Close.
+
+Will: So you can…you can simply remove “2” there. You can just take the “2” out of that.
+
+Katya: Yeah, yeah. Right. 
+
+Ryan: Yeah, if it’s the same, just take the “2” out. 
+
+Will: It’s the same link. The link is the same. You just remove the “2” from it. 
+
+Oleg: Okay, the new window is also here, correct?
+
+00:15:29:17
+
+Alex: No, that is not correct. This link is incorrect. This link is not correct. Let’s close it. Just open a new window in the browser. 
+
+Oleg: Yes.
+
+Alex: Yes. And enter.
+
+Woman1: Yes. 
+
+Alex: Here, Delta RED. 
+
+Oleg: Okay. So it’s the entirety of this one here, right?
+
+Alex: Yes. 
+
+Ashley: I didn’t catch earlier Salah goals, so, if you could repeat that later.
+
+Will: His goals are…I can wait, it’s okay.
+
+Ryan: No, you can do that.
+
+Will: Okay. He is also trying to reduce drilling time, but also 
+
+00:16:00:21
+
+Will: Minimizing the cost, so…
+
+Salah: I’m responsible for the robot…robotics and rovers. 
+
+Oleg: Using this link, correct?
+
+Ashley: You are responsible, okay. 
+
+Will: Okay. 
+
+Oleg: RED
+
+Alex: Point. 
+
+Salah: Parts as well.
+
+Katya: It’s our…which we will //[SL] be the same.
+
+Oleg: //[SL] notes estimate.
+
+Ashley: And, so. And Katya wanted to reduce machine cost, reduce the drilling costs.
+
+Will: Also, drilling time. 
+
+Ashley: Drilling time. 
+
+Oleg: Estimate. 
+
+00:16:29:17
+
+Katya: And type of drilling. 
+
+Will: And what type of drilling. Okay. 
+
+Katya: Yeah. 
+
+Ryan: So, what we are trying to do is open the shortcut and take it to well.
+
+Will: I understand that it is everything?
+
+Salah: [SL] Oh, really? There was a…
+
+Ryan: Yeah.
+
+Will: [UI] Katya. This is everything, right? Okay. 
+
+Ryan: We are just on a different server. 
+
+Oleg: [UI]
+
+00:17:01:13
+
+Vika: I can begin with myself.
+
+Will: Can you?
+
+Ryan: Mhm.
+
+Will: Can we continue?
+
+Ryan: Yeah, we need to start our session. So, once he is logged in, they ask for time to start it in the chat. 
+
+Oleg: What is the blue thing?
+
+Alex: [SL] MTS.
+
+Oleg: [UI]. It’s a backup, right?
+
+Alex: Nm?
+
+00:17:30:12
+
+Oleg: Is it a backup or…
+
+Alex: It is for a different task. 
+
+Oleg: The same here, yes?
+
+Alex: Mhm. 
+
+Oleg: Okay, [SL] populating.
+
+Will: So, we’re not continuing with what we were doing before?
+
+Ryan: Same idea, but we need connection on the western side now. 
+
+Will: No. Sorry, I mean, after we make the connection, we’re still //continuing to figure out what 
+we were doing, yes.
+
+Ryan: //[UI]. We’ll go right into the same thing. 
+
+Will: So, just continue on with what we were doing.
+
+00:18:00:00
+
+Ryan: Right. 
+
+Maybe Katya: I can save the password or not?
+
+Ryan: I don’t see why not. Yeah. 
+
+Katya: Yeah?
+
+Alex: Yes. 
+
+Will: //I will also save the password.
+
+Alex: //You can click on [UI] and see that [UI]
+
+Oleg: [UI]
+
+00:18:32:13
+
+Vika: [SL] You will come to us.
+
+Alex: [SL] Are you with Vitaly?
+
+Ryan: [UI]
+
+Katya and Vika: [UI]
+
+Ryan: Okay, go ahead into the chat to the fluid engineer.
+
+00:19:00:12
+
+Alex: Select a fluid engineer.
+
+Oleg: Okay, it is hydro…hydro…[UI]
+
+Salah: [UI]
+
+Oleg: Fluid
+
+Ashley: That is my team. 
+
+Ryan: //[UI]
+
+Oleg and Alex: //[UI]
+
+Salah: [SL] To start. 
+
+Ashley: [UI]
+
+Will: Everybody in?
+
+Ashley: Mhm.
+
+Will: In?
+
+Salah: Yeah. 
+
+Will: Are you in the new link?
+
+Salah: Yeah. 
+
+Will: Katya, are you in the new link? You’re in the new link? I’m in.
+
+00:19:30:08
+
+Will: Is everything working alright?
+
+Oleg: Yes.
+
+Alex: Everything is okay. 
+
+Salah: So, which one we should…
+
+Will: Have you logged in?
+
+Oleg: Yes, //okay, I have logged in.
+
+Will: //Ryan, are we good to continue?
+
+Ryan: Yes.
+
+Will: Okay. Good. Now, tell us about your work and…
+
+Vika: I am a hydrogeologist. I have three tasks: water quantity, water quality and water use. The amount of water means that we have to help choose a site that will be as large as possible.
+
+
+00:20:00:01
+
+Vika: And the quality of the water means that the composition of the water and contamination are important, and, besides, it is important for me…
+
+Will: So …
+
+Vika: Ease of use. That is, the convenience of wells for future inhabitants of Mars. 
+
+Will: Okay.
+
+Vika: That is, the maximum number of people should receive water.
+
+Oleg: Now, what do we want? Do we want each one to speak about their specialization?
+
+00:20:30:28
+
+Will: So that we understand, //what is important for each one of us.
+
+Oleg: //Who does what, yes.
+
+Katya: Yes.
+
+Will: So. It’s the quantity of water. It is…
+
+Vika: Yes
+
+Will: It was…were they your activities or is it a group activity?
+
+Vika: It’s mine, mine.
+
+Will: And it is also there…is it also written there? Can I?
+
+Vika: Well, yes.
+
+Will: Oh, I can’t see yours, yes. And how about…okay, I’m just clarifying here. So, …what…what specification is the most important one for you in this?
+
+00:21:01:21
+
+Maybe Oleg: [SL] Also.
+
+Vika: These are the specifications. The most important one is…
+
+Oleg: [UI].
+Vika: what I listed. It’s the impurities; it’s the flow of water. That is, I need to determine in which layers
+
+Will: Okay.
+
+Vika: we need to be located. That’s the most important thing.
+
+Will: Good. Okay, I will continue then. If you didn’t catch that,
+
+00:21:30:17
+
+Will: her goals fit deeply with the actual task force as the hydrologist. So, the amount of water that is coming out. Is it the quality of the water?
+
+Vika: Yes, water quality and water contamination.
+
+Will: The quality of the water and the contamination of water. And the third one?
+
+Vika: Well, also as many people as possible should receive…
+
+Will: And how much water flow. So, it’s when…Okay. Now, what is this here //some things…
+
+Katya: //So, the location does matter, correct? For you. 
+
+00:21:01:12
+
+Vika: Well, by these parameters [UI]
+
+Salah: Depth. 
+
+Will: So, yeah. Those follow very closely with the task force goals themselves. So, this tracks the group’s goals. Okay. For me, it is how much water this place loses. That is, it’s some point. How much it loses; how much it…
+
+Oleg: Loses what?
+
+Will: Water from a certain point. 
+
+00:22:30:26
+
+Will: Yes? So, the amount of water that it loses. Now…
+
+Ashley: The amount of water that the well loses?
+Will: Yes, so…not the well – the area. So, how [SL] promitable it is. So, essentially, average water loss. So, and…shoot, how can I look this up quickly; how can I translate this into Russian? 
+
+Ashley: Remind me what your title is. 
+
+Salah: And your job is?
+
+Will: Sedimentologist. 
+
+Oleg: [UI]
+
+Will: What? What?
+
+00:22:59:26
+
+Salah: And your job is?
+
+Will: Sedimentologist. 
+
+Alex: Here are the answers. 
+
+Will: Average water loss – //that’s it’s called. 
+
+Oleg: //And then [UI] corrected. 
+
+Will: And loss at recharge. So, also the recharge loss and that depends on, again, loss related to [SL] promitability here. So, you’ll see that come up. And intrasource flow loss or loss of low in the source. So, the water going in between the two, which…
+
+00:23:29:27
+
+Will: you’ll see that as CA or UCA. Okay. Well, what is this…
+
+Ashley: Yours is complicated. 
+
+Will: Well, I think we’re all complicated. Maybe I’m just making it more complicated myself, so…Alright, now…Okay. 
+
+Ryan: So, pay attention real quick. Pay attention to your chats if you’re not already. Teammates from Chicago will be communicating with you there. 
+
+
+
+00:23:59:26
+
+Salah: So, we should answer them all or…
+
+Ryan: Answer them. Communicate what they are saying to the rest of the group. \
+
+Oleg: [UI]. Oh, interacting. 
+
+Ryan: If there is something important.
+
+Salah: They say: “Hello from Chicago! Are you from Moscow?”
+
+Alex: From Moscow, from Moscow!
+
+Ryan: [UI]
+
+Salah: From Mars, yeah?
+
+Vika: From Moscow.
+
+Oleg: So…
+
+00:24:31:09
+
+Salah: [UI]
+
+Woman1: [SL]What? It disappeared?? 
+
+Ryan: We have twenty-five minutes to choose the location for the well.
+
+Woman1: //It disappeared?
+
+Ashley://No, it’s there. It’s there. It’s just different chats, yeah.
+
+Woman1: Oh, okay. 
+
+Ashley: //I think that if I do the…
+
+Alex: //[SL] Twenty-five minutes, he says.
+
+Woman1: Oh, wow!
+
+Oleg: To find points?
+
+Ryan: //You have twenty-five minutes, and we’ll start the signoff process for the final well location.  
+
+Igor: Twenty-fives are left to agree. To choose a point. 
+
+00:25:06:11
+
+Ashley: Just making sure [UI] is talking to me. Just like in the //factors team. Yes.
+
+Will: //Okay. 
+
+Salah: So, who should we talk to?
+
+Will: How’s that…
+
+Igor: Pay attention to the messages you receive from your group. And, in some cases, it is sometimes useful to voice them for the whole team here.
+
+Will: Yeah, so, I will see. I am now seeing that the people from the team of geologists – they said that they already have some points.
+
+00:25:33:19
+
+Will: So, from the geologists…the geology team we already…they are saying that they already have some suggestions and coordinates. So, just FYI. I’m sure we all have heard a few things from our teams thus far. But, yes, we do have some suggestions about coordinates coming from geology team at this point. Continue.
+
+Oleg: Now, I have received a message from the engineering group, in which they say that they are waiting for the decision of the geologists regarding the location, and then they are trying…
+
+00:26:00:25
+
+Oleg: Or they will start working according to the rules that were specified.
+
+Will: Okay. I told them – from the geologist group – that within fifteen or twenty minutes we would have some idea. So, now let’s continue.
+
+Oleg: Yes.
+
+Will: What are your activities?
+
+Oleg: My activity is to use the knowledge and experience about the projective filtering system.
+
+Will: What is it called?
+
+Oleg: Biomechanical engineer.
+
+Will: Okay.
+
+00:26:32:07
+
+Ashley: You said biochemical? 
+
+Oleg: Yes.
+
+Will: Biochemical or…
+
+Oleg: Consequently, my responsibilities include designing a filtration system based on the characteristics of the ground to be taken; and what filtration steps we will implement.
+
+Will: Okay. So, the first point, the most important thing is what exactly?
+
+Oleg: We need to determine from what ground and from what location we will take it.
+
+00:27:00:01
+
+Oleg: in order to further determine the power of the pump, //that will be suitable.
+
+Will: Okay, so, I take it the first one is the ground? Yes. //Through which...
+
+Oleg: //Yes, the ground and what is in it. How contaminated water will pass through it. And I need to determine the number of steps and the quality of the filters.
+
+Will: Okay, so, the first thing that we’re looking at here, is the soil, the quality of the soil and how much… I mean, pump water…how it can pump water… 
+00:27:29:15
+
+
+Oleg: Yes, it is important for me that I understand the quality of the water //and how to filter it.
+
+Will: //And the quality of water. So, the type of soil and the quality of water that comes out of soil.
+
+Oleg: In the future, how many steps I should take to ensure the filtration of this water.
+
+Will: Okay. 
+
+Oleg: And, in the future, determine how many steps I will use to filter this water.
+
+Will: That is, //stages – like, one time, two times…
+
+Oleg: //Stages. Yes, yes, yes. The thing is that there are several of them 
+
+00:28:00:00
+
+Oleg: types of filtration.
+
+Will: Okay.
+
+Oleg: Rough, fine and with all the [UI] 
+
+Will: And how many layers the actual…
+
+Igor: filtration.
+
+Oleg: Yes. 
+
+Will: Filtration has…//filtration?
+
+Igor: //Stages of filtration. 
+
+Will: Okay. Good.
+
+Oleg: And, it is very important, so as not to re-read here, it is very important that the water is less contaminated with small things. For example, mineral contaminants or sand, because it will clog the filters and, consequently, it will require an increase in the power of the pumps.
+
+Will: So. 
+
+00:28:29:14
+
+Will: Ground type, water quality and filtration levels.
+
+Oleg: Yes. Well, first, maybe... remove the ground, because this is already a derivative of what there will be in the water. Remove the ground. Take away.
+
+Will: But this…What did you find out when reading? What was it exactly?
+
+Oleg: I need the degree of water contamination and the degree of filtration.
+
+Will: So, the quality of the water and the stages…
+
+Oleg: Filtration.
+
+Will: Filtration. Okay. And the stages of filtration. 
+
+Ryan: Did you all get these quizzes that pop up?
+
+00:28:59:28
+
+Ryan: You need to complete them as you’re working. 
+
+Igor: There will sometimes be questions on the screen. You need to answer.
+
+Will: So, okay. //So, did you catch that? Quality of water and the filtration stages //the water has to go through to be of quality.
+
+Salah: //Filtration stages and the quality of water. 
+
+Oleg and Alex: //[UI]
+
+Will: okay, so…
+
+Oleg: Now who?
+
+Alex: To whom [SL] do you extend your idea?
+
+Will: So, now we are listening to Ashley. Let’s continue. We’ll listen to Ashley real quick. //Ashley, go ahead and give us your shot. 
+
+Ashley: //Yeah, just really quickly. So, 
+
+Oleg: What is the position?
+
+Will: //What?
+
+Oleg: What’s the name of the position?
+
+Salah: //[UI]
+
+Will: Biomechanical…this should be in front of it 
+
+00:29:29:21
+
+Will: //on the first page. On the first page. //There, it was like…
+
+Igor: //[UI]
+
+Salah: //Meteorologist.
+
+Oleg: No. We each have different ones. 
+
+Will: Yes, yes, yes. And you?
+
+Oleg: I have the biological engineer. 
+
+Will: Which one? Mine?
+
+Oleg: Do you also have the biological engineer?
+
+Ashley: //No, no. He is a sedimentologist. Sedimentologist.
+
+Will: //No. Sedimentologist. Sedimentologist. Okay.
+
+Salah: Who is she?
+
+Katya: Drilling specialist. 
+
+Ashley: He is biochemical. 
+
+Will: Biochemical.
+
+Ashley: He is sedimentologist. 
+
+Will: Sedimentologist. Ash, go ahead.
+
+Ashley: Alright. So, basically, I am part of the space human factors team. Specifically, the Martian meteorology specialist. //Which means…
+
+Will: //Okay. So, she is a meteorologist for Mars. 
+
+00:30:00:09
+
+Ashley: Which means that I focus on the microclimates of Mars. So, the dust storms that affect the water quality, for example. And so, I am trying to minimize the meteorology costs
+
+Will: minimize…
+
+Ashley: that are associated with using the wells.
+
+Salah: okay.
+
+Will: What kind of costs specifically?
+
+Ashley: So, basically, I would help with choosing an optimal location with minimal dust storms, for example. 
+
+Will: Okay. Minimize…How can I say it? Storms or…//sand?
+
+Ashley: //Encouraging also 
+
+Will: Is this what it’s called?
+
+00:30:29:22
+
+Igor: Sand storms.
+
+Vika: Storms. 
+
+Will: What? Storms?
+
+Igor: Sand storms.
+
+Will: Storms. Okay.
+
+Ashley: Also, I’m interested in minimizing the types of pumps that are used, the types of cost-effective robots that are used to create these wells. And also…
+
+Will: Minimizing precipitation issues in the area?
+
+Salah: Yeah. She is going to look in that…
+
+Ashley: Yeah, sure. I mean, yeah. …Yeah, I mean…
+
+Will: Does that fit? Okay.
+
+Ashley: Yeah. 
+
+Salah: Same the…
+
+Ashley: Minimize the amount of training that we have to give qualities [SL] of colony.
+
+Will: Okay.
+
+00:31:00:15
+
+Will: So, minimize …like areas of better weather, we could say? 
+
+Ashley: Sure, yeah. I mean, we can generalize that. Yeah.
+
+Will: Okay, next point then, one more time. 
+
+Ashley: So, yeah. Yeah, so, location, low-cost robots to do the drilling.
+
+Salah: Yeah.
+
+Ashley: You know, low costs on the type of the pump that we actually choose. And then, also the lower cost for the type of training that we give the inhabitants of the colony.
+
+Will: Minimizing cost of robots; minimizing cost of pump.
+
+00:31:30:11
+
+Ashley: Type of pump, yeah. 
+
+Will: Okay. 
+
+Ashley: And type of training. 
+
+Will: Okay. Minimizing…or specifying or minimizing the type of or the amount of training?
+
+Ashley: Minimizing. Like…just. It doesn’t get to mention just that.
+
+Will: She wants to minimize.
+
+Ashley: The cost associated with the type of training given.
+
+Will: Minimize, like…training costs. So that all of it works. Is this all clear more or less?
+
+Vika: Yes.
+
+Katya: Yes.
+
+Will: Okay. 
+
+00:32:00:13
+
+Will: Minimizing cost of training. Okay. Cost of training. Okay, now that’s all of us.
+
+Vika: One thing, though, yes…In short, I was wrong. In general, I have a slightly different…
+
+Will: Okay, so it was us who got confused. It turns out that Vika has some different tasks. Vika double checked what she needed to do and it turns out that she actually had some additional…
+
+Vika: Yeah, so…type of water… impurities. //I need to study the impurities...
+
+Oleg: //So, you are…
+
+00:32:30:03
+
+Will: Wait. What’s there?
+
+Salah: Type of water?
+
+Vika: I need to study the impurities. The impurities in the water. 
+
+Igor: Contaminants. 
+
+Will: Okay. Okay.
+
+Vika: But, specifically, it is contamination and…
+
+Will: Check it. If you want, check it. It’s in English. Because it makes sense there.
+
+Vika: I want to do that. I also need to determine the water layers. 
+
+Will: Water layers?
+
+Vika: Water levels …Well, ground…
+
+Will:  So, water levels? Water tables?
+
+Vika: Ground layers…well, yes. Yes.
+
+00:32:59:17
+
+Will: Can you check there?
+
+Vika: Yes. Now, here…Here it is. 
+
+Oleg: Ashley.
+
+Ashley: What?
+
+Oleg: What is it mainly for you? Is it looking for the spot where it will be?
+
+Ashley: Yes, //because the weather will vary on Mars.
+
+Oleg: //Yes, yes.
+
+Vika: // And it is what waterfall will depend on.
+
+00:33:28:17
+
+Ashley: //And I am a Mars weather specialist.
+
+Will: //Waterfall…
+
+Vika: Water.
+
+Will: //It was.
+
+Ashley: //And so that there is climate.
+
+Oleg: //Yes, climate. So, you have the same map?
+
+Vika: //but this [UI]. And…
+
+Ashley: What?
+
+Oleg: Do you have the same map?
+
+Ashley: Yes, yes. But //I still need to finish it here.
+
+Oleg: //While they are figuring it out there. 
+
+Vika: // I will also need to determine the impurities that are contained in this water.
+
+Will: So, okay. Contamination. So, okay. So, it’s... If we define it, it’s not so different.
+
+
+00:34:00:08
+
+Will: than what Vika had already. 
+
+Vika: //It was a clarification. 
+
+Salah: //[UI]
+
+Vika: //I had a more general one.
+
+Will: // How much will come out of this point of water – from the source. And how much is ... What is the name? Impu…
+
+Vika: Impurities. 
+
+Will: Impurities, yes. Impurities. How contaminated is the water. Okay, so. Now we understand everything that is important to us. If someone has questions, you can ask, but now we need to determine finally, as I understand it, where it is. Now, we already... 
+
+00:34:29:19
+
+Oleg: Yes, now we need to understand who from our team is responsible for the location and controls the rovers in order to get there. To conduct reconnaissance of the place where the water intake will be carried out.
+
+Will: Okay. Rovers – it is…
+
+Vika: //And who is who in terms of the roles now?
+
+Oleg: //Katya, what is your job?
+
+Katya: I am responsible for costs.
+
+Oleg: Costs. Abdulla?
+
+Will: Abdulla?
+
+Salah: Drilling. 
+
+Will: So, we need to figure out, I guess, who is going to take the rover and figure out the location of this place.
+
+Salah: Yeah, but the thing is I have just in chat the location they gave me. [SL] the grade. 
+
+00:35:01:24
+
+Salah: So, I’m going to use that grade and will do my decision for which rover we should choose.
+
+Will: //Okay. So, he chooses the rover, correct?
+
+Oleg: Yes. You need to choose a rover that can move on the surface. If we choose a slope, it, consequently, will not come out.
+
+Will: Okay. He can so…Okay, so, you’re going to make a choice about the rover. 
+
+Salah: Yeah.
+
+Will: Right? And, okay…So…
+
+Salah: Depends on the location we will have, I am going to choose 
+
+00:35:30:09
+
+Salah: which rover we are going to…I mean, which drill. What’s the head. What’s the equipment is best for…
+
+Will: So, in the interest of time, we’re…
+
+Katya: And how can I check? //They just suggested a point to me.
+
+Will: //I understand we are all experts in our own areas. Make a decision.
+
+Katya: //Can’t I check a point without suggesting it to everyone?
+
+Vika: What is Abdulla’s role? 
+
+Will: This…
+
+Vika: What is your role?
+
+Will: Material engineer.
+
+Salah: Material specialist. 
+
+Oleg: Material specialist. And now to Ashley. Ashley, in your opinion, where should it be
+
+
+00:36:00:12
+
+Oleg: located? Where is the weather better?
+
+Salah: So, where is…
+
+Will: Where is the best weather?
+
+Ashley: Well I…
+
+Oleg: Well, you have the specifications…
+
+Ashley: I simply do not know.
+
+Oleg: No, wait. In your specifications it was written what is good, a flat surface. Well, for example, here there is a slope.
+
+Will: Okay. So, he will not look for it. You’ll take a look now? You’re still hunting?
+
+Ashley: Well, I mean, yeah. I’m trying to figure out how to even to figure out how to hunt. 
+
+Will: Sure. 
+
+Ashley: Actually.
+
+Will: Yeah, so, take your time trying to figure out how to hunt. It was…my – it was exactly…
+
+00:36:30:15
+
+Will: What’s the word for it? Average water usage? Or is it something…
+
+Vika: Here, you can already…
+
+Will: Average water loss 
+
+Salah: Construction stability…
+
+Will: Loss at [SL] recharge.
+
+Oleg: Yes. 
+
+Will: Loss of flow of internal sources. //So…Which ones did you have?
+
+Salah: //Who is…
+
+Oleg: I have filtration levels. In essence, we have 
+
+Will: Okay, okay.
+
+Oleg: Now we don’t have those specialists with us that would be able to tell us. So we…
+
+Will: Yes, yes. It’s okay.
+
+00:36:59:20
+
+Will: So, what is this…let’s continue. So, what do we know… What would you choose? Because I think that we are working together.
+
+Oleg: I would choose a place where the deposits aren’t that deep and don’t have too much mineral contamination in the water. In order for me to make filters that have a lower degree of purification.
+
+Will: Okay. So, let’s find…where it is located. 
+
+Oleg: This…Here, I suggest 
+
+00:37:29:19
+
+Oleg: Very good coordinates were – thirty-five forty. Thirty-five forty, and the water is relatively shallow there, but at the same time, the main pollution is only [SL] large. Well, like, large rocks.
+
+Will: Okay, okay. Are there any specific ones? Like, we choose a location and then we all look in some different ones.
+
+Salah: Will, do you have the UCA knowledge?
+
+Will: I do have some. Yes.
+
+Salah: Yeah, I think that I have my grade here that says that UCA should
+
+00:38:00:26
+
+Salah: One six six…one six six five. 
+
+Will: UCA one six six five. 
+
+Salah: Yes.
+
+Will: So, I what I want is…
+
+Salah: The construction stability is 0.5, so that’s …
+
+Will: Okay. He says that, like, UCA – it’s one of my things. It turns out that it is good, but I will now check it. 
+
+Oleg: What is UCA?
+
+Will: It is…let me get the translation here. It will be…
+
+00:38:28:19
+
+Vika: UCA – it means unlimited water-bearing
+
+Oleg: Layer?
+
+Vika: I don’t know what it is…
+
+Katya: Abdulla, have you seen the message from our operation specialist?
+
+Will: [SL] Developable surfaces? No. 
+
+Ryan: Yeah, you have…
+
+Salah: //Yeah. Operation specialist is asking us: “What drill [SL] point we can use?”
+
+Vika: //Ground. Unlimited water-bearing ground. 
+
+Salah: But the thing is, I have to make sure //that with that calculation. 
+
+Vika and Katya: //[UI]
+
+00:38:58:02
+
+Salah: They gave me//some information, so I can give them that. 
+
+Oleg: //Structural geologist gave coordinates. Hey. Attention, team! 
+
+Vika: [UI]
+
+Oleg: Now the geologist is suggesting that we take coordinates seventeen twenty-eight and begin the development. Seventeen twenty eight.
+
+Will: Okay. Now they have an idea where it is. So let’s check it out. So, seventeen twenty-eight. So, we’ll take a look at seventeen twenty-eight. Everybody asses that site right now. 
+
+Ashley: Which one is it? Sorry. 
+
+Will: Seventeen twenty-eight. 
+
+Ashley: Holy fuck! [SL] All these fucking questions. 
+
+Will: I know. 
+
+Maybe Vika: Okay. 
+
+00:39:30:13
+
+Salah: //Seventeen? //So, we change the grade now?
+
+Katya: //Should it be this way, that the questions are always highlighted?
+
+Will: Seventeen…
+
+Katya: Very distracting. I have the same ones for the second time in a row //[UI]
+
+Igor: //If you don’t respond right away, the next ones also appear.
+
+Katya: I am answering all of them.
+
+Igor: If it doesn’t appear [UI], [SL] turn it off. 
+
+Will: Okay, seventeen twenty-eight. Okay, so, //size of UCA is very small. 
+
+Vika: //[UI]. Se…se…
+
+Katya: Sedimentologist?
+
+Vika: Yes, sedimentologist. …So, what? //Seventeen…
+
+Oleg: Ash, what is the name of your position?
+
+Alex: Twenty-eight.
+
+Ashley: I am a Martian meteorology specialist. 
+
+00:40:00:14
+
+Oleg: I see, meteo. Meteo.
+
+Will: Okay, so, it’s got low UCA. That’s good…I think…//Okay, so we are not using a lot of water there. 
+
+Vika: //[UI] 
+
+Oleg: Vika, what is your role? 
+
+Salah: So, we have…
+
+Vika: huh?
+
+Oleg: What is your role?
+
+Vika: Hydrogeologist. 
+
+Ashley: Okay, can you repeat…Oh, my! 
+
+Will: Go ahead. Yeah. 
+
+Ashley: I was going to say…sorry, can you repeat the location that you mentioned?
+
+Will: Seventeen twenty-eight. 
+
+Ashley: Seventeen twenty-eight. 
+
+00:40:30:12
+
+Will: Seventeen twenty-eight. 
+
+Ashley: I’ll get there once all these questions stop popping up. 
+
+Will: Yeah, I know. Okay.
+
+Ashley: I know! 
+
+Will: Vika, what do you think about… shoot, what is it…im…impurities? What is it?
+
+Vika: Yes. Yes.
+
+Will: What is it like? Do you think it is high? Or…
+
+Vika: I can’t find the point yet because I have these stupid questions.
+
+Will: Okay, I am telling you that these are large contaminants – it’s sixty-nine and eight.
+
+Vika: It’s okay. 
+
+Ashley: Seventeen twenty-eight. Let’s see here.
+
+Will: Is it okay?
+
+Vika: Yes, yes. 
+
+00:41:00:10
+
+Will: //Okay.
+
+Vika: //Up to 100%, they can remain in the water, but //those that are mineral impurities…what are they called?
+
+Woman1: //How can it be good – on a slope? //How is to be good?
+
+Will: //Okay. And for you?
+
+Vika: //Mineral …
+
+Oleg: Now I am also looking for seventeen twenty-eight.
+
+Will: //Good. 
+
+Woman1: //How will…there…
+
+Vika: //[SL] markings? 
+
+Will: So…
+
+Vika: Markings. 
+
+Woman: How the robot…the robot can go there? 
+
+Oleg: Okay, and what do I…
+
+
+00:41:29:28
+
+Maybe Vika: [UI]
+
+Oleg: How can I learn the parameters?
+
+Salah: Water depth is //one six six five. 
+
+Oleg: //[SL] Eighteen twenty-one. How can I know?
+
+Ashley: How can I tell if there are…in fact, there are none //[UI] dust storms there. 
+
+Oleg: //Oh, that’s it. That’s it. 
+
+Ryan: //[SL] Try.
+
+Vika: //[UI]
+
+Ashley: Alright, this is our green zone, okay. //Lowest dust storm frequency. Okay, orange. So, it’s got four orange. Sorry.
+
+Vika: //If the point is seventeen twenty-four. I think it is a rather high level of impurities that are murky…
+
+Ashley: [SL] It turns out high. Second highest frequency.
+
+Vika: Contaminants. 
+
+Maybe Katya: Twenty-eight.
+
+Vika: What?
+
+Maybe Katya:// Seventeen twenty-eight. 
+
+Vika: //Oh, seventeen twenty-eight? Thank you.
+
+Oleg: //I can’t enter…
+
+00:42:01:00
+
+Oleg: I…look, I am trying…Here – create.
+
+Alex: We need to look into this.
+
+Oleg: Shoot. I can’t enter the parameters of this point. 
+
+Woman1: It’s advice. Will they take advice?
+
+Will: Okay. So, Ashley, //are you able to see your…
+
+Woman1: //So, try thirty-three twenty-six.
+
+Ashley: Yeah, so, I see that //ideally it would have more green zones. And green zones are, basically, the lowest dust storm frequency. 
+
+Oleg://[UI]
+
+Katya and Vika: //[UI]
+
+Woman1: and it’s only one.
+
+Ashley: And there is only one in this area. So, I would almost…based on that alone
+
+00:42:30:13
+
+Ashley: not like that location. 
+
+Will: Okay, so, you’re looking, like it’s negative for you, then. 
+
+Ashley: It’s a negative for me. 
+
+Will: Okay, alright. So, Abdulla, so, have you had the chance to locate the site seventeen twenty eight?
+
+Salah: No, not yet. 
+
+Woman1: //Thirty-three twenty-six. 
+
+Will: //Okay.
+
+Salah://Because they are…
+
+Woman1: Try that.
+
+Ashley: //Which one?
+
+Maybe Alex: //[SL] will pass it on. 
+
+Woman1: //Thirty-three twenty-six.
+
+Salah: //Thirty-three twenty-six. They post it. Because here they need from me some information. 
+
+Ashley: Why //are they posting the coordinates?
+
+Oleg: //I don’t yet have any data regarding…
+
+Will: Okay.
+
+00:42:59:18
+
+Oleg: //Because of this content 
+
+Woman1: //[UI]
+
+Will: Tell me…
+
+Woman1: //Thirty-three thirty-six.
+
+Igor: //[SL] Such problems. He doesn’t have [UI]
+
+Will: Tell me, //exactly…or can I show him my screen? Or is that prohibited already?
+
+Ashley: //Twenty-six?
+
+Woman1: //Yeah. 
+
+Igor: Today you can because…
+
+Will: Okay, okay.
+
+Igor: We are all friends here.
+
+Oleg: //I need the point and I need the parameters. 
+
+Ashley: //[UI]
+
+Will: Here. //This is the point. Our point, correct?
+
+Ashley and Woman1: //[UI]
+
+Oleg: //Yes. 
+
+Will: //And now I don’t know what parameters you need to know. 
+
+Woman: Yeah, not better
+
+Ashley: Not better. 
+
+Will: //We’re evaluating seventeen twenty-eight. 
+
+Woman1: //[UI]
+
+Ashley: //If this comes to the green zone…
+
+Salah: //Seventeen…
+
+Will: Twenty-eight.
+
+Salah: //Twenty-eight. [SL] I am able to get there. 
+
+Ashley: //But we did say that…when we did the
+
+00:43:31:02
+
+Ashley: survey, //we did say that one green zone is better than ten green zones. [UI] green zone. 
+
+Oleg: //[UI] water…water…
+
+Ryan and Igor: //[UI]
+
+Oleg: О! Very good!
+
+Will: Is it good?
+
+Oleg: Yes.
+
+Will: So, to Oleg…Okay, so…we have right now: Vika is good, I’m good, Oleg is good, Ashley …it’s not…the weather patterns. 
+
+Ashley: Are you still on seventeen twenty-eight?
+
+Will: Did we move on from seventeen twenty-eight?
+
+Ashley: I don’t know. Abdulla told me something else. 
+
+Will: Yeah, yeah. So, he…I don’t know where that number came from, but we’re still assessing //seventeen twenty-eight.
+
+Ashley: //So, seventeen twenty-eight. So, I would say, no for me. 
+
+Will: Okay. 
+
+00:43:59:25
+
+Will: Katya, are you at seventeen twenty-eight?
+
+Katya: No, I am having temporary difficulties.
+
+Will: Okay. 
+
+Vika: For my parameters, it is okay. 
+
+Will: Okay. Can you show it to her, directly…while we are doing this now…
+
+Oleg: Yes, show.
+
+Will: Because we are having some technical problems now. 
+
+Salah: //Seventeen.
+
+Woman1: //Interesting. Can you, like, put it somewhere and see the other?
+
+Will: //Twenty-eight.
+
+Salah: //Let me check.
+
+Oleg: Here, at least now it’s working.
+
+Salah: You have the…
+
+Ashley: I think so.
+
+Salah: //Sorry. You have the UCA six hundred thirty?
+
+Will: //That’s the depth of the UCA. Correct, yeah. 
+
+Woman1 and Ashley: //[UI]
+
+
+00:44:29:29
+
+Salah: So, soft soil is through; rocky soil is through; //stone layer falls. So, we don’t have the stone layer there.
+
+Woman1: //I think it’s here, probably. In this crevice. 
+
+Will: So, does that look like a thumbs up or thumbs down?
+
+Salah: //For me, I’m okay. But I need more calculations from the geology engineer.
+
+Woman1: //[UI]. Okay, seventeen fifteen I like. 
+
+Will: What do you need to know? Reach out to him. Ask him a question. Can you find him?
+
+Salah: Yeah, yeah. 
+
+Will: On the left-hand side. So, reach out to him and ask your question. 
+
+Katya: [SL] No idea, point…
+
+Oleg: Vika, just in case, //considering that you are a hydrogeologist, I have 
+
+Woman1: //Seventeen thirty-five is good too. 
+
+00:44:59:28
+
+Oleg: //according to the indications, it shows that I will use practically only filters and, by doing this, it does not matter what the depth will be. It seems it is five hundred. As a hydrogeologist.
+
+Ashley: //I’m going to save that one. 
+
+Vika: As a hydrogeologist, I’ll tell you that, in principle, in terms of depth, this point – seventeen twenty-eight, is suitable. And in terms of contamination, too.
+
+00:45:29:10
+
+Oleg: Will, what about you in terms of losses? What were your requirements?
+
+Will: For me, it’s good. //It’ll do.
+
+Vika: //[UI]
+
+Oleg: I have a question, how are we going to deliver this water anywhere? Considering that, obviously, this is a slope. Inclined...and...
+
+Will: Yes, but the most important thing is that it is…now we define it by our, like……
+
+Oleg: Okay. Then we need to ask Ashley about the weather if…
+
+00:46:00:26
+
+Will: She said no. It won’t work.
+
+Oleg: No?
+
+Ashley: I said no because…I don’t know how to say it. //We need more of a green zone, and there…
+
+Salah: //I had just…
+
+Will: Speak. Go ahead. 
+
+Salah: I just //had a message from the location [UI]. It says: “You have to move from that area, because it is too expensive”.
+
+Ashley: //There were very many red zones. And it means that there are many of dust storms. 
+
+Woman1: //Sand. 
+
+Oleg: Yes, yes, yes.
+
+Will: Who said that?
+
+Katya: Which one?
+
+Salah: The operation specialist just mentioned that we have to move from the place you gave me – 
+
+00:46:30:09
+
+Salah: seventeen twenty-eight because //it is too expensive. Now we are looking at twelve nine. 
+
+Katya: // I should be able to calculate the drilling time. I don’t know which [UI]
+
+Alex: //[UI]
+Katya: [UI] How much time for drilling in hours? It turns out I need to know this.
+
+Salah: Do you understand?
+
+Oleg: Well, I understand.
+
+Will: So, //this point has changed to twelve nine.
+
+Alex: Maybe this one?
+
+Woman1: //Oh, no.
+
+Ashley: //No.
+
+Vika: I don’t have another one.
+
+Ashley: Not at all.
+
+Oleg: Twelve nine?
+
+Ashley: It is even worse for me.
+
+Woman1: Worse.
+
+Katya: No, definitely. //Definitely not.
+
+Ashley: //There will be very many.
+
+Oleg: //What are the parameters for twelve nine?
+
+00:47:01:29
+
+Ashley: Twelve nine, yes. //It’s twelve nine.
+
+Oleg: //Parameters, parameters. Right here.
+
+Ashley: but my parameters…
+
+Woman1: No, no. It’s here. 
+
+Ashley: Oh, here. 
+
+Woman1: Here. Over here – red. Four. 
+
+Oleg: Hold on, hold on. 
+
+Salah: UCA is nine seven five.
+
+Katya: Nine seven five…
+
+Ashley: Mine will be…
+
+Will: I don’t need to know the details. //I don’t think…if you need to make a decision based upon your own information. So, if there is any information that any of us need from each other, that’s fine. But… We’re all experts here, so we’re experts on ours.
+
+Ashley: //Not so…
+
+Oleg: //I don’t…
+
+00:47:30:49
+
+Will: If you need information to draw conclusions from this, just ask. But decide for yourself if it works for you and if you need information. If not, then let’s not waste time explaining to each other everything we think we need to do. Okay?
+
+Woman1: //What about here?
+
+Ashley and Woman1: //[UI]
+
+Ashley: //There is a lot of red here. This has a lot of red. 
+
+Woman1: //Yeah, yeah. So, let’s see…
+
+Ashley: Down here?
+
+Will: If you think that this // is not so – fine, but whatever suits you. I trust everyone. We trust. Everyone here is an expert on ours, right?
+
+Woman1: //It’s here. See?
+
+Ashley: //Oh, that’s good.
+
+Vika: Okay.
+
+Will: Okay.
+
+Oleg: Will, can you //twelve nine 
+
+Woman1: //[SL] Thirty thirty.
+
+Will: Okay.
+
+00:48:00:17
+
+Oleg: Look and I will look at the parameters. 
+
+Will: Okay.
+
+Ashley: Yeah.
+
+Katya: Twelve nine does not work in terms of mineral //contamination.
+
+Ashley: //thirty…
+
+Oleg: Mineral? So, it’s contaminated there, correct?
+
+Katya: Yes, yes. Very much so.
+
+Will: Twelve nine.
+
+Ashley: So…
+
+Salah: Twelve nine isn’t valuable.  We are looking for a new location right now. 
+
+Ashley: Twelve nine sucks. Is there any way that we could give a suggestion of thirty thirty? As meteorology perspective^ I think^ that would be a good one. 
+
+00:48:29:09
+
+Woman1: Everybody should check parameters.
+
+Ashley: Yeah, so, I’m looking at a different parameter…okay, // “Project RED signoff phase has begun. Please use the shared decision calculator in the center [UI] to confirm [SL].” Wait, what?
+
+All://[UI]
+
+Alex: Okay, now we need…
+
+Oleg: //This calculator?
+
+Alex: //Yes.
+
+//[UI]
+
+Woman1: //Meteorology team. Suggestions [UI] geology team. 
+
+Alex and Oleg: //[UI]
+
+Vika: No, not clear…
+
+Oleg: A new location.
+
+All //[UI]
+
+00:49:01:03
+
+Alex: This will be in the central [UI]. Some main things [UI]
+
+Vika: Have you also received this message?
+
+Oleg: Yes, yes, yes…Will and all the teams, now we have received a message that we still need to approve a new point and location point and enter these indicators in the database. So, about twelve nine,
+
+Vika: but…
+
+Oleg:  we have nothing that works, right? Well, it’s contaminated there.
+
+Katya: Theoretically, but it’s more…
+
+00:49:30:23
+
+Oleg: Ash, what about you?
+
+Katya: //fifty percent, yes, it’s bad. 
+
+Ashley: I said no. There…I’m sorry, what?
+
+Katya: [UI]
+
+Ashley: Yeah, my whole //team, actually, also agrees that twelve…twelve nine – my entire group said no because it is not very good. There is too little water there, and the climate is not good either.
+
+Will: //It seems to work for me…I am not getting any response from the geologists. I’m not getting any response from the geologists.
+
+Salah: I just sent them a message. 
+
+Will: Are they responding to you?
+
+00:49:59:14
+
+Will: The geologists?
+
+Ashley: And also, like, yeah. If there is any room for suggestion, and if all of you guys would like to, maybe, check what thirty thirty looks like for you.
+
+Will: Thirty thirty. 
+
+Ashley: Because, //if we all, like, maybe we can suggest that.
+
+Will: // Thirty thirty.
+
+Ryan: Okay, you have a signoff tab at the top above the map. Click on that. 
+
+Will: Sign off?
+
+Ryan: Sign off, then…
+
+Will: Okay. Okay.
+
+Ashley: [UI]
+
+Ryan: So, this is //where everyone in their group going to…
+
+Will: //Ok, click “sing off’. This…what? Tab? What is it called?
+
+Oleg: Yes. 
+
+Katya: Yeah.
+
+00:50:29:28
+
+Will: Bookmark? I don’t know. Okay. Alright.
+
+Ashley: Okay. //Oh, fuck! What do I… 
+
+Ryan: So, this is where the final location will be set and everyone in the group will sign off on it.
+
+Oleg: [UI] out. For some reason…
+
+Will: So. //Now, if you remember what it was…
+
+Oleg: //[UI]
+
+Vika: No.
+
+Will: In the video. Yes?
+
+Vika: Well, yes. Yes, yes. 
+
+Will: Okay.
+
+Ashley: Wait. //Question?
+
+Alex: //[UI]
+
+Salah: They gave me new coordinates. 
+
+00:50:58:22
+
+Salah: Consider forty-four forty-three.
+
+Alex: [UI]
+
+Oleg: Yes.
+
+Ashley: So, you signed off on it already. /Drilling specialist…Question.
+
+Will: //Is this delayed? Are we delayed from them?
+
+Igor: Right now? //[UI]
+
+Ashley: I’m sorry. 
+
+Will: Okay. So what does it mean…
+
+Ashley: I have a question for the team. So, I am in the signoff tab right now, and where does it indicate exactly which location, we are making the decision right now?
+
+Oleg: Ashley, how about thirty thirty for you?
+
+Ashley: //This I… we already…
+
+Will: //We already have to…
+
+00:51:29:19
+
+Ashley: It’s too late to give thirty thirty because we need to sign off. I can see you’ve already done sign off. So, you agree //with this, but I just don’t understand…
+
+Katya: Please tell me what is “sign off”? I don’t understand how it works. 
+
+Ashley: The one that…
+
+Katya: Just now the hydrogeologists //[UI]. Oh, I mean the geologist team can…
+
+Ashley: //location…we’re looking at. Do you know?
+
+Will: I’m not seeing where…
+
+Ashley: Let me see the chat here. Let me see. 
+
+Ryan: [UI]
+
+Will: There is maps and notes. 
+
+00:52:00:24
+
+Maybe Alex: [UI]
+
+Ashley: Ah! 
+
+Oleg: [UI]
+
+Will: Okay.
+
+Katya: Who are the geologists?
+
+Oleg: Structural geologist. 
+
+Katya: Yes, this one is mine.
+
+Oleg: [UI]
+
+Ashley: //Sing off.
+
+Vika: //Yeah, Will. 
+
+Alex: [UI]
+
+Will: What?
+
+Oleg: Yes. Guys…
+
+Vika: My geologists…
+
+Oleg: We have a feeling that we have not received any suggestions from geologists.
+
+Vika: We have discussed it as a group.
+
+Will: Yes. I am a geologist. Who do you have to be with?
+
+00:52:30:19
+
+Vika: With a group of geologists. //Or are you in a different group?
+
+Oleg: //Yes, but…Okay, has the geologist written anything to anyone?
+
+Vika: //[SL] I am a geologist.
+
+Will: //Yes. I am a geologist. Are you a geologist?
+
+Vika: Yes. 
+
+Will: Oh, okay, so we are geologists. 
+
+Vika: It’s just that we are different…different.
+
+Ashley: You’re geologist? I thought you were hydrologist. 
+
+Will: Yeah. 
+
+Alex: Hydrogeologist. 
+
+Vika: Huh?
+
+Will: And you…
+
+Ashley: I thought you were hydrologist. 
+
+Igor: Hydrogeologist.
+
+Ashley: Oh. 
+
+Will: Hydrogeologist. 
+
+Ashley: Okay. 
+
+Will: Okay.
+
+Vika: Please tell me what we are supposed…
+
+Will: Well, I don’t understand at all what…
+
+Ashley: Yeah, like...How do we know…How do we know which location
+
+00:53:00:07
+
+Ashley: we’re assessing right now for signoff?
+
+Will: I believe that the map cell //should be, but I don’t know…
+
+Salah: //Yeah, but we got the message from the geologist. They said to consider forty-four forty-three.
+
+Will: Right. //But let’s already move that to the signoff phase. 
+
+Ashley: //Wait, wait. Are we still…are we still on…We’re on signoff phase, yes. We’re not even looking at…
+
+Will: So, did you get the alert…
+
+Salah: So, do you want me to sign off?
+
+Will: So, you go…//I don’t want you to do anything. I just want you to go to the sign off tab. 
+
+Ashley: //No, no, no. Don’t sign off on it yet! I’m just saying that that’s the phase we are on, so we can’t make any other further decisions right now. Or offer any other options right now.
+
+00:53:30:10
+
+Will: Maybe we could, but I don’t know. 
+
+Ashley: Maybe we can, but the chat is not…the chat is not…
+
+Will: So, right now what I see here, it says “minus one” – “minus one minus one”. Therefore, I don’t think that they chose this. So…what do we do?
+
+Oleg: The fact is that if we have not decided on a location now, we no longer have the opportunity to choose a location. The extreme one that we have confirmed, we must calculate and see how much we can use. If we have it weather-wise, perhaps, but some problems are possible ...
+
+00:54:00:06
+
+Will: Yes, but it has been switched to sign off. So, where is it written what coordinated we have?
+
+Oleg: Coordinates?
+
+Katya: We need help from the audience.
+
+Oleg: I don’t have any.
+
+Will: Yes, exactly. So, we don’t know where this was chosen. 
+
+Ashley: Yes. 
+
+Will: Consequently, I don’t know. And nothing is working for me anyway.
+
+Ashley: Alright. We can still talk in the chat, so //if there is like…
+
+Oleg: Do you have any coordinates?
+
+Will: Minus one minus one – that’s what we have. //I am getting nothing from them. Okay. 
+
+Vika: //[UI]
+
+Ashley: //Coordinates…are we assessing the [UI]
+
+00:54:29:21
+
+Oleg: Ryan!
+
+Ryan: Yes.
+
+Oleg: //When we loaded sign off, the coordinates we received – there are none here. Where can we get the information from?
+
+Vika and Alex: //[UI]
+
+Vika: //But I don’t understand where to enter the data. So, I can’t anything…
+
+Katya: //Do I understand correctly that we are choosing from these?
+
+Alex: [UI]
+
+Oleg: What can we discuss?
+
+Igor: [UI]
+
+Ashley: I’m trying to get an answer //from my group right now about which one we are assessing. 
+
+Will: //Yeah, same. 
+
+Katya and Vika: //[UI]
+
+Ashley: //If anybody tells us, shout it out. 
+
+Will: //So, did anybody else say forty-four forty-three?
+
+All: //[UI]
+
+00:55:01:27
+
+Oleg: //I don’t know the parameters of the location where…if I knew, I would [SL] try the filters…
+
+Vika: //and then we can [UI]
+
+Ashley: Okay, so, now. So, wait. //So, are we not signing off right now?
+
+Ryan: //We discussed this earlier. It should be this one.
+
+Oleg: The thing is we couldn’t identify the location.
+
+Ashley: So, they told me just now: // “We have decided to look at forty-eight four.” 
+
+Oleg: // The thing is we said that we have, see [UI]
+
+Salah: Who told you that?
+
+Oleg: The told me forty-four forty-three. So…
+ 
+Katya: What point are we choosing in the end?
+Ashley: But why //did they tell us to sign off? So, now, I’m saying, why [UI]
+
+Will: //I don’t know how we can choose it.
+
+00:55:30:20
+
+Will: So…
+
+Ashley: Okay, so, now it’s saying forty-one seventeen. 
+
+Will: Forty-one seventeen. 
+
+Ashley: Live updates. //So, forty-one seventeen.
+
+Alex: //[UI] Enter [UI]
+
+Ashley: Show me where it is. 
+
+Salah: What is it?
+
+Ashley: Forty-one seventeen. 
+
+Will: Okay, so, I guess…Okay, it turns out so far //we don’t do sign off.
+
+Ashley: //[SL] It’s right on! 
+
+Will: So, they are still working. We are getting…I guess this one, //we are waiting, or not.
+
+Ashley: //I’m good with forty-one seventeen, by the way.
+
+00:55:59:12
+
+Will: If we look, perhaps, we can keep working. I don’t know.
+
+Igor: But you have a time limit. You have a time limit, so, you need to be signing off at this point. So, you need to pick. You need to converge or make //[UI]
+
+Oleg: //Do we need to fill it out?
+
+Will: Okay, so, I mean, how do we…is there a process for converging? How do we add in the map cell? Do we all choose the same one? What’s the actual process for converging?
+Igor: Ryan?
+
+Will: Is that something you could answer or is this something we should know already?
+
+Ryan: They should…they should be saying it in the chat. [SL] It’s so mixed up.
+
+Will: Okay.
+
+Igor: But they are talking about the mechanics. 
+
+00:56:29:22
+
+Will: The mechanics of signing off. 
+
+Igor: The mechanics of signing off. 
+
+Ashley: I think, you just click your name. 
+
+Ryan: Yeah, you just click you name. The checkbox next to your name. 
+
+Ashley:  And the popup comes up saying: “Are you sure that you sign off?”
+
+Ryan: Yeah. 
+
+Will: Right. But right…so, rather, I know that part, but…
+
+Ashley: Okay, sorry.
+
+Will: How do we choose? How do we know what site has been chosen?
+
+Ashley: Yeah. I’m just about to ask them that. But, by the way…so, the last I heard was forty-one seventeen. I’m good with that one. I let them know that from my perspective I’m good with that, and now I’m asking them: “How do we know that I want to sign off [UI] assessing that location?” 
+
+00:57:01:13
+
+Ashley: So, let’s see if they //give me an answer?
+
+Vika: //What about forty-four forty-three? //Forty-four forty-three, have you checked?
+
+Will: //That’s what I heard too…No.
+
+Salah: [SL] //They moved on.
+
+Vika: //From our chat.
+
+Ashley: Yeah. //The said they are changing it.
+
+Will: //Forty-three. I saw it, yes, but I thought that…forty-four forty-three.
+
+Vika: //[UI]
+
+Ashley: //What was that, again?
+
+Oleg: //I have a feeling that there is some connection problem.
+
+Salah: What do you think about…
+
+Ashley: Okay, so it’s the geologist that [UI]. So, aren’t we…
+
+Will: Great, okay. Okay. //More or less okay.
+
+Katya: //It’s not so good depth, but it’s correct. 
+
+Vika: //It’s okay for me.
+
+00:57:30:15
+
+Ryan: Okay. Two minutes to lock in. 
+
+Will: Okay, low [SL] distance recharge…okay, good. Size of UCA…Basic size…
+
+Katya: So //[UI]
+
+Will: //It’s a small one, isn’t it?
+
+Maybe Oleg: Mhm. 
+
+Will: It’s a little bit small for my likes, but, //I mean, if we got to choose one, we got to choose one. Right?
+
+Ryan: //[UI]
+
+Ashley: Okay, so, it’s telling me…
+
+Oleg: I can’t see UCA. 
+
+Ashley: They are telling me in the chat to decide on training. 
+00:58:00:25
+
+Ashley: Training for hygiene, usability, fundraiser, whatever…and…
+
+Woman1: Training [SL] this side. 
+
+Vika: Guys, check //point number forty-four forty-three.
+
+Ashley: //I don’t understand how [UI]
+
+Will: //Okay. Okay. Okay. Once you…Okay. Once you check your…Does anyone else see forty-one seventeen in the signoff section?
+
+Ashley: Let me see. 
+
+Salah: Yes. 
+
+Katya: One more time. 
+
+Will: Forty-one seventeen //in the signoff section. 
+
+Ashley: //Oh, yeah. I do see that now.
+
+Will: I clicked it, and I clicked the Plus. So, maybe it was just on me…
+
+00:58:31:11
+
+Katya: Forty-one seventeen?
+
+Will: Forty-one seventeen. You should…That’s what you should…That’s what you said, right?
+
+Katya: Forty-four forty-three. 
+
+Will: Forty-four forty-three. Well, okay. Okay, so, no one seems to like that one. Forty…Well, I didn’t do this one then. I did not do it.
+
+Ashley: I don’t understand why he is asking. 
+
+Will: Okay, so, somebody else got…So, if you go to the signoff page, do you actually see numbers now?
+
+Ashley: Under “Planetary Geology”? …Oh.
+
+
+00:59:01:07
+
+Ashley: Project RED decision project has been reset by operation specialist. 
+
+Will: Yeah, so, I can now see in “Planetary Geology”, which is not me.
+
+Ashley: Why can’t be [SL] in the chat…
+
+Will: It says, “forty-one seventeen”. 
+
+Alex: //Forty-one seventeen.
+
+Ashley: //[UI] decision on training cost decision [SL] which I don’t know about. …Green zones impact hygiene training 
+
+00:59:30:06
+
+Ashley: and…Okay, so, green zones impact hygiene training. Orange zones impact [SL] maintenance training. So, I guess…does that mean that I need hygiene and //maintenance training?
+
+Maybe Oleg: //[SL] start to reset. [UI]
+
+Ashley: Let me just type that and see if they agree. //So, since we have one green zone here and five orange zones. Does that mean, that
+
+Maybe Alex: //[UI]
+
+01:00:00:06
+
+Ashley: //we…
+
+Oleg: Well, yes. 
+
+Alex: Process.
+
+Oleg: //decision making.
+
+Alex: //[UI]
+
+Ashley: //that means that hygiene and maintenance training is affected.
+
+Ryan: Someone is rejected. 
+
+Katya: High level of contamination. //It’s very bad water.
+
+Woman1: //Why did you use hygiene maintenance, not usability, for example?
+
+Ashley: //Sorry. 
+
+Woman1: //Why did you use hygiene and maintenance? They suggested?
+
+Igor: //[UI]
+
+Ashley: No. Because I just said…//in this one it says: “number of green zones is one. Number of orange zones…”. So, I just said, like, okay, so…and zero for the other ones. 
+
+Igor and Katya: //[UI]
+
+Woman1: Oh yeah, yeah. 
+
+01:00:30:11
+
+Woman1: Yeah. 
+
+Ashley: //Zero for yellow and red.
+
+Katya: //Should I only [UI] or are they saying?
+
+Alex: //Yes. 
+
+Oleg: Well, is anything working for you or not?
+
+Igor: Choose one for yourself too. //[UI]
+
+Ryan: //[UI]
+
+Ashley: Why? I can’t send anything in the chat anymore?
+
+Oleg: Vika? Is anything working for you? Is anything moving forward?
+
+Vika: //See point forty-one seventeen.
+
+Ashley: //So, that means that we need [UI]
+
+Oleg: //Yes, but I can’t. Here, forty-one seventeen is now uploaded.
+
+Ashley: Come on!
+
+Oleg: Hold on, just a second.
+
+Salah: [UI]
+
+Will: Have you chosen “Yes”?
+
+Oleg: Hold on. 
+
+Will: It was just you that selected “Yes”, correct?
+
+Oleg: Forty-three seventeen?
+
+01:01:00:17
+
+Will: // Forty-one seventeen. 
+
+Vika: // Forty-one seventeen.
+
+Ashley: Forty-one seventeen, yes. Okay.
+
+Oleg: Hold on.
+
+Ashley: Perfect. 
+
+Vika: Yes.
+
+Will: But I don’t see any of them choosing this location, so... Besides you. You already chose it. So, like… Did you choose it randomly or did you want this exactly?
+
+Oleg: It’s random.
+
+Will: Okay. Then click “Reject”.
+
+Salah: Will…
+
+Oleg: Now, wait. I even [UI].
+
+01:01:28:07
+
+Oleg: Again //the operation specialist has replaced decision-making.
+
+Ashley: //” So, which number should I select for those?”, he is saying. So, …
+
+Igor: //[UI] his decisions?
+
+Will: Okay.
+
+Oleg://They are explaining the reason. Again…repeating it for the second time. For me, forty-one seventeen is outside the boundaries on my map. 
+
+Ashley: //There will be twelve options for each of the four trainings. It’s important to pick the best trainings. Okay. [UI]
+
+Will: Is anyone getting //any messages from back home?
+
+Salah: //Did you see that [SL] my itinerary has been updated?
+
+Oleg: //See? Forty-one seventeen – it’s even [UI]
+
+Ashley: Why is this lagging?
+
+Will: No. 
+
+Ashley: Okay.
+
+Will: Oh, wait! I see yours. Yes! 
+
+Salah: The last thing. You see? //[UI]
+
+Will: //Okay. I see…Yes, I do see that it has updated. So that’s good. 
+
+01:01:58:23
+
+Salah: I put the calculation there. 
+
+Oleg: Thirty-nine. 
+
+Alex: You have fifty here.
+
+Ashley: One for maintenance.
+
+Oleg: Where?
+
+Alex: Up somewhere
+
+Oleg: Hold on. I can’t understand what…//there, see? Thirty-five forty-one. 
+
+Ashley: //I don’t know. That’s how I’m interpreting it. I have no idea. 
+
+Vika: What do you think of point forty-four forty-three?
+
+Oleg: Here the first coordinate should be “forty-one”.
+
+Will: Hm?
+
+Vika: Point forty-four forty-three //what do you think?
+
+Oleg: //I don’t even have it in the field.
+
+Will: Somewhat small, but so what? //okay.
+
+Ashley: //It’s stressing me. 
+
+Oleg: Forty-one. There’s no such point at all. 
+
+Woman1: We are servicing. Do you need servicing?
+
+Ashley: Do we need servicing? Where is servicing?
+
+01:02:30:00
+
+Ryan: Down…
+
+Salah: Why is it?
+
+Ashley: Oh, man…
+
+Oleg: Well, it’s random. So, these are not well-considered actions. 
+
+Ryan: Mhm.
+
+Ashley: It’s all good.
+
+Oleg: Igor, I have a feeling that we are all just randomly taking wild guesses here.
+
+Salah: [UI]
+
+Ashley: That’s fine. It’s all…
+
+Oleg: Here, I have this automatically 
+
+
+
+01:03:00:09
+
+Oleg: Coordinates “forty-one seventeen” just appeared. I have it outside the map. In fact, there isn’t even such a point. 
+
+Ashley: I need [UI]
+
+Igor: Where is it [UI]
+
+Oleg: Here. 
+
+Ryan: [UI]
+
+Oleg: Here. Forty-one seventeen. Again //[UI]
+
+Ashley: //And do we need servicing? Why do we talk about servicing?
+
+Igor and Oleg: //[UI]
+
+Will: Are you Martian terrain specialist?
+
+Oleg: Again, no explanation as to why. 
+
+Igor: //[UI]
+
+Will: //Ashley, are you Martian terrain specialist? Is that your…
+
+Ashley: No, I’m the meteorologist. 
+
+Will: Meteorologist, okay. 
+
+Igor: Forty one – it’s that way.
+
+Oleg: Yes. 
+
+Igor: Yes.
+
+Oleg: Oh, here. Here it is. 
+
+01:03:29:19
+
+Woman1: Severity…I don’t know. Severity…Repair, you mean, repair? [UI]
+
+Will: Do we have any ability to //alter the coordinates?
+Ashley: //[UI]
+
+Will: Is that on us?
+
+Ashley: Do we know what type of…
+
+Vika: [UI]
+
+Woman1: Or he…somebody responsible for pump.
+
+Ashley: Do we know what type of pump? I am being asked: “Do we need servicing?” //And I’d like to know what type of type of pump. 
+
+Will: //Do you understand? You are the pump guy, right?
+
+01:04:01:25
+
+Salah: I had the calculation //but it’s not all. See, like…
+
+Vika: //What do you need?
+
+Ashley: How do you say “pump” in Russian?
+
+Will: Do you enter for pump stuff also?
+
+Woman1: Pump. //Pump.
+
+Oleg: //Does forty-one seventeen work for you?
+
+Vika: //[UI]
+
+Will: //We are not there right now. So, if you go…
+
+Woman1: //[UI]
+
+Vika: //[UI]
+
+Oleg: //In principle, it is this…I can’t indicate. Look…
+
+Will: //Sure, have you looked at the …what’s up on signoff page right now?
+
+Vika: What?
+
+Will: On the signoff page. 
+Oleg: This one – approximately this zone. 
+
+Vika: Sign off.
+
+Will: //Bookmark…is this what it’s called?
+
+Oleg: //It is convenient for you. 
+
+Vika: Oh, well, no…
+
+Ashley: Here?
+
+Oleg: Yes. Forty-one seventeen. Forty-one seventeen. 
+
+Ashley: // Forty-one seventeen – it’s here. 
+
+Vika: //I did sign off and logged in again. 
+
+01:04:29:22
+
+Ashley: And…//yes, it’s me.
+
+Vika: //[UI]
+
+Oleg: Yes. [UI] parameters. 
+
+Will: What?
+
+Vika: This page is not here. Sign off?
+
+Oleg: You don’t have it. 
+
+Woman1: plastic.
+
+Ashley: Pump material is plastic. 
+
+Oleg: Yes. Tube…tube.
+
+Ashley: More.
+
+Oleg: Pipes. 
+
+Ashley: Yes, pipes. Yes? Pumps?
+
+Woman1: No. //Pump. Pump.
+
+Vika: //We don’t have signoff.
+
+Ashley: Oh, pump. Sorry.
+
+Oleg: Oh.
+
+Ashley: It’s plastic. So…What are the servicing values?
+
+Will: Okay. Forty-one seventeen.
+
+Vika: //We don’t have signoff page.
+
+Oleg: Yes.
+
+Ryan: It’s incorrect.
+
+01:04:59:21
+
+Oleg: Can you show the parameters //”forty-one seventeen”? I just…
+
+Vika: //I just logged in again.
+
+Will: Yes, yes, yes. 
+
+Oleg: The system is not working for me.
+
+Ashley: Actually, let me just minimize that//really fast. Come on!
+
+Katya: The system is not working for me. I have responded.
+
+Igor: You’re out of time. I say, just, everybody signs off and move on with their lives.
+
+Vika: Oh! Oh!
+
+Will: Okay. So, alright. So, they haven’t done it either. It’s this one.
+
+Oleg: So, hold on, wait. Okay…Oh, actually…Do you agree with this?
+
+Vika: With what?
+
+Oleg: Forty-one seventeen.
+
+Vika: Well, it’s very bad water, but in principle, 
+
+01:05:32:05
+
+Vika: Yes. Possible.
+
+Katya: We have…
+
+Vika: But it is very bad water.
+
+Will: Will it do?
+
+Ashley: If it’s plastic, do we think we need //[UI]
+
+Oleg: //Dirty water.
+
+Will: //So, forty-one seventeen is a complete No, or…
+
+Woman1: //[UI]
+
+Ashley: No, no. I liked it. I like forty-one seventeen.
+
+Will: Okay. 
+
+Salah: //Seventeen…I already put the [UI]
+
+Katya and Vika: //[UI]
+
+Oleg: //Abdulla, forty-one seventeen? Forty-one seventeen?
+
+Salah: //For me it’s fine. 
+
+Ashley: //We need a…[UI]. None, low or high repairs?
+
+Will: //Fine. More or less okay, because we are similar. How about you?
+
+Salah: //We should be aware about the leakage and [UI]
+
+Ashley and Woman1 //[UI]
+
+Oleg: //It’s murky water, and filtration will be rather serious.
+
+Will: Okay. 
+
+Oleg: //But there are filters that can provide it. 
+
+Salah and Woman1: //[UI]
+
+Will: Okay.
+
+01:05:59:12
+
+Oleg: And depth? What is the depth?
+
+Vika: Well, it’s enough for me. 
+
+Ashley: So, are we signing off now?
+
+Will: Depth it’s, just
+
+Ashley: I assume. 
+
+Will: Eight hundred…
+
+Oleg: Eight hundred ten. 
+
+Katya: Six hundred…
+
+Oleg: And…can I write down the parameters?
+
+Vika: Yes, it’s definitely enough.
+
+Will: Well, okay. I think yes. It is …it is the sedimentologist. “You are about to sign off [UI]. Are you sure you want…” . Yes. 
+
+Ashley: Okay. I’m about to sign off on forty-one seventeen as well. I’m happy with the dust storm location. They have been informed about the pump material. It is plastic //so I know which servicing we need. 
+
+Oleg: //The depth is eight hundred ten.
+
+01:06:32:27
+
+Ashley: So, //how much training we need, so, I think we are good to go on all the human factor side of things here, so…yeah, so, “it looks like we’re just waiting for the other teams now”, my Martian terrain specialist is saying, so…
+
+Oleg: //[UI]
+Igor and Vika: //[UI]
+
+Ashley: Let me see. //[UI]
+
+Vika: //How can I know that I have confirmed?
+
+Ashley: Forty-one seventeen then.
+
+Igor: There will be a question “Are you sure”?
+
+Vika: Yes, I wrote that I am sure. Is that it? Then it is only…oh…
+
+Igor: Now you are waiting for everyone.
+
+01:07:03:26
+
+Igor: How do I get it back?
+
+Vika: [UI]
+
+Igor: [UI]
+
+Ashley: [UI]. Oh, there we go. 
+
+Igor: [UI]
+
+Salah: //We just press Sign Off and that’s it?
+
+Oleg://[UI]. Cancelled again. 
+
+Vika and Igor: [UI]
+
+Maybe Alex: Operation specialist. 
+
+Maybe Igor: Logistics. 
+
+Maybe Alex: Most likely, the one that [UI]. //[UI]
+
+Igor: // If it’s from the first [UI]
+
+Ashley: //Alright. 
+
+Igor: Just hiding.
+
+Oleg: Look again. 
+
+01:07:31:06
+
+Ryan: //Who is the material specialist? You are material?
+
+Igor: //[UI]
+
+Salah: Yeah. 
+
+Ashley: Abdullah. [UI]
+
+Salah: //I have already done it. 
+
+Vika and Igor: //[UI]
+
+Ryan: Did you put in your values?
+
+Oleg: So…//geologists…of course, it is strange. [UI]
+
+Ryan: //So, you are the material specialist. So this is where you need to put in all of these.
+
+Salah: Okay. 
+
+Ryan: Okay. 
+
+Salah: I put it here. 
+
+Ryan: Just fill it in here. So, you throw this entire process. You didn’t [UI]. //Then you’re going to get to this page…
+
+Oleg and Alex: //[UI]
+
+01:08:00:10
+
+Alex: [UI]
+
+Oleg: Yes.
+
+Will: So, I just asked…
+
+Salah: So, like this?
+
+Will: //the operation specialist why they are rejecting this. 
+Ryan: //[UI]
+
+Oleg: They can’t alter [UI]
+
+Vika: Okay. 
+
+Will: Nobody…you are talking to them or…
+
+Ashley: I’m sorry.
+
+Will: Does anyone why the operation specialist is…
+
+Vika: //No.
+
+Salah: //Operations, right?
+
+Will: Okay. So, I just asked the //operation specialist what’s going on and why they keep rejecting, and …
+
+Oleg: //[UI]
+
+Vika: Oh, they’ve written to me…
+
+Ashley: Oh, because you’ve tried to sign off and it rejected?
+
+Will: Yeah. //Well, I mean it made it and then came back. Yeah.
+
+Vika: //Structural geologist. 
+
+Ashley: //It did it and reset it. Okay. 
+
+Salah: You said, which one?
+
+Will: Is it operations specialist?
+
+01:08:29:12
+
+Oleg: [UI]
+
+Will: Oh, structural geologist. Okay.
+
+Vika: Yeah. 
+
+Ryan: //Okay, we’re getting closer. 
+Ashley: //Okay, so, basically…
+
+Maybe Katya: // Did we answer him?
+
+Ashley: //the reason…so, basically, I asked if I can sign off, and he said: “Yes, you can. But if you sign off, other people will not be able to put in their data and material specialist are waiting for message from their end”. //So, we are waiting for the material specialist to give this “good to go”, and then we’ll be able to all sign off. 
+
+Will: //No response. 
+
+Oleg: //[UI]
+
+Ryan: Mechanical engineer…
+
+Ashley: So, I’ll just say, // “Okay. So, I will wait. Please let me know when we hear…
+
+Katya: //[UI]
+
+Oleg: Fluid…And who is fluid engineer. 
+
+Ashley: Nobody here.
+
+01:09:00:10
+
+Will: Nobody here. 
+
+Salah: [UI]
+
+Oleg: I guess from there. 
+
+Ryan: Okay, so, someone signed off. It means you can’t change anything. 
+
+Alex: [UI]
+
+Ashley: …can sign off…O, okay. So, Martian terrain specialist just let me know that we’re signing off. So, everybody is okay to sign off now, if you are happy with forty-one seventeen.
+
+Will: Okay. 
+
+Ashley: I’m signing off //as the Martian meteorology specialist. 
+
+Will: //Everybody is doing sign off.
+
+Vika: Which one?
+
+Ashley: Forty-one seventeen. 
+
+Vika: Yes, yes, yes.
+
+Ashley: Yes, yes, yes. Now we can. Everybody can…//Oh! Thank you!
+
+Will: Everyone can //do sign off.
+
+01:09:29:14
+
+Will: So click on your activity. So, sedimentologist…I have already done that. //[SL] Damn, and who…
+
+Vika: //[UI]
+
+Will: Great.
+
+Vika: I don’t know why. 
+
+Ashley: Are you [UI]? Yes. 
+
+Oleg: Here. Because we need to change//[UI].
+
+Vika: //Oh, there. 
+
+Ashley: Did anything else…Does anything else happen once you put “yes”?
+
+Oleg: I can’t change [UI]
+
+Will: Yeah, I think we just wait, and so…
+
+Ashley: Okay. We just wait at this point. Okay. 	
+
+01:10:00:11
+
+Oleg: Ryan. 
+
+Will: What is happening there?
+
+Oleg: The things is that I now …engineer. Engineer… engineer there was an order…She is asking to change [SL] FLG, but I can’t change it.
+
+Ashley: Oh, okay. So, [SL] they know how to reset it again //they are not going to reset it. 
+
+Vika: //I confirmed but for some reason it’s not registered. 
+
+Ryan: //[UI]
+
+Will: //Do you need to change it?
+
+Oleg: Yes.
+
+Will: Let’s do it. Okay. 
+
+Ashley: So, what do we do here? //They are just going to let me know?
+
+Will: //I’m going to reject it. 
+
+Maybe Alex: You have reset.
+
+Oleg: Yes, okay. 
+
+01:10:30:17
+
+Will: And I didn’t write the reason. 
+
+Oleg: No, now I am cancelling…
+
+Alex: Yes, you can.
+
+Oleg: G…//hold on, just a second.
+
+Vika: //Are we leaving the front point?
+
+Will: Wait, //now it has to…
+
+Oleg: //Just a second, just a second…
+
+Ashley: I will find out also…
+
+Oleg: Again! Who accepted?
+
+Will: What do you mean?
+
+Vika: It’s not us. It’s…
+
+Ryan: Okay, so, direction is to sign off now. 
+
+Ashley: Okay. 
+
+Ryan: Doesn’t matter //what you put in. 
+
+Vika: //[UI]
+
+Ashley: Okay. 
+
+Will: Okay. Done.
+
+Ryan: Everyone is going to sign off.
+
+Will: Everybody is choosing “Yes”. Yes? Click “Yes”. Okay. 
+
+Ryan: //Sign off.
+
+Igor: //It doesn’t change anything.
+
+Ashley: Okay. //So, I signed off now. Just close it?
+
+Will: //I did it.
+
+01:10:59:20
+
+Will: Material…
+
+Ryan: Just wait for everyone. 
+
+Ashley: Okay. 
+
+Ryan: //[UI]
+
+Will: //Materials or maintenance? Materials. 
+
+Oleg: Where to?
+
+Will: You are the maintenance, right? No, you are drilling, right? Like, there is…I have, you need…okay. Hydrogeologist?
+
+Vika: I am trying to do it but I can’t.
+
+Ashley: So…
+Ryan: Everyone signed //off, Will? 
+
+Will: Yes. Wait. Yes.
+
+Ryan: Abdulla?
+
+Will: Okay. Martian, I don’t see yours yet, but has it come through?
+
+Ashley: Yeah, I… //I can do it again. 
+
+Igor: //[UI]. Here, see? It is shown here now.
+
+01:11:30:02
+
+Will: Okay. Now…//okay, I see it.
+
+Ashley: //Do you see it? 
+
+Oleg: //Oh, wait.
+
+Will: //It’s gonna be a second. 
+
+Katya: //You see me, right?
+
+Ryan: //[UI] Good, good.
+
+Katya: Done.
+
+Ryan: Katya signed off.
+
+Will: I see yours. 
+
+Igor: [SL] Our phase just got [UI]
+
+Ashley: //Our Martian terrain specialist is, like, “[UI]. It’s a little stressful.” 
+
+
+Will: //Don’t touch anything! Once… When you do it, do it and don’t touch anything else! So now it’s being processed...
+
+Oleg: Is it already starting for you now or not? Task removed?
+
+Will: We had it already. 
+
+Woman1: //is there only one Martian terrain? It looks like there are several.
+
+Vika: //Can you see me, sorry? 
+
+Will: //I saw it, but it got turned off. So, like…
+
+Ashley: //So, it seems like only…So, 
+
+01:11:58
+
+Ashley: from my team, it is only the purple people here. It seems that, the //Martian terrain specialist was speaking the most to me. It’s like…Oh, shit. 
+
+Igor: //Okay. Turn it on.
+
+Vika: //It’s back here again. 
+
+Ashley: How do I get this back smaller?
+
+Salah: //We are going to do that many…
+
+Will: //Okay, this. Can you hit yours again?
+
+Salah: Then many will [UI]
+
+Ashley: Okay, so, I’ll unclick and then click it and //it says: “Are you sure that you confirm?”  I say: “Yes”.
+
+Igor: //Martian meteorology specialist. 
+
+Salah: [UI]
+
+Vika: //And nothing?
+
+Ashley: //And nothing? Nothing?
+
+Ryan: There we go. 
+
+Vika: Only //[UI]
+
+Will: //Did it come through? You saw that come through?
+
+Ryan: I only see Ashley.
+
+Will: Okay.
+
+Ashley: What?
+
+Vika: Only you.
+
+01:12:29:14
+
+Ryan: It’s only you. 
+
+Oleg: Ashley is a deserter.
+
+Ashley: I... I…I haven’t checked off. //[UI]
+
+ Oleg: //Why?! Damn!
+
+Ryan: Now it’s only you //checked off.
+
+Igor: //Wait, wait, wait. 
+
+Ryan: there we go. 
+
+Ashley: Wait, it’s only me checked off?
+
+Ryan: It’s all good. 
+
+Ashley: Oh!
+
+Igor: It’s all good. 
+
+Salah: [SL]This is something here. 
+
+Ryan: Yeah. 
+
+Will: Alright. I think we all need to do it again. I’m in…I’m in…Ashley and I are in. So, everybody couldn’t get in.
+
+01:12:59:12
+
+Ashley: I can’t even see who else is signing in. 
+
+Igor: Vika is in. 
+
+Ryan: Alright. Katya, sign off. 
+Salah: I did it again. 
+
+Will: Okay, I see you. //I see Abdullah. 
+
+Ashley: //Oops, I did it again. 
+
+Maybe Katya: //It’s disappeared for me! 
+
+Ryan: //[UI] about that. 
+
+Igor: It disappeared for you?
+
+Will: I don’t see hydrologist yet, //but, who knows…
+
+Vika: //[UI]
+
+Will: I saw Katya. 
+
+Katya: Mhm. 
+
+Vika: What? One more time?
+
+Will: Okay. 
+
+Ashley: But am I still checked off?
+
+Will: You’re still checked. You’re still checked. 
+
+01:13:31:26
+
+Ashley: Great.
+
+Will: Oleg. Everybody see Oleg?
+
+Ryan: Yes.
+
+Vika: Yes.
+
+Will: And you have…okay, cool. The five…six of us.
+
+Vika: //Just the six of us. 
+
+Oleg: //Where are you looking?
+
+Will: Right here.
+
+Ashley: Show me.
+
+Will: See this?
+
+Ashley: Yeah, I don’t know why //mine doesn’t update. So, I’m just not going to worry about that. 
+
+Will: //We have six…Now we wait. 
+
+Ashley: If you guys are saying…
+
+Woman1: You can click here but I don’t know, so…
+
+Ashley: I’m scared. 
+
+Ryan: It’s just their six now. 
+
+Igor: Yes. 
+
+Woman1: You’re good. 
+
+01:14:00:26
+
+Oleg: So…
+
+Ashley: Can you…how to…
+
+Igor: [UI]
+
+Ashley: //Do you guys know how to, like, [UI] to minimize and increase here?
+
+Oleg: //I want to enter mine. Done. 
+
+Ryan: Yeah. 
+
+Ashley: Why do I keep ruining the…[UI]
+
+Igor: [UI]
+
+Will: We lost you. 
+
+Oleg: Well…
+Will: What happened?
+
+Oleg: Because I need to change the filters.
+
+Will: No! No!
+
+Ashley: No! They said we are not changing anything!
+
+01:14:31:22
+
+Will: Not changing anything! 
+
+Ashley: And we just do Sign off. 
+
+Will: Don’t touch anything! 
+
+Oleg: But…
+
+Will: We have six. So, like…
+
+Oleg: Well, because the fluid engineer will not agree with…
+
+Will: Well, she…she or he can prove, like…reject.
+
+01:15:00:17
+
+Will: They already said, on their part, that we need to confirm this already. 
+
+Ashley: Are we ever going to meet this team? But, like, //see what they look like. 
+
+Ryan: //To brawl with them?
+
+Will: To brawl with them?
+
+Ashley: What did you say?
+
+Igor: [UI]
+
+Will: That tells me all I need to know about how it went. 
+
+Ashley: Can’t wait to see what //my Martian terrain specialist looks like. 
+
+Will: //To brawl with them. …To brawl with them.
+
+Oleg: Some interesting //[UI] technique.
+
+Will: //Well, yes. 
+
+01:15:30:13
+
+Will: It is familiarization. We understand, the system is so good now. 
+It will be //different – better. 
+
+Ashley: //[UI]
+
+Ryan: It’s there.
+
+Ashley: Oh my God! They look so cute! Did you send them a picture of us?
+
+Oleg: Oh!
+
+Will: Let me see.
+
+Ashley: Send them a picture of us, guys. From that angle if you could. 
+
+Will: Tell them they look like a bunch of bastards. 
+
+Ashley: I’m just kidding. Show it again. 
+
+Ryan: [SL] Are you still doing the video?
+
+Ashley: Oh yeah, sorry. Cool. 
+
+Ryan: [SL] From here, which…
+
+01:16:00:10
+
+Igor: Yeah.
+
+Maybe Salah: That’s all?
+
+Igor: Just a minute.
+
+Ashley: Good enough, I guess.
+
+Vika: Sure. 
+
+Salah: [UI]
+Ashley: Yeah. [UI]. You know…just in case my future husband is there. You know, it’s fine. …maybe I’ll…I’ll just pretend like I’m diligently working. 
+
+Will: And, they…They are not going to reselect their things? Are we just…
+
+Oleg: So we are waiting for them to…
+
+Vika: They are just waiting for our photos. 
+
+Oleg: Well, hello there. //[SL] they are Czechs. 
+
+01:16:30:08
+
+Ashley: Wait. So, I’ll turn around and will be like thumbs up.
+
+Salah: Go! Again, again.
+
+Ashley: Everybody turn around and thumbs up to them, I guess.
+
+Katya: Yeah.
+
+Ryan: Alright, alright.
+
+Igor: [UI]
+
+Ryan: Real quick here. 
+
+Igor: No, get in! 
+
+Oleg: So…
+
+Igor: Let’s go. Good. 
+
+Ryan: Okay. Survey next. Exit out of this. 
+
+Will: Alright. Just X out. 
+
+Ashley: X. Okay. Do we need to…No saving?
+
+Ryan: Yeah, just [UI].
+
+Ashley: All good. 
+
+Will: And //stop our camera?
+Ashley: //Oh, stop the…
+
+Ryan: No, no, no.
+
+Will: No? No?
+
+Ryan: We’re still going?
+
+Ashley: Oh, still going.
+
+Will: Okay. 
+
+01:17:00:07
+
+Ryan: We still have a whole other activity to do.
+
+Salah: So, we exit?
+
+Ryan: Exit.
+
+Ashley: Crew data. 
+
+Ryan: Crew data. We’re going to survey links. Don’t minimize. //[UI]
+
+Ashley: //Surveys.
+
+Oleg: So, what is it there…
+
+Ryan: Start that again. 
+
+Ashley: Make me look good again for //my future husband. 
+
+Will: Okay, and…
+
+Ryan: Crew data.
+
+Ashley: Oh, great!
+
+Will: Which survey?
+
+Ryan: //Survey links TB. DeChurch 2B.
+
+Woman1: //[UI]
+
+Ryan: //I don’t know which number that is.
+
+Oleg: DeChurch 2B?
+
+Vika: Number nine?
+
+Ryan: Is it nine?
+
+Vika: Oh. What is it?
+
+Ashley: TB?
+
+Oleg: 2B…2B.
+
+Ashley: //Oops. Wrong.
+
+Ryan: //TB is post…multitask. Yeah, DeChurch nine. 
+
+01:17:31:11
+
+Ashley: DeChurch nine.
+
+Oleg: Ah, 2B.
+
+Ryan: You are a part of Sirius crew…last I checked. 
+
+Will: Damn, it’s a long one. 
+
+Ryan: This is your HRP ID. [SL] NAS. NAS ID. Five-digit NAS ID.
+
+Woman1: How did they choose Chicago team?
+
+01:18:01:13
+
+Ashley: Because Northwestern is sponsoring…
+
+Ryan: Yeah, Northwestern is the [UI]. DeChurch. 
+
+01:18:10:28 – 01:18:57:14
+
+[no audio]
+
+01:18:58:13
+
+Vika: Your is materials specialist?
+
+Salah: Yeah. 
+
+Vika: Thank you.
+
+Ryan: [UI]
+
+Oleg: Hm?
+
+Ryan: [UI]
+
+Oleg: Katyusha, what specialist were you?
+
+Ashley: She was //drilling. 
+
+Will: //Drilling.
+
+Katya: //Drilling. 
+
+Oleg: What?
+
+Ashley: Drilling. 
+
+Salah: Who is the meteorology?
+
+Ryan: Of us or of them?
+
+Salah: Who was the//meteorology?
+
+Ashley: //How do you say…//I was…I was…I’m meteorology.
+
+Will: //Drilling. 
+
+Oleg: Meteorology.
+
+Will: What is it? Drilling?
+
+Oleg: //And geology?
+
+Katya: What?
+
+Will: Drilling?
+
+Igor: Oh, them?
+
+Alex: In Chicago, yes.
+
+01:19:29:19
+
+Katya: Drilling?
+
+Will: Yes. Drilling?
+
+Katya: Yes.
+
+Woman1: Drilling. 
+
+Katya: Yes, yes. 
+
+Oleg: Abdulla, //[UI]
+
+Katya: Drilling, perhaps.
+
+Igor: //Drilling, the same as drilling.  
+
+Will: //Drilling, yes? Okay.
+
+Oleg: What was your role?
+
+Salah: Materials specialist.
+
+Oleg: Materials. 
+
+Salah: We don’t have biochemical here, right?
+
+Woman1: Biochemical it’s he.
+
+Ashley: It’s him. 
+
+Woman1: It’s he. Oleg. 
+
+Oleg: Correct. One more. 
+
+Vika: [UI]
+
+Oleg: Meteorologist?
+
+Vika: The fourth.
+
+Ashley: I’m meteorology. 
+
+Salah: Hm?
+
+Vika: The fourth.
+
+Ashley: It’s me. 
+
+01:20:00:17
+
+Salah: [UI]
+
+Vika: //Biochemical engineer. 
+
+Ashley: //Not materials. 
+
+Salah: Hm?
+
+Vika: Are you talking about this list?
+
+Salah: Yeah. 
+
+Vika: Yeah, so, number four is biochemical engineer. 
+
+Oleg: Will, what is your role?
+
+Will: Sedimentologist. Sedimentologist.
+
+Oleg: Yes, there is that. One is not there. 
+
+Maybe Igor: You are not there. 
+
+Oleg: Oh! Boy…
+
+01:20:29:17 -01:23:09:27
+
+[no audio]
+
+01:23:10:29
+
+Katya: Vika, who are you?
+
+Vika: Hydrogeologist. …[UI] Hydrogeologist. 
+
+01:23:25:05 – 01:25:25:08
+
+[no audio] 
+
+01:25:25:19
+
+Ashley: [UI]
+
+Ryan: [UI]
+
+Oleg: And the operative group – what is it? The operative group – it is //[UI]
+
+Ryan: //[SL] No questions. 
+
+Alex: It is the Martian group in Chicago. 
+
+Oleg: Okay. 
+
+Ryan: [UI]
+
+Oleg: I can’t answer for them, what they see or what they don’t see. 
+
+01:25:53:28 - 01:26:47:28
+
+[no audio]
+
+01:26:50:09
+
+Oleg: And the disciplinary team – who are they? Disciplinary. 
+
+Alex: Disciplinary – that’s [UI] specializations. So, it is a group of three people. Well, translation [UI]
+
+Oleg: Yes, yes. 
+
+Vika: Geologists and mechanics and...
+
+Igor: Yes. It is a group of three. Disciplinary team of three. By specialization.
+
+
+
+01:27:12:08 -01:28:28:05
+
+[no audio]
+
+01:28:30:22
+
+Vika: No. 
+
+Katya: I am finishing the training assignment. 
+
+Ashley: What would happen if I reloaded this to see what the pictures are? Or can somebody else show me what the pictures were supposed to be for this first part?
+
+Ryan: Should be the same as these.
+
+Ashley: These are?
+
+Ryan: Yeah. 
+
+Ashley: Okay. Well, then. //Just making sure if that works. That works. 
+
+Igor: //[UI]
+
+Ryan: It’s strange that it didn’t load. 
+
+01:28:59:24
+
+Ryan: Has it happened on other pages?
+
+Ashley: No. Just this one. It’s the first one with the images. Sorry. 
+
+01:29:27:14
+
+[whispers] [UI]
+
+Salah: Done! 
+
+Vika: What?
+
+Igor: Good. There is like ten in total. 
+
+Ashley: Oh-oh-oh. …[UI] copy.
+
+01:30:05:10 – 01:30:44:10
+[no audio]
+
+01:30:47:12
+
+Salah: So, close that?
+
+Ryan: You can close the survey. Yeah. Once we are done. 
+
+Salah: Close everything or…
+
+Igor: //No, not yet. 
+
+Alex: //[UI]
+
+01:31:09:19 -01:32:48:27
+
+[no audio]
+
+01:32:49:29
+
+Alex: [UI]
+
+Oleg: //Complete [UI] point.
+
+Salah: //[SL] What are you doing?
+
+Alex: Yeah, //so that…so that you [UI]
+
+Salah: //[UI]
+
+Alex: So, you choose your decision twice [UI]
+
+Salah: [UI]
+
+01:33:10:00
+
+Oleg: Must add. 
+
+Salah and Man 3: [UI] [dialog in another language]  
+
+01:33:40:18 – 01:35:04:00
+
+[no audio]
+
+Salah: How is your …//your lecture going?
+
+Vika: // We just had to not only agree, but also fill out all the parameters.
+
+Salah: You go every day?
+
+Woman1: //No. Monday, Tuesday, Friday. So, I’m done with my [UI]. So, it’s only Monday, Tuesday.
+
+Katya: // We must listen to everyone. And each specialization separately.
+
+Vika: Well, we figured it out in our group. //This is a lot of [UI]
+
+Woman1: //I have exams only left. 
+
+Salah: Then you’re going to have [UI]
+
+Woman1: Well, because I shifted, I cannot do labs. When I come back, I do labs.
+
+01:35:35:09
+
+Woman1: So, that’s why they go through material now. And I want to do labs, which is awesome. I’ve never had this experience and so…
+
+Salah: [SL] Do you fail guys?
+
+Woman1: Of course. 
+
+Salah: Yeah?
+
+Woman1: Yeah. Well, they fail themselves…[UI] like I’m not here. 
+
+Salah: //[SL] Anything for you when you go to the [UI]
+
+Woman1: Well, one time at [UI] it was dangerous. I thought they will shoot me because it was popular shooting teachers. 
+
+01:36:08:11
+
+Woman1: And I was asking chairperson: “What do you think? Can he kill me, this guy?” 
+
+Ashley: It goes right away to hundred from that spot. 
+
+Woman: Because I wanted //[SL] to think it’s him. He failed. He came back and he was chasing me in corridors.
+
+Will: //Yeah, thank God…Me too. 
+
+Ashley: //I was, like, I literarily thought that I still have 50% left. I was like: “How did I finish so fast?”
+
+Woman1: It’s scary nowadays. Dangerous. 
+
+Man2: I know. It’s stressful just watching you guys. 
+
+01:36:35:19
+
+Ashley: Yeah. 
+
+Ryan: Yeah, that’s fine. 
+
+Man2: I need a nap.
+
+Ashley: I wish I had a [UI]
+
+Man2: I need a nap now. 
+
+Woman: Yeah. It would be easy. 
+
+Ashley: I actually do, too. I feel like my eyes are kind of, like…but I’m hungry, too. 
+
+Ryan: [UI]
+
+Ashley: As I always am. 
+
+Salah: I’m super hungry.
+
+Ashley: What should we eat tonight, guys?
+
+Ryan: Pizza…Pizza. 
+
+Vika: Pizza?
+
+Ashley: You know what I’m really //craving right now? I think only the Americans will get this.
+
+Man2: //Pizza.
+
+Will: //I want some too.
+
+Vika: Who said?
+
+Will: //So, it’s not bad with him. 
+
+01:37:02:29
+
+Ashley: Oh, guys. I’m really craving Taco Bell. 
+
+Man2: Taco Bell? Taco Bell.
+
+Will: //I’ll say something later. 
+
+Woman1: Do they have Taco Bell here? Did I send you this?
+
+Vika: //Taco Hell?
+
+Man2: //Taco Hell. 
+
+Ashley: I don’t have…
+
+Will: I sent something to Ryan…
+
+Man2: It’s Taco Bell and they are saying, it’s Taco Hell. 
+
+Ashley: Oh, man! It’s, like, my favorite. 
+
+Man2: I see it…
+
+Ashley: It’s dangerous that there is a Taco Bell close to my apartment, too. I’m always, like, “Oh, [UI]”. Or I could, like, walk there even. It’s only one mile away.
+
+01:37:30:05
+
+Ryan: //[UI]
+
+Will: //A friend of mine told me this story. When he was in college, he got really stoned with his friends, and they went to Taco Bell. He was, like…he was, like… He pulled up to the drive thru and he was, like, “I want a Baja blast.” And she was, like, “What size?”. And he was, like, “Baja blast”. And she was, like, “Yeah, what size?”. And he was, like, “Baja blast!”. And they did this for like a minute, and his friend was, like, “Just say large!”. And he was, like, “Oh! Baja blast size Baja blast”. 
+
+01:38:01:05
+
+Will: Alright. “What size? -Baja blast!”
+
+Vika: Perhaps…have we turned off the video?
+
+Ashley: That’s funny.
+
+Vika: Are we leaving it?
+
+Igor: Yes, we have not finished yet. 
+
+Vika: Oh, okay.
+
+Igor: [UI]
+
+Will: So, are we doing all of it?
+
+Igor: Now it’s the same once again. No. 
+
+Vika: After //pizza, I agree.
+
+Ashley: //That’s it. I quit. 
+
+Igor: //There is another [SL] atlas.
+
+Ryan: This one is a little bit better. 
+
+Ashley: Wait, there is another atlas?
+
+Ryan: There is another one. 
+
+01:38:29:26
+
+Ashley: Oh, I thought you were joking! 
+
+Igor: We were joking about doing the same thing again. But there is another task, which we will do twice. 
+
+Ashley: What do you mean?
+
+Man2:  Tonight?
+
+Woman1: A book. 
+
+Igor: As soon// as everybody is done with their…
+
+Woman: //Detective [UI] I just downloaded while I was…
+
+Ashley: Okay
+
+Ryan: Two ten-minute sessions. 
+
+Woman1: //For my library.
+
+Man2: //Ah, okay. 
+
+Igor: After a [UI]
+
+Ashley: Yeah, like…
+
+Woman1: You can use //your library [UI]
+
+Igor:  //[UI]
+
+Man2: Of course.
+
+Ashley: Should’ve done that before I got here.
+
+Igor: [UI]
+
+01:38:59:02
+
+Woman1: And then //if you are reading them then [UI]
+
+Man2: //That’s what’s for dinner, guys. I’ll have two DeChurches. Survey on top.
+
+Will and Ryan //[UI]
+
+Will: Done?
+
+Ryan: //Watching the video.
+
+Igor: //okay.
+
+Ashley: Okay. 
+
+Woman1: Because they don’t return. So, you can //finish them. 
+
+Ryan: //[UI]
+
+Man2: //Then you guys are going…
+
+Woman1: //You know, they usually put two [SL]surveys in one?
+
+Ashley: Yeah. 
+
+Man2: //I’m here for your emotional support. …You can do it!
+
+Woman1: //But if you are reading them and you disconnect form the internet, like airplane mode or whatever, they will not disappear. 
+
+Ryan: //[UI]
+
+Ashley: It’s not bad. 
+
+Man2: You can do it. 
+
+Will: Is that how you prepare for lectures? Do you, like, read your notes beforehand? And then you get…
+
+01:39:30:07
+
+Woman1: No. This is just a book that I downloaded from my library. 
+
+Will: Nice, okay. 
+
+Vika: Really?
+
+Will: But is that what you do normally? Do you, like, read your lectures beforehand or is that…Okay. Then I just thought that you’re just reading articles. 
+
+Ashley: You are like a seasoned professor at this point. //So, once you’re a seasoned professor, I think you just know [UI]
+
+Woman1: /Yeah, no I read something new that I want to deliver. And then will deliver all the time. 
+
+Will: //But sometimes they…Okay, okay. Right. 
+
+Igor: //[UI]
+
+Will: Because you were talking about reading some articles or something. //I didn’t know if you’ve written those notes up and you were going through them before class. 
+
+Alex: //[UI]
+
+01:39:59:10
+
+Woman1: Well, sometimes if //I’m going to be a teacher for a semester, like…
+
+Salah: //Stick in your mind. 
+
+Man2: What happens in Moscow, stays in Moscow.
+
+Will: Yeah, yeah.
+
+Woman1: //I need to refresh at least all the slides there. 
+
+Salah: //Yeah.
+
+Igor: //And then the videos. 
+
+Will: Yeah, you’re right. Right, right. Got to mix it up a little for them.
+
+Woman1: Yeah. I mean, it’s like, “Oh, okay! This [UI]? Okay”. I continue.
+
+Igor: Same.
+
+Man2: Totally right. Totally right. 
+
+Will: “Oh, I don’t know what [UI], but okay.” //I’m sure that you have long enough time. 
+
+Alex and Oleg: //[UI]
+
+Woman1: //I have practically…like students. Like, “What? What teacher? Okay. Let’s do it.”
+
+Igor: Alright.
+
+01:40:30:18
+
+Ryan: //Good?
+
+Igor: //Good to go. 
+
+Ryan: Okay, video time. 
+
+Ashley: Oh.
+
+Katya: More?
+
+Igor: The final part. [UI]
+
+Ryan: Oops. 
+
+Will: //That was lit.
+
+Vika: /Oh, God!
+
+Igor: You almost blacked out. You almost dropped it //[UI]
+
+Ryan: //Almost. 
+
+Man2: Good reflex.
+
+Ryan: So, would I. 
+
+Vika: Careful. 
+
+Ashley: Best team. Best [UI]
+
+01:41:04:00
+
+Ryan: It’s connected to Ashley’s headphones. 
+
+Ashley: Oh, shit! Sorry. Is it? Oh yeah. Alright. Disconnect. 
+
+Ryan: Do you want to listen to it?
+
+Ashley: I disconnected.
+
+Man2: And then translate for everybody. 
+
+Video: What’s your task force [UI]
+
+Ryan: [UI]
+
+Video: To the mission analysis group back on Earth. 
+
+Ryan: Is that a touch screen?
+
+01:41:29:13
+
+Video: Due to channel restriction… The Project Red Relay is a complex network routing task. Once your task force has planned the water infrastructure on Mars, you will be routing information to the mission analysis group back on Earth. Due to channel restriction issues, you will only have direct contact with two of the individuals in your task force. Twelve individuals, including your six-person Sirius crew and six mission support members. In the Project Red Relay
+
+01:42:00:01
+
+Video: you will choose two people who will be most effective in helping you relay any information you receive to anyone else in the larger group. Remember, each other person in the task force is also choosing two people to maintain communication with. You will complete two information relay tasks. Each one will last for ten minutes. You will receive multiple pieces of information, will need to use your two contacts to route the message to the appropriate specialist within your task force. 
+
+01:42:30:00
+
+Video: After the first ten-minute relay task the communication channels will be reset. You will have the option to choose two different people to maintain communication with during the second relay task. The first thing you’ll need to do is log in as your assigned Project RED role. For example, if you are a materials specialist, select the “materials specialist” option from dropdown list. Next, you’ll be asked to select two contacts. All the task force participants will be listed in this menu. 
+
+01:43:01:00
+
+Video: From the menu you will choose the two people who you think will be most effective in helping you relay information to the larger group based on their selected contact. When all of the users have selected their contacts, the session will begin. Your job will be to route information toward it’s intended final recipient by choosing which of your two contacts you should send it to. As soon as the task begins, you will receive a message from the system, containing information that another task 
+
+01:43:30:09
+
+Video: force member needs. You’ll see that this message has a final recipient indicated at the top and includes a file attachment containing data regarding the mission. Don’t worry about opening the attachment. Your job is simply to forward the message to the contact that you feel is best situated given his or her own contacts to get it to its final recipient. Choose which of your contacts you want to send it to and forward the message. Meanwhile, 
+
+
+01:43:59:13
+
+Video: keep your eyes on your inbox, because as you are sending files to your contacts, others who chose you as a contact, will be sending messages to you to relay it to others. The message will show who you received it from, its path so far and the intended final recipient. Again, you’ll need to relay the message to the contact that you think is best situated, based on the contacts that person chose to get this message to its final recipient. Every two minutes you will receive a new message from the system. Forward each one 
+
+01:44:29:15
+
+Video: relaying it to the individual you think is most appropriate, given the intended final recipient. You can also view your sent messages. Here you can see whether they’ve received their final recipient yet. Also, note that on the right-hand side of the page you can see how busy your current contacts are. Contacts will have a number on the side of their title that shows how many messages they currently have in their inbox. Contacts with more messages in their inbox might be slower at relaying messages you send to them. 
+
+01:44:59:11
+
+Video: After ten minutes the first task will end. When the session ends you will be taken back to the main page. You will then take part in the second Project RED Relay task. Select your assigned role again and click Log In. due to channel limitations you once again will be able to select two people in the task force, who you want to be able to help route your messages to the rest of the task force. You may select the same contacts as the first time, or you may choose different ones.
+
+01:45:29:20
+
+Video: As soon as all task force members have selected their contacts, the second session will begin. After ten minutes have elapsed, you will have finished the second session. The Project RED Relay task will be complete. 
+
+Ryan: Okay. 
+
+Katya: [SL] Can you do it? [UI]
+
+Igor: Okay. There was Russian translation there, but probably not everyone has seen it. 
+
+Katya: You can, yes, please.
+
+Igor: What?
+
+Katya: Yes, please. 
+
+Igor: Please, what?
+
+01:45:59:24
+
+Katya: Please translate everything. 
+
+Igor: Sure. I will translate everything that’s the most important things. That is, firstly, I will start by saying that this is part of Project RED, but, in fact, it has nothing to do with the first part. The task here is to send and forward messages. You don’t need or have to read them. That is, there is no sense ... that is, there is no meaning in the content of the messages that are transmitted.
+
+01:46:30:01
+
+Igor: The only link to the previous task is the twelve people and the twelve roles. In total, you have a team of twelve people: six here and six there. Well, plus there are six more somewhere, right? A total of twelve. You have limited communication channels. You can send information to only two contacts who you need to determine ahead of time. That is, you choose two people from the list of eleven people from the very beginning who you think, for some
+
+01:47:00:22
+
+Igor: reason, will communicate messages to someone else as efficiently as possible. That is, the rest of the crew or team members. Periodically, once every two minutes, you will receive a message that is generated by the system that will need to be transferred to someone else. The address will be listed there. That is, the final recipient of this message. You need to choose one of your contacts that you think based on all the information you have
+
+01:47:30:09
+
+Igor: information at that moment can effectively pass them on so that it reaches the addressee. You can see at any time where the messages are getting and how effectively those that you have already sent have been transmitted. The whole history of messages ... they can travel in circles, too. Theoretically, it may not reach the addressee. There may not be a logical chain to the addressee. You will see where it came from, who it passed through, and how it got to you.
+
+01:47:59:01
+
+Igor: You can also see the workload of your two specific recipients. That is, how many unsent messages they have. The higher this number, the slower they are likely to work. Well, or more loaded with work. Or maybe they were just chosen, and therefore they have ... well, this should be taken into account when making decisions. That is, a message arrives, you address it to one of the two people, and you hope that it will reach the right place along the chain. That’s what this task is.
+
+01:48:30:20
+
+Igor: It will be performed twice. Ten minutes each session.
+
+Oleg: That is, some message is launched and we...
+
+Igor: Some message is launched, a new message is periodically reset and comes to you. Plus, you may be receiving messages. It’s not possibly, but you probably will...
+
+Oleg: And, in fact, you observe whether this message has come to the addressee or not.
+
+Igor: Whether it came or it didn’t come, yes. That is, you are someone’s contact too. You don’t know how many people will choose you as a contact. Yes? That is, so you can track
+
+01:48:59:11
+
+Igor: where it came from, so that back and forth it ... As if, if ... without the need to send it.
+
+Oleg: I see.
+
+Will: And can we speak with each other or not?
+
+Igor: Ryan?
+
+Ryan: Yes.
+
+Igor: Can we talk to each other?
+
+Ryan: Yes. 
+
+Will: Yes. Good.
+
+Ryan: We can. 
+
+Igor: We can talk to each other. Yes. So, ten minutes will pass, the task will be identical, but you can choose...
+
+Will: Other.
+
+Igor: two other addressees. 
+
+Will: Cool. 
+
+Vika: [UI]
+
+Igor: Reynold will tell you now.
+
+Ryan: okay. 
+
+Igor: Do you have a link to…
+
+Ryan: Yeah. 
+
+01:49:31:07
+
+Ryan: Go to…On the Desktop, Project RED Relay. 
+
+Oleg: Project RED, yes?
+
+Ryan: Project RED, yeah. …So, you’ll select your own role. 
+
+Oleg: Role. 
+
+Will: Without…without minimizing, correct?
+
+Igor: Choose the role that you had
+
+Will: Yes.
+
+Igor: in the previous task. 
+
+Ashley: Oh. 
+
+Vika: Oh. 
+
+Will: Okay. Everyone checked what they //those for the camera?
+
+Vika: //Yes.
+
+Ryan: //Double check. 
+
+01:49:58:28
+
+Igor: You pick the same role you had in the previous task. 
+
+Salah: Yeah.
+
+Igor: That’s your //role for the rest of the mission.
+
+Ryan: //Check. Let’s make sure we have the right link. 
+
+Salah: //how come it says, “No relay task.”?
+
+Ashley: Yeah. This is…
+
+Igor: That’s okay. 
+
+Vika: Yes. Does everyone have that?
+
+Ashley: Yes, but this one //is not working for me.
+
+Salah: I’m still not assigned. 
+
+Oleg: Yes.
+
+Will: Not working?
+
+Vika: No.
+
+Oleg: For me neither. 
+
+Ashley: //Were you able to log in?
+
+Igor: //It’s not working for anyone? Hold on. 
+
+Will: I didn’t try logging in. 
+
+Ashley: Yeah, I want to try…
+
+Will: Go ahead and try to log in?
+
+Ashley: When I tried to it said, “No relay task” 
+
+Ryan: Yeah, so, let’s go back to Crew Data folder. Let’s try the different source of the link just to see if it’s the same. 
+
+Igor: [UI]
+
+01:50:30:05
+
+Oleg: Where?
+
+Ryan: Crew Data
+
+Ashley: Crew Data? Does that [UI]?
+
+Ryan: The same one.
+ 
+Will: Procedure science or surveillance? Or…
+
+Vika: Yes. Next.
+
+Ryan: Procedure //science, yeah.  
+
+Will: They are now checking. 
+
+Igor: Procedure science. 
+
+Will: Okay. 
+
+Salah: DeChurch?
+
+Igor: DeChurch. Multiteam task [SL] battery.
+
+Ryan: Mhm. 
+
+Oleg: Yes.
+
+Ryan: Are we doing…yeah, multiteam task.
+
+01:51:00:04
+
+Igor: We are doing //Project RED URL links. 
+
+Ashley: //I wish I could do that with my eyebrows.
+
+Will: Practice.
+
+Ashley: I can only do one side. I can’t do…I can do this side //but I can’t do the other side. It’s like…
+
+Igor: //Project RED URL links. Bottom.
+
+Will: Turn your head when you do it. 
+
+Oleg: //[UI]
+
+Ashley ://I literarily can’t do it. 
+
+Man2: You can work on that. There is exercise and stuff.
+
+Ashley: You know how many times I’ve actually stood in front of the //mirror trying to do this. Like, especially when I was a kid. 
+
+Katya: //[UI]
+
+Will: Okay. 
+
+Igor: We can shift
+
+Will: It is the same. It means…
+
+Igor: Project …the lowest. 
+
+Will: It is the same, I think. 
+
+Ashley: Yeah, still…
+
+Ryan: Yeah, the link changed, so…
+
+Ashley: It’s still not…Yeah. 
+
+01:51:29:22
+
+Katya: Which one, I don’t understand.
+
+Salah: Which one?
+
+Katya: This one?
+
+Igor: Yes.
+
+Ryan: You know what we are going to do?
+
+Oleg: And she [UI]
+
+Ryan: Pass this round…
+
+Will: Is it a…is it a…
+
+Ryan: So, we’re going to go to this link here. 
+
+Katya: [UI]
+
+Igor: Okay. No, no, no.
+
+Katya: Oh.
+
+Ryan: RED Relay…
+
+Oleg: Oh, so…
+
+Salah: Same link.
+
+Oleg: No?
+
+Ryan: No, wait. So…
+
+Oleg: Oh, well, okay.
+
+Vika: The top one or //Design or Relay?
+
+Will: //Where is it written?
+
+Igor: Relay. 
+
+Will: It’s not in our booklet?
+
+Oleg: Right here.
+
+Ryan: I doubt that. 
+
+Will: Okay. Got it. 
+
+01:51:59:28
+
+Will: Okay. 
+
+Igor: [UI]
+
+Ryan: It’s that very bottom line. 
+
+Vika: No.
+
+Igor: //Not working for you? [UI] is off too?
+
+Ryan: //[UI]. It just…this is a different one.
+
+Igor: Alright. Let’s go to the one that you want.
+
+Ashley: It’s le last one…okay.
+
+Ryan: Yeah. Very last one. 
+
+Will: Okay, I’m getting a…Denied Error.
+
+Ryan: You did this one, Ashley?
+
+Ashley: Oh, fuck, no. 
+
+01:52:29:28
+
+Will: [UI]
+
+Igor: You’re being recorded. 
+
+Ryan: Yeah. 
+
+Will: RED Relay.
+
+Ashley: Sorry. 
+
+Igor: It’s //okay. Let’s try closing this…
+
+Will: //Go to…
+
+Ashley: RED…
+
+Will: I can’t even get through. I get an error. [SL]Error. 
+
+Igor: Here is what we’re typing in. I’ll just read it out loud. 
+
+Will: Okay. 
+
+Igor: BIT – B-I-T
+
+Vika: Where does this go?
+
+Igor: Just open your browser. 
+
+Ryan: Hold on, Igor, because they are all getting…
+
+Salah: B-I-T
+
+Igor: [UI]
+
+Ryan: an error.
+
+01:53:00:29
+
+Ryan: Yeah, they are all getting errors in that link. 
+
+Will: RED Relay Crew Two?
+
+Igor: Have you tried BIT…yeah, RED Relay Crew Two. 
+
+Ashley: Yeah. 
+
+Ryan: Let’s try a different browser really quick, just to see…
+
+Will: Okay. Alright. 
+
+Ryan: Because I can open it on this Safari. 
+
+Salah: [UI]
+
+Igor: The problem is I don’t think we do have a different browser. 
+
+Ryan: Chrome?
+
+Ashley ://So, let’s try Chrome.
+
+Salah: //[SL] Yeah, Chrome is there. 
+
+Man2: Yeah. 
+
+Ashley: Oh, so, it was, yeah. [UI] Red Relay Crew Two.
+
+Will: No.
+
+Vika: Interesting. 
+
+Oleg: Error. 
+
+01:53:31:02
+
+Alex: Really?
+
+Ryan: Do you think //that it’s a [UI] issue?
+
+Vika: //Really?
+
+Ashley: //Really?
+
+Ryan: Because the link changed. 
+
+Salah: She said, “No. No”.
+
+Vika: No. 
+
+Salah: No. 
+
+Vika: Nope. 
+
+Oleg: Will, do you also have Error?
+
+Will: Error before that too. 
+
+01:54:23:11
+
+Igor: Executive decision. Ryan, I think we are calling it quits and doing it some other day. If at all.
+
+Ryan: Yeah. 
+
+Salah: Yep.
+
+Vika: Yep.
+
+Will: Sometimes if you can see when it comes from. 
+
+Alex: [UI]
+
+Will: //With this kind of…
+
+Igor: //We are done!
+
+Will: Okay, turning it off?
+
+Vika: Hooray!
+
+Will: Turning off? Okay. //Turning off our…it…
+
+Vika: //It was so interesting!
+
+Oleg: //[UI]
+
+Woman1: Yes!
+
+Will: Red button //and then turn it off. Okay?
+
+Ashley: //So, yeah, so…
+
+Igor: Turn off the video and turn off…
+
+Salah: So, done?
+
+Vika: [UI]
+
+Igor: Yeah, you can…
+
+Ashley: They can get us some…//goodbye.
+
+Vika: //Pizza pasta.
+
+Igor: //We’ll get us [UI].
+
+Ryan: Done.
+
+Vika: Pepperoni. 
+
+Man2: Pizza, pizza. 
+
+Ryan: //Igor, really quick. Let me show how to download the…or transfer the…
+
+Oleg: //[UI]
+
+Igor: Okay. Let’s not shut down the computers yet. Now Ryan will tell you how…
+
