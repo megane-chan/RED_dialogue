@@ -21,7 +21,7 @@ library(remsonic)
 library(dplyr)
 library(relevent)
 # Set Path
-setwd("~/RProjects/RED_dialogue/REM")
+setwd("~/RProjects/SNA_REM/REM/")
 ```
 
 ```{r}
@@ -37,12 +37,6 @@ df_1903$speaker %>% unique()
 
 head(df_1903[grepl(" to ", df_1903$speaker),])
 
-```
-
-
-```{r}
-
-# Remove rows where speaker name is likely an error
 df_1903 <- df_1903[!df_1903$speaker %in% c("-", "N/A", "[Audio from 0"),]
 df_1903 <- df_1903[!grepl(" to ", df_1903$speaker),]
 
@@ -61,23 +55,12 @@ df_1903$speaker %>% unique()
 # df_1903 %>% saveRDS("data/df_1903.RData")
 ```
 
-```{r}
-summary(df_1903)
-```
-```{r}
-names(df_1903)
-```
 
-```{r}
-head(df_1903)
-```
 ```{r}
 df_1903$dialog_act %>% unique()
 ```
 
-```{r}
-# df_1903$dialog_act  
-```
+
 
 
 
@@ -99,6 +82,8 @@ for (i in 1:(nrow(df_1903) - 1)) {
                                               which(V(network_1903)$name == df_1903$speaker[i + 1])))
   }
 }
+
+print(network_1903)
 ```
 
 
@@ -121,7 +106,12 @@ plot(network_1903,
 
 
 ```{r}
-graph_1903 <- df_1903 %>%
+people_list <- unique(df_1903$speaker)
+
+lookup_table <- setNames(seq_along(people_list), people_list)
+
+
+graph <- df_1903 %>%
   mutate(
     sender = speaker,
     receiver = lead(speaker, default = NA), # shift
@@ -130,41 +120,106 @@ graph_1903 <- df_1903 %>%
   filter(!is.na(receiver)) %>%
   select(c(event_time, sender, receiver, dialog_act))
 
+graph[,'sender_id'] <- lookup_table[graph$sender]
+graph[,'receiver_id'] <- lookup_table[graph$receiver]
 
-people_list <- unique(c(graph_1903$sender, graph_1903$receiver))
+dialog_act <- sort(unique(graph$dialog_act)) %>% as.factor()
+graph %>% select(event_time, sender_id, receiver_id, dialog_act) -> graph
 
-lookup_table <- setNames(seq_along(people_list), people_list)
-graph_1903[,'sender_id'] <- lookup_table[graph_1903$sender]
-graph_1903[,'receiver_id'] <- lookup_table[graph_1903$receiver]
+head(graph)
 
-dialog_act <- sort(unique(graph_1903$dialog_act)) %>% as.factor()
-graph_1903
+```
+```{r}
+library(relevent)
+
+# Convert data frame to event list format expected by 'relevent'
+event_list <- with(data, by(data, event_time, function(x) {
+  matrix(c(as.integer(x$sender_id), as.integer(x$receiver_id)), nrow = 1)
+}))
+
+
+rem_model <- rem(event_list, timing = event_time, sender = sender_id, receiver = receiver_id, covariates = list(in_degree_centrality =in_degree_centrality))
+
+# Estimate the model
+rem_fit <- rem_estimate(rem_model)
+
+  # Summary of the fitted model
+summary(rem_fit)
+```
+
+```{r}
+df <- graph
+df <- df %>% arrange(event_time)
+
+library(skimr)
+skim(graph)
+in_degree_centrality <- df %>%
+  group_by(event_time, receiver_id) %>%
+  summarise(in_degree = n())
+
+# Associate dialogue acts with receivers and calculate frequencies
+dialogue_act_freq <- df %>%
+  group_by(event_time, receiver_id, dialog_act) %>%
+  summarise(freq = n(),.groups = 'drop')
+
+# Merge the in-degree centrality with the dialogue act frequencies
+combined_data <- merge(in_degree_centrality, dialogue_act_freq, by = c("event_time", "receiver_id")) %>% arrange(receiver_id)
+
+head(combined_data)
+```
+```{r}
+# Assuming the data is loaded into a dataframe named 'data'
+library(igraph)
+
+data <- graph
+g <- graph_from_data_frame(d = data[, c("sender_id", "receiver_id")], directed = TRUE)
+
+
+data$in_degree_centrality <- igraph::degree(g, mode = "in")[as.character(data$receiver_id)]
+
+
+E(g)$dialog_act <- data$dialog_act
+
+
+centrality_by_act <- data %>%
+  group_by(dialog_act) %>%
+  summarize(mean_in_degree = mean(in_degree_centrality), .groups = 'drop')
+
+
+print(centrality_by_act)
+
+
+```
+
+```{r}
+model <- lm(in_degree_centrality ~ .-receiver_id, data = combined_data)
+summary(model)
+
 ```
 
 
 ```{r, warning=FALSE, message=FALSE}
 
 par(mfrow = c(1,1), mar = c(1, 1, 1, 1))
-legend <- unique(graph_1903[,5])
 colors <- rainbow(length(legend)) # Generate a set of colors
-plot(graph_from_edgelist()), 
-     edge.arrow.size = 0.25,
-     vertex.label = V(network_1903)$name,
-     vertex.label.cex = 0.7,
-     vertex.label.color = "black",
-     vertex.color = 0,
-     vertex.size = 40,
-     edge.color = colors[as.factor(E(network_1903)$dialog_act)])
+# plot(graph,
+#      edge.arrow.size = 0.25,
+#      vertex.label = V(graph)$name,
+#      vertex.label.cex = 0.7,
+#      vertex.label.color = "black",
+#      vertex.color = 0,
+#      vertex.size = 40,
+#      edge.color = colors[as.factor(E(network_1903)$dialog_act)])
 
-
-legend("topright",
-       legend = legend, 
-       col = colors,
-       pch = 15, 
-       title = "Dialog Acts",
-       cex = 0.75, 
-       pt.cex = 0.75, 
-       lwd = 0.5) 
+# 
+# legend("topright",
+#        legend = legend, 
+#        col = colors,
+#        pch = 15, 
+#        title = "Dialog Acts",
+#        cex = 0.75, 
+#        pt.cex = 0.75, 
+#        lwd = 0.5) 
 ```
 
 ## REM Model
@@ -213,18 +268,18 @@ summary(model2)
 
 
 ```{r}
-# Model 3 -----------------------------------------------------------------
-stats.sameconstgroup.da <- SameConstGroup(data, dialog_act)
+# stats.samestyle.da measures the effect of having the same communication style, as inferred from the dialogue acts (such as statements, questions)
+# Model 3 
+stats.samestyle.da <- SameConstGroup(data, dialog_act)
 
 stats3 <- combine.stats(
   '[Intercept]' = stats.intercept,
   'RRecSnd' = stats.rrecsnd,
   'RSndSnd' = stats.rsndsnd,
   'NTDegRec' = stats.ntdegrec,
-  'SameConstGroup' = stats.sameconstgroup.da
+  'SameCommStyle' = stats.samestyle.da
 )
 
-# Run the third model and check the transript_data
 model3 <- FitEventNetworkCore(data, stats3, ordinal = FALSE)
 summary(model3)
 ```
