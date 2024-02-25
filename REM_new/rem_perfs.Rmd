@@ -1,0 +1,357 @@
+```{r, message = FALSE}
+# Last Updated: 02/12
+rm(list = ls())
+
+# Load libraries
+library(rstudioapi)
+library(tidyverse)
+library(tidyr)
+library(ggplot2)
+library(dplyr)
+
+library(RColorBrewer)
+library(dplyr)
+library(igraph)
+library(readxl)
+library(igraph)
+library(glmnet)
+library(remsonic)
+library(skimr)
+library(dplyr)
+library(relevent)
+# Set Path
+setwd("~/RProjects/SNA_REM/REM_new/")
+```
+
+
+
+```{r}
+# read performance
+data <- read.csv("data/perfs_21.csv")
+
+data_sorted <- data[order(-data$perf), ]
+
+# Add a column to label high and low performance
+data_sorted <- mutate(data_sorted, perf_level = ifelse(row_number() <= n()/2, 1, 0))
+
+data_sorted <- data_sorted %>% sort()
+
+data_sorted %>% glimpse()
+
+summary(data_sorted)
+```
+
+
+```{r}
+
+high_perf_data <- filter(data_sorted, perf_level == 1)
+low_perf_data <- filter(data_sorted, perf_level == 0)
+
+```
+
+
+```{r}
+df <- read.csv("data/combined.csv") 
+
+df <- df[!df$speaker %in% c("-", "N/A", "[Audio from 0","Today is February 8th, 2022. It is mission day 96. Time is",0, "Олег","Alex to Oleg"),]
+
+df <- df %>%
+  # Separate the 'speaker' column into multiple rows where there are commas
+  separate_rows(speaker, sep = ",\\s*") %>%
+  # Optional: Clean up the 'speaker' column to ensure consistency
+  mutate(speaker = trimws(speaker))
+
+# Existing and expanded name corrections
+name_corrections <- c(
+  "Will:" = "Will",
+  "Wil" = "Will",
+  "Maybe Will" = "Will",
+  "Ale" = "Alex",
+  "Al" = "Alex",
+  "Ole" = "Oleg",
+  "Ashle" = "Ashley",
+  "Oleg:" = "Oleg",
+  "Saleh:" = "Saleh",
+  "Sala" = "Saleh",
+  "Salah:" = "Saleh",
+  "Salah" = "Saleh",
+  "Man" = NA, # Assuming you want to exclude non-specific entries
+  "Woman" = NA,
+  "Video" = NA,
+  "Man2:" = NA,
+  "Man2" = NA,
+  "Man 2" =NA, 
+  "Woman1" = NA,
+  # Handle other specific cases as needed
+  "Ashely:" = "Ashley",
+  "Vika:" = "Vika",
+  "VIka" = "Vika",
+  "Ashely" = "Ashley",
+  "Maybe Salah" = NA,
+  "Salah" = "Saleh",
+  "Vika." = "Vika",
+  "Vik" = "Vika",
+  "Vila" = "Vika",
+  "Kata" = "Katya",
+  "Salah" = "Saleh",
+  # Correcting to the closest name
+  # Add more corrections as needed
+  "Asley" = "Ashley",
+  "Ashley:" = "Ashley",
+  "Igo" = "Igor",
+  "Maybe Katya" = NA,
+  
+  "Maybe Vika" = NA,
+  "Maybe Alex" = NA,
+  "Maybe Oleg" = NA,
+  "Maybe Saleh" = NA,
+  "Maybe Igor"  =  NA,
+  "Maybe Katy" = NA,
+  "Salah" = "Saleh",
+  "Maybe Ashley" = NA,
+  # Assuming decision to remove non-specific and "Maybe" prefixed entries
+  "Salah and Man 3" = NA,
+  # Example of excluding a problematic entry
+  "Man2:" =  NA,
+  "Man 2" = NA, 
+  "Man3"= NA,
+  "Woman1" = NA,
+  "Woman2" = NA,
+  # Handle other group names or non-name entries as needed
+  "Video" = NA # Assuming you decide to exclude 'Video' as a non-name entry
+)
+
+
+# Apply corrections
+df$speaker <- ifelse(df$speaker %in% names(name_corrections),
+                     name_corrections[df$speaker],
+                     df$speaker)
+
+# remove NA
+df <- df[!is.na(df$speaker),]
+
+unique_speakers <- df$speaker %>% unique()
+
+unique_speakers
+```
+
+
+```{r}
+# see what Alex says
+df_alex <- df[df$speaker == "Alex",]
+print(df_alex)
+
+```
+
+
+```{r}
+
+
+df <- df %>%
+  mutate(dialogue_act = ifelse(speaker == "All" & grepl("Mark", content),
+                               "decision_point",
+                               dialogue_act))
+
+
+
+df_rest <- df[df$session != "2101",]
+
+df_rest$speaker %>%
+  unique()
+```
+
+```{r}
+speaker_counts <- df_rest %>%
+  filter(speaker %in% unique(df_rest$speaker)) %>%
+  group_by(speaker) %>%
+  summarise(count = n())
+print(speaker_counts)
+```
+
+
+```{r}
+dialogue_act_counts <- df_rest %>%
+  filter(dialogue_act %in% unique(df_rest$dialogue_act)) %>%
+  group_by(dialogue_act) %>%
+  summarise(count = n())
+print(dialogue_act_counts)
+```
+
+
+
+```{r}
+# Assuming speaker_counts is already created and contains 'speaker' and 'count' columns
+# Filter to include only speakers with count >= 5
+filtered_speaker_counts <- speaker_counts %>%
+  filter(count >= 20)
+
+# Plotting the distribution with the filtered data
+ggplot(filtered_speaker_counts, aes(x = speaker, y = count, fill = speaker)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  labs(title = "Distribution of Dialogue Contributions by Speaker (Counts >= 5)",
+       x = "Speaker",
+       y = "Count of Contributions") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_brewer(palette = "Pastel1") # Using a color palette for aesthetic purposes
+# plot total dialogue act across all speakers
+
+# Filter to include only speakers with count >= 5
+filtered_da <- dialogue_act_counts %>%
+  filter(count >= 20)
+
+
+ggplot(filtered_da, aes(x = dialogue_act, y = count, fill = dialogue_act)) +
+  geom_bar(stat = "identity") +
+  theme_minimal() +
+  labs(title = "Distribution of Dialogue Acts",
+       x = "Dialogue Act",
+       y = "Proportion of Dialogue Acts") +
+  scale_fill_brewer(palette = "Pastel1") # Using a color palette for aesthetic purposes
+```
+
+
+```{r}
+# plot dialogue act by speaker
+df_rest %>%
+  filter(speaker %in% filtered_speaker_counts$speaker) %>%
+  ggplot(aes(x = speaker, fill = dialogue_act)) +
+  geom_bar(position = "fill") +
+  theme_minimal() +
+  labs(title = "Distribution of Dialogue Acts by Speaker",
+       x = "Speaker",
+       y = "Proportion of Dialogue Acts") +
+  theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
+  scale_fill_brewer(palette = "Pastel1") # Using a color palette for aesthetic purposes
+
+
+```
+```{r}
+df_rest %>% glimpse()
+
+
+df_rest$speaker %>%unique()
+
+```
+
+```{r}
+
+library(dplyr)
+
+# Assuming your data frame is named 'data'
+# data <- data.frame(speaker = c("Oleg", "Ashley", ...), session = c(2103, 2103, ...), dialogue_act = c("statement", "backchannel", ...))
+
+# Define the mapping of speakers to genders
+gender_map <- c(
+  Oleg = "Male", Ashley = "Female", Katya = "Female", Vika = "Female",
+  Will = "Male", Saleh = "Male", All = "Unspecified", Alex = "Male", Igor = "Male"
+)
+
+# Add a gender column using the map
+data_with_gender <- data %>%
+  mutate(gender = gender_map[speaker])
+
+# If there are speakers not in the map, replace NA with "Unknown"
+data_with_gender$gender[is.na(data_with_gender$gender)] <- "Unknown"
+
+# Display the updated data frame
+print(head(data_with_gender))
+
+
+
+```
+
+```{r}
+data_with_gender %>% glimpse()
+```
+
+```{r}
+data_with_gender %>% skim()
+```
+
+```{r}
+library(dplyr)
+
+
+data_with_gender <- data_with_gender %>% select(-content) %>%
+  arrange(session) %>%
+  group_by(session) %>%
+  mutate(
+    previous_speaker = lag(speaker, 1),
+    previous_act = lag(dialogue_act, 1),
+    previous_gender = lag(gender, 1),
+    is_backchannel = ifelse(dialogue_act == "backchannel", 1, 0)
+  ) %>%
+  ungroup()
+```
+
+
+```{r}
+
+head(data_with_gender)
+names(data_with_gender)
+
+```
+
+
+```{r}
+# Remove the first observation of each session since it has no previous event
+data_with_gender <- data_with_gender %>%
+  filter(!is.na(previous_act))
+
+# Now we could fit a logistic regression model
+# REM is much more complex, but for demonstration, we'll use a logistic model as a simple proxy.
+# The model will predict the occurrence of a "backchannel" event based on the previous event and speaker gender.
+model <- glm(
+  is_backchannel ~ previous_act + previous_gender, 
+  family = binomial(link = "logit"),
+  data = data_with_gender
+)
+
+# View the summary of the model to understand the effects
+summary(model)
+
+```
+```{r}
+# Load the necessary library
+library(TraMineR)
+
+# Assuming your data frame is named 'data_with_gender'
+# and it's ordered by time (sequence represents time)
+
+# Create transition features
+data_with_gender <- data_with_gender %>%
+  group_by(session) %>%
+  mutate(
+    previous_act = lag(dialogue_act, default=first(dialogue_act)),
+    next_act = lead(dialogue_act, default=last(dialogue_act)),
+    previous_gender = lag(gender, default=first(gender))
+  ) %>%
+  ungroup()
+
+# Remove rows with no next_act if they are not useful for your analysis
+data_with_gender <- data_with_gender %>%
+  filter(!is.na(next_act))
+
+# Create a sequence object
+seqdef_data <- seqdef(data_with_gender$dialogue_act)
+
+# Explore sequence patterns
+seqiplot(seqdef_data) # Interactive sequence index plot
+seqdplot(seqdef_data) # Sequence distribution plot
+
+# For statistical analysis, you might consider sequence analysis metrics
+# such as transition rates between states, complexity indices, or others.
+
+# For example, to compute transition rates between dialogue acts
+seqtrate <- seqtrate(seqdef_data)
+
+# Print the transition rates
+print(seqtrate)
+
+# This is a simple example and does not take into account the gender directly.
+# For a more advanced analysis, you could create separate sequence objects
+# by gender and compare the transition patterns across genders.
+
+```
+
