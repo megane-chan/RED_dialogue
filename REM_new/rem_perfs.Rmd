@@ -306,7 +306,7 @@ data[,'rec_id'] <- lookup_table[data$receiver]
 ```{r}
 
 # save as RDs
-saveRDS(rem_data, "data/rem_data.rds")
+saveRDS(data, "data/rem_data.rds")
 
 ```
 

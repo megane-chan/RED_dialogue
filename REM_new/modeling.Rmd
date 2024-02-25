@@ -1,4 +1,9 @@
-```{r, message = FALSE}
+---
+output:
+  pdf_document: default
+  html_document: default
+---
+```{r, message = FALSE, include = FALSE}
 # Last Updated: 02/12
 rm(list = ls())
 
@@ -26,81 +31,115 @@ setwd("~/RProjects/SNA_REM/REM_new/")
 
 ```{r}
 readRDS("data/rem_data.rds") -> data
-data %>% filter(!is.na(snd_da) & !is.na(rec_da)) %>% skim()
+data %>% filter(!is.na(snd_da) & !is.na(rec_da)) %>% glimpse()
+# rename
+# rename all the columns
+colnames(data) <- c("session", "sid", "rid", "sgend"er, "rgender", "sdialog", "rdialog", "event_order", "event_time")
 ```
 
-
 ```{r}
-dialog_act <- sort(unique(data$dialog_act)) %>% as.factor()
+```
+```{r}
+head(data)
+```
+```{r}
+# set 0 if snd_gender == Female and 0 if snd_gender = Male
+data$snd_gender <- ifelse(data$snd_gender== "Female", 0, 1)
+data$rec_gender <- ifelse(data$rec_gender== "Female", 0, 1)
 
 
-data$sender <- as.factor(data$sender)
-data$receiver <- as.factor(data$receiver)
+data$snd_id <- as.factor(data$snd_id)
+data$rec_id <- as.factor(data$rec_id)
 data$snd_gender <- as.factor(data$snd_gender)
 data$rec_gender <- as.factor(data$rec_gender)
-$snd_da <- as.factor(data$snd_da)
-data$rec_da <- as.factor(data$rec_da)
-
-
-rem_dataset <- createRemDataset(start = 2102, end = 2119, sender = snd_id, target = rec_id, dialogue_act, eventSequence = session)
-
-
+data$sdialog <- as.factor(data$snd_da)
+data$rdialog <- as.factor(data$rec_da)
+head(data)
 ```
 
+
+
+
+
+
+
 ```{r}
-rem_model_refined <- update(
-  rem_model,
-  formula = rec_da ~ snd_da + snd_gender + rec_gender + snd_gender:rec_gender
+
+
+df_2103$session <- NULL
+# row names
+df_2103 <- df_2103 %>%  mutate(event_order = row_number())
+# drop the first column
+head(df_2103)
+```
+
+# Session 2103
+
+
+
+
+```{r}
+
+
+data <- data.frame(sid = df_2103$snd_id, rid = df_2103$rec_id, time = df_2103$event_order)
+
+
+
+# Model 1 -----------------------------------------------------------------
+
+# Calculate the first set of statistics: the intercept, the effects for repetition (RSndSnd), 
+# and reciprocity (RRecSnd)
+
+stats.intercept <- Constant(data)
+stats.rrecsnd <- RRecSnd(data)
+stats.rsndsnd <- RSndSnd(data)
+
+
+stats1 <- combine.stats(
+  '[Intercept]' = stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd
 )
 
-
-fit_results_refined <- fitrem(rem_model_refined)
-
-summary(fit_results_refined)
-
-
+model1 <- FitEventNetworkCore(data, stats1)
+summary(model1)
 ```
+
+
 ```{r}
-# Load the necessary library
-library(TraMineR)
+# Model 2 -----------------------------------------------------------------
 
-# Assuming your data frame is named 'data_with_gender'
-# and it's ordered by time (sequence represents time)
+# Adding the second term: the Normalized Total Degree Received (NTDRec)
+stats.ntdegrec <- NTDRec(data)
+stats2 <- combine.stats(
+  '[Intercept]' <- stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd,
+  'NTDegRec' = stats.ntdegrec
+)
 
-# Create transition features
-data_with_gender <- data_with_gender %>%
-  group_by(session) %>%
-  mutate(
-    previous_act = lag(dialogue_act, default=first(dialogue_act)),
-    next_act = lead(dialogue_act, default=last(dialogue_act)),
-    previous_gender = lag(gender, default=first(gender))
-  ) %>%
-  ungroup()
-
-# Remove rows with no next_act if they are not useful for your analysis
-data_with_gender <- data_with_gender %>%
-  filter(!is.na(next_act))
-
-# Create a sequence object
-seqdef_data <- seqdef(data_with_gender$dialogue_act)
-
-# Explore sequence patterns
-seqiplot(seqdef_data) # Interactive sequence index plot
-seqdplot(seqdef_data) # Sequence distribution plot
-
-# For statistical analysis, you might consider sequence analysis metrics
-# such as transition rates between states, complexity indices, or others.
-
-# For example, to compute transition rates between dialogue acts
-seqtrate <- seqtrate(seqdef_data)
-
-# Print the transition rates
-print(seqtrate)
-
-# This is a simple example and does not take into account the gender directly.
-# For a more advanced analysis, you could create separate sequence objects
-# by gender and compare the transition patterns across genders.
-
+# Run the second model and check the transript_data
+model2 <- FitEventNetworkCore(data, stats2, ordinal = FALSE)
+summary(model2)
 ```
+
+
+```{r}
+# Model 3 -----------------------------------------------------------------
+stats.sameconstgroup.da <- SameConstGroup(data, snd_gender, rec_gender)
+
+stats3 <- combine.stats(
+  '[Intercept]' = stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd,
+  'NTDegRec' = stats.ntdegrec,
+  'SameConstGroup' = stats.sameconstgroup.da
+)
+
+# Run the third model and check the transript_data
+model3 <- FitEventNetworkCore(data, stats3, ordinal = FALSE)
+summary(model3)
 ```
+
+
 
