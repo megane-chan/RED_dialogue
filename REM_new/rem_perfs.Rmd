@@ -180,12 +180,11 @@ print(dialogue_act_counts)
 
 
 ```{r}
-# Assuming speaker_counts is already created and contains 'speaker' and 'count' columns
-# Filter to include only speakers with count >= 5
+
 filtered_speaker_counts <- speaker_counts %>%
   filter(count >= 20)
 
-# Plotting the distribution with the filtered data
+
 ggplot(filtered_speaker_counts, aes(x = speaker, y = count, fill = speaker)) +
   geom_bar(stat = "identity") +
   theme_minimal() +
@@ -193,10 +192,8 @@ ggplot(filtered_speaker_counts, aes(x = speaker, y = count, fill = speaker)) +
        x = "Speaker",
        y = "Count of Contributions") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  scale_fill_brewer(palette = "Pastel1") # Using a color palette for aesthetic purposes
-# plot total dialogue act across all speakers
+  scale_fill_brewer(palette = "Pastel1") 
 
-# Filter to include only speakers with count >= 5
 filtered_da <- dialogue_act_counts %>%
   filter(count >= 20)
 
@@ -207,7 +204,7 @@ ggplot(filtered_da, aes(x = dialogue_act, y = count, fill = dialogue_act)) +
   labs(title = "Distribution of Dialogue Acts",
        x = "Dialogue Act",
        y = "Proportion of Dialogue Acts") +
-  scale_fill_brewer(palette = "Pastel1") # Using a color palette for aesthetic purposes
+  scale_fill_brewer(palette = "Pastel1") 
 ```
 
 
@@ -222,7 +219,7 @@ df_rest %>%
        x = "Speaker",
        y = "Proportion of Dialogue Acts") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  scale_fill_brewer(palette = "Pastel1") # Using a color palette for aesthetic purposes
+  scale_fill_brewer(palette = "Pastel1") 
 
 
 ```
@@ -238,25 +235,19 @@ df_rest$speaker %>%unique()
 
 library(dplyr)
 
-# Assuming your data frame is named 'data'
-# data <- data.frame(speaker = c("Oleg", "Ashley", ...), session = c(2103, 2103, ...), dialogue_act = c("statement", "backchannel", ...))
-
-# Define the mapping of speakers to genders
 gender_map <- c(
   Oleg = "Male", Ashley = "Female", Katya = "Female", Vika = "Female",
   Will = "Male", Saleh = "Male", All = "Unspecified", Alex = "Male", Igor = "Male"
 )
 
-# Add a gender column using the map
-data_with_gender <- data %>%
+
+data_with_gender <- df_rest %>%
   mutate(gender = gender_map[speaker])
 
-# If there are speakers not in the map, replace NA with "Unknown"
+
 data_with_gender$gender[is.na(data_with_gender$gender)] <- "Unknown"
 
-# Display the updated data frame
 print(head(data_with_gender))
-
 
 
 ```
@@ -277,39 +268,71 @@ data_with_gender <- data_with_gender %>% select(-content) %>%
   arrange(session) %>%
   group_by(session) %>%
   mutate(
-    previous_speaker = lag(speaker, 1),
-    previous_act = lag(dialogue_act, 1),
-    previous_gender = lag(gender, 1),
-    is_backchannel = ifelse(dialogue_act == "backchannel", 1, 0)
-  ) %>%
+    sender = lag(speaker, 1),
+    receiver = speaker,
+    snd_da = lag(dialogue_act, 1),
+    rec_da = dialogue_act,
+    snd_gender = gender,
+    rec_gender = lag(gender, 1),
+  ) %>% drop_na() %>% select(-speaker) %>%
   ungroup()
-```
 
-
-```{r}
 
 head(data_with_gender)
-names(data_with_gender)
+
+```
+
+```{r}
+rem_data <- data_with_gender  %>%  select(session, sender, receiver, snd_gender, rec_gender, snd_da, rec_da)
+
+
+head(rem_data)
 
 ```
 
 
 ```{r}
-# Remove the first observation of each session since it has no previous event
-data_with_gender <- data_with_gender %>%
-  filter(!is.na(previous_act))
+library(rem)
+data <- rem_data
 
-# Now we could fit a logistic regression model
-# REM is much more complex, but for demonstration, we'll use a logistic model as a simple proxy.
-# The model will predict the occurrence of a "backchannel" event based on the previous event and speaker gender.
-model <- glm(
-  is_backchannel ~ previous_act + previous_gender, 
-  family = binomial(link = "logit"),
-  data = data_with_gender
+people_list <- unique(data$sender) %>% union(unique(data$receiver))
+
+lookup_table <- setNames(seq_along(people_list), people_list)
+data[,'sender_id'] <- lookup_table[data$sender]
+data[,'receiver_id'] <- lookup_table[data$receiver]
+
+data
+```
+
+
+```{r}
+dialog_act <- sort(unique(data$dialog_act)) %>% as.factor()
+
+
+data$sender <- as.factor(data$sender)
+data$receiver <- as.factor(data$receiver)
+data$snd_gender <- as.factor(data$snd_gender)
+data$rec_gender <- as.factor(data$rec_gender)
+data$snd_da <- as.factor(data$snd_da)
+data$rec_da <- as.factor(data$rec_da)
+
+
+rem_dataset <- createRemDataset(data
 )
 
-# View the summary of the model to understand the effects
-summary(model)
+```
+
+```{r}
+rem_model_refined <- update(
+  rem_model,
+  formula = rec_da ~ snd_da + snd_gender + rec_gender + snd_gender:rec_gender
+)
+
+
+fit_results_refined <- fitrem(rem_model_refined)
+
+summary(fit_results_refined)
+
 
 ```
 ```{r}
