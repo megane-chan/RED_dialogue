@@ -10,14 +10,13 @@ library(igraph)
 library(readxl)
 library(glmnet)
 # Set Path
-setwd("~/RProjects/RED_dialogue/REM")
+setwd("~/RProjects/SNA_REM/REM_new/")
 
-trans <- read.csv("trans.csv")
-pred <- read.csv("trans_preds.csv")
-
+trans <- read.csv("data/trans.csv")
+pred <- read.csv("data/trans_preds.csv")
+perf <- read.csv("data/perfs.csv")
 
 df <- cbind(trans, pred) %>%
-  select(-X) %>%
   rename("outcome" = "BC_Trans_Preds")
 df %>% glimpse()
 
@@ -30,8 +29,3 @@ for (session_id in unique_sessions) {
   session_data <- subset(df, session == session_id)
 
   session_dfs[[paste0("df_", session_id)]] <- session_data }
-
-#session_dfs %>%  saveRDS(file = "all_sessions.RData")
-s1903 <- select(-session) %>% session_dfs[["df_1903"]]
-
-session_dfs %>% glimpse() %>% head(1)

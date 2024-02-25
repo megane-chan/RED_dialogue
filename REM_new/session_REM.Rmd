@@ -21,7 +21,7 @@ library(remsonic)
 library(dplyr)
 library(relevent)
 # Set Path
-setwd("~/RProjects/RED_dialogue/REM")
+setwd("~/RProjects/SNA_REM/REM_new/")
 ```
 
 ```{r}
@@ -64,6 +64,8 @@ df_1903$speaker %>% unique()
 ```{r}
 summary(df_1903)
 ```
+
+
 ```{r}
 names(df_1903)
 ```
@@ -147,7 +149,7 @@ graph_1903
 par(mfrow = c(1,1), mar = c(1, 1, 1, 1))
 legend <- unique(graph_1903[,5])
 colors <- rainbow(length(legend)) # Generate a set of colors
-plot(graph_from_edgelist()), 
+plot(graph_from_edgelist(), 
      edge.arrow.size = 0.25,
      vertex.label = V(network_1903)$name,
      vertex.label.cex = 0.7,
