@@ -298,12 +298,26 @@ data <- rem_data
 people_list <- unique(data$sender) %>% union(unique(data$receiver))
 
 lookup_table <- setNames(seq_along(people_list), people_list)
-data[,'sender_id'] <- lookup_table[data$sender]
-data[,'receiver_id'] <- lookup_table[data$receiver]
+data[,'snd_id'] <- lookup_table[data$sender]
+data[,'rec_id'] <- lookup_table[data$receiver]
 
-data
 ```
 
+```{r}
+data %>% select(snd_id, rec_id, snd_gender, rec_gender, snd_da, rec_da) -> rem_data
+
+# save as RDs
+saveRDS(rem_data, "data/rem_data.rds")
+
+```
+
+
+
+```{r}
+```
+
+```{r}
+```
 
 ```{r}
 dialog_act <- sort(unique(data$dialog_act)) %>% as.factor()
@@ -313,11 +327,11 @@ data$sender <- as.factor(data$sender)
 data$receiver <- as.factor(data$receiver)
 data$snd_gender <- as.factor(data$snd_gender)
 data$rec_gender <- as.factor(data$rec_gender)
-data$snd_da <- as.factor(data$snd_da)
+$snd_da <- as.factor(data$snd_da)
 data$rec_da <- as.factor(data$rec_da)
 
 
-rem_dataset <- createRemDataset(data
+rem_dataset <- createRemDataset(start = 2102, end = 2119, sender = snd_id, target = rec_id, dialogue_act, eventSequence = session)
 )
 
 ```
