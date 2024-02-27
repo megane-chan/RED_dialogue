@@ -28,59 +28,86 @@ library(relevent)
 setwd("~/RProjects/SNA_REM/REM_new/")
 ```
 
-# Session 2103
+
 ```{r}
-# read excel
-dialog_data <- read_excel("data/nek21_2103.xlsx")
+readRDS("data/rem_data.rds") -> data
+data %>% filter(!is.na(snd_da) & !is.na(rec_da)) %>% glimpse()
+# rename
+# rename all the columns
+colnames(data) <- c("session", "sid", "rid", "sgend"er, "rgender", "sdialog", "rdialog", "event_order", "event_time")
+```
+
+```{r}
+```
+```{r}
 head(data)
-df2103 <- data[data$session == 2103,]
-head(df2103)
 ```
 ```{r}
+# set 0 if snd_gender == Female and 0 if snd_gender = Male
+data$snd_gender <- ifelse(data$snd_gender== "Female", 0, 1)
+data$rec_gender <- ifelse(data$rec_gender== "Female", 0, 1)
 
-people_list <- unique(df2103$sender)
 
-lookup_table <- setNames(seq_along(people_list), people_list)
-print(lookup_table)
-
-df2103[,'sender_id'] <- lookup_table[df2103$sender]
-df2103[,'receiver_id'] <- lookup_table[df2103$receiver]
-head(df2103)
+data$snd_id <- as.factor(data$snd_id)
+data$rec_id <- as.factor(data$rec_id)
+data$snd_gender <- as.factor(data$snd_gender)
+data$rec_gender <- as.factor(data$rec_gender)
+data$sdialog <- as.factor(data$snd_da)
+data$rdialog <- as.factor(data$rec_da)
+head(data)
 ```
 
 
 
 
 
+
+
 ```{r}
-# Load the data
-data <- data.frame(sid = df2103$sender_id, rid = df2103$receiver_id, time = df2103$event_order)
 
 
-# Calculate statistics for the REM
+df_2103$session <- NULL
+# row names
+df_2103 <- df_2103 %>%  mutate(event_order = row_number())
+# drop the first column
+head(df_2103)
+```
+
+# Session 2103
+
+
+
+
+```{r}
+
+
+data <- data.frame(sid = df_2103$snd_id, rid = df_2103$rec_id, time = df_2103$event_order)
+
+
+
+# Model 1 -----------------------------------------------------------------
+
+# Calculate the first set of statistics: the intercept, the effects for repetition (RSndSnd), 
+# and reciprocity (RRecSnd)
+
 stats.intercept <- Constant(data)
 stats.rrecsnd <- RRecSnd(data)
 stats.rsndsnd <- RSndSnd(data)
 
-# Combine statistics
+
 stats1 <- combine.stats(
   '[Intercept]' = stats.intercept,
   'RRecSnd' = stats.rrecsnd,
   'RSndSnd' = stats.rsndsnd
 )
 
-# Fit the first REM model
 model1 <- FitEventNetworkCore(data, stats1)
 summary(model1)
-
 ```
 
 
 ```{r}
-
 # Model 2 -----------------------------------------------------------------
-
-data <- data.frame(sid = df2103$sender_id, rid = df2103$receiver_id, time = df2103$event_order,sender_dialog = df2103$sender_dialog)
 
 # Adding the second term: the Normalized Total Degree Received (NTDRec)
 stats.ntdegrec <- NTDRec(data)
@@ -98,21 +125,15 @@ summary(model2)
 
 
 ```{r}
-
-# add a column representing if the sender and receiver are of the same gender
-same_gender <- ifelse(df2103$sender_gender == df2103$receiver_gender, 1, 0)
-data <- data.frame(sid = df2103$sender_id, rid = df2103$receiver_id, time = df2103$event_order,sender_dialog = df2103$sender_dialog)
-
 # Model 3 -----------------------------------------------------------------
-
-stats.sameGender <- SameConstGroup(data, same_gender)
+stats.sameconstgroup.da <- SameConstGroup(data, snd_gender, rec_gender)
 
 stats3 <- combine.stats(
   '[Intercept]' = stats.intercept,
   'RRecSnd' = stats.rrecsnd,
   'RSndSnd' = stats.rsndsnd,
   'NTDegRec' = stats.ntdegrec,
-  'SameConstGroup' = stats.sameGender
+  'SameConstGroup' = stats.sameconstgroup.da
 )
 
 # Run the third model and check the transript_data

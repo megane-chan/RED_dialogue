@@ -270,10 +270,10 @@ data_with_gender <- data_with_gender %>% select(-content) %>%
   mutate(
     sender = lag(speaker, 1),
     receiver = speaker,
-    sender_dialog = lag(dialogue_act, 1),
-    receiver_dialog = dialogue_act,
-    sender_gender = gender,
-    receiver_gender = lag(gender, 1),
+    snd_da = lag(dialogue_act, 1),
+    rec_da = dialogue_act,
+    snd_gender = gender,
+    rec_gender = lag(gender, 1),
   ) %>% drop_na() %>% select(-speaker) %>%
   ungroup()
 
@@ -283,8 +283,7 @@ head(data_with_gender)
 ```
 
 ```{r}
-rem_data <- data_with_gender  %>%  select(session, sender, receiver, sender_gender, receiver_gender, sender_dialog, receiver_dialog)
-
+rem_data <- data_with_gender  %>%  select(session, sender, receiver, snd_gender, rec_gender, snd_da, rec_da)
 
 
 head(rem_data)
@@ -294,12 +293,14 @@ head(rem_data)
 
 ```{r}
 library(rem)
-unique(rem_data$receiver)
-print(people_list)
+data <- rem_data
+
+people_list <- unique(data$sender) %>% union(unique(data$receiver))
+
 lookup_table <- setNames(seq_along(people_list), people_list)
-rem_data[,'sid'] <- lookup_table[rem_data$sender]
-rem_data[,'rid'] <- lookup_table[rem_data$receiver]
-head(rem_data)
+data[,'snd_id'] <- lookup_table[data$sender]
+data[,'rec_id'] <- lookup_table[data$receiver]
+
 ```
 
 ```{r}
