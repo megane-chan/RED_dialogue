@@ -172,7 +172,7 @@ legend("topright",
 ## REM Model
 ```{r, warning=FALSE}
 
-data <- data.frame(sid = df_1903$sender_id, rid = df_1903$receiver_id, time = df_1903$event_time, dialog_act = df_1903$dialog_act)
+data <- data.frame(sid = df_1903$sender_id, rid = df_1903$receiver_id, time = df_1903$event_time, dialog_act = df_1903$sen)
 
 
 # Model 1 -----------------------------------------------------------------
