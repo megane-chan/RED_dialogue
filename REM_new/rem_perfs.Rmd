@@ -29,10 +29,10 @@ setwd("~/RProjects/SNA_REM/REM_new/")
 # read performance
 data <- read.csv("data/perfs_21.csv")
 
-data_sorted <- data[order(-data$perf), ]
+data_sorted <- data[order(-data$perf),]
 
 # Add a column to label high and low performance
-data_sorted <- mutate(data_sorted, perf_level = ifelse(row_number() <= n()/2, 1, 0))
+data_sorted <- mutate(data_sorted, perf_level = ifelse(row_number() <= n() / 2, 1, 0))
 
 data_sorted <- data_sorted %>% sort()
 
@@ -51,9 +51,9 @@ low_perf_data <- filter(data_sorted, perf_level == 0)
 
 
 ```{r}
-df <- read.csv("data/combined.csv") 
+df <- read.csv("data/combined.csv")
 
-df <- df[!df$speaker %in% c("-", "N/A", "[Audio from 0","Today is February 8th, 2022. It is mission day 96. Time is",0, "Олег","Alex to Oleg"),]
+df <- df[!df$speaker %in% c("-", "N/A", "[Audio from 0", "Today is February 8th, 2022. It is mission day 96. Time is", 0, "Олег", "Alex to Oleg"),]
 
 df <- df %>%
   # Separate the 'speaker' column into multiple rows where there are commas
@@ -80,7 +80,7 @@ name_corrections <- c(
   "Video" = NA,
   "Man2:" = NA,
   "Man2" = NA,
-  "Man 2" =NA, 
+  "Man 2" = NA,
   "Woman1" = NA,
   # Handle other specific cases as needed
   "Ashely:" = "Ashley",
@@ -100,21 +100,21 @@ name_corrections <- c(
   "Ashley:" = "Ashley",
   "Igo" = "Igor",
   "Maybe Katya" = NA,
-  
+
   "Maybe Vika" = NA,
   "Maybe Alex" = NA,
   "Maybe Oleg" = NA,
   "Maybe Saleh" = NA,
-  "Maybe Igor"  =  NA,
+  "Maybe Igor" = NA,
   "Maybe Katy" = NA,
   "Salah" = "Saleh",
   "Maybe Ashley" = NA,
   # Assuming decision to remove non-specific and "Maybe" prefixed entries
   "Salah and Man 3" = NA,
   # Example of excluding a problematic entry
-  "Man2:" =  NA,
-  "Man 2" = NA, 
-  "Man3"= NA,
+  "Man2:" = NA,
+  "Man 2" = NA,
+  "Man3" = NA,
   "Woman1" = NA,
   "Woman2" = NA,
   # Handle other group names or non-name entries as needed
@@ -192,7 +192,7 @@ ggplot(filtered_speaker_counts, aes(x = speaker, y = count, fill = speaker)) +
        x = "Speaker",
        y = "Count of Contributions") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  scale_fill_brewer(palette = "Pastel1") 
+  scale_fill_brewer(palette = "Pastel1")
 
 filtered_da <- dialogue_act_counts %>%
   filter(count >= 20)
@@ -204,7 +204,7 @@ ggplot(filtered_da, aes(x = dialogue_act, y = count, fill = dialogue_act)) +
   labs(title = "Distribution of Dialogue Acts",
        x = "Dialogue Act",
        y = "Proportion of Dialogue Acts") +
-  scale_fill_brewer(palette = "Pastel1") 
+  scale_fill_brewer(palette = "Pastel1")
 ```
 
 
@@ -219,7 +219,7 @@ df_rest %>%
        x = "Speaker",
        y = "Proportion of Dialogue Acts") +
   theme(axis.text.x = element_text(angle = 45, hjust = 1)) +
-  scale_fill_brewer(palette = "Pastel1") 
+  scale_fill_brewer(palette = "Pastel1")
 
 
 ```
@@ -227,7 +227,7 @@ df_rest %>%
 df_rest %>% glimpse()
 
 
-df_rest$speaker %>%unique()
+df_rest$speaker %>% unique()
 
 ```
 
@@ -264,17 +264,20 @@ data_with_gender %>% skim()
 library(dplyr)
 
 
-data_with_gender <- data_with_gender %>% select(-content) %>%
+data_with_gender <- data_with_gender %>%
+  select(-content) %>%
   arrange(session) %>%
   group_by(session) %>%
   mutate(
     sender = lag(speaker, 1),
     receiver = speaker,
-    snd_da = lag(dialogue_act, 1),
-    rec_da = dialogue_act,
-    snd_gender = gender,
-    rec_gender = lag(gender, 1),
-  ) %>% drop_na() %>% select(-speaker) %>%
+    sender_dialog = lag(dialogue_act, 1),
+    receiver_dialog = dialogue_act,
+    sender_gender = gender,
+    receiver_gender = lag(gender, 1),
+  ) %>%
+  drop_na() %>%
+  select(-speaker) %>%
   ungroup()
 
 
@@ -283,7 +286,8 @@ head(data_with_gender)
 ```
 
 ```{r}
-rem_data <- data_with_gender  %>%  select(session, sender, receiver, snd_gender, rec_gender, snd_da, rec_da)
+rem_data <- data_with_gender %>% select(session, sender, receiver, sender_gender, receiver_gender, sender_dialog, receiver_dialog)
+
 
 
 head(rem_data)
@@ -293,14 +297,12 @@ head(rem_data)
 
 ```{r}
 library(rem)
-data <- rem_data
-
-people_list <- unique(data$sender) %>% union(unique(data$receiver))
-
+unique(rem_data$receiver)
+print(people_list)
 lookup_table <- setNames(seq_along(people_list), people_list)
-data[,'snd_id'] <- lookup_table[data$sender]
-data[,'rec_id'] <- lookup_table[data$receiver]
-
+rem_data[, 'sid'] <- lookup_table[rem_data$sender]
+rem_data[, 'rid'] <- lookup_table[rem_data$receiver]
+head(rem_data)
 ```
 
 ```{r}

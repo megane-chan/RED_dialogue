@@ -1,3 +1,14 @@
 *.pt
 *.model
 .env
+.DS_Store
+*.xml
+REM_new/.DS_Store
+*.iml
+REM_new/.DS_Store
+REM_new/data/.DS_Store
+.DS_Store
+REM_new/.DS_Store
+REM_new/data/.DS_Store
+.DS_Store
+.DS_Store
