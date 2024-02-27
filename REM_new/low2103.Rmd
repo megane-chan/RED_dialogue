@@ -1,8 +1,8 @@
 ---
 title: "Low Performance Session (2103)"
 output:
-  pdf_document: default
-  html_document: default
+pdf_document: default
+html_document: default
 ---
 ```{r, message = FALSE, include = FALSE}
 # Last Updated: 02/12
@@ -45,12 +45,12 @@ people_list <- unique(df_low2103$sender)
 lookup_table <- setNames(seq_along(people_list), people_list)
 print(lookup_table)
 
-df_low2103[,'sender_id'] <- lookup_table[df_low2103$sender]
-df_low2103[,'receiver_id'] <- lookup_table[df_low2103$receiver]
+df_low2103[, 'sender_id'] <- lookup_table[df_low2103$sender]
+df_low2103[, 'receiver_id'] <- lookup_table[df_low2103$receiver]
 head(df_low2103)
 
 # for event order, add 1 to make it start from 1  and icnreasing by 1 (row number)
-df_low2103[,'event_order'] <- seq(1, nrow(df_low2103))
+df_low2103[, 'event_order'] <- seq(1, nrow(df_low2103))
 head(df_low2103)
 ```
 
@@ -85,7 +85,7 @@ summary(model1)
 
 # Model 2 -----------------------------------------------------------------
 
-data <- data.frame(sid = df_low2103$sender_id, rid = df_low2103$receiver_id, time = df_low2103$event_order,sender_dialog = df_low2103$sender_dialog)
+data <- data.frame(sid = df_low2103$sender_id, rid = df_low2103$receiver_id, time = df_low2103$event_order, sender_dialog = df_low2103$sender_dialog)
 
 # Adding the second term: the Normalized Total Degree Received (NTDRec)
 stats.ntdegrec <- NTDRec(data)
@@ -106,7 +106,7 @@ summary(model2)
 
 # add a column representing if the sender and receiver are of the same gender
 same_gender <- ifelse(df_low2103$sender_gender == df_low2103$receiver_gender, 1, 0)
-data <- data.frame(sid = df_low2103$sender_id, rid = df_low2103$receiver_id, time = df_low2103$event_order,sender_dialog = df_low2103$sender_dialog)
+data <- data.frame(sid = df_low2103$sender_id, rid = df_low2103$receiver_id, time = df_low2103$event_order, sender_dialog = df_low2103$sender_dialog)
 
 # Model 3 -----------------------------------------------------------------
 
@@ -128,7 +128,7 @@ summary(model3)
 
 # Model 4 -----------------------------------------------------------------
 #same_gender and sender_dialog
-data <- data.frame(sid = df_low2103$sender_id, rid = df_low2103$receiver_id, time = df_low2103$event_order,sender_dialog = df_low2103$sender_dialog)
+data <- data.frame(sid = df_low2103$sender_id, rid = df_low2103$receiver_id, time = df_low2103$event_order, sender_dialog = df_low2103$sender_dialog)
 
 stats.SndDialog <- SameConstGroup(data, df_low2103$sender_dialog)
 stats.RecDialog <- SameConstGroup(data, df_low2103$receiver_dialog)
