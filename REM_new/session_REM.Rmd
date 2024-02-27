@@ -1,7 +1,7 @@
 ---
 output:
-  pdf_document: default
-  html_document: default
+pdf_document: default
+html_document: default
 ---
 ```{r, message = FALSE}
 # Last Updated: 02/12
@@ -136,8 +136,8 @@ graph_1903 <- df_1903 %>%
 people_list <- unique(c(graph_1903$sender, graph_1903$receiver))
 
 lookup_table <- setNames(seq_along(people_list), people_list)
-graph_1903[,'sender_id'] <- lookup_table[graph_1903$sender]
-graph_1903[,'receiver_id'] <- lookup_table[graph_1903$receiver]
+graph_1903[, 'sender_id'] <- lookup_table[graph_1903$sender]
+graph_1903[, 'receiver_id'] <- lookup_table[graph_1903$receiver]
 
 dialog_act <- sort(unique(graph_1903$dialog_act)) %>% as.factor()
 graph_1903
@@ -146,10 +146,10 @@ graph_1903
 
 ```{r, warning=FALSE, message=FALSE}
 
-par(mfrow = c(1,1), mar = c(1, 1, 1, 1))
-legend <- unique(graph_1903[,5])
+par(mfrow = c(1, 1), mar = c(1, 1, 1, 1))
+legend <- unique(graph_1903[, 5])
 colors <- rainbow(length(legend)) # Generate a set of colors
-plot(graph_from_edgelist(), 
+plot(graph_from_edgelist(),
      edge.arrow.size = 0.25,
      vertex.label = V(network_1903)$name,
      vertex.label.cex = 0.7,
@@ -160,13 +160,13 @@ plot(graph_from_edgelist(),
 
 
 legend("topright",
-       legend = legend, 
+       legend = legend,
        col = colors,
-       pch = 15, 
+       pch = 15,
        title = "Dialog Acts",
-       cex = 0.75, 
-       pt.cex = 0.75, 
-       lwd = 0.5) 
+       cex = 0.75,
+       pt.cex = 0.75,
+       lwd = 0.5)
 ```
 
 ## REM Model
