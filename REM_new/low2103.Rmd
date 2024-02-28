@@ -72,29 +72,8 @@ head(dialog_final)
 saveRDS(dialog_final, "data/dialog_final.RData")
 ```
 
-```{r}
-```
 
 # Low Session
-"High performance sessions"
-[1] "Session:  2104"
-[1] "Session:  2105"
-[1] "Session:  2112"
-[1] "Session:  2113"
-[1] "Session:  2114"
-[1] "Session:  2118"
-[1] "Low performance sessions"
-[1] "Session:  2102"
-[1] "Session:  2103"
-[1] "Session:  2106"
-[1] "Session:  2109"
-[1] "Session:  2110"
-[1] "Session:  2115"
-[1] "Failed sessions"
-[1] "Session:  2107"
-[1] "Session:  2108"
-[1] "Session:  2116"
-[1] "Session:  2117"
 
 ```{r}
 df_low2103 <- dialog_data[dialog_data$session == 2103,]
@@ -104,10 +83,6 @@ df_low2103 <- df_low2103[!is.na(df_low2103$receiver),]
 ```
 
 ```{r}
-
-
-# for event order, add 1 to make it start from 1  and icnreasing by 1 (row number)
-df_low2103[, 'event_order'] <- seq(1, nrow(df_low2103))
 
 
 
