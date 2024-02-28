@@ -1,0 +1,356 @@
+---
+title: "Low Performance Session (2103)"
+output:
+pdf_document: default
+html_document: default
+---
+```{r, message = FALSE, include = FALSE}
+# Last Updated: 02/12
+rm(list = ls())
+
+# Load libraries
+library(rstudioapi)
+library(tidyverse)
+library(tidyr)
+library(ggplot2)
+library(dplyr)
+
+library(RColorBrewer)
+library(dplyr)
+library(igraph)
+library(readxl)
+library(igraph)
+library(glmnet)
+library(remsonic)
+library(skimr)
+library(dplyr)
+library(relevent)
+# Install fastDummies if you haven't already
+if (!requireNamespace("fastDummies", quietly = TRUE)) {
+  install.packages("fastDummies")
+}
+
+library(fastDummies)
+
+# Set Path
+setwd("~/RProjects/SNA_REM/REM_new/")
+```
+
+# Session 2103
+```{r}
+# readRDS
+dialog_data <- readRDS("data/dialog_final.RData")
+head(dialog_data)
+```
+
+
+
+
+```{r}
+high_perf_sessions <- c(2104, 2105, 2112, 2113, 2114, 2118)
+low_perf_sessions <- c(2102, 2103, 2106, 2109, 2110, 2115)
+failed_sessions <- c(2107, 2108, 2116, 2117)
+```
+
+```{r}
+dialog_data <- dialog_data %>%
+  mutate(performance_category = case_when(
+    session %in% high_perf_sessions ~ "High performance",
+    session %in% low_perf_sessions ~ "Low performance",
+    session %in% failed_sessions ~ "Failed",
+    TRUE ~ "Uncategorized" # This handles any session IDs not in your lists
+  ))
+```
+
+```{r}
+
+
+dialog_data %>%
+  group_by(performance_category) %>%
+  summarise(count = n())
+
+```
+```{r}
+high_perf_all <- dialog_data %>% filter(session %in% high_perf_sessions)
+low_perf_all <- dialog_data %>% filter(session %in% low_perf_sessions)
+failed_perf_all <- dialog_data %>% filter(session %in% failed_sessions)
+```
+
+```{r}
+
+high_perf_all <- high_perf_all %>%
+  group_by(session) %>% 
+  mutate(event_order = row_number())%>%
+  ungroup()
+
+
+high_perf_all <- high_perf_all %>%
+  arrange(session, event_order)
+
+# Assign a preliminary event order within each session
+high_perf_all <- high_perf_all %>%
+  group_by(session) %>%
+  mutate(event_order_within_session = row_number()) %>%
+  ungroup()
+head(high_perf_all)
+
+
+session_last_event_order <- high_perf_all %>%
+  group_by(session) %>%
+  summarise(last_event_order = max(event_order_within_session)) %>%
+  ungroup()
+
+head(session_last_event_order)
+
+```
+```{r}
+
+
+session_info <- high_perf_all %>%
+  group_by(session) %>%
+  summarise(last_event_order = max(event_order_within_session)) %>%
+  mutate(start_next_session = lag(last_event_order, default = 0) + 1000) %>%
+  ungroup()
+
+# Adjust the start for the very first session manually if needed
+session_info$start_next_session[1] <- 1
+
+head(session_info)
+
+
+high_perf_all <- high_perf_all %>%
+  left_join(session_info, by = "session")
+
+
+high_perf_all <- high_perf_all %>%
+  mutate(adjusted_event_order = event_order_within_session + start_next_session - 1)
+high_perf_all <- high_perf_all %>%
+  select(-event_order)
+
+high_perf_all <- high_perf_all %>%
+  rename(event_order = adjusted_event_order)
+
+high_perf_all
+```
+
+```{r}
+
+low_perf_all <- low_perf_all %>%
+  group_by(session) %>% 
+  mutate(event_order = row_number())%>%
+  ungroup()
+
+
+low_perf_all <- low_perf_all %>%
+  arrange(session, event_order)
+
+# Assign a preliminary event order within each session
+low_perf_all <- low_perf_all %>%
+  group_by(session) %>%
+  mutate(event_order_within_session = row_number()) %>%
+  ungroup()
+head(low_perf_all)
+
+
+session_last_event_order <- low_perf_all %>%
+  group_by(session) %>%
+  summarise(last_event_order = max(event_order_within_session)) %>%
+  ungroup()
+
+head(session_last_event_order)
+
+
+session_info <- low_perf_all %>%
+  group_by(session) %>%
+  summarise(last_event_order = max(event_order_within_session)) %>%
+  mutate(start_next_session = lag(last_event_order, default = 0) + 1000) %>%
+  ungroup()
+
+# Adjust the start for the very first session manually if needed
+session_info$start_next_session[1] <- 1
+
+head(session_info)
+
+
+low_perf_all <- low_perf_all %>%
+  left_join(session_info, by = "session")
+
+
+low_perf_all <- low_perf_all %>%
+  mutate(adjusted_event_order = event_order_within_session + start_next_session - 1)
+low_perf_all <- low_perf_all %>%
+  select(-event_order)
+
+low_perf_all <- low_perf_all %>%
+  rename(event_order = adjusted_event_order)
+
+low_perf_all
+```
+
+```{r}
+failed_perf_all <- failed_perf_all %>%
+  group_by(session) %>% 
+  mutate(event_order = row_number())%>%
+  ungroup()
+
+
+low_perf_all <- low_perf_all %>%
+  arrange(session, event_order)
+
+# Assign a preliminary event order within each session
+failed_perf_all <- failed_perf_all %>%
+  group_by(session) %>%
+  mutate(event_order_within_session = row_number()) %>%
+  ungroup()
+head(failed_perf_all)
+
+
+session_last_event_order <- failed_perf_all %>%
+  group_by(session) %>%
+  summarise(last_event_order = max(event_order_within_session)) %>%
+  ungroup()
+
+head(session_last_event_order)
+
+
+session_info <- failed_perf_all %>%
+  group_by(session) %>%
+  summarise(last_event_order = max(event_order_within_session)) %>%
+  mutate(start_next_session = lag(last_event_order, default = 0) + 1000) %>%
+  ungroup()
+
+# Adjust the start for the very first session manually if needed
+session_info$start_next_session[1] <- 1
+
+head(session_info)
+
+
+failed_perf_all <- failed_perf_all %>%
+  left_join(session_info, by = "session")
+
+
+low_perf_all <- low_perf_all %>%
+  mutate(adjusted_event_order = event_order_within_session + start_next_session - 1)
+low_perf_all <- low_perf_all %>%
+  select(-event_order)
+
+low_perf_all <- low_perf_all %>%
+  rename(event_order = adjusted_event_order)
+
+low_perf_all
+```
+```{r}
+skim(high_perf_all)
+```
+```{r}
+skim(low_perf_all)
+```
+
+
+
+# Final Cleaned Session Data
+```{r}
+high_perf_all %>% saveRDS("data/high_perf_all.RData")
+low_perf_all %>% saveRDS("data/low_perf_all.RData")
+failed_perf_all %>% saveRDS("data/failed_perf_all.RData")
+```
+
+
+# REM 
+
+
+
+```{r}
+# Load the data
+data <- data.frame(sid = high_perf_all$sender_id, rid = high_perf_all$receiver_id, time = high_perf_all$event_order)
+
+
+# Calculate statistics for the REM
+stats.intercept <- Constant(data)
+stats.rrecsnd <- RRecSnd(data)
+stats.rsndsnd <- RSndSnd(data)
+
+# Combine statistics
+stats1 <- combine.stats(
+  '[Intercept]' = stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd
+)
+
+# Fit the first REM model
+
+```
+
+
+```{r}
+
+# Model 2 -----------------------------------------------------------------
+
+data <- data.frame(sid = high_perf_all$sender_id, rid = high_perf_all$receiver_id, time = high_perf_all$event_order, sender_dialog = high_perf_all$sender_dialog_statement) 
+
+# Adding the second term: the Normalized Total Degree Received (NTDRec)
+stats.ntdegrec <- NTDRec(data)
+stats2 <- combine.stats(
+  '[Intercept]' <- stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd,
+  'NTDegRec' = stats.ntdegrec
+)
+
+# Run the second model and check the transript_data
+model2 <- FitEventNetworkCore(data, stats2, ordinal = FALSE)
+summary(model2)
+```
+
+
+```{r}
+
+# add a column representing if the sender and receiver are of the same gender
+same_gender <- ifelse(high_perf_all$sender_gender == high_perf_all$receiver_gender, 1, 0)
+# factor
+
+data <- data.frame(sid = high_perf_all$sender_id, rid = high_perf_all$receiver_id, time = high_perf_all$event_order, sender_dialog = high_perf_all$sender_dialog)
+
+# Model 3 -----------------------------------------------------------------
+
+stats.sameGender <- SameConstGroup(data, same_gender)
+
+stats3 <- combine.stats(
+  '[Intercept]' = stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd,
+  'NTDegRec' = stats.ntdegrec,
+  'SameGender' = stats.sameGender
+)
+
+# Run the third model and check the transript_data
+model3 <- FitEventNetworkCore(data, stats3, ordinal = FALSE)
+summary(model3)
+```
+
+```{r}
+
+# Model 4 -----------------------------------------------------------------
+#same_gender and sender_dialog
+data <- data.frame(sid = high_perf_all$sender_id, rid = high_perf_all$receiver_id, time = high_perf_all$event_order, sender_dialog = high_perf_all$sender_dialog)
+
+
+stats.SndDialog <- SameDialogue(data, high_perf_all$sender_dialog)
+
+print(stats.SndDialog)
+print(stats.RecDialog)
+stats4 <- combine.stats(
+  '[Intercept]' = stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd,
+  'NTDegRec' = stats.ntdegrec,
+  'SameGender' = stats.sameGender,
+  'SndDialog' = stats.SndDialog
+)
+
+
+model4 <- FitEventNetworkCore(data, stats4, ordinal = FALSE)
+summary(model4)
+
+```
+
