@@ -3,7 +3,6 @@
   <component name="ProjectModuleManager">
     <modules>
       <module fileurl="file://$PROJECT_DIR$/.idea/REM.iml" filepath="$PROJECT_DIR$/.idea/REM.iml" />
-      <module fileurl="file://$PROJECT_DIR$/../../stat350_regression/.idea/stat350_regression.iml" filepath="$PROJECT_DIR$/../../stat350_regression/.idea/stat350_regression.iml" />
     </modules>
   </component>
 </project>

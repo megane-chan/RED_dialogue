@@ -51,6 +51,12 @@ head(df_high2105)
 # for event order, add 1 to make it start from 1  and icnreasing by 1 (row number)
 df_high2105[, 'event_order'] <- seq(1, nrow(df_high2105))
 head(df_high2105)
+
+# convert male and female as factor
+df_high2105$sender_gender <- as.factor(df_high2105$sender_gender)
+df_high2105$receiver_gender <- as.factor(df_high2105$receiver_gender)
+df_high2105$sender_dialog <- as.factor(df_high2105$sender_dialog)
+df_high2105$receiver_dialog <- as.factor(df_high2105$receiver_dialog)
 ```
 
 
@@ -116,7 +122,7 @@ stats3 <- combine.stats(
   'RRecSnd' = stats.rrecsnd,
   'RSndSnd' = stats.rsndsnd,
   'NTDegRec' = stats.ntdegrec,
-  'SameConstGroup' = stats.sameGender
+  'SameGender' = stats.sameGender
 )
 
 # Run the third model and check the transript_data
@@ -137,7 +143,7 @@ stats4 <- combine.stats(
   'RRecSnd' = stats.rrecsnd,
   'RSndSnd' = stats.rsndsnd,
   'NTDegRec' = stats.ntdegrec,
-  'SameConstGroup' = stats.sameGender,
+  'SameGender' = stats.sameGender,
   'SndDialog' = stats.SndDialog,
   'RecDialog' = stats.RecDialog
 )

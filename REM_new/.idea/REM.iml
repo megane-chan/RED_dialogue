@@ -3,6 +3,5 @@
   <component name="NewModuleRootManager">
     <orderEntry type="jdk" jdkName="/opt/homebrew/anaconda3" jdkType="Python SDK" />
     <orderEntry type="sourceFolder" forTests="false" />
-    <orderEntry type="module" module-name="stat350_regression" />
   </component>
 </module>
