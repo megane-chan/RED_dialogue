@@ -239,6 +239,14 @@ low_perf_all <- low_perf_all %>%
 
 low_perf_all
 ```
+```{r}
+skim(high_perf_all)
+```
+```{r}
+skim(low_perf_all)
+```
+
+
 
 # Final Cleaned Session Data
 ```{r}
@@ -249,7 +257,6 @@ failed_perf_all %>% saveRDS("data/failed_perf_all.RData")
 
 
 # REM 
-
 
 
 
@@ -271,8 +278,7 @@ stats1 <- combine.stats(
 )
 
 # Fit the first REM model
-model1 <- FitEventNetworkCore(data, stats1)
-summary(model1)
+
 ```
 
 
@@ -326,10 +332,10 @@ summary(model3)
 
 # Model 4 -----------------------------------------------------------------
 #same_gender and sender_dialog
-data <- data.frame(sid = high_perf_all$sender_id, rid = high_perf_all$receiver_id, time = high_perf_all$event_order, sender_dialog = df_low2103$sender_dialog)
+data <- data.frame(sid = high_perf_all$sender_id, rid = high_perf_all$receiver_id, time = high_perf_all$event_order, sender_dialog = high_perf_all$sender_dialog)
 
 
-stats.SndDialog <- SameConstGroup(data, high_perf_all$sender_dialog)
+stats.SndDialog <- SameDialogue(data, high_perf_all$sender_dialog)
 
 print(stats.SndDialog)
 print(stats.RecDialog)
@@ -339,8 +345,7 @@ stats4 <- combine.stats(
   'RSndSnd' = stats.rsndsnd,
   'NTDegRec' = stats.ntdegrec,
   'SameGender' = stats.sameGender,
-  'SndDialog' = stats.SndDialog,
-  'RecDialog' = stats.RecDialog
+  'SndDialog' = stats.SndDialog
 )
 
 
