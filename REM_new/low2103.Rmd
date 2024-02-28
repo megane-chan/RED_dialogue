@@ -99,29 +99,25 @@ final_df <- df_low2103 %>% select(-c(sender, receiver, session))
 ```
 
 
-
+## Model 1
 
 ```{r}
-# Load the data
-data <- data.frame(sid = df_low2103$sender_id, rid = df_low2103$receiver_id, time = df_low2103$event_order)
+data <- data.frame(
+  sid = high_perf_all$sender_id, 
+  rid = high_perf_all$receiver_id, 
+  time = high_perf_all$event_order
+)
 
-
-# Calculate statistics for the REM
 stats.intercept <- Constant(data)
 stats.rrecsnd <- RRecSnd(data)
 stats.rsndsnd <- RSndSnd(data)
-
-# Combine statistics
 stats1 <- combine.stats(
   '[Intercept]' = stats.intercept,
   'RRecSnd' = stats.rrecsnd,
   'RSndSnd' = stats.rsndsnd
 )
-
-# Fit the first REM model
 model1 <- FitEventNetworkCore(data, stats1)
 summary(model1)
-
 ```
 
 

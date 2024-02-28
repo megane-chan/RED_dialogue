@@ -240,28 +240,22 @@ low_perf_all <- low_perf_all %>%
 low_perf_all
 ```
 
+# Final Cleaned Session Data
+```{r}
+high_perf_all %>% saveRDS("data/high_perf_all.RData")
+low_perf_all %>% saveRDS("data/low_perf_all.RData")
+failed_perf_all %>% saveRDS("data/failed_perf_all.RData")
+```
 
 
 # REM 
-```{r}
-library(remsonic)
-
-model_formula <- ~ basestats(sender, receiver, event_order) + degreestats(sender, receiver, time)
-
-rem_fit <- FitEventNetworkCore(data = event_data, formula = model_formula)
-
-
-summary(rem_fit)
-
-
-```
 
 
 
 
 ```{r}
 # Load the data
-data <- data.frame(sid = df_low2103$sender_id, rid = df_low2103$receiver_id, time = df_low2103$event_order)
+data <- data.frame(sid = high_perf_all$sender_id, rid = high_perf_all$receiver_id, time = high_perf_all$event_order)
 
 
 # Calculate statistics for the REM
@@ -279,7 +273,6 @@ stats1 <- combine.stats(
 # Fit the first REM model
 model1 <- FitEventNetworkCore(data, stats1)
 summary(model1)
-
 ```
 
 
@@ -287,7 +280,7 @@ summary(model1)
 
 # Model 2 -----------------------------------------------------------------
 
-data <- data.frame(sid = df_low2103$sender_id, rid = df_low2103$receiver_id, time = df_low2103$event_order, sender_dialog = df_low2103$sender_dialog_statement, 
+data <- data.frame(sid = high_perf_all$sender_id, rid = high_perf_all$receiver_id, time = high_perf_all$event_order, sender_dialog = high_perf_all$sender_dialog_statement) 
 
 # Adding the second term: the Normalized Total Degree Received (NTDRec)
 stats.ntdegrec <- NTDRec(data)
@@ -307,10 +300,10 @@ summary(model2)
 ```{r}
 
 # add a column representing if the sender and receiver are of the same gender
-same_gender <- ifelse(df_low2103$sender_gender == df_low2103$receiver_gender, 1, 0)
+same_gender <- ifelse(high_perf_all$sender_gender == high_perf_all$receiver_gender, 1, 0)
 # factor
 
-data <- data.frame(sid = df_low2103$sender_id, rid = df_low2103$receiver_id, time = df_low2103$event_order, sender_dialog = df_low2103$sender_dialog)
+data <- data.frame(sid = high_perf_all$sender_id, rid = high_perf_all$receiver_id, time = high_perf_all$event_order, sender_dialog = high_perf_all$sender_dialog)
 
 # Model 3 -----------------------------------------------------------------
 
@@ -333,11 +326,10 @@ summary(model3)
 
 # Model 4 -----------------------------------------------------------------
 #same_gender and sender_dialog
-data <- data.frame(sid = df_low2103$sender_id, rid = df_low2103$receiver_id, time = df_low2103$event_order, sender_dialog = df_low2103$sender_dialog)
+data <- data.frame(sid = high_perf_all$sender_id, rid = high_perf_all$receiver_id, time = high_perf_all$event_order, sender_dialog = df_low2103$sender_dialog)
 
 
-stats.SndDialog <- SameConstGroup(data, df_low2103$sender_dialog)
-stats.RecDialog <- SameConstGroup(data, df_low2103$receiver_dialog)
+stats.SndDialog <- SameConstGroup(data, high_perf_all$sender_dialog)
 
 print(stats.SndDialog)
 print(stats.RecDialog)
