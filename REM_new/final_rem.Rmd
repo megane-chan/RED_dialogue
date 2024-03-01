@@ -25,10 +25,6 @@ library(remsonic)
 library(skimr)
 library(dplyr)
 library(relevent)
-# Install fastDummies if you haven't already
-if (!requireNamespace("fastDummies", quietly = TRUE)) {
-  install.packages("fastDummies")
-}
 
 library(fastDummies)
 
