@@ -14,7 +14,8 @@ library(tidyverse)
 library(tidyr)
 library(ggplot2)
 library(dplyr)
-
+library(dplyr)
+library(caret)
 library(RColorBrewer)
 library(dplyr)
 library(igraph)
@@ -51,6 +52,12 @@ print(lookup_table)
 dialog_data[, 'sender_id'] <- lookup_table[dialog_data$sender]
 dialog_data[, 'receiver_id'] <- lookup_table[dialog_data$receiver]
 head(dialog_data)
+# renmove whenever dialogue act is a decision_point
+dialog_data <- dialog_data %>% filter(sender_dialog != "decision_point")
+```
+
+```{r}
+head(dialog_data)
 ```
 
 ```{r}
@@ -68,8 +75,6 @@ print(paste("Number of high performance sessions: ", nrow(high_perf), list(high_
 print(paste("Number of fail performance sessions: ", nrow(fail_perf), list(fail_perf$session)))
 ```
 
-
-
 ```{r}
 high_perf_sessions <- c(2114, 2103, 2108, 2115, 2105, 2104, 2112, 2118)
 low_perf_sessions <-c(2102, 2106, 2116, 2110, 2107, 2113, 2111, 2117)
@@ -82,7 +87,7 @@ high_perf_all <- high_perf_all %>%
   group_by(session) %>% 
   mutate(in_session_event_order= row_number())%>%
   ungroup() %>%
-  arrange(session, event_order)
+  arrange(session, in_session_event_order)
 
 
 low_perf_all <- low_perf_all %>%
@@ -93,20 +98,41 @@ low_perf_all <- low_perf_all %>%
 
 ```
 
-
 ```{r}
-head(low_perf_all)
+
+levels(high_perf_all$sender_gender) <- list(male="male", female="female")
+levels(low_perf_all$receiver_gender) <- list(male="male", female="female")
+levels(low_perf_all$sender_dialog) <- list(as.factor(unique(low_perf_all$sender_dialog)))
+
+dmy_high <- dummyVars(~ sender_gender + receiver_gender + sender_dialog, sep = ".", data = high_perf_all, levelsOnly = FALSE)
+trsf_high <- data.frame(predict(dmy_high, newdata = high_perf_all))
+head(trsf_high)
+high_perf_final <- cbind(high_perf_all, trsf_high)
+
+high_perf_final %>% select(-c(sender, receiver, sender_dialog, sender_gender, receiver_gender, sender_dialog)) %>% select(session, in_session_event_order, everything()) -> high_perf_final
+
+dmy_low <- dummyVars(~ sender_gender + receiver_gender + sender_dialog, sep = ".", data = low_perf_all, levelsOnly = FALSE)
+trsf_low <- data.frame(predict(dmy_low, newdata = low_perf_all))
+head(trsf_low)
+low_perf_final <- cbind(low_perf_all, trsf_low)
+
+low_perf_final %>% select(-c(sender, receiver, sender_dialog, sender_gender, receiver_gender, sender_dialog)) %>% select(session, in_session_event_order, everything()) -> low_perf_final
 ```
 
 ```{r}
-saveRDS(high_perf_all, "data/high_perf_all.RData")
-saveRDS(low_perf_all, "data/low_perf_all.RData")
+write_csv(high_perf_final, "data/high_perf_final.csv")
+write_csv(low_perf_final, "data/low_perf_final.csv")
 ```
 
-
+```{r}
+saveRDS(high_perf_final, "data/high_perf_final.RData")
+saveRDS(low_perf_final, "data/low_perf_final.RData")
+```
 
 -   **High Performing Sessions: [2114, 2103, 2108, 2115, 2105, 2104, 2112, 2118]{style="color: blue;"}**
 
 -   **Low Performing Sessions: [2102, 2106, 2116, 2110, 2107, 2113, 2111, 2117]{style="color: green;"}**
 
 -   Can ignore the Failed Session
+
+![](images/clipboard-285892078.png)
