@@ -44,13 +44,19 @@ RRecSndR, RSndSnd, NTDRec, SameGender, SenderGender, senderDialogueAct
 
 
 ```{r}
+# start timer
+start_time <- Sys.time()
 # add a column representing if the sender and receiver are of the same gender
 samegender <- ifelse(high$sender_genderMale == high$receiver_genderMale, 1, 0)
+# reove all verything that gender is not a number
+samegender <- samegender[!is.na(samegender)]
 high <- cbind(high, samegender)
 sender_gender <- high[,5:6]
 receiver_gender <- high[,7:8]
 dialogue <- high[,9:14]
 evtdata <- high[,c(3:15)]
+# remove all NA in evtdata
+evtdata <- evtdata[complete.cases(evtdata),]
 #onvert order to time 
 evtdata$time <- as.POSIXct(evtdata$event_order)
 evtdata <- evtdata %>% mutate(sender_id = as.factor(sender_id), receiver_id = as.factor(receiver_id))
@@ -79,12 +85,24 @@ stats1 <- combine.stats(
   'RSndSnd' = stats.rsndsnd
 )
 
+
+end = FALSE
 # Fit the first REM model
 model1 <- FitEventNetworkCore(data, stats1, ordinal = FALSE)
 summary(model1)
 ```
 
 
+```{r}
+if (end == TRUE) {
+  # end timer
+  end_time <- Sys.time()
+  time_taken <- end_time - start_time
+  cat("REM Model 1 took", time_taken, "to run")
+}{paste("Time taken: ", time_taken, "Failed to terminate")}
+
+
+```
 
 
 ```{r}
