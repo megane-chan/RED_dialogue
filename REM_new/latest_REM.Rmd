@@ -1,27 +1,18 @@
-```{r,message=FALSE}
+```{r, message=FALSE, warning=FALSE}
 # Last Updated: 02/12
 rm(list = ls())
 
 # Load libraries
-library(rstudioapi)
 library(tidyverse)
 library(tidyr)
+library(lubridate)
 library(ggplot2)
-library(dplyr)
-
-library(RColorBrewer)
 library(dplyr)
 library(igraph)
 library(readxl)
 library(igraph)
 library(glmnet)
 library(remsonic)
-library(skimr)
-library(dplyr)
-library(relevent)
-
-library(fastDummies)
-
 # Set Path
 setwd("~/RProjects/SNA_REM/REM_new/")
 ```
@@ -33,7 +24,7 @@ names(high)
 ```
 
 # REM
-All potential 
+All potential
 RRecSndR, RSndSnd, NTDRec, SameGender, SenderGender, senderDialogueAct
 
 1. Model 1: RRecSnd and RRecSnd
@@ -54,23 +45,23 @@ high <- cbind(high, samegender)
 sender_gender <- high[,5:6]
 receiver_gender <- high[,7:8]
 dialogue <- high[,9:14]
-evtdata <- high[,c(3:15)]
+evtdata <- high[, 3:15]
 # remove all NA in evtdata
 evtdata <- evtdata[complete.cases(evtdata),]
-#onvert order to time 
+#onvert order to time
 evtdata$time <- as.POSIXct(evtdata$event_order)
 evtdata <- evtdata %>% mutate(sender_id = as.factor(sender_id), receiver_id = as.factor(receiver_id))
 data <- data.frame(sid = evtdata$sender_id,rid = evtdata$receiver_id,time=evtdata$time)
 # Set the first moment as zero and readjust the timeline
 data$time <- data$time - min(data$time)
 
-data = data |> 
-  group_by(time) |> 
-  mutate(time2 = row_number() - 1) |> 
-  ungroup() |> 
-  mutate(time = paste0(time, time2) |> as.numeric()) |> 
-  select(-time2) |> 
-  ungroup() |> 
+data <- data |>
+  group_by(time) |>
+  mutate(time2 = row_number() - 1) |>
+  ungroup() |>
+  mutate(time = paste0(time, time2) |> as.numeric()) |>
+  select(-time2) |>
+  ungroup() |>
   as.data.frame()
 
 # Calculate statistics for the REM
@@ -86,23 +77,27 @@ stats1 <- combine.stats(
 )
 
 
-end = FALSE
+end <- FALSE
+start_time <- Sys.time()
 # Fit the first REM model
 model1 <- FitEventNetworkCore(data, stats1, ordinal = FALSE)
+end <- TRUE
 summary(model1)
+
 ```
 
 
 ```{r}
-if (end == TRUE) {
-  # end timer
-  end_time <- Sys.time()
-  time_taken <- end_time - start_time
-  cat("REM Model 1 took", time_taken, "to run")
-}{paste("Time taken: ", time_taken, "Failed to terminate")}
-
-
+end_time <- Sys.time()
+time_taken <- end_time - start_time
+time_taken
 ```
+
+```{r}
+```
+
+
+
 
 
 ```{r}
@@ -127,7 +122,7 @@ summary(model2)
 
 
 # Model 3 -----------------------------------------------------------------
-stats.snddialog <- SameDialogue(data)
+stats.snddialog <- SameConstGroup(data)
 
 stats.sameconstgroup.sendergender <- SameConstGroup(data, sender_gender)
 stats.sameconstgroup.receivergender <- SameConstGroup(data, receiver_gender)
@@ -151,8 +146,7 @@ summary(model3)
 # Model 4 -----------------------------------------------------------------
 #same_gender and sender_dialog
 
-
-stats.SndDialog <- SameDialogue(data, high_perf_all$sender_dialog)
+stats.SndDialog <- SameConstGroup(data, high_perf_all$sender_dialog)
 
 print(stats.SndDialog)
 print(stats.RecDialog)
@@ -167,8 +161,5 @@ stats4 <- combine.stats(
 
 
 model4 <- FitEventNetworkCore(data, stats4, ordinal = FALSE)
-summary(model4)
-
 ```
-
 
