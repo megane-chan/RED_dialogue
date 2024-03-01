@@ -1,0 +1,156 @@
+```{r,message=FALSE}
+# Last Updated: 02/12
+rm(list = ls())
+
+# Load libraries
+library(rstudioapi)
+library(tidyverse)
+library(tidyr)
+library(ggplot2)
+library(dplyr)
+
+library(RColorBrewer)
+library(dplyr)
+library(igraph)
+library(readxl)
+library(igraph)
+library(glmnet)
+library(remsonic)
+library(skimr)
+library(dplyr)
+library(relevent)
+
+library(fastDummies)
+
+# Set Path
+setwd("~/RProjects/SNA_REM/REM_new/")
+```
+
+```{r}
+high <- readRDS("data/high_final.RData")
+low <- readRDS("data/low_perf_all.RData")
+names(high)
+```
+
+# REM
+All potential 
+RRecSndR, RSndSnd, NTDRec, SameGender, SenderGender, senderDialogueAct
+
+1. Model 1: RRecSnd and RRecSnd
+2. Model 2: RRecSnd, RSndSnd, and NTDRec
+3. Model 3: RRecSnd, RSndSnd, SameGender (SenderGender)
+4. Model 4: RRecSnd, RSndSnd, SndDialog
+
+
+
+```{r}
+# add a column representing if the sender and receiver are of the same gender
+samegender <- ifelse(high$sender_genderMale == high$receiver_genderMale, 1, 0)
+high <- cbind(high, samegender)
+sender_gender <- high[,5:6]
+receiver_gender <- high[,7:8]
+dialogue <- high[,9:14]
+evtdata <- high[,c(3:15)]
+#onvert order to time 
+evtdata$time <- as.POSIXct(evtdata$event_order)
+evtdata <- evtdata %>% mutate(sender_id = as.factor(sender_id), receiver_id = as.factor(receiver_id))
+data <- data.frame(sid = evtdata$sender_id,rid = evtdata$receiver_id,time=evtdata$time)
+# Set the first moment as zero and readjust the timeline
+data$time <- data$time - min(data$time)
+
+data = data |> 
+  group_by(time) |> 
+  mutate(time2 = row_number() - 1) |> 
+  ungroup() |> 
+  mutate(time = paste0(time, time2) |> as.numeric()) |> 
+  select(-time2) |> 
+  ungroup() |> 
+  as.data.frame()
+
+# Calculate statistics for the REM
+stats.intercept <- Constant(data)
+stats.rrecsnd <- RRecSnd(data)
+stats.rsndsnd <- RSndSnd(data)
+
+# Combine statistics
+stats1 <- combine.stats(
+  '[Intercept]' = stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd
+)
+
+# Fit the first REM model
+model1 <- FitEventNetworkCore(data, stats1, ordinal = FALSE)
+summary(model1)
+```
+
+
+
+
+```{r}
+
+# Model 2 -----------------------------------------------------------------
+
+# Adding the second term: the Normalized Total Degree Received (NTDRec)
+stats.ntdegrec <- NTDRec(data)
+stats2 <- combine.stats(
+  '[Intercept]' <- stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd,
+  'NTDegRec' = stats.ntdegrec
+)
+
+
+model2 <- FitEventNetworkCore(data, stats2, ordinal = FALSE)
+summary(model2)
+```
+
+```{r}
+
+
+# Model 3 -----------------------------------------------------------------
+stats.snddialog <- SameDialogue(data)
+
+stats.sameconstgroup.sendergender <- SameConstGroup(data, sender_gender)
+stats.sameconstgroup.receivergender <- SameConstGroup(data, receiver_gender)
+stats3 <- combine.stats(
+  '[Intercept]' = stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd,
+  'NTDegRec' = stats.ntdegrec,
+  'SameGender' = samegender,
+  'SenderDialog' = stats.snddialog,
+  'SemderGender' = stats.sameconstgroup.sendergender,
+  'ReceiverGender' = stats.sameconstgroup.receivergender
+)
+# Run the third model and check the transript_data
+model3 <- FitEventNetworkCore(data, stats3, ordinal = FALSE)
+summary(model3)
+```
+
+```{r}
+
+# Model 4 -----------------------------------------------------------------
+#same_gender and sender_dialog
+
+
+stats.SndDialog <- SameDialogue(data, high_perf_all$sender_dialog)
+
+print(stats.SndDialog)
+print(stats.RecDialog)
+stats4 <- combine.stats(
+  '[Intercept]' = stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd,
+  'NTDegRec' = stats.ntdegrec,
+  'SameGender' = stats.sameGender,
+  'SndDialog' = stats.SndDialog
+)
+
+
+model4 <- FitEventNetworkCore(data, stats4, ordinal = FALSE)
+summary(model4)
+
+```
+
+
