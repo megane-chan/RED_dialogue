@@ -412,17 +412,6 @@ print(paste(&quot;Number of low performance sessions: &quot;, nrow(low_perf), li
 <pre><code>## [1] &quot;Number of high performance sessions:  8 c(2102, 2106, 2116, 2110, 2107, 2113, 2111, 2117)&quot;</code></pre>
 <pre class="r"><code>print(paste(&quot;Number of fail performance sessions: &quot;, nrow(fail_perf), list(fail_perf$session)))</code></pre>
 <pre><code>## [1] &quot;Number of fail performance sessions:  1 2109&quot;</code></pre>
-<ul>
-<li><div style="blue">
-<ul>
-<li><p><strong>High Performing Sessions: 2114, 2103, 2108, 2115, 2105,
-2104, 2112, 2118</strong></p></li>
-<li><p><strong>Low Performing Sessions: 2102, 2106, 2116, 2110, 2107,
-2113, 2111, 2117</strong></p></li>
-<li><p><strong>Can ignore the Failed Session</strong></p></li>
-</ul>
-</div></li>
-</ul>
 <pre class="r"><code>print(&quot;High performance sessions&quot;)</code></pre>
 <pre><code>## [1] &quot;High performance sessions&quot;</code></pre>
 <pre class="r"><code>for (s in high_perf$session) {
@@ -456,6 +445,13 @@ print(paste(&quot;Number of low performance sessions: &quot;, nrow(low_perf), li
 ## [1] &quot;Session:  2104&quot;
 ## [1] &quot;Session:  2112&quot;
 ## [1] &quot;Session:  2118&quot;</code></pre>
+<ul>
+<li><p><strong>High Performing Sessions: <span style="color: blue;">2114, 2103, 2108, 2115, 2105, 2104, 2112,
+2118</span></strong></p></li>
+<li><p><strong>Low Performing Sessions: <span style="color: green;">2102, 2106, 2116, 2110, 2107, 2113, 2111,
+2117</span></strong></p></li>
+<li><p>Can ignore the Failed Session</p></li>
+</ul>
 </div>
 
 
