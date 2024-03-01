@@ -46,33 +46,9 @@ setwd("~/RProjects/SNA_REM/REM_new/")
 
 
 
-
 ```{r}
-high_perf_sessions <- c(2104, 2105, 2112, 2113, 2114, 2118)
-low_perf_sessions <- c(2102, 2103, 2106, 2109, 2110, 2115)
-failed_sessions <- c(2107, 2108, 2116, 2117)
-```
-
-```{r}
-dialog_data <- dialog_data %>%
-  mutate(performance_category = case_when(
-    session %in% high_perf_sessions ~ "High performance",
-    session %in% low_perf_sessions ~ "Low performance",
-    session %in% failed_sessions ~ "Failed",
-    TRUE ~ "Uncategorized" # This handles any session IDs not in your lists
-  ))
-```
-
-```{r}
-
-
-dialog_data %>%
-  group_by(performance_category) %>%
-  summarise(count = n())
-
-```
-```{r}
-high_perf_all <- dialog_data %>% filter(session %in% high_perf_sessions)
+low_perf_all <- readRDS("data/low_perf.RData")
+high_perf_all <- readRDS("data/high_perf.RData")
 low_perf_all <- dialog_data %>% filter(session %in% low_perf_sessions)
 failed_perf_all <- dialog_data %>% filter(session %in% failed_sessions)
 ```

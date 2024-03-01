@@ -29,7 +29,7 @@ library(relevent)
 setwd("~/RProjects/SNA_REM/REM_new/")
 ```
 
-# Session 2103
+# First Sheet: Sheet1_Dialogs
 
 ```{r}
 # read excel
@@ -79,7 +79,7 @@ print(paste("Number of fail performance sessions: ", nrow(fail_perf), list(fail_
 
 ### save the data
 ```{r}
-#saveRDS(low_perf, "data/low_perf.RData")
-#saveRDS(high_perf, "data/low_perf.RData")
+saveRDS(low_perf, "data/low_perfs.RData")
+saveRDS(high_perf, "data/high_perfs.RData")
 ```
 
