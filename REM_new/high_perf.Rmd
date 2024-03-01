@@ -70,30 +70,16 @@ print(paste("Number of high performance sessions: ", nrow(high_perf), list(high_
 print(paste("Number of fail performance sessions: ", nrow(fail_perf), list(fail_perf$session)))
 ```
 
-```{r}
-print("High performance sessions")
-
-for (s in high_perf$session) {
-  print(paste("Session: ", s))
-  # for each session, add numbers 1 to the total row numbers representing the event order
-  session_data <- dialog_data %>% filter(session == s)
-  session_data <- session_data %>% mutate(event_order = seq(1, nrow(session_data)))
-  assign(paste("df_high_", s, sep = ""), session_data)
-}
-
-
-print("Low performance sessions")
-for (s in low_perf$session){
-  print(paste("Session: ", s))
-  session_data <- dialog_data %>% filter(session == s)
-  session_data <- session_data %>% mutate(event_order = seq(1, nrow(session_data)))
-  assign(paste("df_low_", s, sep = ""), session_data)
-}
-
-```
 
 -   **High Performing Sessions: [2114, 2103, 2108, 2115, 2105, 2104, 2112, 2118]{style="color: blue;"}**
 
 -   **Low Performing Sessions: [2102, 2106, 2116, 2110, 2107, 2113, 2111, 2117]{style="color: green;"}**
 
 -   Can ignore the Failed Session
+
+### save the data
+```{r}
+#saveRDS(low_perf, "data/low_perf.RData")
+#saveRDS(high_perf, "data/low_perf.RData")
+```
+
