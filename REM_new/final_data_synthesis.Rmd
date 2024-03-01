@@ -33,7 +33,7 @@ setwd("~/RProjects/SNA_REM/REM_new/")
 
 ```{r}
 # read excel
-dialog_data <- read_excel("data/nek21.xlsx", sheet = "Sheet1_Dialogs")
+dialog_data <- read_excel("data/nek21.xlsx", sheet = "Sheet1_Dialogs") %>% select(-receiver_dialog)
 head(dialog_data)
 ```
 
@@ -41,10 +41,8 @@ All Igor Ashley Will Katya Saleh Oleg Vika Alex 0 1 2 3 4 5 6 7 8
 
 ```{r}
 people_list <- unique(dialog_data$sender)
-# if the sender is All, make ID is 0
 people_list <- people_list[people_list != "All"]
 lookup_table <- setNames(seq_along(people_list), people_list)
-# add All to the lookup table with ID 0
 lookup_table <- c(All = 0, lookup_table)
 print(lookup_table)
 ```
@@ -71,15 +69,44 @@ print(paste("Number of fail performance sessions: ", nrow(fail_perf), list(fail_
 ```
 
 
+
+```{r}
+high_perf_sessions <- c(2114, 2103, 2108, 2115, 2105, 2104, 2112, 2118)
+low_perf_sessions <-c(2102, 2106, 2116, 2110, 2107, 2113, 2111, 2117)
+
+
+high_perf_all <- dialog_data %>% filter(session %in% high_perf_sessions)
+low_perf_all <- dialog_data %>% filter(session %in% low_perf_sessions)
+
+high_perf_all <- high_perf_all %>%
+  group_by(session) %>% 
+  mutate(in_session_event_order= row_number())%>%
+  ungroup() %>%
+  arrange(session, event_order)
+
+
+low_perf_all <- low_perf_all %>%
+  group_by(session) %>% 
+  mutate(in_session_event_order = row_number())%>%
+  ungroup() %>%
+  arrange(session, in_session_event_order)
+
+```
+
+
+```{r}
+head(low_perf_all)
+```
+
+```{r}
+saveRDS(high_perf_all, "data/high_perf_all.RData")
+saveRDS(low_perf_all, "data/low_perf_all.RData")
+```
+
+
+
 -   **High Performing Sessions: [2114, 2103, 2108, 2115, 2105, 2104, 2112, 2118]{style="color: blue;"}**
 
 -   **Low Performing Sessions: [2102, 2106, 2116, 2110, 2107, 2113, 2111, 2117]{style="color: green;"}**
 
 -   Can ignore the Failed Session
-
-### save the data
-```{r}
-saveRDS(low_perf, "data/low_perfs.RData")
-saveRDS(high_perf, "data/high_perfs.RData")
-```
-
