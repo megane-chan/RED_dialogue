@@ -50,18 +50,32 @@ head(low)
 high <- high %>%
   group_by(session) %>% 
   mutate(event_order = row_number())%>%
-           # number of seccion before it)
   ungroup()
 head(high)
+
+low <- low %>%
+  group_by(session) %>% 
+  mutate(event_order = row_number())%>%
+  ungroup()
 ```
 
+
+```{r}
+
+high %>% select(session, in_session_event_order, event_order, everything()) -> high
+low %>% select(session, in_session_event_order, event_order, everything()) -> low
+```
 
 
 
 # Final Cleaned Session Data
 
 ```{r}
-#high %>% saveRDS("data/high_final.RData")
-#low %>% saveRDS("data/low_perf_all.RData")
+high %>% saveRDS("data/high_final.RData")
+low %>% saveRDS("data/low_final.RData")
+# save as CSV
+write.csv(high, "data/high_final.csv")
+write.csv(low, "data/low_final.csv")
 ```
+
 

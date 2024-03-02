@@ -30,15 +30,20 @@ library(relevent)
 setwd("~/RProjects/SNA_REM/REM_new/")
 ```
 
-# First Sheet: Sheet1_Dialogs
+# First Sheet: Sheet1_Dialogues
 
 ```{r}
 # read excel
 dialog_data <- read_excel("data/nek21.xlsx", sheet = "Sheet1_Dialogs") %>% select(-receiver_dialog)
 head(dialog_data)
+# delete the rows where sender_gender is not Female or Male
+unique(dialog_data$receiver_gender)
+dialog_data <- dialog_data[dialog_data$receiver_gender == "Unspecified",]
+dialog_data <- dialog_data[!dialog_data$sender_gender == "Unspecified",]
+dialog_data
 ```
 
-All Igor Ashley Will Katya Saleh Oleg Vika Alex 0 1 2 3 4 5 6 7 8
+sAll Igor Ashley Will Katya Saleh Oleg Vika Alex 0 1 2 3 4 5 6 7 8
 
 ```{r}
 people_list <- unique(dialog_data$sender)
@@ -99,12 +104,13 @@ low_perf_all <- low_perf_all %>%
 ```
 
 ```{r}
-
-levels(high_perf_all$sender_gender) <- list(male="male", female="female")
-levels(low_perf_all$receiver_gender) <- list(male="male", female="female")
+F
+levels(high_perf_all$sender_gender) <- list(male="M", female="F")
+levels(low_perf_all$receiver_gender) <- list(male="M", female="F")
 levels(low_perf_all$sender_dialog) <- list(as.factor(unique(low_perf_all$sender_dialog)))
 
-dmy_high <- dummyVars(~ sender_gender + receiver_gender + sender_dialog, sep = ".", data = high_perf_all, levelsOnly = FALSE)
+dmy_high <- dummyVars(~ sender_gender + receiver_gender + sender_dialog, sep = "_", data = high_perf_all, levelsOnly = FALSE)
+
 trsf_high <- data.frame(predict(dmy_high, newdata = high_perf_all))
 head(trsf_high)
 high_perf_final <- cbind(high_perf_all, trsf_high)
