@@ -208,10 +208,22 @@ rbind(in_degree_stats, out_degree_stats, total_degree_stats)
 ```{r}
 interactions$time<-as.numeric(interactions$time) 
 
-REM.data <- createRemDataset(data = interactions, sender = interactions$sender_id,
-                             target = interactions$receiver_id, 
-                             eventAttribute = interactions$dialog,
-                             eventSequence = interactions$time)
+
+# Create the REM data set
+REM.data <- createRemDataset(
+  data = interactions, 
+  sender = interactions$sender_id,
+  target = interactions$receiver_id,
+  eventSequence = interactions$time,
+  eventAttribute = interactions$dialog,
+  atEventTimesOnly = TRUE, 
+  untilEventOccurrs = TRUE,
+  includeAllPossibleEvents = FALSE, 
+  returnInputData = FALSE
+)
+
+# Check the structure of the REM.data
+str(REM.data)
 ```
 
 
@@ -220,26 +232,49 @@ REM.data <- createRemDataset(data = interactions, sender = interactions$sender_i
 head(REM.data)
 ```
 
-```{r}
 
-```
 
 ```{r}
 #save as RDS
-saveRDS(REM.data, "data/REM_data_onlyevent.RDS")
+#saveRDS(REM.data, "data/REM_data_onlyevent.RDS")
+
+readRDS("data/REM_data_onlyevent.RDS") -> REM.data
 
 ```
 
 
 ```{r}
 library(survival)
-model <- clogit(eventDummy ~ eventTime, data = REM.data)
+library(rem)
+
+
+surv_object <- Surv(time = REM.data$eventTime, event = REM.data$eventDummy)
+
+
+cox_model <- coxph(surv_object ~ sender + target, data = REM.data)
+
+
+summary(cox_model)
 
 ```
 
 ```{r}
 
+model2_event <- coxph(surv_object ~ eventAttribute, data = REM.data)
+summary(model2_event)
 ```
 
+```{r}
+
+model3_snd_event <- coxph(surv_object ~ sender + eventAttribute, data = REM.data)
+summary(model3_snd_event)
+```
+
+
+```{r}
+
+surv_object2 <- Surv(time = REM.data$eventTime, event = REM.data$eventDummy)
+
+```
 
 
