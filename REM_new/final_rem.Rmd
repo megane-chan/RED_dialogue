@@ -1,0 +1,81 @@
+---
+title: "Final REM Analysis"
+output:
+pdf_document: default
+html_document: default
+---
+
+```{r, message = FALSE, include = FALSE}
+# Last Updated: 02/12
+rm(list = ls())
+
+# Load libraries
+library(rstudioapi)
+library(tidyverse)
+library(tidyr)
+library(ggplot2)
+library(dplyr)
+
+library(RColorBrewer)
+library(dplyr)
+library(igraph)
+library(readxl)
+library(igraph)
+library(glmnet)
+library(remsonic)
+library(skimr)
+library(dplyr)
+library(relevent)
+
+library(fastDummies)
+
+# Set Path
+setwd("~/RProjects/SNA_REM/REM_new/")
+```
+
+```{r}
+high <- read.csv("data/high_perf_final.csv")
+low <- read.csv("data/low_perf_final.csv")
+```
+
+```{r}
+head(high)
+head(low)
+```
+
+
+```{r}
+
+# 2nd section starts with 10000 + previous last event order
+high <- high %>%
+  group_by(session) %>% 
+  mutate(event_order = row_number())%>%
+  ungroup()
+head(high)
+
+low <- low %>%
+  group_by(session) %>% 
+  mutate(event_order = row_number())%>%
+  ungroup()
+```
+
+
+```{r}
+
+high %>% select(session, in_session_event_order, event_order, everything()) -> high
+low %>% select(session, in_session_event_order, event_order, everything()) -> low
+```
+
+
+
+# Final Cleaned Session Data
+
+```{r}
+high %>% saveRDS("data/high_final.RData")
+low %>% saveRDS("data/low_final.RData")
+# save as CSV
+write.csv(high, "data/high_final.csv")
+write.csv(low, "data/low_final.csv")
+```
+
+

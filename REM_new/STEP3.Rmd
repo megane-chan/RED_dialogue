@@ -91,7 +91,7 @@ head(times_as_double)
 ```{r}
 size <- nrow(interactions_high)
 edgelist_high <-interactions_high[, c("time", "sender_id", "receiver_id")]
-# Assuming 'dataframe' is your dataframe and 'time' is the column name
+
 attributes$intercept <- 1
 r <- nrow(interactions_high)
 edgelist_high <- rbind(edgelist_high, c(r + 1, NA, NA))
