@@ -1,45 +1,68 @@
-```{r}
+---
+title: "REM"
+output: 
+  pdf_document:
+    
+    toc: false
+    toc_depth: 4
+    number_sections: false
+    fig_caption: true
+    keep_tex: true
+    latex_engine: xelatex
+editor_options:
+y  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
 
 rm(list=ls())
-
-if (!requireNamespace("network", quietly = TRUE))
-  install.packages("network")
-if (!requireNamespace("tsna", quietly = TRUE))
-  install.packages("tsna")
-if (!requireNamespace("rem", quietly = TRUE))
-  install.packages("rem", repos = "http://R-Forge.R-project.org")
-library(relevent)
 setwd("~/RProjects/SNA_REM/REM_new/")
-library(dplyr)
 library(tidyr)
 library(caret)
 library(network)
 library(relevent)
+library(survival)
 library(rem)
 library(dplyr)
 library(ggplot2)
 library(igraph)
 library(ggraph)
 library(RColorBrewer)
+library(tidyr)
+knitr::opts_chunk$set(fig.align='center', fig.width=8, fig.height=6, options(tidy = TRUE), tidy.opts = list(width.cutoff = 60))
 
 ```
 
+## Interactions and Actors Data
 
+Interactions between the team members for high-performance sessions:
 
+-   sender
 
+-   receiver
 
+-   time of the interaction
+
+-   type of interaction (dialogue act type)
+
+Actors Data:
+
+-   name
+
+-   gender
 
 ```{r}
 # Interactions Data Frame (Edges)
-high_perf_interactions <- readRDS("data/high_performance_sessions.RData") %>% select(session, sender_id, receiver_id, dialog, time)
-#remove where receiver is all
+high_perf_interactions <- readRDS("data/high_performance_sessions.RData") %>% 
+  select(session, sender_id, receiver_id, dialog, time)
 
-# Convert the named num vectors to separate columns for IDs and names
+
 interactions <- high_perf_interactions %>%
   mutate(
-    sender_id = as.integer(sender_id),  # Convert sender_id to integer
-    receiver_id = as.integer(receiver_id), # Convert receiver_id to integer
-    dialog = as.factor(dialog) # Convert dialog to factor
+    sender_id = as.integer(sender_id),  
+    receiver_id = as.integer(receiver_id), 
+    dialog = as.factor(dialog) 
   )
 
 
@@ -56,6 +79,7 @@ actors_attributes <- cbind(actors_attributes, predict(dummyvars, actors_attribut
   select(id, name, gendermale)
 ```
 
+## Summary by Session and Speaker
 
 ```{r}
 
@@ -75,7 +99,6 @@ ggplot(session_dialogues, aes(x = factor(session), y = n, fill = factor(session)
   theme(legend.position = "none") 
 
 ```
-
 
 ```{r}
 
@@ -103,16 +126,10 @@ ggplot(dialogues_summary_tibble, aes(x = name, y = number_of_dialogues, fill = n
 ```
 
 ```{r}
-# total number of dialogues by gender in each session
-```
-
-```{r}
 target_session <- 2104
 
 high_perf_interactions %>% filter(receiver_id != 0) %>% filter(session == target_session) %>% select(-session) %>% mutate(time = 1:nrow(.))  %>% select(sender_id, receiver_id, time,dialog)  %>% mutate(dialog = as.factor(dialog), sender_id = as.integer(sender_id), receiver_id = as.integer(receiver_id)) -> interactions
 
-
-# renumber sender and receiver
 actors_attributes %>% filter(id %in% interactions$sender_id) %>% filter(id %in% interactions$receiver_id) -> actors_attributes
 head(actors_attributes)
 
@@ -125,8 +142,9 @@ V(g_subset)$name <- actors_attributes$name[match(V(g_subset)$name, actors_attrib
 
 ```
 
-```{r}
+#### Dialogue Flow Illustration
 
+```{r}
 dialog_colors <- RColorBrewer::brewer.pal(n = length(unique(interactions$dialog)), name = "Pastel2")
 dialog_color_map <- setNames(dialog_colors, unique(interactions$dialog))
 
@@ -142,30 +160,17 @@ ggraph(g_subset, layout = 'fr') +
   theme(legend.position = "right", legend.title = element_text(size = 8))
 ```
 
-
-etweenness Centrality: Frequency at which a node appears on the shortest paths between other nodes in the network. Nodes with high betweenness can have significant influence over information flow.
-Closeness Centrality: How close a node is to all other nodes in the network (lower values indicate greater closeness).
-Eigenvector Centrality: A measure of the influence of a node in a network, taking into account the centrality of its neighbors.
-Clustering Coefficient: The degree to which nodes in a graph tend to cluster together.
-
+#### Degree Distribution
 
 ```{r}
-# Calculate network statistics
-degree_stats <- degree(g_subset, mode = "all")  # Total degree for undirected graphs
+
+degree_stats <- degree(g_subset, mode = "all")  
 
 betweenness_stats <- betweenness(g_subset, directed = TRUE)
-closeness_stats <- closeness(g_subset)
-eigenvector_stats <- eigen_centrality(g_subset)$vector
-clustering_coefficient <- transitivity(g_subset, type = "localaverage")
-
 
 network_stats_summary <- data.frame(
   name = V(g_subset)$name,
-  degree = degree_stats,
-  betweenness = betweenness_stats,
-  closeness = closeness_stats,
-  eigenvector = eigenvector_stats,
-  clustering_coefficient = clustering_coefficient
+  degree = degree_stats
 )
 
 
@@ -173,29 +178,37 @@ print(network_stats_summary)
 
 
 influencers <- network_stats_summary %>%
-  arrange(desc(betweenness)) %>%
+  arrange(desc(degree)) %>%
   head(3) 
 print(influencers)
 ```
 
+-   **Degree**: This is the number of direct connections a node has.
+
+    -   Ashley has the highest degree (473), or the greatest direct connections in the network.
+
+-   **Closeness**: This measures how quickly a node can access all other nodes in the network. Higher values represent shorter paths to all other nodes.
+
+    -   Ashley, with a closeness of 1.0000000, is the quickest to reach all other nodes.
+
+Check for Isolates, Connectivity, and Directionality
 
 ```{r}
-# Check for isolated nodes
+
 isolates <- which(degree(g_subset) == 0)
 if (length(isolates) > 0) {
   print(V(g_subset)$name[isolates])
 }
 
-# Check if the graph is fully connected
-is.fully.connected <- is.connected(g_subset)
+
+is.fully.connected <- is_connected(g_subset)
 print(is.fully.connected)
 
-# Check if the graph is directed
+
 is.directed <- is_directed(g_subset)
 print(is.directed)
 
 ```
-
 
 ```{r}
 in_degree_stats <- degree(g_subset, mode = "in")
@@ -205,9 +218,10 @@ rbind(in_degree_stats, out_degree_stats, total_degree_stats)
 
 ```
 
-```{r}
-interactions$time<-as.numeric(interactions$time) 
+# REM Analysis
 
+```{r, eval=FALSE}
+interactions$time<-as.numeric(interactions$time) 
 
 # Create the REM data set
 REM.data <- createRemDataset(
@@ -222,31 +236,25 @@ REM.data <- createRemDataset(
   returnInputData = FALSE
 )
 
+#save as RDS
+#saveRDS(REM.data, "data/REM_data_onlyevent.RDS")
+
+```
+
+```{r, eval=TRUE}
+readRDS("data/REM_data.RDS") -> REM.data
+```
+
+```{r}
 # Check the structure of the REM.data
 str(REM.data)
 ```
-
-
 
 ```{r}
 head(REM.data)
 ```
 
-
-
 ```{r}
-#save as RDS
-#saveRDS(REM.data, "data/REM_data_onlyevent.RDS")
-
-readRDS("data/REM_data_onlyevent.RDS") -> REM.data
-
-```
-
-
-```{r}
-library(survival)
-library(rem)
-
 
 surv_object <- Surv(time = REM.data$eventTime, event = REM.data$eventDummy)
 
@@ -270,11 +278,47 @@ model3_snd_event <- coxph(surv_object ~ sender + eventAttribute, data = REM.data
 summary(model3_snd_event)
 ```
 
+-   The `Concordance` statistic is a measure of the model's predictive ability, with 0.5 indicating no predictive ability and 1 indicating perfect prediction.
 
-```{r}
+### Survival Analysis
 
-surv_object2 <- Surv(time = REM.data$eventTime, event = REM.data$eventDummy)
+-   How different factors (like senders, targets, event attributes) affect the likelihood of events:
 
-```
+-   `coef` in the model indicate the *logarithmic* change in hazard rates for different categories compared to a *baseline*. A positive coefficient indicates an increased hazard (or risk) of the event occurring when the variable increases, while a negative coefficient indicates a decreased hazard.
 
+-   `exp(coef)` represents the *hazard ratio*, which explains the effect size. values greater than 1 indicate an increased hazard, values less than 1 indicate a decreased hazard.
 
+-   The p-values (`Pr(>|z|)`) help determine the significance of the predictors.
+
+## Result Analysis:
+
+**Model 1: `sender` + `target`** as predictors
+
+predictors are the sender and target IDs of the events.
+
+-   **Senders 3, 4, 5, 6, and 7** have significant negative coefficients, suggesting that events sent by these individuals are less likely to occur compared to the baseline.
+-   **Target 3 and 6** have significant negative coefficients, indicating events targeting these individuals are less likely to occur than the baseline target.
+-   The p-values for the above mentioned actors are all below 0.05.
+-   The overall model shows good predictive power with a concordance index of 0.606.
+
+**Model 2: `eventAttribute`** as predictors
+
+-   **`question` and `statement` types of dialog** have a positive and significant effect on the hazard, indicating these types of events are more likely to occur. Their coefficients are positive with low p-values (\< 2e-16 for `statement`, 4.63e-07 for `question`), showing strong evidence for their influence.
+-   The `disruption` and `floor-grabber` types do not show a significant effect since their p-values are above 0.05.
+-   The model has a concordance index of 0.641, indicating a reasonably good fit.
+
+**Model 3: `sender` + `eventAttribute`** - senders and dialog types as predictors.
+
+-   Similar to Model 1, **senders 3, 4, 5, 6, and 7** are significant predictors with negative coefficients, meaning events from these senders are less likely to happen compared to the reference sender.
+-   As in Model 2, **`question` and `statement`** types of dialog are significant with positive coefficients, which means these event types are more likely to occur.
+-   The coefficients for `disruption` and `floor-grabber` are not significant in this model as well
+-   The concordance index is 0.665, the **highest** among the three models, suggesting this model has the best predictive ability.
+
+### Summary
+
+-   **Sender Effect**: Negative coefficients for all senders indicate they all decrease the event's hazard compared to a baseline, with `sender5` showing a significant reduction.
+-   **Target Effect**: Similarly, most targets also reduce hazard rates, except `target4` and `target7` where the effect is not significant.
+-   **Event Attributes** significantly increases the hazard of an event occurring.
+    -   The `eventAttribute` variables have significant coefficients for `question` and `statement`, indicating that these attributes are associated with the occurrence of events.
+    -   The hazard ratio of `statement` is about 4.41, suggesting its strong association with the occurrence of events...Is the effect of "statement" on event occurrences is genuinely significant, or is it inflated by the volume?
+    -   `question` turns out to be important!
