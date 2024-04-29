@@ -37,7 +37,7 @@ knitr::opts_chunk$set(fig.align='center', fig.width=8, fig.height=6, options(tid
 
 ```{r}
 # Interactions Data Frame (Edges)
-low_perf_interactions <- readRDS("data/low_performance_sessions.RData") %>% 
+low_perf_interactions <- readRDS("data/low_performance_sessions.RData") %>% filter(session != 2102) %>%
   select(session, sender_id, receiver_id, dialog, time)
 
 
@@ -51,9 +51,9 @@ interactions <- low_perf_interactions %>%
 
 
 actors_attributes <- data.frame(
-  id = 1:8,
-  name = c("Igor", "Ashley", "Will", "Katya", "Saleh", "Oleg", "Vika", "Alex"),
-  gender = c("male", "female", "male", "female", "male", "male", "female", "male")
+  id = 1:7,
+  name = c("Igor", "Ashley", "Will", "Katya", "Saleh", "Oleg", "Vika"),
+  gender = c("male", "female", "male", "female", "male", "male", "female")
 )
 
 # Create dummy variables for gender
@@ -62,6 +62,8 @@ actors_attributes <- cbind(actors_attributes, predict(dummyvars, actors_attribut
   select(id, name, gendermale)
 ```
 
+#
+1. high & low tog
 
 
 ## Summary by Session and Speaker
@@ -75,21 +77,19 @@ session_dialogues <- low_perf_interactions %>%
 ggplot(session_dialogues, aes(x = factor(session), y = n, fill = factor(session))) + 
   geom_bar(stat = "identity") +
   scale_fill_brewer(palette = "Pastel1") +  
-  labs(title = "Number of Dialogues Per Session (High Performance)",
+  labs(title = "Number of Dialogues Per Session (Low Performance)",
        x = "Session",
        y = "Number of Dialogues",
        fill = "Session") +
-  theme_minimal() + 
+  theme_minimal() +  
+  # text size
+  theme(axis.text.x = element_text(size = 11, angle = 45, hjust = 0.5)) +
   theme(legend.position = "none") 
 
 ```
 
 ```{r}
-
-```
-
-```{r}
-
+low_perf_interactions %>% filter (sender_id %in% actors_attributes$id) %>% filter(receiver_id %in% actors_attributes$id) -> low_perf_interactions
 dialogues_per_speaker_session <- low_perf_interactions %>%
   left_join(actors_attributes, by = c("sender_id" = "id")) %>%
   group_by(session, name) %>%
@@ -104,11 +104,14 @@ ggplot(dialogues_summary_tibble, aes(x = name, y = number_of_dialogues, fill = n
   geom_bar(stat = "identity") +
   facet_wrap(~session) +
   scale_fill_brewer(palette = "Pastel1") +  
-  labs(subtitle = "Number of Dialogues Per Speaker Per Session (High Performance)",
+  labs(subtitle = "Number of Dialogues Per Speaker Per Session (Low Performance)",
        x = "Speaker",
        y = "Number of Dialogues",
        fill = "Speaker") +
   theme_minimal() + 
+  theme(strip.text.x = element_text(size = 9), strip.text.y = element_text(size = 12)) +
+  # text size
+  theme(axis.text.x = element_text(size = 8, angle = 45, hjust = 1)) +
   theme(legend.position = "none") 
 
 ```
@@ -127,7 +130,7 @@ total_dialogues_per_speaker %>% print()
 ggplot(total_dialogues_per_speaker, aes(x = name, y = number_of_dialogues, fill = name)) + 
   geom_bar(stat = "identity") +
   scale_fill_brewer(palette = "Pastel1") +  
-  labs(subtitle = "Number of Dialogues Per Speaker Per Session (High Performance)",
+  labs(subtitle = "Number of Dialogues Across All Sections By Speaker (Low Performance)",
        x = "Speaker",
        y = "Number of Dialogues",
        fill = "Speaker") +
@@ -158,7 +161,7 @@ ggraph(g_subset, layout = 'fr') +
   geom_node_text(aes(label = name), repel = TRUE,  color = "black", size = 3, vjust = 1, nudge_x = -.02) +
   scale_color_manual(values = c('0' = 'red', '1' = 'cyan')) +
   theme_void() +
-  labs(subtitle = "High Performing Session 2104", color = "Gender", edge_color = "Dialog") +
+  labs(subtitle = "Low Performing Session", color = "Gender", edge_color = "Dialog") +
   theme(legend.position = "right", legend.title = element_text(size = 8))
 ```
 
@@ -200,7 +203,7 @@ V(g_subset)$name <- actors_attributes$name[match(V(g_subset)$name, actors_attrib
 
 
 
-```{r, eval=FALSE}
+```{r, eval=TRUE}
 interactions$time<-as.numeric(interactions$time) 
 
 
@@ -217,12 +220,12 @@ REM.data <- createRemDataset(
 )
 
 #save as RDS
-#saveRDS(REM.data, "data/RemDatasetLow.RDS")
+saveRDS(REM.data, "data/RemDatasetLow.RDS")
 
 ```
 
 ```{r, eval=TRUE}
-readRDS("data/REM_data.RDS") -> REM.data
+readRDS("data/RemDatasetLow.RDS") -> REM.data
 ```
 
 
@@ -282,6 +285,7 @@ model4 <- coxph(surv_object ~ sender + eventAttribute, data = REM.data)
 summary(model4)
 ```
 
+# INCREASE ITER
 
 ```{r}
 model5 <- coxph(surv_object ~ sender * eventAttribute, data = REM.data)

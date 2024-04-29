@@ -89,6 +89,20 @@ g_subset <- graph_from_data_frame(interactions, directed = TRUE, vertices = data
 V(g_subset)$gender <- actors_attributes$gender[match(V(g_subset)$name, actors_attributes$name)]
 V(g_subset)$name <- actors_attributes$name[match(V(g_subset)$name, actors_attributes$name)]
 
+
+dialog_colors <- RColorBrewer::brewer.pal(n = length(unique(interactions$dialog)), name = "Pastel2")
+dialog_color_map <- setNames(dialog_colors, unique(interactions$dialog))
+
+
+ggraph(g_subset, layout = 'fr') +
+  geom_edge_link(aes(color = dialog), alpha = 0.7, edge_width = .2, lineend = "butt", arrow = arrow(type = 'closed', length = unit(4, 'mm'))) +
+  scale_edge_color_manual(values = dialog_color_map) +
+  geom_node_point(aes(color = factor(gender)), size = 4, alpha = 0.8) +
+  geom_node_text(aes(label = name), repel = TRUE,  color = "black", size = 3, vjust = 1, nudge_x = -.02) +
+  scale_color_manual(values = c('0' = 'red', '1' = 'cyan')) +
+  theme_void() +
+  labs(subtitle = "High Performing Session", color = "Gender", edge_color = "Dialog") +
+  theme(legend.position = "right", legend.title = element_text(size = 8))
 ```
 
 
@@ -97,25 +111,25 @@ V(g_subset)$name <- actors_attributes$name[match(V(g_subset)$name, actors_attrib
 interactions$time<-as.numeric(interactions$time) 
 
 
-REM.data <- createRemDataset(
-  data = interactions, 
-  sender = interactions$sender_id,
-  target = interactions$receiver_id,
-  eventSequence = interactions$time,
-  eventAttribute = interactions$dialog,
-  atEventTimesOnly = TRUE, 
-  untilEventOccurrs = TRUE,
-  includeAllPossibleEvents = FALSE, 
-  returnInputData = FALSE
-)
+# REM.data <- createRemDataset(
+#   data = interactions, 
+#   sender = interactions$sender_id,
+#   target = interactions$receiver_id,
+#   eventSequence = interactions$time,
+#   eventAttribute = interactions$dialog,
+#   atEventTimesOnly = TRUE, 
+#   untilEventOccurrs = TRUE,
+#   includeAllPossibleEvents = FALSE, 
+#   returnInputData = FALSE
+# )
 
 #save as RDS
-saveRDS(REM.data, "data/RemDatasetHigh.RDS")
+#saveRDS(REM.data, "data/RemDatasetHigh.RDS")
 
 ```
 
 ```{r, eval=TRUE}
-readRDS("data/REM_data.RDS") -> REM.data
+readRDS("data/RemDatasetHigh.RDS") -> REM.data
 ```
 
 

@@ -95,7 +95,9 @@ ggplot(session_dialogues, aes(x = factor(session), y = n, fill = factor(session)
        x = "Session",
        y = "Number of Dialogues",
        fill = "Session") +
-  theme_minimal() + 
+  theme_minimal() +  
+  # text size
+  theme(axis.text.x = element_text(size = 11, angle = 45, hjust = 0.5)) +
   theme(legend.position = "none") 
 
 ```
@@ -121,6 +123,7 @@ ggplot(dialogues_summary_tibble, aes(x = name, y = number_of_dialogues, fill = n
        y = "Number of Dialogues",
        fill = "Speaker") +
   theme_minimal() + 
+  theme(axis.text.x = element_text(size = 8, angle = 45, hjust = 1)) +
   theme(legend.position = "none") 
 
 ```
