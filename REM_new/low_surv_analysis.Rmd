@@ -176,7 +176,7 @@ head(actors_attributes)
 
 ```{r}
 
-low_perf_interactions %>% filter(receiver_id != 0) %>% select(-session) %>% mutate(time = 1:nrow(.))  %>% select(sender_id, receiver_id, time,dialog)  %>% mutate(dialog = as.factor(dialog), sender_id = as.integer(sender_id), receiver_id = as.integer(receiver_id)) %>% filter(sender_id %in% actors_attributes$id) %>% filter(receiver_id %in% actors_attributes$id) -> interactions -> interactions
+low_perf_interactions %>% filter(receiver_id != 0) %>% select(-session) %>% mutate(time = 1:nrow(.))  %>% select(sender_id, receiver_id, time,dialog)  %>% mutate(dialog = as.factor(dialog), sender_id = as.integer(sender_id), receiver_id = as.integer(receiver_id)) %>% filter(sender_id %in% actors_attributes$id) %>% filter(receiver_id %in% actors_attributes$id) -> interactions
 
 dim(interactions)
 ```
@@ -217,7 +217,7 @@ REM.data <- createRemDataset(
 )
 
 #save as RDS
-saveRDS(REM.data, "data/RemDatasetLow.RDS")
+#saveRDS(REM.data, "data/RemDatasetLow.RDS")
 
 ```
 

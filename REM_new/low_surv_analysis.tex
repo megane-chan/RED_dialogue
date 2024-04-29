@@ -101,51 +101,25 @@
 \IfFileExists{xurl.sty}{\usepackage{xurl}}{} % add URL line breaks if available
 \urlstyle{same}
 \hypersetup{
-  pdftitle={REM},
+  pdftitle={REM for Low Performing Sessions},
   hidelinks,
   pdfcreator={LaTeX via pandoc}}
 
-\title{REM}
+\title{REM for Low Performing Sessions}
 \author{}
 \date{\vspace{-2.5em}}
 
 \begin{document}
 \maketitle
 
-\hypertarget{interactions-and-actors-data}{%
-\subsection{Interactions and Actors
-Data}\label{interactions-and-actors-data}}
-
-Interactions between the team members for high-performance sessions:
-
-\begin{itemize}
-\item
-  sender
-\item
-  receiver
-\item
-  time of the interaction
-\item
-  type of interaction (dialogue act type)
-\end{itemize}
-
-Actors Data:
-
-\begin{itemize}
-\item
-  name
-\item
-  gender
-\end{itemize}
-
 \begin{Shaded}
 \begin{Highlighting}[]
 \CommentTok{\# Interactions Data Frame (Edges)}
-\NormalTok{high\_perf\_interactions }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"data/high\_performance\_sessions.RData"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
+\NormalTok{low\_perf\_interactions }\OtherTok{\textless{}{-}} \FunctionTok{readRDS}\NormalTok{(}\StringTok{"data/low\_performance\_sessions.RData"}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} 
   \FunctionTok{select}\NormalTok{(session, sender\_id, receiver\_id, dialog, time)}
 
 
-\NormalTok{interactions }\OtherTok{\textless{}{-}}\NormalTok{ high\_perf\_interactions }\SpecialCharTok{\%\textgreater{}\%}
+\NormalTok{interactions }\OtherTok{\textless{}{-}}\NormalTok{ low\_perf\_interactions }\SpecialCharTok{\%\textgreater{}\%}
   \FunctionTok{mutate}\NormalTok{(}
     \AttributeTok{sender\_id =} \FunctionTok{as.integer}\NormalTok{(sender\_id),  }
     \AttributeTok{receiver\_id =} \FunctionTok{as.integer}\NormalTok{(receiver\_id), }
@@ -167,18 +141,194 @@ Actors Data:
 \end{Highlighting}
 \end{Shaded}
 
+\hypertarget{summary-by-session-and-speaker}{%
+\subsection{Summary by Session and
+Speaker}\label{summary-by-session-and-speaker}}
+
 \begin{Shaded}
 \begin{Highlighting}[]
-\NormalTok{exclude\_session }\OtherTok{\textless{}{-}} \DecValTok{2103}
+\NormalTok{session\_dialogues }\OtherTok{\textless{}{-}}\NormalTok{ low\_perf\_interactions }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(session) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{n =} \FunctionTok{n}\NormalTok{())}
 
-\NormalTok{high\_perf\_interactions }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(receiver\_id }\SpecialCharTok{!=} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{group\_by}\NormalTok{(session) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(session }\SpecialCharTok{!=}\NormalTok{ exclude\_session) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{ungroup}\NormalTok{() }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{session) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{time =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(.))  }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(sender\_id, receiver\_id, time,dialog)  }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{dialog =} \FunctionTok{as.factor}\NormalTok{(dialog), }\AttributeTok{sender\_id =} \FunctionTok{as.integer}\NormalTok{(sender\_id), }\AttributeTok{receiver\_id =} \FunctionTok{as.integer}\NormalTok{(receiver\_id)) }\OtherTok{{-}\textgreater{}}\NormalTok{ interactions}
+
+\FunctionTok{ggplot}\NormalTok{(session\_dialogues, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =} \FunctionTok{factor}\NormalTok{(session), }\AttributeTok{y =}\NormalTok{ n, }\AttributeTok{fill =} \FunctionTok{factor}\NormalTok{(session))) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_brewer}\NormalTok{(}\AttributeTok{palette =} \StringTok{"Pastel1"}\NormalTok{) }\SpecialCharTok{+}  
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{title =} \StringTok{"Number of Dialogues Per Session (High Performance)"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Session"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Number of Dialogues"}\NormalTok{,}
+       \AttributeTok{fill =} \StringTok{"Session"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{low_surv_analysis_files/figure-latex/unnamed-chunk-2-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dialogues\_per\_speaker\_session }\OtherTok{\textless{}{-}}\NormalTok{ low\_perf\_interactions }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(actors\_attributes, }\AttributeTok{by =} \FunctionTok{c}\NormalTok{(}\StringTok{"sender\_id"} \OtherTok{=} \StringTok{"id"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(session, name) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{number\_of\_dialogues =} \FunctionTok{n}\NormalTok{(), }\AttributeTok{.groups =} \StringTok{\textquotesingle{}drop\textquotesingle{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(session, }\FunctionTok{desc}\NormalTok{(number\_of\_dialogues))}
+
+\NormalTok{dialogues\_summary\_tibble }\OtherTok{\textless{}{-}} \FunctionTok{as\_tibble}\NormalTok{(dialogues\_per\_speaker\_session)}
+\FunctionTok{print}\NormalTok{(dialogues\_summary\_tibble)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 43 x 3
+##    session name   number_of_dialogues
+##      <dbl> <chr>                <int>
+##  1    2102 Igor                   167
+##  2    2102 Will                   134
+##  3    2102 Oleg                   102
+##  4    2102 Vika                    91
+##  5    2102 Ashley                  73
+##  6    2102 Saleh                   64
+##  7    2102 Katya                   44
+##  8    2106 Ashley                 389
+##  9    2106 Oleg                   292
+## 10    2106 Will                   239
+## # i 33 more rows
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(dialogues\_summary\_tibble, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ name, }\AttributeTok{y =}\NormalTok{ number\_of\_dialogues, }\AttributeTok{fill =}\NormalTok{ name)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{facet\_wrap}\NormalTok{(}\SpecialCharTok{\textasciitilde{}}\NormalTok{session) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_brewer}\NormalTok{(}\AttributeTok{palette =} \StringTok{"Pastel1"}\NormalTok{) }\SpecialCharTok{+}  
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{subtitle =} \StringTok{"Number of Dialogues Per Speaker Per Session (High Performance)"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Speaker"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Number of Dialogues"}\NormalTok{,}
+       \AttributeTok{fill =} \StringTok{"Speaker"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{low_surv_analysis_files/figure-latex/unnamed-chunk-4-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{total\_dialogues\_per\_speaker }\OtherTok{\textless{}{-}}\NormalTok{ low\_perf\_interactions }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{left\_join}\NormalTok{(actors\_attributes, }\AttributeTok{by =} \FunctionTok{c}\NormalTok{(}\StringTok{"sender\_id"} \OtherTok{=} \StringTok{"id"}\NormalTok{)) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{group\_by}\NormalTok{(name) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{summarise}\NormalTok{(}\AttributeTok{number\_of\_dialogues =} \FunctionTok{n}\NormalTok{(), }\AttributeTok{.groups =} \StringTok{\textquotesingle{}drop\textquotesingle{}}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%}
+  \FunctionTok{arrange}\NormalTok{(}\FunctionTok{desc}\NormalTok{(number\_of\_dialogues)) }\SpecialCharTok{\%\textgreater{}\%}  \FunctionTok{as\_tibble}\NormalTok{() }
+\NormalTok{total\_dialogues\_per\_speaker }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{print}\NormalTok{()}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+## # A tibble: 8 x 2
+##   name   number_of_dialogues
+##   <chr>                <int>
+## 1 Ashley                1590
+## 2 Will                  1500
+## 3 Vika                  1341
+## 4 Oleg                  1238
+## 5 Saleh                  782
+## 6 Igor                   167
+## 7 Katya                   44
+## 8 Alex                     1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\FunctionTok{ggplot}\NormalTok{(total\_dialogues\_per\_speaker, }\FunctionTok{aes}\NormalTok{(}\AttributeTok{x =}\NormalTok{ name, }\AttributeTok{y =}\NormalTok{ number\_of\_dialogues, }\AttributeTok{fill =}\NormalTok{ name)) }\SpecialCharTok{+} 
+  \FunctionTok{geom\_bar}\NormalTok{(}\AttributeTok{stat =} \StringTok{"identity"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_fill\_brewer}\NormalTok{(}\AttributeTok{palette =} \StringTok{"Pastel1"}\NormalTok{) }\SpecialCharTok{+}  
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{subtitle =} \StringTok{"Number of Dialogues Per Speaker Per Session (High Performance)"}\NormalTok{,}
+       \AttributeTok{x =} \StringTok{"Speaker"}\NormalTok{,}
+       \AttributeTok{y =} \StringTok{"Number of Dialogues"}\NormalTok{,}
+       \AttributeTok{fill =} \StringTok{"Speaker"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme\_minimal}\NormalTok{() }\SpecialCharTok{+} 
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"none"}\NormalTok{) }
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{low_surv_analysis_files/figure-latex/unnamed-chunk-6-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{dialog\_colors }\OtherTok{\textless{}{-}}\NormalTok{ RColorBrewer}\SpecialCharTok{::}\FunctionTok{brewer.pal}\NormalTok{(}\AttributeTok{n =} \FunctionTok{length}\NormalTok{(}\FunctionTok{unique}\NormalTok{(interactions}\SpecialCharTok{$}\NormalTok{dialog)), }\AttributeTok{name =} \StringTok{"Pastel2"}\NormalTok{)}
+\NormalTok{dialog\_color\_map }\OtherTok{\textless{}{-}} \FunctionTok{setNames}\NormalTok{(dialog\_colors, }\FunctionTok{unique}\NormalTok{(interactions}\SpecialCharTok{$}\NormalTok{dialog))}
+
+\NormalTok{low\_perf\_interactions }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(receiver\_id }\SpecialCharTok{!=} \DecValTok{0}\NormalTok{)  }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{session) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{time =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(.))  }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(sender\_id, receiver\_id, time,dialog)  }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{dialog =} \FunctionTok{as.factor}\NormalTok{(dialog), }\AttributeTok{sender\_id =} \FunctionTok{as.integer}\NormalTok{(sender\_id), }\AttributeTok{receiver\_id =} \FunctionTok{as.integer}\NormalTok{(receiver\_id)) }\OtherTok{{-}\textgreater{}}\NormalTok{ interactions}
+
+\NormalTok{actors\_attributes }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(id }\SpecialCharTok{\%in\%}\NormalTok{ interactions}\SpecialCharTok{$}\NormalTok{sender\_id) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(id }\SpecialCharTok{\%in\%}\NormalTok{ interactions}\SpecialCharTok{$}\NormalTok{receiver\_id) }\OtherTok{{-}\textgreater{}}\NormalTok{ actors\_attributes}
+\FunctionTok{head}\NormalTok{(actors\_attributes)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   id   name gendermale
+## 1  1   Igor          1
+## 2  2 Ashley          0
+## 3  3   Will          1
+## 4  4  Katya          0
+## 5  5  Saleh          1
+## 6  6   Oleg          1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{g\_subset }\OtherTok{\textless{}{-}} \FunctionTok{graph\_from\_data\_frame}\NormalTok{(interactions, }\AttributeTok{directed =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{vertices =} \FunctionTok{data.frame}\NormalTok{(actors\_attributes))}
+
+
+\FunctionTok{V}\NormalTok{(g\_subset)}\SpecialCharTok{$}\NormalTok{gender }\OtherTok{\textless{}{-}}\NormalTok{ actors\_attributes}\SpecialCharTok{$}\NormalTok{gender[}\FunctionTok{match}\NormalTok{(}\FunctionTok{V}\NormalTok{(g\_subset)}\SpecialCharTok{$}\NormalTok{name, actors\_attributes}\SpecialCharTok{$}\NormalTok{name)]}
+\FunctionTok{V}\NormalTok{(g\_subset)}\SpecialCharTok{$}\NormalTok{name }\OtherTok{\textless{}{-}}\NormalTok{ actors\_attributes}\SpecialCharTok{$}\NormalTok{name[}\FunctionTok{match}\NormalTok{(}\FunctionTok{V}\NormalTok{(g\_subset)}\SpecialCharTok{$}\NormalTok{name, actors\_attributes}\SpecialCharTok{$}\NormalTok{name)]}
+\FunctionTok{ggraph}\NormalTok{(g\_subset, }\AttributeTok{layout =} \StringTok{\textquotesingle{}fr\textquotesingle{}}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_edge\_link}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =}\NormalTok{ dialog), }\AttributeTok{alpha =} \FloatTok{0.7}\NormalTok{, }\AttributeTok{edge\_width =}\NormalTok{ .}\DecValTok{2}\NormalTok{, }\AttributeTok{lineend =} \StringTok{"butt"}\NormalTok{, }\AttributeTok{arrow =} \FunctionTok{arrow}\NormalTok{(}\AttributeTok{type =} \StringTok{\textquotesingle{}closed\textquotesingle{}}\NormalTok{, }\AttributeTok{length =} \FunctionTok{unit}\NormalTok{(}\DecValTok{4}\NormalTok{, }\StringTok{\textquotesingle{}mm\textquotesingle{}}\NormalTok{))) }\SpecialCharTok{+}
+  \FunctionTok{scale\_edge\_color\_manual}\NormalTok{(}\AttributeTok{values =}\NormalTok{ dialog\_color\_map) }\SpecialCharTok{+}
+  \FunctionTok{geom\_node\_point}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{color =} \FunctionTok{factor}\NormalTok{(gender)), }\AttributeTok{size =} \DecValTok{4}\NormalTok{, }\AttributeTok{alpha =} \FloatTok{0.8}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{geom\_node\_text}\NormalTok{(}\FunctionTok{aes}\NormalTok{(}\AttributeTok{label =}\NormalTok{ name), }\AttributeTok{repel =} \ConstantTok{TRUE}\NormalTok{,  }\AttributeTok{color =} \StringTok{"black"}\NormalTok{, }\AttributeTok{size =} \DecValTok{3}\NormalTok{, }\AttributeTok{vjust =} \DecValTok{1}\NormalTok{, }\AttributeTok{nudge\_x =} \SpecialCharTok{{-}}\NormalTok{.}\DecValTok{02}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{scale\_color\_manual}\NormalTok{(}\AttributeTok{values =} \FunctionTok{c}\NormalTok{(}\StringTok{\textquotesingle{}0\textquotesingle{}} \OtherTok{=} \StringTok{\textquotesingle{}red\textquotesingle{}}\NormalTok{, }\StringTok{\textquotesingle{}1\textquotesingle{}} \OtherTok{=} \StringTok{\textquotesingle{}cyan\textquotesingle{}}\NormalTok{)) }\SpecialCharTok{+}
+  \FunctionTok{theme\_void}\NormalTok{() }\SpecialCharTok{+}
+  \FunctionTok{labs}\NormalTok{(}\AttributeTok{subtitle =} \StringTok{"High Performing Session 2104"}\NormalTok{, }\AttributeTok{color =} \StringTok{"Gender"}\NormalTok{, }\AttributeTok{edge\_color =} \StringTok{"Dialog"}\NormalTok{) }\SpecialCharTok{+}
+  \FunctionTok{theme}\NormalTok{(}\AttributeTok{legend.position =} \StringTok{"right"}\NormalTok{, }\AttributeTok{legend.title =} \FunctionTok{element\_text}\NormalTok{(}\AttributeTok{size =} \DecValTok{8}\NormalTok{))}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{center}\includegraphics{low_surv_analysis_files/figure-latex/unnamed-chunk-7-1} \end{center}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\CommentTok{\# remove alex from sender\_id}
+\NormalTok{actors\_attributes }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(name }\SpecialCharTok{!=} \StringTok{"Alex"}\NormalTok{) }\OtherTok{{-}\textgreater{}}\NormalTok{ actors\_attributes}
+
+\NormalTok{low\_perf\_interactions }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(receiver\_id }\SpecialCharTok{!=} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{session) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{time =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(.))  }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(sender\_id, receiver\_id, time,dialog)  }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{dialog =} \FunctionTok{as.factor}\NormalTok{(dialog), }\AttributeTok{sender\_id =} \FunctionTok{as.integer}\NormalTok{(sender\_id), }\AttributeTok{receiver\_id =} \FunctionTok{as.integer}\NormalTok{(receiver\_id)) }\OtherTok{{-}\textgreater{}}\NormalTok{ interactions}
+
+\NormalTok{actors\_attributes }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(id }\SpecialCharTok{\%in\%}\NormalTok{ interactions}\SpecialCharTok{$}\NormalTok{sender\_id) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(id }\SpecialCharTok{\%in\%}\NormalTok{ interactions}\SpecialCharTok{$}\NormalTok{receiver\_id) }\OtherTok{{-}\textgreater{}}\NormalTok{ actors\_attributes}
+\FunctionTok{head}\NormalTok{(actors\_attributes)}
+\end{Highlighting}
+\end{Shaded}
+
+\begin{verbatim}
+##   id   name gendermale
+## 1  1   Igor          1
+## 2  2 Ashley          0
+## 3  3   Will          1
+## 4  4  Katya          0
+## 5  5  Saleh          1
+## 6  6   Oleg          1
+\end{verbatim}
+
+\begin{Shaded}
+\begin{Highlighting}[]
+\NormalTok{low\_perf\_interactions }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(receiver\_id }\SpecialCharTok{!=} \DecValTok{0}\NormalTok{) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(}\SpecialCharTok{{-}}\NormalTok{session) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{time =} \DecValTok{1}\SpecialCharTok{:}\FunctionTok{nrow}\NormalTok{(.))  }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{select}\NormalTok{(sender\_id, receiver\_id, time,dialog)  }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{mutate}\NormalTok{(}\AttributeTok{dialog =} \FunctionTok{as.factor}\NormalTok{(dialog), }\AttributeTok{sender\_id =} \FunctionTok{as.integer}\NormalTok{(sender\_id), }\AttributeTok{receiver\_id =} \FunctionTok{as.integer}\NormalTok{(receiver\_id)) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(sender\_id }\SpecialCharTok{\%in\%}\NormalTok{ actors\_attributes}\SpecialCharTok{$}\NormalTok{id) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(receiver\_id }\SpecialCharTok{\%in\%}\NormalTok{ actors\_attributes}\SpecialCharTok{$}\NormalTok{id) }\OtherTok{{-}\textgreater{}}\NormalTok{ interactions}
 
 \FunctionTok{dim}\NormalTok{(interactions)}
 \end{Highlighting}
 \end{Shaded}
 
 \begin{verbatim}
-## [1] 6075    4
+## [1] 6655    4
 \end{verbatim}
 
 \begin{Shaded}
@@ -191,33 +341,18 @@ Actors Data:
 ## # A tibble: 6 x 4
 ##   sender_id receiver_id  time dialog    
 ##       <int>       <int> <int> <fct>     
-## 1         2           2     1 disruption
-## 2         2           4     2 statement 
-## 3         4           3     3 statement 
-## 4         3           2     4 question  
-## 5         2           6     5 statement 
-## 6         6           2     6 question
+## 1         1           2     1 disruption
+## 2         2           3     2 statement 
+## 3         3           1     3 question  
+## 4         1           2     4 statement 
+## 5         2           1     5 statement 
+## 6         1           3     6 statement
 \end{verbatim}
 
 \begin{Shaded}
 \begin{Highlighting}[]
 \NormalTok{actors\_attributes }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(id }\SpecialCharTok{\%in\%}\NormalTok{ interactions}\SpecialCharTok{$}\NormalTok{sender\_id) }\SpecialCharTok{\%\textgreater{}\%} \FunctionTok{filter}\NormalTok{(id }\SpecialCharTok{\%in\%}\NormalTok{ interactions}\SpecialCharTok{$}\NormalTok{receiver\_id) }\OtherTok{{-}\textgreater{}}\NormalTok{ actors\_attributes}
-\FunctionTok{head}\NormalTok{(actors\_attributes)}
-\end{Highlighting}
-\end{Shaded}
 
-\begin{verbatim}
-##   id   name gendermale
-## 2  2 Ashley          0
-## 3  3   Will          1
-## 4  4  Katya          0
-## 5  5  Saleh          1
-## 6  6   Oleg          1
-## 7  7   Vika          0
-\end{verbatim}
-
-\begin{Shaded}
-\begin{Highlighting}[]
 \NormalTok{g\_subset }\OtherTok{\textless{}{-}} \FunctionTok{graph\_from\_data\_frame}\NormalTok{(interactions, }\AttributeTok{directed =} \ConstantTok{TRUE}\NormalTok{, }\AttributeTok{vertices =} \FunctionTok{data.frame}\NormalTok{(actors\_attributes))}
 
 
@@ -244,7 +379,7 @@ Actors Data:
 \NormalTok{)}
 
 \CommentTok{\#save as RDS}
-\FunctionTok{saveRDS}\NormalTok{(REM.data, }\StringTok{"data/RemDatasetHigh.RDS"}\NormalTok{)}
+\CommentTok{\#saveRDS(REM.data, "data/RemDatasetLow.RDS")}
 \end{Highlighting}
 \end{Shaded}
 
