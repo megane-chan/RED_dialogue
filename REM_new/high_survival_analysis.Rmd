@@ -1,17 +1,20 @@
 ---
 title: "REM"
-output: 
+output:
+  html_document:
+    toc: false
+    toc_depth: '4'
+    df_print: paged
   pdf_document:
-    
     toc: false
     toc_depth: 4
     number_sections: false
     fig_caption: true
     keep_tex: true
     latex_engine: xelatex
-editor_options:
-y  markdown: 
-    wrap: 72
+editor_options: null
+y  markdown:
+  wrap: 72
 ---
 
 ```{r setup, include=FALSE}
@@ -70,6 +73,7 @@ exclude_session <- 2103
 high_perf_interactions %>% filter(receiver_id != 0) %>% group_by(session) %>% filter(session != exclude_session) %>% ungroup() %>% select(-session) %>% mutate(time = 1:nrow(.))  %>% select(sender_id, receiver_id, time,dialog)  %>% mutate(dialog = as.factor(dialog), sender_id = as.integer(sender_id), receiver_id = as.integer(receiver_id)) -> interactions
 
 dim(interactions)
+unique(high_perf_interactions$session)
 ```
 
 
@@ -193,10 +197,6 @@ summary(model4)
 ```{r}
 model5 <- coxph(surv_object ~ sender * eventAttribute, data = REM.data)
 summary(model5)
-```
-```{r}
-model6 <- coxph(surv_object ~ sender + target + eventAttribute, data = REM.data)
-summary(model6)
 ```
 
 
