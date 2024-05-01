@@ -1,0 +1,278 @@
+```{r}
+# Last Updated: 02/12
+rm(list = ls())
+
+# Load libraries
+library(tidyverse)
+library(tidyr)
+library(ggplot2)
+library(dplyr)
+library(igraph)
+library(glmnet)
+library(skimr)
+library(dplyr)
+library(relevent)
+
+setwd("~/RProjects/SNA_REM/REM_new/")
+```
+
+
+```{r}
+high_perf_sessions <- readRDS("data/high_final.RData") %>% rename(dialog = sender_dialog)
+high_perf_sessions %>% saveRDS("data/high_performance_sessions.RData")
+high_perf_sessions %>% write.csv("data/high_performance_sessions.csv")
+
+
+low_perf_sessions <- readRDS("data/low_final.RData") %>% rename(dialog = sender_dialog)
+low_perf_sessions %>% saveRDS("data/low_performance_sessions.RData")
+low_perf_sessions %>% write.csv("data/low_performance_sessions.csv")
+
+```
+
+Igor Ashley   Will  Katya  Saleh   Oleg   Vika   Alex 
+ 1      2      3      4      5      6      7      8 
+
+```{r}
+unique(interactions_high$sender_id)
+```
+
+
+
+```{r}
+
+```
+
+
+```{r}
+# Create a dataframe with names
+attribute_table <- data.frame(
+  id = 0:8,
+  name = c("All", "Igor", "Ashley", "Will", "Katya", "Saleh", "Oleg", "Vika", "Alex"),
+  stringsAsFactors = FALSE
+)
+
+# Infer gender based on the name (1 for male, 2 for female)
+# This is a simplistic approach and might not accurately reflect all individuals' genders.
+attribute_table$Sender_male <- ifelse(attribute_table$name %in% c("Igor", "Will", "Saleh", "Oleg", "Alex"), 1,
+                                 ifelse(attribute_table$name %in% c("Ashley", "Katya", "Vika"), 0, NA)) 
+    
+attribute_table <- na.omit(attribute_table)
+attributes <- attribute_table %>% dplyr::select(-name)
+attributes$Sender_male <- as.integer(attributes$Sender_male)
+```
+
+
+
+
+```{r}
+
+attributes <- attributes[attributes$id %in% interactions_high$sender_id,]
+
+
+
+
+head(attributes)
+```
+
+```{r}
+
+times_as_double <- as.numeric(difftime(interactions_high$time, as.POSIXct("1970-01-01")))
+
+# Convert seconds to fractions of an hour
+times_as_hours <- times_as_double / 3600
+
+interactions_high$time<- times_as_hours
+# Now times_as_double is a numeric vector with time as seconds from midnight
+head(times_as_double)
+```
+
+
+# Model 1 Baseline Model
+```{r}
+size <- nrow(interactions_high)
+edgelist_high <-interactions_high[, c("time", "sender_id", "receiver_id")]
+
+attributes$intercept <- 1
+r <- nrow(interactions_high)
+edgelist_high <- rbind(edgelist_high, c(r + 1, NA, NA))
+set.seed(1000) 
+
+```
+
+
+```{r}
+mod1 <- rem.dyad(edgelist = edgelist_high, n = size, 
+                 effects = c("CovSnd"), 
+                 covar = list(CovSnd = attributes$intercept), 
+                 ordinal = TRUE, hessian = FALSE)
+```
+
+
+```{r}
+summary(mod1)
+```
+
+
+# Model 2
+```{r}
+
+CovSnd1 <- cbind(attributes[, c("intercept", "Sender_male")])
+
+
+
+mod2 <- rem.dyad(edgelist_high, n = size, 
+                  effects = c("CovSnd"), 
+                  covar = list(CovSnd = CovSnd1), 
+                  ordinal = FALSE, hessian = TRUE)
+
+```
+```{r}
+summary(mod2)
+```
+
+
+```{r}
+coef_names2 <- c("Intercept", "Sender_male")
+names(mod2$coef) <- coef_names2a
+summary(mod2)
+
+```
+```{r}
+inputs <- c(intercept = 1, Sender_male = 1)
+hazard_male_send <- exp(sum(mod2$coef * inputs))
+cat(-hazard_male_send)
+```
+
+
+# Model 3
+```{r}
+
+CovSnd1 <- cbind(attributes[, c("intercept", "Sender_male")])
+
+
+mod2a <- rem.dyad(edgelist_high, n = size, 
+                  effects = c("CovSnd"), 
+                  covar = list(CovSnd = CovSnd1), 
+                  ordinal = TRUE, hessian = TRUE)
+
+coef_names2 <- c("Intercept", "Sender_male", "Receiver_male")
+names(mod2a$coef) <- coef_names2a
+
+summary(mod2a)
+```
+
+
+```{r}
+inputs <- c(intercept = 1, Sender_male = 1, Receiver_male = 1)
+hazard_male_male <- exp(sum(mod2a$coef * inputs))
+cat(hazard_male_male)
+```
+
+
+```{r}
+interactions_low <- readRDS("data/low_final.RData")
+interactions_low <- interactions_low[interactions_low$session==2102,]
+n <- max(unique(interactions_low$sender_id), unique(interactions_low$receiver_id))
+cat(n)
+dim(interactions_low)
+```
+
+```{r}
+edgelist_low <- as.matrix(interactions_low[, c("time", "sender_id", "receiver_id")])
+size <- nrow(interactions_low)
+att <- c()
+att$intercept <- 1
+edgelist_low <- rbind(edgelist_low, c(size + 1, NA, NA))
+```
+
+
+```{r}
+set.seed(1000)
+mod1 <- rem.dyad(edgelist = edgelist_low, n = n,
+                 effects = c("CovSnd"), 
+                 covar = list(CovSnd = att$intercept), 
+                 ordinal =  TRUE, hessian = FALSE)
+```
+```{r}
+summary(mod1)
+
+```
+
+```{r}
+```
+
+# Model 2
+
+
+```{r}
+
+# Model 2 -----------------------------------------------------------------
+
+
+# Adding the second term: the Normalized Total Degree Received (NTDRec)
+stats.ntdegrec <- NTDRec(data)
+stats2 <- combine.stats(
+  '[Intercept]' <- stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd,
+  'NTDegRec' = stats.ntdegrec
+)
+
+# Run the second model and check the transript_data
+model2 <- FitEventNetworkCore(data, stats2, ordinal = FALSE)
+summary(model2)
+```
+
+```{r}
+
+# add a column representing if the sender and receiver are of the same gender
+same_gender <- ifelse(high_perf_all$sender_gender == high_perf_all$receiver_gender, 1, 0)
+# factor
+
+data <- data.frame(sid = high_perf_all$sender_id, rid = high_perf_all$receiver_id, time = high_perf_all$event_order, sender_dialog = high_perf_all$sender_dialog)
+
+# Model 3 -----------------------------------------------------------------
+
+stats.sameGender <- SameConstGroup(data, same_gender)
+
+stats3 <- combine.stats(
+  '[Intercept]' = stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd,
+  'NTDegRec' = stats.ntdegrec,
+  'SameGender' = stats.sameGender
+)
+
+# Run the third model and check the transript_data
+model3 <- FitEventNetworkCore(data, stats3, ordinal = FALSE)
+summary(model3)
+```
+
+```{r}
+
+# Model 4 -----------------------------------------------------------------
+# same_gender and sender_dialog
+data <- data.frame(sid = high_perf_all$sender_id, rid = high_perf_all$receiver_id, time = high_perf_all$event_order, sender_dialog = high_perf_all$sender_dialog)
+
+
+stats.SndDialog <- SameDialogue(data, high_perf_all$sender_dialog)
+
+print(stats.SndDialog)
+print(stats.RecDialog)
+stats4 <- combine.stats(
+  '[Intercept]' = stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd,
+  'NTDegRec' = stats.ntdegrec,
+  'SameGender' = stats.sameGender,
+  'SndDialog' = stats.SndDialog
+)
+
+
+model4 <- FitEventNetworkCore(data, stats4, ordinal = FALSE)
+summary(model4)
+
+```
+
+```
+

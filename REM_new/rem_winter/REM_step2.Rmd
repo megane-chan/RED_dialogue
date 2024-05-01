@@ -1,0 +1,179 @@
+---
+title: "REM Step 2"
+output:
+pdf_document: default
+html_document: default
+---
+
+```{r, message = FALSE, include = FALSE}
+# Last Updated: 02/12
+rm(list = ls())
+
+# Load libraries
+library(rstudioapi)
+library(tidyverse)
+library(tidyr)
+library(ggplot2)
+library(dplyr)
+
+library(RColorBrewer)
+library(dplyr)
+library(igraph)
+library(readxl)
+library(igraph)
+library(glmnet)
+library(remsonic)
+library(skimr)
+library(dplyr)
+library(relevent)
+library(fastDummies)
+```
+
+## relevent
+
+```{r, message = FALSE, include = FALSE}
+
+# Set Path
+setwd("~/RProjects/SNA_REM/REM_new/")
+```
+
+```{r}
+high <- read.csv("data/high_perf_final.csv")
+
+low <- read.csv("data/low_perf_final.csv")
+```
+
+```{r}
+head(high)
+names(high)
+head(low)
+attributes <- high %>% select(5:13)
+attributes %>% saveRDS("data/attributes.RData")
+```
+
+```{r}
+```
+
+```{r}
+```
+
+```{r}
+
+
+high <- high %>% mutate(sender_id = as.integer(sender_id), receiver_id = as.integer(receiver_id)) %>%
+mutate(time = row_number()) %>% select(time, sender_id, receiver_id)
+```
+
+
+
+
+# Final Cleaned Session Data
+
+```{r}
+
+high %>% saveRDS("data/high_final.RData")
+low %>% saveRDS("data/low_perf_all.RData")
+
+attr <- readRDS("data/attributes.RData")
+interactions_high <- readRDS("data/high_final.RData")
+```
+
+```{r}
+
+```
+
+
+
+# Model 1 Baseline Model
+```{r}
+edgelist_high <- as.matrix(interactions_high[, c("time", "sender_id", "receiver_id")])
+size <- nrow(interactions_high)
+
+cat(size)
+edgelist_high <- rbind(edgelist_high, c(9880, NA, NA))
+attributes$intercept <- 1
+set.seed(1000) 
+mod1 <- rem.dyad(edgelist = edgelist_high, n = size, 
+                 effects = c("CovSnd"), 
+                 covar = list(CovSnd = attributes$intercept), 
+                 ordinal = FALSE, hessian = TRUE)
+
+
+summary(mod1)
+```
+
+
+
+# Model 2
+
+
+```{r}
+
+# Model 2 -----------------------------------------------------------------
+
+data <- data.frame(sid = high$sender_id, rid = high$receiver_id, time = high$event_order) 
+
+# Adding the second term: the Normalized Total Degree Received (NTDRec)
+stats.ntdegrec <- NTDRec(data)
+stats2 <- combine.stats(
+  '[Intercept]' <- stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd,
+  'NTDegRec' = stats.ntdegrec
+)
+
+# Run the second model and check the transript_data
+model2 <- FitEventNetworkCore(data, stats2, ordinal = FALSE)
+summary(model2)
+```
+
+```{r}
+
+# add a column representing if the sender and receiver are of the same gender
+same_gender <- ifelse(high_perf_all$sender_gender == high_perf_all$receiver_gender, 1, 0)
+# factor
+
+data <- data.frame(sid = high_perf_all$sender_id, rid = high_perf_all$receiver_id, time = high_perf_all$event_order, sender_dialog = high_perf_all$sender_dialog)
+
+# Model 3 -----------------------------------------------------------------
+
+stats.sameGender <- SameConstGroup(data, same_gender)
+
+stats3 <- combine.stats(
+  '[Intercept]' = stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd,
+  'NTDegRec' = stats.ntdegrec,
+  'SameGender' = stats.sameGender
+)
+
+# Run the third model and check the transript_data
+model3 <- FitEventNetworkCore(data, stats3, ordinal = FALSE)
+summary(model3)
+```
+
+```{r}
+
+# Model 4 -----------------------------------------------------------------
+# same_gender and sender_dialog
+data <- data.frame(sid = high_perf_all$sender_id, rid = high_perf_all$receiver_id, time = high_perf_all$event_order, sender_dialog = high_perf_all$sender_dialog)
+
+
+stats.SndDialog <- SameDialogue(data, high_perf_all$sender_dialog)
+
+print(stats.SndDialog)
+print(stats.RecDialog)
+stats4 <- combine.stats(
+  '[Intercept]' = stats.intercept,
+  'RRecSnd' = stats.rrecsnd,
+  'RSndSnd' = stats.rsndsnd,
+  'NTDegRec' = stats.ntdegrec,
+  'SameGender' = stats.sameGender,
+  'SndDialog' = stats.SndDialog
+)
+
+
+model4 <- FitEventNetworkCore(data, stats4, ordinal = FALSE)
+summary(model4)
+
+```
