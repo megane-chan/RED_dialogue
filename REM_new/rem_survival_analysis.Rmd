@@ -94,10 +94,51 @@ head(all_sessions) %>% kable("html") %>% kable_styling("striped", full_width = F
 ```
 
 ```{r}
+# weighted in degree and out degree
+df <- all_sessions %>% select(2:3)
+df <- df %>% filter(sender_id != 0) %>% filter(receiver_id != 0)
+g <-data.frame( df[df$sender_id!=0,] )
+g <- graph.data.frame( df[df$receiver_id!=0,] )
+qplot(degree(g))
+x <- 0:max(degree(g))
+qplot(x,degree.distribution(g))
+
+# set weights by total degree
+weights = 1/degree(g, mode="in")
+E(g)$weight = weights
+# weighted in degree fo reach node
+weighted_in_degree = degree(g, mode="in", weights=E(g)$weight)
+# weighted out degree for each node
+weighted_out_degree = degree(g, mode="out", weights=E(g)$weight)
 ```
 
+
 ```{r}
+# graph the marriage network
+dialognet <- graph.edgelist(as.matrix(df), directed = T)
+degree(dialognet) 
+
+#for everyone in netwoerk,, check if sh ehas been th senderfor ome otime
+for (i in 1:vcount(dialognet)) {
+  V(dialognet)$sender[i] <- sum(df$sender_id == V(dialognet)$name[i])
+  V(dialognet)$receiver[i] <- sum(df$receiver_id == V(dialognet)$name[i])
+  print(i)
+}
+
 ```
+
+
+```{r}
+
+V( dialognet)$gender <- actors_attributes$gender[match(V(dialognet), actors_attributes$id)] %>% as.factor()
+V( dialognet)$name <- actors_attributes$name[match(V(dialognet), actors_attributes$id)]
+# Gross wealth (Florins), for 87 (92) families
+# simple mean imputation of wealth (alternatively, we might think that those with NA were too poor to show up in historical records?)
+
+# plot the network
+plot(dialognet, vertex.label = V(dialognet)$name, vertex.color = V(dialognet)$gender, vertex.size = 10, edge.arrow.size = 0.5, edge.curved = 0.1, main = "Network of Dialogues", sub = "Nodes represent actors, edges represent interactions", cex.main = 1, cex.sub = 0.8)
+```
+
 
 ```{r}
 
