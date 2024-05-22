@@ -1,10 +1,19 @@
 ---
-output:
-  html_document: default
-  pdf_document: default
+title: "REM"
+output: 
+  pdf_document:
+    toc: false
+    toc_depth: 4
+    number_sections: false
+    fig_caption: true
+    keep_tex: true
+    latex_engine: xelatex
+editor_options:
+  markdown: 
+    wrap: 72
 ---
-```{r,include=FALSE}
-library(knitr)
+
+```{r setup, include=FALSE}
 rm(list=ls())
 setwd("~/RProjects/SNA_REM/REM_new/")
 library(tidyr)
@@ -20,10 +29,9 @@ library(igraph)
 library(ggraph)
 library(RColorBrewer)
 library(tidyr)
-
 knitr::opts_chunk$set(fig.align='center', fig.width=8, fig.height=6, options(tidy = TRUE), tidy.opts = list(width.cutoff = 60))
-
 ```
+
 
 ```{r}
 high_perf_collab <- readRDS("data/surv_object_high.RDS")

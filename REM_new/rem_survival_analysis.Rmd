@@ -10,7 +10,7 @@ output:
     keep_tex: true
     latex_engine: xelatex
 editor_options:
-y  markdown: 
+  markdown: 
     wrap: 72
 ---
 
