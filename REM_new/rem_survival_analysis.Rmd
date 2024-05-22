@@ -10,7 +10,7 @@ output:
     keep_tex: true
     latex_engine: xelatex
 editor_options:
-y  markdown: 
+  markdown: 
     wrap: 72
 ---
 
@@ -78,14 +78,69 @@ head(all_sessions) %>% kable("html") %>% kable_styling("striped", full_width = F
 ```
 
 ```{r}
-```
-
-```{r}
 actors_attributes <- data.frame(
   id = 1:7,
   name = c("Igor", "Ashley", "Will", "Katya", "Saleh", "Oleg", "Vika"),
   gender = c("male", "female", "male", "female", "male", "male", "female")
 )
+
+# join snder and receiver attributes add two new colomns senger   and receiver gender
+all_sessions %>% left_join(actors_attributes, by = c("sender_id" = "id")) %>% left_join(actors_attributes, by = c("receiver_id" = "id"))  %>% rename(sender = name.x, receiver = name.y) %>% rename(sender_gender = gender.x, receiver_gender = gender.y)-> all_sessions
+head(all_sessions) %>% kable("html") %>% kable_styling("striped", full_width = F)
+
+
+# vsace high rds
+#saveRDS(all_sessions, "data/final_all_sessions.RDS")
+```
+
+```{r}
+# weighted in degree and out degree
+df <- all_sessions %>% select(2:3)
+df <- df %>% filter(sender_id != 0) %>% filter(receiver_id != 0)
+g <-data.frame( df[df$sender_id!=0,] )
+g <- graph.data.frame( df[df$receiver_id!=0,] )
+qplot(degree(g))
+x <- 0:max(degree(g))
+qplot(x,degree.distribution(g))
+
+# set weights by total degree
+weights = 1/degree(g, mode="in")
+E(g)$weight = weights
+# weighted in degree fo reach node
+weighted_in_degree = degree(g, mode="in", weights=E(g)$weight)
+# weighted out degree for each node
+weighted_out_degree = degree(g, mode="out", weights=E(g)$weight)
+```
+
+
+```{r}
+# graph the marriage network
+dialognet <- graph.edgelist(as.matrix(df), directed = T)
+degree(dialognet) 
+
+#for everyone in netwoerk,, check if sh ehas been th senderfor ome otime
+for (i in 1:vcount(dialognet)) {
+  V(dialognet)$sender[i] <- sum(df$sender_id == V(dialognet)$name[i])
+  V(dialognet)$receiver[i] <- sum(df$receiver_id == V(dialognet)$name[i])
+  print(i)
+}
+
+```
+
+
+```{r}
+
+V( dialognet)$gender <- actors_attributes$gender[match(V(dialognet), actors_attributes$id)] %>% as.factor()
+V( dialognet)$name <- actors_attributes$name[match(V(dialognet), actors_attributes$id)]
+# Gross wealth (Florins), for 87 (92) families
+# simple mean imputation of wealth (alternatively, we might think that those with NA were too poor to show up in historical records?)
+
+# plot the network
+plot(dialognet, vertex.label = V(dialognet)$name, vertex.color = V(dialognet)$gender, vertex.size = 10, edge.arrow.size = 0.5, edge.curved = 0.1, main = "Network of Dialogues", sub = "Nodes represent actors, edges represent interactions", cex.main = 1, cex.sub = 0.8)
+```
+
+
+```{r}
 
 actors_attributes  %>% as.data.frame() %>% kable("html") %>% kable_styling("striped", full_width = F)
 # Create dummy variables for gender
@@ -93,47 +148,43 @@ dummyvars <- dummyVars(" ~ gender", data = actors_attributes,dropFirst = TRUE)
 actors_attributes <- cbind(actors_attributes, predict(dummyvars, actors_attributes)) %>%
   select(id, name, gendermale)
 
-library(kableExtra)
-# format print table
-actors_attributes 
+
 ```
 
 ## Summary by Session and Speaker
 
-```{r}
-# find find when sender id in actor attribtue
-all_sessions %>% filter(sender_id %in% actors_attributes$id) %>% filter(receiver_id %in% actors_attributes$id) 
-
-session_dialogues <- all_sessions %>%
-  group_by(session, performance) %>%
-  summarise(n = n(), .groups = 'drop')
-
-ggplot(session_dialogues, aes(x = session, y = n, fill = factor(performance))) + 
-  geom_bar(stat = "identity") +
-  scale_fill_brewer(palette = "Pastel1") +  
-  geom_text(aes(label = n), vjust = -0.5, size = 3) +
-  geom_text(aes(label = session), y = -50, vjust = .5, angle = 45, size = 3) +
-  # enlarge the plot area
-  theme(plot.margin = margin(1, 1, 1, 1, "cm")) +
-  theme(legend.position = "none") +
-  theme_minimal()  +
-  # no xtick
-  theme(axis.text.x = element_blank()) +
-  labs(subtitle = "Number of Dialogues By Session",
-       x = "",
-       y = "Number of Dialogues",
-       fill = "Performance") 
-
-ggsave("image/dialogues_by_session.png", width = 8, height = 6)
-```
 
 ```{r}
 unique(all_sessions$session)
 ```
+```{r}
+
+# Number of dialogues per session by team performance
+all_sessions %>% group_by(session, performance) %>% summarise(n = n(), .groups = 'drop') -> session_dialogues
+ggplot(session_dialogues, aes(x = session, y = n, fill = factor(performance))) + 
+  geom_bar(stat = "identity") +
+  scale_fill_brewer(palette = "Pastel1") +  
+  geom_text(aes(label = n), vjust = -0.5, size = 3) +
+  geom_text(aes(label = session), y = -45, vjust = -.5, angle = 45, size = 3) +
+  # enlarge the plot area
+  theme(plot.margin = margin(1, 1, 1, 1, "cm")) +
+  theme(legend.position = "none") +
+  theme_graph(base_family = "Times", caption_size = 12, base_size = 11, plot_margin = margin(4,2,6,2)) +
+  # no xtick
+  theme(axis.text.x = element_blank()) +
+  labs(caption = "Total Number of Dialogues Per Session by Team Performance",
+       x = "",
+       y = "Number of Dialogues",
+       fill = "Performance") 
+ggsave("image/dialogues_by_session_wo_2103.png", width = 8, height = 6)
+```
 
 ```{r}
 # take away 2103
-session_dialogues %>% filter(session != 2103) -> session_dialogues
+all_sessions %>% filter(session != 2103) -> session_dialogues
+
+# Number of dialogues per session by team performance
+session_dialogues %>% group_by(session, performance) %>% summarise(n = n(), .groups = 'drop') -> session_dialogues
 ggplot(session_dialogues, aes(x = session, y = n, fill = factor(performance))) + 
   geom_bar(stat = "identity") +
   scale_fill_brewer(palette = "Pastel1") +  
@@ -161,19 +212,17 @@ dialogues_per_speaker<- all_sessions %>%
   arrange(desc(number_of_dialogues))
 
 # plot
-ggplot(dialogues_per_speaker, aes(x = name, y = number_of_dialogues, fill = name)) + 
-  geom_bar(stat = "identity") +
-  scale_fill_brewer(palette = "Pastel1") +  
+ggplot(dialogues_per_speaker, aes(x = name, y = number_of_dialogues)) + 
+  geom_bar(stat = "identity", fill = "lightblue") +  #
   labs(caption = "Total Number of Dialogues By Speaker (Across All Sessions)",
        x = "",
-       y = "Number of Dialogues",
-       fill = "Speaker") +
+       y = "Number of Dialogues") +
+  # do not use grey for color of bars
   theme_graph(base_family = "Times", caption_size = 11, base_size = 11, plot_margin = margin(4,2,4,2)) +
   # label number
   geom_text(aes(label = number_of_dialogues), vjust = -0.5, size = 3.5) +
-  theme(axis.text.x = element_text(size = 11, angle = 45, hjust = 1)) +
-  theme(legend.position = "none") 
-ggsave("image/dialogues_per_speaker.png", width = 8, height = 6)
+  theme(axis.text.x = element_text(size = 11, angle = 45, hjust = 1)) 
+#ggsave("image/dialogues_per_speaker.png", width = 8, height = 6)
 ```
 
 
@@ -186,11 +235,11 @@ dialogues_per_speaker <- all_sessions %>%
   summarise(number_of_dialogues = n(), .groups = 'drop') %>%
   arrange(desc(number_of_dialogues))
 
-for (s in unique(dialogues_per_speaker$session)) {
-  dialogues_per_speaker  %>% filter(session == s) -> dialogues_per_speaker_by_session 
-  print(kable(dialogues_per_speaker_by_session) %>% kable_styling("striped", full_width = F))
+# for (s in unique(dialogues_per_speaker$session)) {
+#  dialogues_per_speaker  %>% filter(session == s) -> dialogues_per_speaker_by_session 
+#  print(kable(dialogues_per_speaker_by_session) %>% kable_styling("striped", full_width = F))
 
-}
+#}
 ```
 
 ```{r}
@@ -200,37 +249,17 @@ dialogues_per_dialogue <- all_sessions %>%
   summarise(number_of_dialogues = n(), .groups = 'drop') %>%
   arrange(desc(number_of_dialogues))
 
-ggplot(dialogues_per_dialogue, aes(x = dialog, y = number_of_dialogues, fill = as.factor(dialog))) + 
-  geom_bar(stat = "identity") +
-  scale_fill_brewer(palette = "Pastel1") +  
+ggplot(dialogues_per_dialogue, aes(x = dialog, y = number_of_dialogues)) + 
+   geom_bar(stat = "identity", fill = "lightblue") +  #
   labs(caption = "Number of Dialogues By Dialogue Type (Across All Sessions)",
        x = "Dialogue Type",
        y = "Number of Dialogues") +  
-   geom_text(aes(label = dialog), y = -45, vjust = -.5, angle = 45, size = 3) +
+   geom_text(aes(label = dialog), y = -45, vjust = 2, angle = 0, size = 3) +
  theme_graph(base_family = "Times", caption_size = 12, base_size = 11, plot_margin = margin(4,2,6,2)) +
   geom_text(aes(label = number_of_dialogues), vjust = -0.5, size = 3) +
   theme(legend.position = "none")
 ```
 
-
-```{r}
-# pLOT LOG SINCE STATEMENT IS TOO MUCH
-log_dialogues <-log(dialogues_per_dialogue$number_of_dialogues)
-
-ggplot(dialogues_per_dialogue, aes(x = dialog, y = log(number_of_dialogues), fill = dialog)) + 
-  # bar is adjusted log scaled
-  geom_bar(stat = "identity") +
-  scale_fill_brewer(palette = "Pastel1") +  
-  labs(caption = "Number of Dialogues By Dialogue Type",
-       x = "",
-       y = "Number of Dialogues",
-       legend = "Dialogue Type") +
-  geom_text(aes(label = dialog), y = -45, vjust = -.5, angle = 45, size = 5) +
- theme_graph(base_family = "Times", caption_size = 12, base_size = 12, plot_margin = margin(2,1,2,1)) +
-  geom_text(aes(label = number_of_dialogues), vjust = -0.5, size = 3) +
-  theme(legend.position = "right", legend.title = element_text(size = 12))# content of legend
-
-```
 
 ```{r}
 # by dialogues by gebder
@@ -304,11 +333,8 @@ ggplot(dialogues_summary_tibble, aes(x = name, y = number_of_dialogues, fill = n
        x = "Speaker",
        y = "Number of Dialogues",
        fill = "Speaker") +
-  theme_minimal() + 
-  theme(axis.text.x = element_text(size = 8, angle = 45, hjust = 1)) +
-  theme(legend.position = "none") 
-
-ggsave("image/dialogues_per_speaker_session_all.png", width = 8, height = 6)
+ theme_graph(base_family = "Times", caption_size = 11, base_size = 12, plot_margin = margin(4,2,2,2)) +
+  geom_text(aes(label = number_of_dialogues), vjust = -0.5, size = 2.5) + theme(element_blank()) 
 ```
 
 ```{r}
@@ -327,35 +353,81 @@ dialogues_summary_tibble %>% filter(name != "Katya") %>% filter(session != 2103)
 
 ggplot(dialogues_summary_tibble, aes(x = name, y = number_of_dialogues, fill = name)) + 
   geom_bar(stat = "identity") +
-  theme(letgend.position = "none") +
   facet_wrap(~session) +
   #  use different colors for high and low respectively
   scale_fill_brewer(palette = "Pastel1") +
-  labs(subtitle = "Number of Dialogues Per Speaker Per Session",
+  labs(subtitle = "Number of Dialogues By Speaker and Session",
        x = "Speaker",
        y = "Number of Dialogues",
        fill = "Speaker") +
-  theme_minimal() + 
-  theme(axis.text.x = element_text(size = 11, angle = 45, hjust = 1))
+ theme_graph(base_family = "Times", caption_size = 11, base_size = 12, plot_margin = margin(4,2,2,2)) +
+  geom_text(aes(label = number_of_dialogues), vjust = -0.5, size = 2.5) + theme(element_blank()) 
 
 ```
 
 ```{r}
 
+all_sessions <-readRDS("data/final_all_sessions.RDS")
+interactions <- all_sessions %>% select(sender_id, receiver_id, dialog, time)
+```
 
-all_sessions %>% filter(receiver_id != 0) %>% select(-session) %>% mutate(time = 1:nrow(.))  %>% select(sender_id, receiver_id, time,dialog)  %>% mutate(dialog = as.factor(dialog), sender_id = as.integer(sender_id), receiver_id = as.integer(receiver_id)) -> interactions
+```{r}
 
-actors_attributes %>% filter(id %in% interactions$sender_id) %>% filter(id %in% interactions$receiver_id) -> actors_attributes
-head(actors_attributes)
-
-
-g_subset <- graph_from_data_frame(interactions, directed = TRUE, vertices = data.frame(actors_attributes))
-
-
-V(g_subset)$gender <- actors_attributes$gender[match(V(g_subset)$name, actors_attributes$name)]
-V(g_subset)$name <- actors_attributes$name[match(V(g_subset)$name, actors_attributes$name)]
+# if sender_sender == receiver_gender it is same gender
+interactions$same_gender <- ifelse(actors_attributes$gendermale[match(interactions$sender_id, actors_attributes$id)] == actors_attributes$gendermale[match(interactions$receiver_id, actors_attributes$id)], 1, 0)
+# same gender as edge
+interactions
 
 ```
+
+```{r}
+g <- graph_from_data_frame(interactions, directed = TRUE)
+
+V(g)$name <- actors_attributes$name[match(V(g), actors_attributes$id)]
+V(g)$node_id <- actors_attributes$id[match(V(g)$name, actors_attributes$name)] 
+V(g)$gender <- actors_attributes$gender[match(V(g), actors_attributes$id)] %>% as.factor()
+E(g)$dialog <- interactions$dialog
+E(g)$time <- interactions$time
+E(g)$same_gender <- ifelse(actors_attributes$gender[match(interactions$sender_id, actors_attributes$id)] == actors_attributes$gender[match(interactions$receiver_id, actors_attributes$id)], 1,0)
+```
+
+
+```{r}
+
+# Assuming `g` is your igraph object representing the network
+# and it has a `gender` attribute in nodes to distinguish male and female participants
+
+# Define a color palette for gender
+gender_colors <- c("male" = "blue", "female" = "pink")
+
+# Plotting the graph using ggraph
+ggraph(g, layout = 'fr') + 
+  geom_node_point(aes(color = gender), size = 5) + 
+  geom_node_text(aes(label = name), repel = TRUE) +
+  # reflect edge direction
+  geom_edge_link(aes(color = dialog), alpha = 0.6, end_cap = circle(3, 'mm')) +
+  scale_color_manual(values = gender_colors) + # Use the color palette for gender
+  labs(title = "Network Graph of Dialogue Types Among Participants Highlighted by Gender",
+       color = "Gender") +
+  theme_void() + # Simplify the plot theme
+  theme(legend.position = "right") # Adjust the legend position
+```
+
+```{r}
+par(mfrow=c(1,1), mar=c(1,1,1,1))
+palette <- brewer.pal(8, "Pastel2") 
+pal2 <- brewer.pal(8, "Set3")
+gender_unique <- unique(V(g)$gender)
+dialog_unique <- unique(E(g)$dialog)
+dialog_col <- setNames(palette[1:length(dialog_unique)], dialog_unique)
+gender_col <- setNames(pal2[1:length(gender_unique)],gender_unique)
+plot(g, edge.color = dialog_col[E(g)$dialog], edge.width = .8, vertex.color = gender_col[V(g)$gender], vertex.size = 25, vertex.label.cex = 0.8, vertex.label.color = "black", edge.arrow.size = 0.5, edge.curved = 0.1, main = "", sub = "Nodes represent actors, edges represent interactions", cex.main = 1, cex.sub = 0.8)
+legend("topleft", legend = c("Backchannel", "Disruption", "Floor-Grabber", "Question", "Statement"), fill = dialog_col, title = "Dialogue Type", cex = 0.8)
+```
+
+
+
+
 
 #### Dialogue Flow Illustration
 
@@ -364,56 +436,60 @@ dialog_colors <- RColorBrewer::brewer.pal(n = length(unique(all_sessions$dialog)
 dialog_color_map <- setNames(dialog_colors, unique(all_sessions$dialog))
 # for each session plot 1 graph
 
+unique(all_sessions$sender_id)
 
-for (s in unique(all_sessions$session)) {
-  session_s %>% filter(session == s) %>% 
-    filter(sender_id %in% actors_attributes$id) %>% 
-    filter(receiver_id %in% actors_attributes$id)  %>% graph_from_data_frame(vertices = data.frame(actors_attributes)) %>% ggraph(layout = 'fr') 
-}
 ```
+
+
 
 
 ```{r}
-ggraph(g_subset, layout = 'fr') +
-  geom_edge_link(aes(color = dialog), alpha = 0.7, edge_width = .2, lineend = "butt", arrow = arrow(type = 'closed', length = unit(4, 'mm'))) +
-  scale_edge_color_manual(values = dialog_color_map) +
-  geom_node_point(aes(color = factor(gender)), size = 4, alpha = 0.8) +
-  geom_node_text(aes(label = name), repel = TRUE,  color = "black", size = 3, vjust = 1, nudge_x = -.02) +
-  scale_color_manual(values = c('0' = 'red', '1' = 'cyan')) +
-  theme_void() +
-  labs(subtitle = "", color = "Gender", edge_color = "Dialog") +
-  theme(legend.position = "right", legend.title = element_text(size = 8))
-
-#Savage("image/dialogue_flow_all.png", width = 8, height = 6)
+# which session is kagya active
+all_sessions
 ```
 
-```{r}
-```
-
-```{r}
-```
 
 #### Degree Distribution
 
 ```{r}
 
-degree_stats <- degree(g_subset, mode = "all")  
-
-betweenness_stats <- betweenness(g_subset, directed = TRUE)
-
+degree_stats <- degree(g, mode = "all")  
+library(tidyverse)
 network_stats_summary <- data.frame(
-  name = V(g_subset)$name,
-  degree = degree_stats
-)
+  id = V(g)$node_id,
+  #name = V(g)$name,
+  in_degree = degree(g, mode = "in"),
+  out_degree = degree(g, mode = "out"),
+  total_degree = degree(g, mode = "all"),
+ hub_score = hub_score(g)$vector,
+ authority_score = authority_score(g)$vector,
+  eigenvector = eigen_centrality(g)$vector
+) 
 
 
-print(network_stats_summary)
 
+highlight <- function(df, color = "lightyellow", color2 = "lavender") {
+  df %>%
+    mutate(across(everything(), as.numeric)) %>% # Ensure numeric columns
+    kable("html") %>%
+    kable_styling("striped", full_width = F) %>%
+    row_spec(which.max(df$total_degree), background = color) %>%
+    row_spec(which.max(df$in_degree), background = color) %>%
+    row_spec(which.max(df$out_degree), background = color) %>%
+    row_spec(which.max(df$hub_score), background = color) %>%
+    row_spec(which.max(df$authority_score), background = color) %>%
+    row_spec(which.max(df$eigenvector), background = color) %>%
+    row_spec(which.min(df$total_degree), background = color2) %>%
+    row_spec(which.min(df$in_degree), background = color2) %>%
+    row_spec(which.min(df$out_degree), background = color2) %>%
+    row_spec(which.min(df$hub_score), background = color2) %>%
+    row_spec(which.min(df$authority_score), background = color2) %>%
+    row_spec(which.min(df$eigenvector), background = color2)
+}
 
-influencers <- network_stats_summary %>%
-  arrange(desc(degree)) %>%
-  head(3) 
-print(influencers)
+# Apply the function to highlight the maximum values
+highlight(network_stats_summary)
+
 ```
 
 -   **Degree**: This is the number of direct connections a node has.
@@ -428,49 +504,72 @@ Check for Isolates, Connectivity, and Directionality
 
 ```{r}
 
-isolates <- which(degree(g_subset) == 0)
+isolates <- which(degree(g) == 0)
 if (length(isolates) > 0) {
-  print(V(g_subset)$name[isolates])
+  print(V(g)$name[isolates])
 }
 
 
-is.fully.connected <- is_connected(g_subset)
+is.fully.connected <- is_connected(g)
 print(is.fully.connected)
 
 
-is.directed <- is_directed(g_subset)
+is.directed <- is_directed(g)
 print(is.directed)
 
 ```
 
-```{r}
-in_degree_stats <- degree(g_subset, mode = "in")
-out_degree_stats <- degree(g_subset, mode = "out")
-total_degree_stats <- in_degree_stats + out_degree_stats
-rbind(in_degree_stats, out_degree_stats, total_degree_stats)
 
-```
 
 # REM Analysis
 
 ```{r, eval=FALSE}
+interactions <- readRDS("data/all_sessions.RDS")
 interactions$time<-as.numeric(interactions$time) 
 
+# rmove 2103
+interactions <- interactions %>% filter(session != 2103)
+saveRDS(interactions, "data/all_sessionsno2103.RDS")
+```
+
+
+```{r, eval=FALSE}
+readRDS("data/all_sessionsno2103.RDS") -> interactions
+high <- interactions[interactions$performance == "high",]
+
 # Create the REM data set
-REM.data <- createRemDataset(
-  data = interactions, 
-  sender = interactions$sender_id,
-  target = interactions$receiver_id,
-  eventSequence = interactions$time,
-  eventAttribute = interactions$dialog,
+REM.data.high <- createRemDataset(
+  data = high,
+  sender = high$sender_id,
+  target = high$receiver_id,
+  eventSequence = high$time,
+  eventAttribute = high$dialog,
+  atEventTimesOnly = TRUE, 
+  untilEventOccurrs = TRUE,
+  includeAllPossibleEvents = FALSE, 
+  returnInputData = FALSE
+)
+# save
+saveRDS(REM.data.high, "data/REM.data.0505.high")
+
+```
+
+
+```{r, eval=FALSE}
+low <- interactions[interactions$performance == "low",]
+REM.data.low <- createRemDataset(
+  data = low
+  target = low$receiver_id,
+  eventSequence = low$time,
+  eventAttribute = low$dialog,
   atEventTimesOnly = TRUE, 
   untilEventOccurrs = TRUE,
   includeAllPossibleEvents = FALSE, 
   returnInputData = FALSE
 )
 
-#save as RDS
-#saveRDS(REM.data, "data/REM_data_onlyevent.RDS")
+saveRDS(REM.data.low, "data/REM.data.0505.low")
+
 
 ```
 

@@ -1,0 +1,137 @@
+---
+title: "REM"
+output: 
+  pdf_document:
+    toc: false
+    toc_depth: 4
+    number_sections: false
+    fig_caption: true
+    keep_tex: true
+    latex_engine: xelatex
+editor_options:
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+rm(list=ls())
+setwd("~/RProjects/SNA_REM/REM_new/")
+library(tidyr)
+library(caret)
+library(network)
+library(relevent)
+library(kableExtra)
+library(survival)
+library(rem)
+library(dplyr)
+library(ggplot2)
+library(igraph)
+library(ggraph)
+library(RColorBrewer)
+library(tidyr)
+knitr::opts_chunk$set(fig.align='center', fig.width=8, fig.height=6, options(tidy = TRUE), tidy.opts = list(width.cutoff = 60))
+```
+
+
+```{r}
+high_perf_collab <- readRDS("data/surv_object_high.RDS")
+REM.data <- readRDS("data/REM_data_high.RDS")
+high_perf_collab <- Surv(time = REM.data$eventTime, event = REM.data$eventDummy)
+REM.data$sender <- as.factor(REM.data$sender)
+which(REM.data$sender == 2)
+```
+
+
+```{r}
+# base model
+base_model0 <- coxph(high_perf_collab ~ 1, data = REM.data)
+print(summary(base_model0))
+
+# sender model
+model1 <- coxph(high_perf_collab ~ sender, data = REM.data)
+print(summary(model1))
+
+# receiver model
+model2 <- coxph(high_perf_collab ~ target + 1, data = REM.data)
+print(summary(model2))
+# sender - receiver model
+model3 <- coxph(high_perf_collab ~ sender + target + 1, data = REM.data)
+print(summary(model3))
+
+
+# dialogue act model
+model4 <- coxph(high_perf_collab ~ eventAttribute + 1, data = REM.data)
+print(summary(model4))
+
+# sender and dialogue act model
+model5 <- coxph(high_perf_collab ~ sender + eventAttribute, data = REM.data)
+print(summary(model5))
+
+# combined model
+model6 <- coxph(high_perf_collab ~ sender * eventAttribute, data = REM.data)
+print(summary(model6))
+
+# format print all model results
+for (model in list(base_model0, model1, model2, model3, model4, model5, model6)) {
+  print(summary(model))
+}
+
+
+```
+
+
+
+```{r}
+low_perf_collab <- readRDS("data/surv_object_low.RDS")
+REM.data <- readRDS("data/REM_data_low.RDS")
+
+# base model
+base_model0 <- coxph(low_perf_collab ~ 1, data = REM.data)
+print(summary(base_model0))
+
+# sender model
+model1 <- coxph(low_perf_collab ~ sender + 1, data = REM.data)
+print(summary(model1))
+
+# receiver model
+model2 <- coxph(low_perf_collab ~ target + 1, data = REM.data)
+print(summary(model2))
+# sender - receiver model
+model3 <- coxph(low_perf_collab ~ sender + target + 1, data = REM.data)
+print(summary(model3))
+
+
+# dialogue act model
+model4 <- coxph(low_perf_collab ~ eventAttribute + 1, data = REM.data)
+print(summary(model4))
+
+# sender and dialogue act model
+model5 <- coxph(low_perf_collab ~ sender + eventAttribute, data = REM.data)
+print(summary(model5))
+
+# combined model
+model6 <- coxph(low_perf_collab ~ sender * eventAttribute, data = REM.data)
+print(summary(model6))
+
+# format print all model results
+for (model in list(base_model0, model1, model2, model3, model4, model5, model6)) {
+  print(summary(model))
+}
+
+```
+
+
+
+
+```{r}
+low_models <- readRDS("data/low_perf_models.RDS")
+high_models <- readRDS("data/high_perf_models.RDS")
+for (i in 1:length(low_models)) {
+  cat("\n\t############ \t Model ", i-1, "\t ############\n")
+  cat("----------- Low -----------\n")
+  print(summary(low_models[[i]]))
+  cat("----------- High -----------\n")
+  print(summary(high_models[[i]]))
+}
+
+```
