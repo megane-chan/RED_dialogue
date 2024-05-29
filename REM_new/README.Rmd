@@ -11,8 +11,6 @@ editor_options:
     wrap: 72
 ---
 
-# Relational Event Modeling (REM) Project
-
 ## Project Directory
 
 #### R Code
@@ -32,8 +30,8 @@ editor_options:
 5.  speaker table
 6.  interaction table (for high and low and combined)
 7.  REM datasets for high & low
-8.  surv_object for high & low
-9.  model output for high & low
+8.  `surv_object` for high & low
+9.  `Model_result.Rmd:`model output for high & low and visualization
 
 ### Setup
 
@@ -49,6 +47,7 @@ if (!require("survival")) install.packages("survival")
 if (!require("dplyr")) install.packages("dplyr")
 if (!require("ggplot2")) install.packages("ggplot2")
 if (!require("ggraph")) install.packages("ggraph")
+if (!require("ggraph")) install.packages("library(ggsurvfit)")
 library(knitr)
 # do not echo or run code
 knitr::opts_chunk$set(echo = FALSE, eval = FALSE)
@@ -121,15 +120,15 @@ Rationale
 
 -   Low: 2112 2104 2101 2105 2115 2108 2103 2114 2109
 
-![](images/clipboard-2264015837.png){width="302"}
+![](images/clipboard-2264015837.png){width="336"}
 
 ### C. Data Visualization (`data_viz.Rmd`)
 
 see `rem_survival_analysis.Rmd` for visualizations
 
-![](images/clipboard-3528454077.png){width="341"}
+![](images/clipboard-3528454077.png){width="325"}
 
-## ![](images/clipboard-4947967.png){width="342"}
+![](images/clipboard-4947967.png){width="322"}
 
 ## II. REM Modeling (`REM_model.RmD`)
 
@@ -143,11 +142,17 @@ see `rem_survival_analysis.Rmd` for visualizations
 
 #### Overview
 
+-   <div>
+
+    ![](images/clipboard-205990553.png){width="622"}
+
+    </div>
+
 Before fitting a relational event model, data must be prepared in a
 specific format:
 
--   **Timestamp:** Each interaction event should be time-stamped (in
-    this case 1, 2, 3...)
+-   **EVENTID: Timestamp:** Each interaction event should be
+    time-stamped (in this case 1, 2, 3...)
 -   **Speaker Sequence:** The sequence of speakers or actors involved in
     each event (same as the timestamp in this case)
 -   **Performance:** An indicator of the performance level (e.g., high
@@ -179,7 +184,7 @@ the effect of different factors on interaction events:
 -   **Model 4**: Effect of dialogue act types.
 -   **Model 5**: Combined sender and dialogue act effects.
 
-### Comparative Analysis & Result
+### C. Comparative Analysis & Result
 
 #### Files/Data Output
 
@@ -187,18 +192,59 @@ the effect of different factors on interaction events:
 
 2.  `data/low_output.RData`
 
-Useful statistics
+3.  `Model_result.Rmd`
 
-1.  Overall model fitness (Concordance, AIC, or BIC)
-2.  Individual
-    1.  P-value
-    2.  Hazard ratio
-        1.  **HR \> 1**: Increases the likelihood of the event. For
-            example, a high hazard ratio for questions indicates that
-            asking questions significantly drives subsequent
-            interactions.
-        2.  **HR \< 1**: Decreases the likelihood of the event.
-        3.  **HR = 1**: No effect on the event likelihood.
+#### Useful statistics
+
+-   <div>
+
+    ![](images/clipboard-1023321256.png){width="620"}
+
+    </div>
+
+-   Overall model fitness (Concordance, AIC, or BIC)
+
+    -   Concordance
+
+    -   Likelihood ratio test
+
+    -   Wald test = 4179
+
+    -   Score (logrank)
+
+        ![](images/clipboard-619753867.png){width="363"}
+
+-   Independent Variables
+
+    ![](images/clipboard-1880792712.png){width="487"}
+
+    -   `coef (sign & strength)`
+
+    -   `P-value` (statistical sinificance)
+
+    -   `exp(coef)`
+
+-   Hazard ratio
+
+    -   HR \> 1: Increases the likelihood of the event. For example, a
+        high hazard ratio for questions indicates that asking questions
+        significantly drives subsequent interactions.
+
+    -   HR \< 1: Decreases the likelihood of the event.
+
+    -   HR = 1: No effect on the event likelihood
+
+        ![](images/clipboard-1337468022.png){width="505"}
+
+### D. Result (Survival) Visualization
+
+<div>
+
+![](images/clipboard-669580048.png){width="504"}
+
+![](images/clipboard-3403590142.png){width="501"}
+
+</div>
 
 ## TBD
 
