@@ -3,22 +3,43 @@ title: "Relational Event Modeling (REM) Project README"
 date: "2024 May"
 output:
   pdf_document:
-    toc: true
+    toc: false
   html_document: paged
 echo: false
+editor_options: 
+  markdown: 
+    wrap: 72
 ---
-
 
 # Relational Event Modeling (REM) Project
 
-## Overview
-Relational Event Modeling (REM) is a statistical framework for analyzing time-stamped interaction data. It is particularly useful in social network analysis where the goal is to understand the dynamics of interactions between actors over time
+## Project Directory
 
-## Required Packages
+#### R Code
+
+-   data_clean.Rmd: initial data cleaning
+-   data_process.Rmd: specifically prepare the data for REM modeling
+    (sender, receiver, time, etc.)
+-   data_viz.Rmd
+-   REM_model.Rmd
+
+#### Data Directory
+
+1.  trans.csv (transcript data)
+2.  preds.csv (predicted label)
+3.  perfs.csv
+4.  nek21.xlsx (Synthesized from the initial 3)
+5.  speaker table
+6.  interaction table (for high and low and combined)
+7.  REM datasets for high & low
+8.  surv_object for high & low
+9.  model output for high & low
+
+### Setup
 
 The following R packages are necessary to run the REM analysis:
 
-```{r}
+```{r, message=FALSE, warning=FALSE}
 if (!require("igraph")) install.packages("igraph")
 if (!require("rem")) install.packages("rem")
 if (!require("network")) install.packages("network")
@@ -31,174 +52,159 @@ if (!require("ggraph")) install.packages("ggraph")
 library(knitr)
 # do not echo or run code
 knitr::opts_chunk$set(echo = FALSE, eval = FALSE)
-
 ```
 
+## I. Data Preparation & EDA
 
-## Overview
+### A. Data Cleaning (`data_clean.Rmd)`
 
+RCode: `data_clean.Rmd`
 
-Relational Event Modeling (REM) is a statistical framework for analyzing time-stamped interaction data. It is particularly useful in social network analysis where the goal is to understand the dynamics of interactions between actors over time.
+Input file: nek21.xlsx
 
-## Data Preparation
+Output:
 
+1.  filtered_dialog_data.csv (filtered dialogue data based on only main
+    speakers)
 
-Before fitting a relational event model, data must be prepared in a specific format. The data should include:
+2.  senders.csv (actor attribute)
 
-- **Timestamp and Location:** Each interaction event should be time-stamped
-- **Speaker Sequence:** The sequence of speakers or actors involved in each event.
-- **Performance Score:** An indicator of the performance level (e.g., high or low) associated with the event.
-- **Dialogue Act Classification:** Each interaction should be classified according to its dialogue act type (e.g., statement, question, backchannel).
+Main changes
 
-Data processing involves cleaning and preparing the interaction data and actor data:
+-   Original Data: 8 Senders ( "Alex" "Ashley" "Igor" "Katya" "Oleg"
+    "Saleh" "Vika" "Will")
 
-1. **Interactions Data**: Contains information about the sender, receiver, time of interaction, and type of interaction (dialogue act type).
-2. **Actors Data**: Contains attributes of each actor, such as name and gender.
+-   After Filtering: 5 Senders ( "Ashley", "Will", "Saleh", "Oleg",
+    "Vika")
 
-Refer to `data_processing.Rmd` for detailed steps on data cleaning and preparation.
+Rationale
 
+-   Igor was present only in session 2102
 
-### Example Code
+-   Katya was present only in the first three sessions: 2102, 2103, 2104
 
-```{r}
-# Load interactions data
-all_interactions <- readRDS("data/all_sessions.RDS") %>%
-  select(session, sender_id, sender, sender_gender, receiver_id, receiver, receiver_gender, time, dialogue_act_type)
+-   Alex seemed to be out of nowhere
 
-# Load actors data
-actors <- readRDS("data/actors.RDS")
-```
+-   Only five 'consistent' senders
 
+### B. Data Preparation for REM Modeling (`data_process.Rmd`)
 
-## Project Directory Structure
+**Output**
 
-- **data_processing.Rmd**: RMD file for data processing steps, including data cleaning and preparation.
-- **rem_survival_analysis.Rmd**: RMD file for conducting survival analysis within the REM framework; unclude visualizations
-- **finaldata.Rmd**: RMD file documenting the final dataset preparation and cleaning.
-- **low_surv_analysis.Rmd**: RMD file for survival analysis of low-performing sessions.
-- **high_survival_analysis.Rmd**: RMD file for survival analysis of high-performing sessions.
-- **data**: Directory containing raw and processed data files used in the analysis.
+1.  high_perf_interactions.RDS
 
+2.  low_perf_interactions.RDS
 
-## Visualization
+3.  high_perf_interactions.csv
+
+4.  low_perf_interactions.csv
+
+**Data processing** deals with three tables
+
+1.  **Interactions Data**:
+    -   Contains information about the sender, receiver, time of
+        interaction, and type of interaction (dialogue act type)
+2.  **Actors Data**: Contains attributes of each actor, such as name and
+    gender
+3.  **Performance Data**
+    -   Min 0.0000
+    -   Mean 0.4202 0.7149
+    -   Max 1.0000
+
+|             |           |
+|:-----------:|:---------:|
+| performance |   mean    |
+|    high     | 0.6965765 |
+|     low     | 0.1437967 |
+
+-   High: 2117 2111 2113 2107 2110 2116 2106 2102 2118
+
+-   Low: 2112 2104 2101 2105 2115 2108 2103 2114 2109
+
+![](images/clipboard-2264015837.png){width="302"}
+
+### C. Data Visualization (`data_viz.Rmd`)
+
 see `rem_survival_analysis.Rmd` for visualizations
 
-### Kaplan-Meier Survival Curves
+![](images/clipboard-3528454077.png){width="341"}
 
-Kaplan-Meier survival curves are used to estimate the survival function from the time-to-event data. This helps in visualizing the proportion of interactions that occur over time.
+## ![](images/clipboard-4947967.png){width="342"}
 
-```{r}
-library(survival)
-library(ggplot2)
+## II. REM Modeling (`REM_model.RmD`)
 
-surv_object <- Surv(time = REM.data$eventTime, event = REM.data$eventDummy)
+### A. Creating REM Dataset
 
-# Fit Kaplan-Meier estimator
-km_fit <- survfit(surv_object ~ 1, data = REM.data)
+#### Files/Data Output
 
-# Plot Kaplan-Meier curve
-ggplot2::autoplot(km_fit) +
-  ggtitle("Kaplan-Meier Survival Curve") +
-  xlab("Time") +
-  ylab("Survival Probability") +
-  theme_minimal()
-```
+1.  `REM.data.high.RData`
 
-### Hazard Function Plot
+2.  `REM.data.low.RData`
 
-The hazard function describes the instant risk of an event occurring at a given time point.
+#### Overview
 
-```{r}
+Before fitting a relational event model, data must be prepared in a
+specific format:
 
-cox_model <- coxph(surv_object ~ sender + receiver, data = REM.data)
+-   **Timestamp:** Each interaction event should be time-stamped (in
+    this case 1, 2, 3...)
+-   **Speaker Sequence:** The sequence of speakers or actors involved in
+    each event (same as the timestamp in this case)
+-   **Performance:** An indicator of the performance level (e.g., high
+    or low) associated with the event (which is how we divided the
+    dataset)
+-   **Dialogue Act Classification:** Each interaction should be
+    classified according to its dialogue act type (e.g., statement,
+    question, backchannel).
 
-# Extract and plot the hazard function
-base_hazard <- basehaz(cox_model, centered = FALSE)
-
-ggplot(base_hazard, aes(x = time, y = hazard)) +
-  geom_line() +
-  ggtitle("Estimated Hazard Function") +
-  xlab("Time") +
-  ylab("Hazard") +
-  theme_minimal()
-```
-
-### Interaction Plot
-- interactions between senders and receivers over time provide insights into the dynamics of communication.
-
-```{r,echo=FALSE}
-library(igraph)
-library(ggraph)
-
-# Create interaction network
-interaction_network <- graph_from_data_frame(d = REM.data, directed = TRUE)
-
-# Plot the interaction network
-ggraph(interaction_network, layout = "fr") +
-  geom_edge_link(aes(edge_alpha = interaction_count), show.legend = FALSE) +
-  geom_node_point(aes(color = gender), size = 5) +
-  geom_node_text(aes(label = name), vjust = 1.8) +
-  theme_void()
-```
-
-These visualizations provide an overview of the interaction dynamics and survival probabilities within the REM framework. Adjust the visualizations based on your specific dataset and analysis requirements.
-
-
-
-## Methodology
-
-### Survival Analysis
-
-Survival analysis is used to understand the likelihood of interaction events over time. The analysis involves creating survival objects and fitting Cox proportional hazards models.
-
-Refer to `rem_survival_analysis.Rmd`, `high_survival_analysis.Rmd`, and `low_surv_analysis.Rmd` for detailed analysis.
-
-### Example Code
-
-```{r}
-# Load high-performance sessions data
-high_perf_collab <- readRDS("data/surv_object_high.RDS")
-REM.data <- readRDS("data/REM_data_high.RDS")
-high_perf_collab <- Surv(time = REM.data$eventTime, event = REM.data$eventDummy)
-
-# Fit Cox model
-base_model0 <- coxph(high_perf_collab ~ 1, data = REM.data)
-print(summary(base_model0))
-```
+### B. Methodology
 
 ### Incremental Model Building
 
-Incremental model building involves fitting several models to understand the effect of different factors on interaction events:
+#### Files/Data Output
 
-- **Model 0**: Baseline hazard function.
-- **Model 1**: Effect of sender attributes.
-- **Model 2**: Effect of receiver attributes.
-- **Model 3**: Combined sender and receiver effects.
-- **Model 4**: Effect of dialogue act types.
-- **Model 5**: Combined sender and dialogue act effects.
+1.  `surv_object_high.RData`
 
-Refer to `modelresult.Rmd` for detailed steps and results of the incremental model building.
+2.  `surv_object_low.RData`
 
-## Results and Analysis
+#### Overview
 
-### Comparative Insights
+Incremental model building involves fitting several models to understand
+the effect of different factors on interaction events:
 
-The analysis compares high-performing and low-performing sessions based on the REM models. Key findings include:
+-   **Model 0**: Baseline hazard function.
+-   **Model 1**: Effect of sender attributes.
+-   **Model 2**: Effect of receiver attributes.
+-   **Model 3**: Combined sender and receiver effects.
+-   **Model 4**: Effect of dialogue act types.
+-   **Model 5**: Combined sender and dialogue act effects.
 
-- **High-Performing Sessions**: Characterized by more active and engaging conversations with influential actors driving the interactions.
-- **Low-Performing Sessions**: Show less dynamic interactions, often influenced by less popular participants.
+### Comparative Analysis & Result
 
-### Hazard Ratios
+#### Files/Data Output
 
-- **HR > 1**: Increases the likelihood of the event.
-- **HR < 1**: Decreases the likelihood of the event.
-- **HR = 1**: No effect on the event likelihood.
+1.  `data/high_output.RData`
 
-For example, a high hazard ratio for questions indicates that asking questions significantly drives subsequent interactions.
+2.  `data/low_output.RData`
 
-## Future Work
+Useful statistics
 
-- **Incorporate Degree Centrality:** To understand the influence of key members in triggering interactions.
-- **Predict Session Performance:** Using features like participant gender, type and sequence of dialogues, and interaction frequency.
-- **Tune Classification Models:** For better accuracy in classifying sessions as high or low performing.
+1.  Overall model fitness (Concordance, AIC, or BIC)
+2.  Individual
+    1.  P-value
+    2.  Hazard ratio
+        1.  **HR \> 1**: Increases the likelihood of the event. For
+            example, a high hazard ratio for questions indicates that
+            asking questions significantly drives subsequent
+            interactions.
+        2.  **HR \< 1**: Decreases the likelihood of the event.
+        3.  **HR = 1**: No effect on the event likelihood.
 
+## TBD
+
+-   **Incorporate Degree Centrality:** To understand the influence of
+    key members in triggering interactions.
+-   **Predict Session Performance:** Using features like participant
+    gender, type and sequence of dialogues, and interaction frequency.
+-   **Tune Classification Models:** For better accuracy in classifying
+    sessions as high or low performing.
