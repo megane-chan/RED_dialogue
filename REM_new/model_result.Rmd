@@ -1,0 +1,129 @@
+```{r}
+
+library(readr)
+library(survival)
+library(ggplot2)
+library(dplyr)
+library(ggsurvfit)
+```
+
+
+```{r}
+high <- readRDS("data/REM.data.high.RData")
+low <- readRDS("data/REM.data.low.RData")
+highsurv <- readRDS("data/surv_object_high.RData")
+lowsurv <- readRDS("data/surv_object_low.RData")
+```
+
+## High-performing sessions Model Output
+```{r}
+base_model <- coxph(highsurv ~ 1, data = high)
+
+model1 <- coxph(highsurv ~ sender + 1, data = high)
+summary(model1)
+
+model2 <- coxph(highsurv ~ target + 1, data = high)
+summary(model2)
+
+model3  <- coxph(highsurv ~ eventAttribute + 1, data = high)
+summary(model3)
+
+model4  <- coxph(highsurv ~ sender + eventAttribute, data = high)
+summary(model4)
+
+model5 <- coxph(highsurv ~ sender * eventAttribute, data = high)
+summary(model5)
+```
+
+
+```{r}
+survfit2(highsurv ~ eventAttribute, data = high) %>% 
+  ggsurvfit() +
+  ggtitle("Survival curve by eventAttribute") +
+  theme_minimal() +
+  labs(
+    x = "Time",
+    y = "Overall survival probability"
+  )
+```
+
+
+```{r}
+survfit2(highsurv ~ sender, data = high) %>%
+  ggsurvfit() +
+  ggtitle("Survival curve by sender") +
+  scale_color_discrete(name = "Sender") +
+  labs(
+    x = "Time",
+    y = "Overall survival probability"
+  ) + theme_minimal()
+```
+
+## Low-performing sessions Model Output
+
+```{r}
+surv_object <- lowsurv
+REM.data <- low
+
+base_model <- coxph(surv_object ~ 1, data = REM.data)
+
+model1 <- coxph(surv_object ~ sender + 1, data = REM.data)
+
+model2 <- coxph(surv_object ~ target + 1, data = REM.data)
+
+model3  <- coxph(surv_object ~ eventAttribute + 1, data = REM.data)
+
+model4  <- coxph(surv_object ~ sender + eventAttribute, data = REM.data)
+
+model5 <- coxph(surv_object ~ sender * eventAttribute, data = REM.data)
+```
+
+```{r}
+summary(base_model)
+summary(model1)
+summary(model2)
+summary(model3)
+summary(model4)
+summary(model5)
+```
+
+```{r}
+survfit2(lowsurv ~ eventAttribute, data = low) %>% 
+  ggsurvfit() +
+  ggtitle("Survival curve by eventAttribute") +
+  theme_minimal() +
+  labs(
+    x = "Time",
+    y = "Overall survival probability"
+  )
+```
+
+
+```{r}
+par(mar = c(4, 2, 2, 2))
+palette <- RColorBrewer::brewer.pal(8, "Set2")
+# plot high and low survival together
+fg.h <- survfit2(highsurv ~ eventAttribute, data = high) %>%
+  ggsurvfit() +
+  ggtitle("high (top) vs low (bottom) performing sessions") +
+  theme_minimal(base_size = 10, base_line_size = .2) +
+  labs(x = "", y = "Survival Prob") +
+  scale_color_manual(values = palette) +
+  theme(legend.position = "", plot.margin = margin(10, 2, 0, 6))
+
+fg.l <- survfit2(lowsurv ~ eventAttribute, data = low) %>%
+  ggsurvfit() +
+  ggtitle("") +
+  theme_minimal(base_size = 8, base_line_size = .2) +
+  labs(x = "Time", y = "Survival Prob") +
+  scale_color_manual(values = palette) +
+  theme(
+    legend.position = "bottom",
+    plot.margin = margin(0, 2, 0, 6),
+    legend.title = element_text(size = 8),
+    legend.text = element_text(size = 8)
+  )
+gridExtra::grid.arrange(fg.h, fg.l, ncol = 1) 
+```
+
+  
