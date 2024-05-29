@@ -1,0 +1,139 @@
+# Data Cleaning
+
+```{r,message=FALSE, warning=FALSE, echo=FALSE}
+library(tidyverse)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(readxl)
+library(glmnet)
+library(skimr)
+# Set Path
+setwd("~/RProjects/SNA_REM/REM_new/")
+```
+
+## Read NEK 21 Data
+Input file: nek21.xlsx
+Output: 
+1. filtered_dialog_data.csv
+2. speakers.csv" (actor attribute)
+
+Three Sheets:
+1. Sheet1: Dialogue act without dialogue content
+2. Sheet2: Performance
+3. Sheet3: Dialogue act with dialogue content
+
+Summary
+Original Data: 8 speakers ( "Alex"   "Ashley" "Igor"   "Katya"  "Oleg"   "Saleh"  "Vika"   "Will")
+After Filtering: 5 speakers ( "Ashley", "Will", "Saleh", "Oleg", "Vika")
+
+### Before Filtering speakers
+
+```{r}
+dialog_data <- read_excel("data/nek21.xlsx", sheet = "Sheet1_Dialogs") %>% filter(sender != "All")
+# skim(dialog_data)
+unique(dialog_data$sender)
+```
+```{r}
+speaker_list <- unique(dialog_data$sender) %>% as.character() %>% sort()
+print(speaker_list)
+```
+
+
+
+```{r}
+dialogues_per_speaker<- dialog_data %>%
+  group_by(sender) %>%
+  summarise(number_of_dialogues = n(), .groups = 'drop') %>%
+  arrange(desc(number_of_dialogues))
+
+
+# plot
+ggplot(dialogues_per_speaker, aes(x = sender, y = number_of_dialogues)) + 
+  geom_bar(stat = "identity", fill = "lightblue") +  #
+  labs(caption = "Total Number of Dialogues By Speaker (Across All Sessions)",
+       x = "",
+       y = "Number of Dialogues") +
+  geom_text(aes(label = number_of_dialogues), vjust = -0.5, size = 3.5) +
+  theme(axis.text.x = element_text(size = 11, angle = 45, hjust = 1)) + theme_minimal() 
+```
+
+```{r}
+dialogues_per_speaker_session <- dialog_data %>%
+  group_by(session, sender) %>%
+  summarise(number_of_dialogues = n(), .groups = 'drop') %>%
+  arrange(session, desc(number_of_dialogues))
+
+
+ggplot(dialogues_per_speaker_session, aes(x = sender, y = number_of_dialogues, fill = sender)) + 
+  geom_bar(stat = "identity") +
+  facet_wrap(~session) +
+  scale_fill_brewer(palette = "Pastel1") +  
+  labs(subtitle = "Number of Dialogues Per Speaker Per Session", x = "",y = "Number of Dialogues") + theme_minimal() + theme(axis.text.x = element_blank())
+```
+
+
+### Filtering Rule
+
+- Igor was present only in session 2102
+- Katya was present only in the first three sessions: 2102, 2103, 2104
+- Alex was out of no where
+- Only five 'consistent' speakers: Ashley, Will, Saleh, Oleg, Vika
+
+
+```{r}
+
+
+
+speakers <- data.frame(
+  id = 1:5,
+  name = c("Ashley", "Will", "Saleh", "Oleg", "Vika" ),
+  gender = c("female", "male", "male", "male","female")
+) %>% mutate(gender = as.factor(gender), id = as.integer(id))
+print(speakers)
+```
+```{r}
+dialog_data <- dialog_data %>% filter(sender %in% speakers$name)  %>% filter(receiver %in% speakers$name) 
+speaker_list <- unique(dialog_data$sender) %>% as.character() %>% sort()
+print(speaker_list)
+
+```
+
+### After Filtering speakers
+```{r}
+# replot
+dialogues_per_speaker<- dialog_data %>%
+  group_by(sender) %>%
+  summarise(number_of_dialogues = n(), .groups = 'drop') %>%
+  arrange(desc(number_of_dialogues))
+
+
+# plot
+ggplot(dialogues_per_speaker, aes(x = sender, y = number_of_dialogues)) + 
+  geom_bar(stat = "identity", fill = "lightblue") +  #
+  labs(caption = "Including only 5 consistent speakers",
+       x = "",
+       y = "Number of Dialogues") +
+  geom_text(aes(label = number_of_dialogues), vjust = -0.5, size = 3.5) +
+  theme(axis.text.x = element_text(size = 11, angle = 45, hjust = 1)) + theme_minimal() 
+```
+
+```{r}
+dialogues_per_speaker_session <- dialog_data %>%
+  group_by(session, sender) %>%
+  summarise(number_of_dialogues = n(), .groups = 'drop') %>%
+  arrange(session, desc(number_of_dialogues))
+
+
+ggplot(dialogues_per_speaker_session, aes(x = sender, y = number_of_dialogues, fill = sender)) + 
+  geom_bar(stat = "identity") +
+  facet_wrap(~session) +
+  scale_fill_brewer(palette = "Pastel1") +  
+  labs(subtitle = "Number of Dialogues Per Speaker Per Session", x = "",y = "Number of Dialogues") + theme_minimal() + theme(axis.text.x = element_blank())
+```
+```{r}
+# save the dialog_data
+write_csv(dialog_data, "data/filtered_dialog.csv")
+write_csv(speakers, "data/speakers.csv")
+```
+

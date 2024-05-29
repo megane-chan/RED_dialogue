@@ -1,0 +1,163 @@
+---
+title: "Create REM Dataset and Survival Objects"
+output: 
+  pdf_document:
+    toc: false
+    toc_depth: 4
+    number_sections: false
+    fig_caption: true
+    keep_tex: true
+    latex_engine: xelatex
+editor_options:
+  markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+
+rm(list=ls())
+setwd("~/RProjects/SNA_REM/REM_new/")
+library(tidyr)
+library(caret)
+library(network)
+library(relevent)
+library(kableExtra)
+library(survival)
+library(rem)
+library(dplyr)
+library(ggplot2)
+library(igraph)
+library(ggraph)
+library(RColorBrewer)
+library(tidyr)
+knitr::opts_chunk$set(fig.align='center', fig.width=8, fig.height=6, options(tidy = TRUE), tidy.opts = list(width.cutoff = 60))
+
+```
+
+
+
+
+
+
+```{r}
+high <- readRDS("data/high_perf.RData") 
+high$homophily <- ifelse(high$sender_gender ==high$receiver_gender, 1,0)
+high$time <- 1:nrow(high) %>% as.numeric()
+
+low <- readRDS("data/low_perf.RData")
+low$time <- 1:nrow(low) %>% as.numeric()
+low$homophily <- ifelse(low$sender_gender ==low$receiver_gender, 1,0)
+```
+
+## Create REM Dataset
+
+```{r}
+start_time <- Sys.time()
+REM.data.high <- createRemDataset(
+  data = high,
+  sender = high$sender_id,
+  target = high$receiver_id,
+  eventSequence = high$time,
+  eventAttribute = c(high$sender_dialog,high$homophily),
+  atEventTimesOnly = TRUE, 
+  untilEventOccurrs = TRUE,
+  includeAllPossibleEvents = FALSE, 
+  returnInputData = FALSE)
+
+end_time <- Sys.time()
+cat("Time taken to create REM dataset for high performance sessions: ", end_time - start_time, "\n")
+```
+
+```{r}
+saveRDS(REM.data.high, "data/REM.data.high.RData")
+write.csv(REM.data.high, "data/REM.data.high.csv")
+```
+
+
+
+```{r, eval=FALSE}
+start_time <- Sys.time()
+REM.data.low <- createRemDataset(
+  data = low,
+  sender = low$sender_id,
+  target = low$receiver_id,
+  eventSequence = low$time,
+  eventAttribute = c(low$sender_dialog,low$homophily),
+  atEventTimesOnly = TRUE, 
+  untilEventOccurrs = TRUE,
+  includeAllPossibleEvents = FALSE, 
+  returnInputData = FALSE)
+
+end_time <- Sys.time()
+cat("Time taken to create REM dataset for low performance sessions: ", end_time - start_time, "\n")
+```
+
+```{r}
+saveRDS(REM.data.low, "data/REM.data.low.RData")
+```
+
+
+## Creating Survival Objects
+
+```{r}
+surv.h <- Surv(time = REM.data.high$eventTime, event = REM.data.high$eventDummy)
+surv.l <- Surv(time = REM.data.low$eventTime, event = REM.data.low$eventDummy)
+```
+
+```{r}
+saveRDS(surv.h, "data/surv_object_high.RData")
+saveRDS(surv.l, "data/surv_object_low.RData")
+```
+
+## Run the Model
+
+```{r}
+
+surv_object <- surv.h
+REM.data <- REM.data.high
+
+base_model <- coxph(surv_object ~ 1, data = REM.data)
+
+model1.h <- coxph(surv_object ~ sender + 1, data = REM.data)
+
+model2.h <- coxph(surv_object ~ target + 1, data = REM.data)
+
+model3.h  <- coxph(surv_object ~ eventAttribute + 1, data = REM.data)
+
+model4.h  <- coxph(surv_object ~ sender + eventAttribute, data = REM.data)
+
+model5.h <- coxph(surv_object ~ sender * eventAttribute, data = REM.data)
+
+```
+
+
+
+
+```{r}
+surv_object <- surv.l
+REM.data <- REM.data.low
+
+base_model.l  <- coxph(surv_object ~ 1, data = REM.data)
+
+model1.l <- coxph(surv_object ~ sender + 1, data = REM.data)
+
+model2.l <- coxph(surv_object ~ target + 1, data = REM.data)
+
+model3.l  <- coxph(surv_object ~ eventAttribute + 1, data = REM.data)
+
+model4.l  <- coxph(surv_object ~ sender + eventAttribute, data = REM.data)
+
+model5.l  <- coxph(surv_object ~ sender * eventAttribute, data = REM.data)
+```
+
+
+### Save the Models
+```{r}
+high_output <- list(base_model, model1.h, model2.h, model3.h, model4.h, model5.h)
+lowoutput <- list(base_model.l, model1.l, model2.l, model3.l, model4.l, model5.l)
+
+saveRDS(high_output, "data/high_output.RData")
+saveRDS(lowoutput, "data/low_output.RData")
+```
+
+

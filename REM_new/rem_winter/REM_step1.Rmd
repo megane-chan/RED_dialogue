@@ -22,7 +22,6 @@ library(igraph)
 library(readxl)
 library(igraph)
 library(glmnet)
-library(remsonic)
 library(skimr)
 library(dplyr)
 library(relevent)
@@ -34,7 +33,7 @@ setwd("~/RProjects/SNA_REM/REM_new/")
 
 ```{r}
 # read excel
-dialog_data <- read_excel("data/nek21.xlsx", sheet = "Sheet1_Dialogs") %>% select(-receiver_dialog)
+dialog_data <- read_excel("", sheet = "Sheet1_Dialogs") %>% select(-receiver_dialog)
 head(dialog_data)
 ```
 

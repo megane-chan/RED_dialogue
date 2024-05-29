@@ -1,0 +1,134 @@
+---
+title: "Data Preparation for REM Modeling"
+output: 
+  pdf_document:
+    toc: false
+    toc_depth: 4
+    number_sections: false
+    fig_caption: true
+    keep_tex: true
+    latex_engine: xelatex
+editor_options:
+markdown: 
+    wrap: 72
+---
+
+```{r setup, include=FALSE}
+
+rm(list=ls())
+setwd("~/RProjects/SNA_REM/REM_new/")
+library(tidyr)
+library(caret)
+library(network)
+library(relevent)
+library(kableExtra)
+library(survival)
+library(rem)
+library(dplyr)
+library(ggplot2)
+library(igraph)
+library(ggraph)
+library(RColorBrewer)
+library(tidyr)
+knitr::opts_chunk$set(fig.align='center', fig.width=8, fig.height=6, options(tidy = TRUE), tidy.opts = list(width.cutoff = 60))
+```
+
+##  Summary
+
+
+Three datasets
+1. Actors Data
+2. Interactions Data
+3. Performance Data
+
+
+### Actors Data:
+
+-   name
+
+-   gender
+
+```{r}
+speakers <- read.csv(file = "data/speakers.csv")
+print(speakers)
+```
+
+## Interactions 
+
+-   sender
+
+-   receiver
+
+-   time of the interaction
+
+-   type of interaction (dialogue act type)
+
+
+```{r}
+interactions <- read.csv("data/filtered_dialog.csv") %>%
+  left_join(speakers, by = c("sender" = "name")) %>%
+  rename(sender_id = "id") %>% 
+  left_join(speakers, by = c("receiver" = "name"))  %>% 
+  rename(receiver_id = "id") %>% rename( , sender_gender = "gender.x", receiver_gender = "gender.y")
+
+head(interactions)
+```
+## Performance Data
+
+Want to predict if a team is high or low performing based on the dialogues
+
+```{r}
+perf_data <- read.csv("data/perfs.csv") 
+# skim(dialog_data)
+perf_data
+
+# sort performance data and divide into high and low
+perf_data %>% arrange(desc(perf)) %>% # total rows/2
+  mutate(performance = ifelse(row_number() <= nrow(perf_data)/2, "high", "low")) %>% # factor performance
+  mutate(performance = as.factor(performance)) -> perf_data
+```
+
+
+```{r}
+# summary of performance data
+
+summary(perf_data$perf)
+```
+```{r}
+    
+perf_data %>% group_by(performance) %>% summarise(mean = mean(perf))
+
+```
+
+```{r}
+# compare high and low performance
+high_perf_id <- perf_data %>% filter(performance == "high")
+low_perf_id <- perf_data %>% filter(performance == "low")
+print(high_perf_id$session)
+print(low_perf_id$session)
+```
+
+```{r}
+# filter into high and low respectively
+high_perf <- interactions %>% filter(session %in% high_perf_id$session)
+low_perf <- interactions %>% filter(session %in% low_perf_id$session)
+```
+
+```{r}
+# plot performance
+ggplot(perf_data, aes(x = perf, fill = performance)) + geom_density(alpha = 0.5) + labs(title = "Performance Distribution", x = "Performance", y = "Density") + theme_minimal()
+```
+
+```{r}
+saveRDS(high_perf, "data/high_perf.RData")
+saveRDS(low_perf, "data/low_perf.RData")
+saveRDS(interactions, "data/interactions.RData")
+# csv
+write.csv(high_perf, "data/high_perf.csv")
+write.csv(low_perf, "data/low_perfs.csv")
+```
+
+
+```
+
+

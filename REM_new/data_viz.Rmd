@@ -1,0 +1,243 @@
+# Data Visualization
+
+
+```{r,message=FALSE, warning=FALSE}
+library(tidyverse)
+library(tidyr)
+library(dplyr)
+library(ggplot2)
+library(tidyr)
+library(caret)
+library(network)
+library(relevent)
+library(kableExtra)
+library(survival)
+library(rem)
+library(dplyr)
+library(ggplot2)
+library(igraph)
+library(ggraph)
+library(RColorBrewer)
+library(tidyr)
+library(readxl)
+library(glmnet)
+library(skimr)
+# Set Path
+setwd("~/RProjects/SNA_REM/REM_new/")
+```
+
+
+```{r,message=FALSE, warning=FALSE}
+# Load Data
+perf_data <- read.csv(file = "data/perfs.csv")
+speakers <- read.csv(file = "data/speakers.csv")
+interactions <- readRDS("data/interactions.RData")
+
+```
+
+
+
+
+```{r}
+high_perf <- readRDS("data/high_perf.RData") 
+interaction.h <- high_perf %>% subset(., select = c(sender, receiver, sender_dialog))
+g.h <- graph_from_data_frame(interaction.h, directed = TRUE)
+V(g.h)$name <- speakers$name
+V(g.h)$gender <- speakers$gender
+E(g.h)$dialog <- interaction.h$sender_dialog
+
+low_perf <- readRDS("data/low_perf_interactions.RData")
+interaction.l <- low_perf %>% subset(., select = c(sender, receiver, sender_dialog))
+g.l <- graph_from_data_frame(interaction.l, directed = TRUE)
+V(g.l)$name <- speakers$name
+V(g.l)$gender <- speakers$gender
+E(g.l)$dialog <- interaction.l$sender_dialog
+```
+
+
+```{r}
+par(mfrow=c(1,2), mar=c(1,1,1,1))
+palette <- brewer.pal(8, "Pastel2")[unique(as.factor(E(g.h)$dialog))]
+# for each dialogue act, assign a color
+dialog_col <- palette[as.factor(E(g.h)$dialog)]
+gender_col <-  palette[as.factor(V(g.h)$gender)]
+#match colors to dialogues
+plot(g.h, edge.width = .8, edge.color=dialog_col, vertex.color =gender_col, vertex.size = 25, vertex.label.cex = 0.8, vertex.label.color = "black", edge.arrow.size = 0.5, edge.curved = 0.1, main = "high-performing sessions", cex = .5)
+
+plot(g.l, edge.width = .8, edge.color=dialog_col, vertex.color =gender_col, vertex.size = 25, vertex.label.cex = 0.8, vertex.label.color = "black", edge.arrow.size = 0.5, edge.curved = 0.1, main = "high-performing sessions", cex = .5)
+
+
+
+legend("bottomleft", legend = levels(as.factor(E(g.h)$dialog)), fill = palette, title = "Dialogue Act", cex = 0.7, bty = "n")
+
+```
+
+
+```{r}
+# Interactions Data Frame (Edges)
+
+high_perf_interactions <- readRDS("data/high_perf.RData") %>% 
+  select(session, sender_id, receiver_id, sender_dialog) %>% rename(dialog = sender_dialog) %>% mutate(performance = "high", time = 1:nrow(.))
+                                                                                                     
+low_perf_interactions <- readRDS("data/low_perf.RData") %>% select(session, sender_id, receiver_id, sender_dialog) %>% rename(dialog = sender_dialog) %>% mutate(performance = "low", time = 1:nrow(.))
+                                                             
+
+df <- rbind(high_perf_interactions, low_perf_interactions) %>%
+  mutate(
+    sender_id = as.integer(sender_id),  
+    receiver_id = as.integer(receiver_id), 
+    dialog = as.factor(dialog),
+    performance = as.factor(performance)
+  )
+
+head(df)
+```
+
+
+```{r}
+speakers <- read.csv("data/speakers.csv") 
+
+
+```
+
+
+
+
+## Summary by Session and Speaker
+
+
+```{r}
+unique(df$session)
+```
+```{r}
+
+# Number of dialogues per session by team performance
+df %>% group_by(session, performance) %>% summarise(n = n(), .groups = 'drop') -> session_dialogues
+ggplot(session_dialogues, aes(x = session, y = n, fill = factor(performance))) + 
+  geom_bar(stat = "identity") +
+  scale_fill_brewer(palette = "Pastel1") +  
+  geom_text(aes(label = n), vjust = -0.5, size = 3) +
+  geom_text(aes(label = session), y = -45, vjust = -.5, angle = 45, size = 3) +
+  # enlarge the plot area
+  theme(plot.margin = margin(1, 1, 1, 1, "cm")) +
+  theme(legend.position = "none") +
+  theme_graph(base_family = "Times", caption_size = 12, base_size = 11, plot_margin = margin(4,2,6,2)) +
+  # no xtick
+  theme(axis.text.x = element_blank()) +
+  labs(caption = "Total Number of Dialogues Per Session by Team Performance",
+       x = "",
+       y = "Number of Dialogues",
+       fill = "Performance") 
+ggsave("image/dialogues_by_session_wo_2103.png", width = 8, height = 6)
+```
+
+
+
+```{r}
+df %>% filter(sender_id %in% speakers$id) %>% filter(receiver_id %in% speakers$id) -> df
+dialogues_per_speaker<- df %>%
+  left_join(speakers, by = c("sender_id" = "id")) %>%
+  group_by( name) %>%
+  summarise(number_of_dialogues = n(), .groups = 'drop') %>%
+  arrange(desc(number_of_dialogues))
+
+# plot
+ggplot(dialogues_per_speaker, aes(x = name, y = number_of_dialogues)) + 
+  geom_bar(stat = "identity", fill = "lightblue") +  #
+  labs(caption = "Total Number of Dialogues By Speaker (Across All Sessions)",
+       x = "",
+       y = "Number of Dialogues") +
+  # do not use grey for color of bars
+  theme_graph(base_family = "Times", caption_size = 11, base_size = 11, plot_margin = margin(4,2,4,2)) +
+  # label number
+  geom_text(aes(label = number_of_dialogues), vjust = -0.5, size = 3.5) +
+  theme(axis.text.x = element_text(size = 11, angle = 45, hjust = 1)) 
+#ggsave("image/dialogues_per_speaker.png", width = 8, height = 6)
+```
+
+
+
+
+```{r}
+# join speakers with df
+df <- df %>% left_join(speakers, by = c("sender_id" = "id")) %>%
+  rename(sender_gender = gender)
+```
+
+
+```{r}
+# by dialogues by gebder
+total_dialogues_by_gender <- df %>%
+  group_by(sender_gender, session, performance) %>% #
+  summarise(number_of_dialogues = n(), .groups = 'drop') %>%
+  arrange(desc(number_of_dialogues))
+total_dialogues_by_gender$sender_gender <- factor(total_dialogues_by_gender$sender_gender)
+
+ggplot(total_dialogues_by_gender) +
+  geom_bar(aes(x = session, y = number_of_dialogues, fill = sender_gender, color = performance), stat = "identity") +
+  scale_fill_manual(values = c("lavender", "lightblue")) +
+  theme_graph(base_family = "Times", caption_size = 12, base_size = 12, plot_margin = margin(2,2,2,2)) +
+  # add session id to the plot
+  geom_text(aes(x = session, label = session), y = -50, vjust = 1, size = 3) +
+  labs(caption = "Number of Dialogues By Gender and Session-Performance")
+```
+
+
+```{r}
+total_dialogues_by_gender <- df %>%
+  left_join(speakers, by = c("sender_id" = "id")) %>%
+  group_by(sender_gender, performance) %>% #
+  summarise(number_of_dialogues = n(), .groups = 'drop') %>%
+  arrange(desc(number_of_dialogues))
+total_dialogues_by_gender$sender_gender <- factor(total_dialogues_by_gender$sender_gender)
+
+ggplot(total_dialogues_by_gender) +
+  geom_bar(aes(x = performance, y = number_of_dialogues, fill = sender_gender), stat = "identity") +
+  scale_fill_manual(values = c("lavender", "lightblue")) +
+  scale_x_discrete(labels = c("high" = "High Performance", "low" = "Low Performance")) +
+  theme_graph(background = "white", base_family = "Times", caption_size = 12, base_size = 12, plot_margin = margin(4,2,6,2))+
+  theme(axis.text.x = element_text(size = 12)) +
+  labs(caption = "Number of Dialogues By Gender and Performance")
+```
+```{r}
+total_dialogues_by_gender <- df %>%
+  left_join(speakers, by = c("sender_id" = "id")) %>%
+  group_by(sender_gender, dialog) %>% #
+  summarise(number_of_dialogues = n(), .groups = 'drop') %>%
+  arrange(desc(number_of_dialogues))
+total_dialogues_by_gender$sender_gender <- factor(total_dialogues_by_gender$sender_gender)
+
+ggplot(total_dialogues_by_gender) +
+  geom_bar(aes(x = dialog, y = number_of_dialogues, fill = sender_gender), stat = "identity") +
+  scale_fill_manual(values = c("lavender", "lightblue")) +
+  # backchannel disruption floor-grabber question statement
+  scale_x_discrete(labels = c("backchannel" = "Backchannel", "disruption" = "Disruption", "floor-grabber" = "Floor-Grabber", "question" = "Question", "statement" = "Statement")) +
+  theme_graph(base_family = "Times", caption_size = 12, base_size = 12, plot_margin = margin(4,2,6,2)) +
+  theme(axis.text.x = element_text(size = 12)) +
+  labs(caption = "Number of Dialogues By Gender and Dialogue Act Type")
+```
+
+```{r}
+dialogues_per_speaker_session <- df %>%
+  group_by(session, name) %>%
+  summarise(number_of_dialogues = n(), .groups = 'drop') %>%
+  arrange(session, desc(number_of_dialogues))
+
+dialogues_summary_tibble <- as_tibble(dialogues_per_speaker_session)
+print(dialogues_summary_tibble)
+
+
+ggplot(dialogues_summary_tibble, aes(x = name, y = number_of_dialogues, fill = name)) + 
+  geom_bar(stat = "identity") +
+  facet_wrap(~session) +
+  scale_fill_brewer(palette = "Pastel1") +  
+  labs(subtitle = "Number of Dialogues Per Speaker Per Session",
+       x = "Speaker",
+       y = "Number of Dialogues",
+       fill = "Speaker") +
+ theme_graph(base_family = "Times", caption_size = 11, base_size = 12, plot_margin = margin(4,2,2,2)) +
+  geom_text(aes(label = number_of_dialogues), vjust = -0.5, size = 2.5) + theme(element_blank()) 
+```
+
+
+
